@@ -11,7 +11,8 @@
     "lint:js": "eslint \"**/*.js\" \"**/*.jsx\"",
     "postinstall": "cd ./client && yarn install && cd ../server && yarn install",
     "server:dev": "cd ./server && yarn dev",
-    "server:dev:inspect": "cd ./server && yarn dev:inspect"
+    "server:dev:inspect": "cd ./server && yarn dev:inspect",
+    "server:build": "cd ./server && node index.js"
   },
   "devDependencies": {
     "eslint": "^8.35.0",
