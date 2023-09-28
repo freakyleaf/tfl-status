@@ -1,0 +1,38 @@
+.home-table {
+  width: 100%;
+  min-height: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.home-table__cell {
+  width: 50%;
+  vertical-align: middle;
+
+  &--status {
+    padding-left: $home-table-padding-x;
+    padding-right: $home-table-padding-x;
+  }
+
+  @include device-min(desktop) {
+    padding-right: 0;
+  }
+}
+
+.home-table__link {
+  display: block;
+  padding: $home-table-padding-y $home-table-padding-x;
+  text-decoration: none;
+  color: inherit;
+
+  &:focus,
+  &:hover {
+    color: inherit;
+  }
+}
+
+.home-table__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

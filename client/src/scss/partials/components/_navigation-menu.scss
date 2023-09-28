@@ -1,0 +1,17 @@
+.navigation-menu__list {
+  @extend %list-unstyled;
+}
+
+.navigation-menu__link {
+  display: block;
+  text-decoration: none;
+  color: $color-navigation-menu;
+  margin-left: $navigation-menu-link-padding * -1;
+  margin-right: $navigation-menu-link-padding * -1;
+  padding: $navigation-menu-link-padding;
+
+  &:focus,
+  &:hover {
+    color: $color-navigation-header-hover;
+  }
+}

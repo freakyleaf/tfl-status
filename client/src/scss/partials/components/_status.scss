@@ -1,0 +1,26 @@
+.status {
+  .view--service & {
+    margin-bottom: $spacer-global;
+  }
+}
+
+.status__list {
+  @extend %list-unstyled;
+}
+
+.status__list-item {
+  display: flex;
+  align-items: center;
+
+  &--negative {
+    color: $color-state-error;
+  }
+
+  &--positive {
+    color: $color-state-info;
+  }
+}
+
+.status__icon {
+  margin-right: $spacer-4;
+}

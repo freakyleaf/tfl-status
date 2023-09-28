@@ -1,0 +1,47 @@
+.button {
+  cursor: pointer;
+  /* stylelint-disable property-no-vendor-prefix */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  /* stylelint-enable property-no-vendor-prefix */
+  display: inline-flex;
+  transition:
+    color $transition-constant,
+    border-color $transition-constant,
+    box-shadow $transition-constant; // `box-shadow` required for keyboard navigation focus
+
+  &--icon {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 100%; // Better keyboard focus presentation
+  }
+
+  &--menu {
+    font-size: $font-size-small;
+    color: $color-light;
+    white-space: nowrap;
+    padding: $spacer-3 $spacer-4;
+    background-color: $color-tfl-black;
+    border: $border-generic;
+    border-color: $color-light;
+
+    &:focus,
+    &:hover {
+      color: $color-tfl-white;
+      border-color: $color-tfl-white;
+    }
+  }
+}
+
+.button__content {
+  display: flex;
+  align-items: center;
+}
+
+.button__icon {
+  margin-left: $spacer-2;
+}

@@ -1,0 +1,15 @@
+// https://utopia.fyi/type/calculator?c=320,16,1.125,1140,24,1.125,6,2,&s=0.75|0.5|0.25,1|2|3|4|6,s-l
+// Major 2nd
+/* stylelint-disable number-no-trailing-zeros */
+$font-size--2: clamp(0.79rem, calc(0.64rem + 0.77vw), 1.19rem);
+$font-size--1: clamp(0.89rem, calc(0.72rem + 0.87vw), 1.33rem);
+$font-size-0: clamp(1.00rem, calc(0.80rem + 0.98vw), 1.50rem);
+$font-size-1: clamp(1.13rem, calc(0.91rem + 1.10vw), 1.69rem);
+$font-size-2: clamp(1.27rem, calc(1.02rem + 1.24vw), 1.90rem);
+$font-size-3: clamp(1.42rem, calc(1.15rem + 1.39vw), 2.14rem);
+$font-size-4: clamp(1.60rem, calc(1.29rem + 1.56vw), 2.40rem);
+$font-size-5: clamp(1.80rem, calc(1.45rem + 1.76vw), 2.70rem);
+$font-size-6: clamp(2.03rem, calc(1.63rem + 1.98vw), 3.04rem);
+/* stylelint-enable number-no-trailing-zeros */
+
+$font-size-small: 0.875em;

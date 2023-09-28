@@ -1,0 +1,9 @@
+.service__heading {
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+
+  @include device-max(tablet) {
+    margin-left: $container-padding-x * -1;
+    margin-right: $container-padding-x * -1;
+  }
+}

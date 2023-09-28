@@ -1,0 +1,64 @@
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-delay: 0ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0ms !important;
+  }
+}
+
+*:active,
+*:focus,
+*:hover {
+  outline: none !important; // Remove outline for non-keyboard focus
+}
+
+// Base styles
+
+$focusable-box-shadow-initial: 0 0 0 0 rgba($color-state-focus, 0);
+$focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
+
+%focusable {
+  outline: none;
+  transition: $transition-constant;
+  transition-property: box-shadow;
+}
+
+%focusable-inner {
+  box-shadow: inset $focusable-box-shadow-initial;
+
+  &:focus-visible {
+    .focus-visible & { // `.focus-visible` is added to `body` with JS when the user is tabbing
+      box-shadow: inset $focusable-box-shadow-focused !important;
+    }
+  }
+}
+
+%focusable-outer {
+  box-shadow: $focusable-box-shadow-initial;
+
+  &:focus-visible {
+    .focus-visible & { // `.focus-visible` is added to `body` with JS when the user is tabbing
+      box-shadow: $focusable-box-shadow-focused !important
+    }
+  }
+}
+
+// Elements that need an 'inner' focus state
+[tabindex]:not([tabindex^='-']) {
+  @extend %focusable;
+  @extend %focusable-inner;
+}
+
+// Elements that need an 'outer' focus state
+a,
+button {
+  @extend %focusable;
+  @extend %focusable-outer;
+}

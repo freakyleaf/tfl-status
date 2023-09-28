@@ -1,0 +1,40 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.page__header {
+  color: $color-font-light;
+  background-color: $color-page-header-background;
+}
+
+.page__main,
+.page__aside {
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+.page__main {
+  scrollbar-gutter: stable both-edges; // Center content horizontally while accounting for desktop scrollbar
+  background-color: $color-page-main-background;
+
+  .page--menu-open & {
+    display: none;
+  }
+}
+
+.page__aside {
+  display: none; // Default 'menu closed' state
+
+  .page--menu-open & {
+    color-scheme: dark; // Better desktop scrollbar presentation
+    display: block;
+    color: $color-font-light;
+    background-color: $color-page-aside-background;
+  }
+}
+
+.page__footer {
+  color: $color-font-light;
+  background-color: $color-page-footer-background;
+}

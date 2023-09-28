@@ -1,0 +1,24 @@
+@use 'sass:color';
+
+$color-box-background: color.adjust($color-tfl-yellow, $lightness: 35%);
+
+$color-light: color.adjust($color-tfl-white, $lightness: -10%);
+
+$color-primary: $color-tfl-blue;
+$color-primary-hover: color.adjust($color-tfl-blue, $lightness: 10%);
+
+$color-font-dark: $color-tfl-black;
+$color-font-light: $color-light;
+
+$color-link: $color-primary;
+$color-link-hover: $color-primary-hover;
+
+$color-navigation-header: $color-light;
+$color-navigation-header-hover: $color-tfl-white;
+$color-navigation-menu: $color-light;
+$color-navigation-menu-hover: $color-tfl-white;
+
+$color-page-aside-background: $color-tfl-black;
+$color-page-footer-background: $color-tfl-black;
+$color-page-header-background: $color-tfl-black;
+$color-page-main-background: $color-tfl-white;

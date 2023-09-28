@@ -1,0 +1,75 @@
+*::selection {
+  color: $color-tfl-white;
+  background-color: $color-tfl-blue;
+}
+
+body {
+  font-family: $font-family;
+  color: $color-font-dark;
+
+  @include device-min(desktop) {
+    font-size: 1.15em;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  font-size: $font-size-6 !important;
+  margin-bottom: $spacer-global;
+}
+
+h2 {
+  font-size: $font-size-5 !important;
+  margin-top: $spacer-global;
+  margin-bottom: $spacer-global;
+}
+
+h3 {
+  font-size: $font-size-4 !important;
+}
+
+h4 {
+  font-size: $font-size-3 !important;
+}
+
+h5 {
+  font-size: $font-size-2 !important;
+}
+
+h6 {
+  font-size: $font-size-1 !important;
+}
+
+p {
+  margin-bottom: $spacer-global;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $color-link;
+  text-decoration: underline;
+
+  &[href] {
+    border-radius: $border-radius-generic; // Makes keyboard focus state more attractive
+    transition:
+      color $transition-constant,
+      box-shadow $transition-constant; // `box-shadow` required for keyboard navigation focus
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $color-link-hover;
+  }
+}

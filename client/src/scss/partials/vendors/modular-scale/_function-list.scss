@@ -1,0 +1,69 @@
+@use 'sass:list';
+
+// Outputs a list of values instead of a single value
+@function ms-list($Start: 0, $End: 0, $Bases: $ms-base, $Ratios: $ms-ratio) {
+
+  // Seed results
+  $Positive-return: ();
+  $Negative-return: ();
+  $Return: ();
+
+  @if $End >= 0 {
+    // Generate a list of all possible values
+    $Positive-return: ms-generate-list($End, $Bases, $Ratios);
+
+    // Sort the generated lists
+    $Positive-return: ms-sort-list($Positive-return);
+
+    // Trim list
+    $Trim-list: ();
+    // If the starting value is a positive number trim the positive return from that
+    @if $Start >= 0 {
+      @for $i from ($Start + 1) through $End + 1 {
+        $Trim-list: list.join($Trim-list, list.nth($Positive-return, $i));
+      }
+    }
+    // If not then include everything up to the end
+    @else {
+      @for $i from 1 through $End + 1 {
+        $Trim-list: list.join($Trim-list, list.nth($Positive-return, $i));
+      }
+    }
+    $Positive-return: $Trim-list;
+  }
+
+  // Generate a negative list
+  @if $Start < 0 {
+    // Generate a list of all possible values
+    $Negative-return: ms-generate-list($Start, $Bases, $Ratios);
+
+    // Sort the generated lists
+    $Negative-return: ms-sort-list($Negative-return);
+
+    // Reverse negative list results
+    $MS-new-return: ();
+    @each $i in $Negative-return {
+      $MS-new-return: list.join($i, $MS-new-return);
+    }
+    $Negative-return: $MS-new-return;
+
+    // Trim list
+    $Trim-list: ();
+    @if $End < 0 {
+      @for $i from abs($End) through (abs($Start) + 2) {
+        $Trim-list: list.join(list.nth($Negative-return, $i), $Trim-list);
+      }
+    }
+    @else {
+      @for $i from 2 through (abs($Start) + 1) {
+        $Trim-list: list.join(list.nth($Negative-return, $i), $Trim-list);
+      }
+    }
+    $Negative-return: $Trim-list;
+  }
+
+  // Join both positive and negative possibilities
+  $Return: list.join($Negative-return, $Positive-return);
+
+  @return $Return;
+}

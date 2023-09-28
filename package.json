@@ -1,0 +1,21 @@
+{
+  "name": "tfl-status",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "client:dev": "cd ./client && yarn dev",
+    "client:build": "cd ./client && yarn build",
+    "client:preview": "cd ./client && yarn preview",
+    "lint:scss": "cd ./client && stylelint \"**/*.scss\"",
+    "lint:js": "eslint \"**/*.js\" \"**/*.jsx\"",
+    "postinstall": "cd ./client && yarn install && cd ../server && yarn install",
+    "server:dev": "cd ./server && yarn dev",
+    "server:dev:inspect": "cd ./server && yarn dev:inspect"
+  },
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3"
+  }
+}

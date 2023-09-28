@@ -1,0 +1,36 @@
+@import './partials/vendors/modular-scale';
+
+@import './partials/setup/init/devices';
+@import './partials/setup/init/reset';
+
+@import './partials/setup/color/color-brand';
+@import './partials/setup/color/color-state';
+@import './partials/setup/color/color-theme';
+
+@import './partials/setup/variables/spacers';
+@import './partials/setup/variables/borders';
+@import './partials/setup/variables/font-sizes';
+@import './partials/setup/variables/sizes';
+@import './partials/setup/variables/transitions';
+
+@import './partials/setup/a11y';
+@import './partials/setup/animation';
+@import './partials/setup/base';
+@import './partials/setup/font-stacks';
+@import './partials/setup/typography';
+@import './partials/setup/utilities';
+
+@import './partials/components/alert';
+@import './partials/components/box';
+@import './partials/components/button';
+@import './partials/components/container';
+@import './partials/components/home-table';
+@import './partials/components/icon';
+@import './partials/components/loading';
+@import './partials/components/navigation-header';
+@import './partials/components/navigation-menu';
+@import './partials/components/page-footer';
+@import './partials/components/page-header';
+@import './partials/components/page';
+@import './partials/components/service';
+@import './partials/components/status';

@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-scss"
+  ],
+  "rules": {
+    "alpha-value-notation": "number",
+    "annotation-no-unknown": [
+      true,
+      {
+        "ignoreAnnotations": [
+          "default"
+        ]
+      }
+    ],
+    "at-rule-empty-line-before": null,
+    "import-notation": "string",
+    "indentation": 2,
+    "linebreaks": "unix",
+    "max-line-length": null,
+    "selector-class-pattern": "^.[a-z]?([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+    "string-quotes": "single"
+  }
+}

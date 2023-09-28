@@ -1,0 +1,10 @@
+.icon {
+  fill: currentcolor;
+
+  .page__main & {
+    @include device-min(tablet) {
+      width: $spacer-6;
+      height: $spacer-6;
+    }
+  }
+}
