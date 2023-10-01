@@ -12,6 +12,10 @@
   display: flex;
   align-items: center;
 
+  &:not(:first-of-type) {
+    margin-top: $spacer-4;
+  }
+
   &--negative {
     color: $color-state-error;
   }
