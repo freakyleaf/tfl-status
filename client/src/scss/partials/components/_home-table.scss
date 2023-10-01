@@ -10,8 +10,7 @@
   vertical-align: middle;
 
   &--status {
-    padding-left: $home-table-padding-x;
-    padding-right: $home-table-padding-x;
+    padding: $home-table-padding-y $home-table-padding-x;
   }
 
   @include device-min(desktop) {
