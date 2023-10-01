@@ -18,7 +18,7 @@ function Status(props) {
     <div className="status">
       <ul className="status__list">
         {
-          service.lineStatuses.map((lineStatus) => {
+          service.lineStatusesConformed.map((lineStatus) => {
             return (
               <li
                 className={`status__list-item ${lineStatus.statusSeverity === 10 ? 'status__list-item--positive' : 'status__list-item--negative'}`}

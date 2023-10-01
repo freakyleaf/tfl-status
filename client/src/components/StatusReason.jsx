@@ -11,13 +11,29 @@ function StatusReason(props) {
   } = props;
 
   return (
-    service.lineStatuses[0].reason && (
-      <div className="status-reason">
-        <div className="box">
-          {service.lineStatuses[0].reason}
-        </div>
-      </div>
-    )
+    <>
+      {
+        service.lineStatusesConformed.some((lineStatus) => lineStatus.reason.length) && (
+          <div className="status-reason">
+            {
+              service.lineStatusesConformed.map((lineStatus) => {
+                return (
+                  lineStatus.reason.map((reason) => {
+                    return (
+                      <div className="box" key={reason}>
+                        <p className="status-reason__text">
+                          {reason.trim()}
+                        </p>
+                      </div>
+                    );
+                  })
+                );
+              })
+            }
+          </div>
+        )
+      }
+    </>
   );
 }
 

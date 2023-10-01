@@ -4,6 +4,8 @@ import groupBy from 'lodash.groupby';
 import baseUrl from '@constants/baseUrl';
 import serviceModes from '@constants/serviceModes';
 
+import conformStatusSeverity from '@utils/conformStatusSeverity';
+
 export const statusApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl }),
   reducerPath: 'statusApi',
@@ -16,7 +18,8 @@ export const statusApi = createApi({
         if (status.code === 'ERR_BAD_REQUEST' || status.code === 'ENOTFOUND') return [];
         const statusGrouped = groupBy(status, 'modeName');
         const statusSorted = serviceModes.flatMap((serviceMode) => statusGrouped[serviceMode]);
-        return statusSorted;
+        const statusConformed = conformStatusSeverity(statusSorted);
+        return statusConformed;
       },
     }),
   }),
