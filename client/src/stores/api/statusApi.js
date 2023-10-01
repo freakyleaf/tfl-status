@@ -7,7 +7,7 @@ import serviceModes from '@constants/serviceModes';
 import conformStatusSeverity from '@utils/conformStatusSeverity';
 
 export const statusApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrlServer }),
+  baseQuery: fetchBaseQuery({ baseUrl: baseUrlServer }),
   reducerPath: 'statusApi',
   tagTypes: [ 'status' ],
   endpoints: (builder) => ({
