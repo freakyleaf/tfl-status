@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import groupBy from 'lodash.groupby';
 
-import baseUrl from '@constants/baseUrl';
+import { baseUrlServer } from '@constants/baseUrl';
 import serviceModes from '@constants/serviceModes';
 
 import conformStatusSeverity from '@utils/conformStatusSeverity';
 
 export const statusApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl }),
+  baseQuery: fetchBaseQuery({ baseUrlServer }),
   reducerPath: 'statusApi',
   tagTypes: [ 'status' ],
   endpoints: (builder) => ({

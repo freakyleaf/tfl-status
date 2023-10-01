@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      port: env.PUBLIC_CLIENT_PORT_NUMBER,
+      port: env.PUBLIC_PORT_NUMBER_CLIENT,
     },
   };
 });
