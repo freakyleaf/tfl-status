@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { createRef, useEffect, useRef, useState } from 'react';
 
 import { useServices } from '@layouts/Layout';
 
@@ -25,10 +25,34 @@ function ViewHome() {
     document.title = buildPageTitle();
   }, []);
 
-  const [ statusReasonVisibility, setStatusReasonVisibility ] = useState({});
-
   const hasStatusReason = (service) => {
     return service.lineStatuses[0].reason;
+  };
+
+  const ref = useRef(services.map(() => createRef()));
+  const [ activeService, setActiveService ] = useState(null);
+  const [ statusReasonVisibility, setStatusReasonVisibility ] = useState({});
+
+  useEffect(() => {
+    if (activeService !== null) {
+      ref.current[activeService].current.scrollIntoView({
+        behavior: 'instant',
+        block: 'center',
+      });
+    }
+  }, [ activeService ]);
+
+  const handleClick = (serviceId, index) => {
+    return () => {
+      if (activeService === index) setActiveService(null);
+
+      setStatusReasonVisibility({
+        ...statusReasonVisibility,
+        [serviceId]: !statusReasonVisibility[serviceId],
+      });
+
+      setTimeout(() => setActiveService(index), 0);
+    };
   };
 
   return (
@@ -45,7 +69,7 @@ function ViewHome() {
             </thead>
             <tbody>
               {
-                services.map((service) => {
+                services.map((service, index) => {
                   return (
                     <tr
                       className="home-table__row"
@@ -61,12 +85,8 @@ function ViewHome() {
                       </td>
                       <td
                         className={`home-table__cell home-table__cell--status ${hasStatusReason(service) ? 'clickable' : ''}`.trim()}
-                        onClick={
-                          () => setStatusReasonVisibility({
-                            ...statusReasonVisibility,
-                            [service.id]: !statusReasonVisibility[service.id],
-                          })
-                        }
+                        onClick={handleClick(service.id, index)}
+                        ref={ref.current[index]}
                       >
                         <div className="home-table__status">
                           <Status
