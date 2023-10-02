@@ -1,7 +1,13 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import PullToRefresh from 'react-simple-pull-to-refresh';
-import React, { useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import {
+  setPageMainHeight,
+  setPageMainScrollTop,
+} from '@stores/storeSliceSettings';
 
 import {
   useFetchStatusesQuery,
@@ -17,12 +23,53 @@ import PageHeader from '@components/PageHeader';
 import PullToRefreshMessage from '@components/PullToRefreshMessage';
 
 function Layout() {
+  const dispatch = useDispatch();
+  const refPageMain = useRef();
+
   const {
     data: services,
     error,
     isLoading,
     refetch,
   } = useFetchStatusesQuery();
+
+  const setRefPageMainHeight = () => {
+    const refPageMainHeight = refPageMain.current?.clientHeight;
+    dispatch(setPageMainHeight(refPageMainHeight));
+  };
+
+  const setRefPageMainScrollTop = () => {
+    const refPageMainScrollTop = refPageMain.current?.scrollTop;
+    dispatch(setPageMainScrollTop(refPageMainScrollTop));
+  };
+
+  const setRefPageMeasurements = () => {
+    setRefPageMainHeight();
+    setRefPageMainScrollTop();
+  };
+
+  useEffect(() => {
+    setRefPageMeasurements();
+  }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
+
+  const scrollTo = (top) => {
+    refPageMain.current.scrollTo({
+      behavior: 'instant',
+      top,
+    });
+  };
+
+  useEffect(() => {
+    if (refPageMain.current) {
+      refPageMain.current.addEventListener('scroll', setRefPageMainScrollTop);
+      window.addEventListener('resize', setRefPageMeasurements);
+
+      return function cleanup() {
+        refPageMain.current.removeEventListener('scroll', setRefPageMainScrollTop);
+        window.removeEventListener('resize', setRefPageMeasurements);
+      };
+    }
+  }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
 
   const [ menuOpen, setMenuOpen ] = useState(false);
 
@@ -70,12 +117,15 @@ function Layout() {
                   setMenuOpen={setMenuOpen}
                 />
               </header>
-              <main className="page__main">
+              <main
+                className="page__main"
+                ref={refPageMain}
+              >
                 <ErrorBoundary
                   fallbackRender={ViewErrorGeneric}
                 >
                   <Outlet
-                    context={{ services }}
+                    context={{ scrollTo, services }}
                   />
                 </ErrorBoundary>
               </main>
@@ -97,6 +147,10 @@ function Layout() {
 }
 
 export default Layout;
+
+export function useScrollTo() {
+  return useOutletContext();
+}
 
 export function useServices() {
   return useOutletContext();
