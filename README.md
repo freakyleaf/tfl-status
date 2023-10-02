@@ -28,6 +28,7 @@ Uses the TfL Unified API to display service statuses for the various TfL service
 ## Roadmap
 - Dark mode
 - Pin services to top
+- PWA functionality
 
 ## License
 This project is licensed under [MIT](https://opensource.org/license/mit/).
