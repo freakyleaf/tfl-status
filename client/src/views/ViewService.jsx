@@ -24,7 +24,7 @@ function ViewService() {
   return (
     <div className="view view--service h-100">
       <PageMain>
-        <div className="service h-100">
+        <div className="service">
           <h1 className={`service__heading brand-background--${service.id}`}>
             {service.name}
           </h1>
