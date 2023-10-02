@@ -14,6 +14,7 @@ import Loading from '@components/Loading';
 import PageAside from '@components/PageAside';
 import PageFooter from '@components/PageFooter';
 import PageHeader from '@components/PageHeader';
+import PullToRefreshMessage from '@components/PullToRefreshMessage';
 
 function Layout() {
   const {
@@ -60,6 +61,7 @@ function Layout() {
         services && (
           <PullToRefresh
             onRefresh={handlePullToRefresh}
+            pullingContent={<PullToRefreshMessage />}
           >
             <div className={classes()}>
               <header className="page__header">

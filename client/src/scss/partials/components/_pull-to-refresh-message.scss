@@ -1,0 +1,11 @@
+.pull-to-refresh-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $spacer-2;
+}
+
+.pull-to-refresh-message__content {
+  margin-left: $spacer-4;
+  margin-right: $spacer-4;
+}
