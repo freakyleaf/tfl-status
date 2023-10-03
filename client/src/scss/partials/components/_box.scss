@@ -1,9 +1,16 @@
 .box {
-  margin-top: $spacer-2;
-  padding: $spacer-2 $spacer-3;
+  padding: $spacer-3 $spacer-4;
   color: var(--color-box-text);
   background-color: var(--color-box-background);
   border-radius: $border-radius-generic;
+
+  &:first-of-type {
+    margin-top: $home-table-padding-y;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: $spacer-4;
+  }
 
   @include device-min(tablet) {
     margin-top: $spacer-5;
