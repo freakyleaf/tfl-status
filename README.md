@@ -26,7 +26,6 @@ Uses the TfL Unified API to display service statuses for the various TfL service
 5. In another terminal run `yarn client:dev`.
 
 ## Roadmap
-- Dark mode
 - Pin services to top
 - PWA functionality
 
