@@ -1,4 +1,10 @@
+$spacer-status: $spacer-4;
+
 .status {
+  .view--home & {
+    margin-right: $spacer-status;
+  }
+
   .view--service & {
     margin-bottom: $spacer-global;
   }
@@ -13,7 +19,7 @@
   align-items: center;
 
   &:not(:first-of-type) {
-    margin-top: $spacer-4;
+    margin-top: $spacer-status;
   }
 
   &--negative {
@@ -26,5 +32,5 @@
 }
 
 .status__icon {
-  margin-right: $spacer-4;
+  margin-right: $spacer-status;
 }
