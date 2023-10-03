@@ -39,7 +39,7 @@ $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
 %focusable-inner {
   box-shadow: inset $focusable-box-shadow-initial;
 
-  &:focus-visible {
+  .focus-visible & {
     &:focus { // `.focus-visible` is added to `body` with JS when the user is tabbing
       @extend %focus-inner;
     }
@@ -49,7 +49,7 @@ $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
 %focusable-outer {
   box-shadow: $focusable-box-shadow-initial;
 
-  &:focus-visible {
+  .focus-visible & {
     &:focus { // `.focus-visible` is added to `body` with JS when the user is tabbing
       @extend %focus-outer;
     }

@@ -46,7 +46,7 @@
     padding-right: $spacer-6;
   }
 
-  .form-theme-switch__input:focus + & {
+  .focus-visible .form-theme-switch__input:focus + & {
     @extend %focus-outer;
   }
 }
