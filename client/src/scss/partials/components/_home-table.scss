@@ -6,6 +6,7 @@
 }
 
 .home-table__cell {
+  position: relative; // Required for `.home-table__link` %link-stretched
   width: 50%;
   vertical-align: middle;
 
@@ -19,11 +20,14 @@
 }
 
 .home-table__link {
+  @extend %link-stretched;
+
   display: block;
   padding: $home-table-padding-y $home-table-padding-x;
   text-decoration: none;
   color: inherit;
 
+  &:active,
   &:focus,
   &:hover {
     color: inherit;

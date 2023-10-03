@@ -1,24 +1,120 @@
 @use 'sass:color';
 
-$color-box-background: color.adjust($color-tfl-yellow, $lightness: 35%);
+$color-black: rgb(0 0 0);
+$color-white: rgb(255 255 255);
+$color-dark: color.adjust($color-black, $lightness: 10%);
+$color-light: color.adjust($color-white, $lightness: -10%);
 
-$color-light: color.adjust($color-tfl-white, $lightness: -10%);
+/* stylelint-disable no-duplicate-selectors */
 
-$color-primary: $color-tfl-blue;
-$color-primary-hover: color.adjust($color-tfl-blue, $lightness: 10%);
+// Alert
+:root {
+  --color-alert-error-background: #{$color-state-error};
+  --color-alert-error-text: #{$color-white};
+  --color-alert-info-background: #{$color-state-info};
+  --color-alert-info-text: #{$color-white};
+}
 
-$color-font-dark: $color-tfl-black;
-$color-font-light: $color-light;
+// Base
+:root {
+  --color-body-background: #{$color-white};
+  --color-body-text: #{$color-black};
+}
 
-$color-link: $color-primary;
-$color-link-hover: $color-primary-hover;
+// Border
+:root {
+  --color-border: #{$color-tfl-gray};
+}
 
-$color-navigation-header: $color-light;
-$color-navigation-header-hover: $color-tfl-white;
-$color-navigation-menu: $color-light;
-$color-navigation-menu-hover: $color-tfl-white;
+// Box
+:root {
+  --color-box-background: #{color.adjust($color-tfl-yellow, $lightness: 35%)};
+  --color-box-text: #{$color-black};
+}
 
-$color-page-aside-background: $color-tfl-black;
-$color-page-footer-background: $color-tfl-black;
-$color-page-header-background: $color-tfl-black;
-$color-page-main-background: $color-tfl-white;
+// Button
+:root {
+  --color-button-menu-background: #{$color-black};
+  --color-button-menu-border: #{$color-light};
+  --color-button-menu-border-hover: #{$color-white};
+  --color-button-menu-text: #{$color-light};
+  --color-button-menu-text-hover: #{$color-white};
+}
+
+// Form Theme Switch
+:root {
+  --color-form-theme-switch-background: #{$color-tfl-dark-gray};
+}
+
+// Loading
+:root {
+  --color-loading-icon: #{$color-tfl-gray};
+}
+
+// Navigation
+:root {
+  --color-navigation-header-text: #{$color-light};
+  --color-navigation-header-text-hover: #{$color-white};
+  --color-navigation-menu-text: #{$color-light};
+  --color-navigation-menu-text-hover: #{$color-white};
+}
+
+// Page
+:root {
+  --color-page-aside-background: #{$color-black};
+  --color-page-aside-text: #{$color-light};
+  --color-page-footer-background: #{$color-black};
+  --color-page-footer-text: #{$color-light};
+  --color-page-header-background: #{$color-black};
+  --color-page-header-text: #{$color-light};
+  --color-page-main-background: #{$color-white};
+  --color-page-main-text: #{$color-black};
+}
+
+// Settings
+:root {
+  --color-settings-background: #{$color-black};
+  --color-settings-text: #{$color-light};
+}
+
+// Status
+:root {
+  --color-status-negative-text: #{$color-state-error};
+  --color-status-positive-text: #{$color-state-info};
+}
+
+// Typography
+:root {
+  --color-font-dark: #{$color-black};
+  --color-font-light: #{$color-light};
+  --color-link: var(--color-primary);
+  --color-link-hover: var(--color-primary-hover);
+  --color-primary: #{$color-tfl-blue};
+  --color-primary-hover: #{color.adjust($color-tfl-blue, $lightness: 10%)};
+  --color-selection-background: #{$color-tfl-blue};
+  --color-selection-text: #{$color-white};
+}
+
+[data-theme='dark'] {
+  * {
+    color-scheme: dark;
+  }
+
+  // Base
+  --color-body-background: #{$color-black};
+  --color-body-text: #{$color-light};
+
+  // Box
+  --color-box-background: #{$color-tfl-dark-gray};
+  --color-box-text: #{$color-light};
+
+  // Page
+  --color-page-main-background: #{$color-black};
+  --color-page-main-text: #{$color-light};
+
+  // Status
+  --color-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio
+  --color-status-positive-text: #{$color-light};
+}
+
+/* stylelint-enable no-duplicate-selectors */

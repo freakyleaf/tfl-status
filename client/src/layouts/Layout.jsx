@@ -2,11 +2,16 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet, useOutletContext } from 'react-router-dom';
 import PullToRefresh from 'react-simple-pull-to-refresh';
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  THEME_AUTO,
+} from '@constants/theme';
 
 import {
   setPageMainHeight,
   setPageMainScrollTop,
+  setThemeApp,
 } from '@stores/storeSliceSettings';
 
 import {
@@ -25,6 +30,11 @@ import PullToRefreshMessage from '@components/PullToRefreshMessage';
 function Layout() {
   const dispatch = useDispatch();
   const refPageMain = useRef();
+
+  const {
+    themeApp,
+    themeSystem,
+  } = useSelector((state) => state.settings);
 
   const {
     data: services,
@@ -88,6 +98,19 @@ function Layout() {
       }, 1000);
     });
   };
+
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme) dispatch(setThemeApp(theme));
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const theme = themeApp === THEME_AUTO ? themeSystem : themeApp;
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', themeApp);
+    }, 0);
+  }, [ themeApp ]);
 
   return (
     <>

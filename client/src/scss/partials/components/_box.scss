@@ -1,7 +1,8 @@
 .box {
   margin-top: $spacer-2;
   padding: $spacer-2 $spacer-3;
-  background-color: $color-box-background;
+  color: var(--color-box-text);
+  background-color: var(--color-box-background);
   border-radius: $border-radius-generic;
 
   @include device-min(tablet) {

@@ -4,8 +4,8 @@ $color-tfl-blue: rgb(0 15 159);
 $color-tfl-red: rgb(225 37 27);
 $color-tfl-yellow: rgb(255 205 0);
 $color-tfl-green: rgb(0 121 52);
-$color-tfl-black: rgb(0 0 0);
-$color-tfl-white: rgb(255 255 255);
+$color-tflblack: rgb(0 0 0);
+$color-tflwhite: rgb(255 255 255);
 $color-tfl-gray: rgb(123 134 140);
 $color-tfl-dark-gray: rgb(50 62 72);
 
@@ -91,7 +91,7 @@ $brands: (
 
 @each $key, $value in $brands {
   .brand-background--#{$key} {
-    background-color: map.get($value, colorBrand);
     color: map.get($value, colorText);
+    background-color: map.get($value, colorBrand);
   }
 }

@@ -12,10 +12,11 @@
   margin-bottom: $navigation-header-link-margin-y;
   padding: $navigation-header-link-padding-y $navigation-header-link-padding-x;
   text-decoration: none;
-  color: $color-navigation-header;
+  color: var(--color-navigation-header-text);
 
+  &:active,
   &:focus,
   &:hover {
-    color: $color-navigation-header-hover;
+    color: var(--color-navigation-header-text-hover);
   }
 }

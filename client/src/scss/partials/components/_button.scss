@@ -22,17 +22,19 @@
 
   &--menu {
     font-size: $font-size-small;
-    color: $color-light;
+    color: var(--color-button-menu-text);
     white-space: nowrap;
     padding: $spacer-3 $spacer-4;
-    background-color: $color-tfl-black;
-    border: $border-generic;
-    border-color: $color-light;
+    background-color: var(--color-button-menu-background);
+    border-color: var(--color-button-menu-border);
+    border-style: $border-style-generic;
+    border-width: $border-width-generic;
 
+    &:active,
     &:focus,
     &:hover {
-      color: $color-tfl-white;
-      border-color: $color-tfl-white;
+      color: var(--color-button-menu-text-hover);
+      border-color: var(--color-button-menu-border-hover);
     }
   }
 }

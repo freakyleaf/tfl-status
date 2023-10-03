@@ -9,6 +9,6 @@
 .loading__icon {
   width: $loading-icon-size;
   height: $loading-icon-size;
-  color: $color-tfl-gray;
+  color: var(--color-loading-icon);
   animation: loading 1s linear infinite;
 }

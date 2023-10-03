@@ -23,11 +23,11 @@ $spacer-status: $spacer-4;
   }
 
   &--negative {
-    color: $color-state-error;
+    color: var(--color-status-negative-text);
   }
 
   &--positive {
-    color: $color-state-info;
+    color: var(--color-status-positive-text);
   }
 }
 

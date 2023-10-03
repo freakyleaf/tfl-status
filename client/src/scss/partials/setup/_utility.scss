@@ -4,6 +4,23 @@
   cursor: pointer;
 }
 
+// Link
+
+%link-stretched {
+  &::after {
+    content: '';
+    z-index: 1;
+    pointer-events: auto;
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+  }
+}
+
+.link-stretched {
+  @extend %link-stretched;
+}
+
 // List
 
 %list-unstyled {
@@ -60,7 +77,7 @@
 
 // Visibility
 
-.visually-hidden {
+%visually-hidden {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -70,6 +87,10 @@
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
 }
 
 // Width

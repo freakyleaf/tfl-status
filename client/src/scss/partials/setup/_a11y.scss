@@ -19,10 +19,16 @@
   outline: none !important; // Remove outline for non-keyboard focus
 }
 
-// Base styles
-
 $focusable-box-shadow-initial: 0 0 0 0 rgba($color-state-focus, 0);
 $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
+
+%focus-inner {
+  box-shadow: inset $focusable-box-shadow-focused !important;
+}
+
+%focus-outer {
+  box-shadow: $focusable-box-shadow-focused !important;
+}
 
 %focusable {
   outline: none;
@@ -34,8 +40,8 @@ $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
   box-shadow: inset $focusable-box-shadow-initial;
 
   &:focus-visible {
-    .focus-visible & { // `.focus-visible` is added to `body` with JS when the user is tabbing
-      box-shadow: inset $focusable-box-shadow-focused !important;
+    &:focus { // `.focus-visible` is added to `body` with JS when the user is tabbing
+      @extend %focus-inner;
     }
   }
 }
@@ -44,8 +50,8 @@ $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
   box-shadow: $focusable-box-shadow-initial;
 
   &:focus-visible {
-    .focus-visible & { // `.focus-visible` is added to `body` with JS when the user is tabbing
-      box-shadow: $focusable-box-shadow-focused !important
+    &:focus { // `.focus-visible` is added to `body` with JS when the user is tabbing
+      @extend %focus-outer;
     }
   }
 }

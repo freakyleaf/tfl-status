@@ -5,13 +5,14 @@
 .navigation-menu__link {
   display: block;
   text-decoration: none;
-  color: $color-navigation-menu;
+  color: var(--color-navigation-menu-text);
   margin-left: $navigation-menu-link-padding * -1;
   margin-right: $navigation-menu-link-padding * -1;
   padding: $navigation-menu-link-padding;
 
+  &:active,
   &:focus,
   &:hover {
-    color: $color-navigation-header-hover;
+    color: var(--color-navigation-menu-text-hover);
   }
 }

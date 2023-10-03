@@ -20,8 +20,11 @@ function NavigationMenu(props) {
   return (
     <nav className="navigation-menu">
       <h2 className="navigation-menu__heading">
-        All Services
+        Navigation
       </h2>
+      <h3 className="navigation-menu__subheading">
+        All Services
+      </h3>
       <NavLink
         className="navigation-menu__link"
         onClick={closeMenu}
@@ -32,9 +35,9 @@ function NavigationMenu(props) {
       {
         !!services.length && (
           <>
-            <h2 className="navigation-menu__heading">
+            <h3 className="navigation-menu__subheading">
               Individual Services
-            </h2>
+            </h3>
             <ul className="navigation-menu__list">
               <li className="navigation-menu__list-item">
                 {

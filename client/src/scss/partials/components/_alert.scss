@@ -4,12 +4,12 @@
   border-radius: $border-radius-generic;
 
   &--error {
-    color: $color-tfl-white;
-    background-color: $color-state-error;
+    color: var(--color-alert-error-text);
+    background-color: var(--color-alert-error-background);
   }
 
   &--info {
-    color: $color-tfl-white;
-    background-color: $color-state-info;
+    color: var(--color-alert-info-text);
+    background-color: var(--color-alert-info-background);
   }
 }
