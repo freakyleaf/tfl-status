@@ -1,10 +1,12 @@
 import React from 'react';
 
+import AdFooter from '@components/AdFooter';
+
 function PageFooter() {
   return (
     <div className="page-footer container">
       <div className="page-footer__content">
-        &copy; 2023
+        <AdFooter />
       </div>
     </div>
   );
