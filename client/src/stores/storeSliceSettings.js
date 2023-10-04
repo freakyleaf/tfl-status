@@ -7,6 +7,7 @@ import {
 } from '@constants/theme';
 
 const initialState = {
+  menuOpen: false,
   pageMainHeight: 0,
   pageMainScrollTop: 0,
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -18,6 +19,10 @@ export const storeSliceSettings = createSlice({
   name: 'settings',
   initialState,
   reducers: {
+    setMenuOpen: (state, action) => {
+      const { payload } = action;
+      state.menuOpen = payload;
+    },
     setPageMainHeight: (state, action) => {
       const { payload } = action;
       state.pageMainHeight = payload;
@@ -34,6 +39,7 @@ export const storeSliceSettings = createSlice({
 });
 
 export const {
+  setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,
   setThemeApp,

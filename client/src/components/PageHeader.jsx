@@ -1,32 +1,27 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  setMenuOpen,
+} from '@stores/storeSliceSettings';
 
 import Icon from '@components/Icon';
 import IconClose from '@components/icons/IconClose';
 import IconHamburger from '@components/icons/IconHamburger';
 import NavigationHeader from '@components/NavigationHeader';
 
-PageHeader.propTypes = {
-  menuOpen: PropTypes.bool.isRequired,
-  setMenuOpen: PropTypes.func.isRequired,
-};
-
-function PageHeader(props) {
-  const {
-    menuOpen,
-    setMenuOpen,
-  } = props;
+function PageHeader() {
+  const dispatch = useDispatch();
+  const menuOpen = useSelector((state) => state.settings.menuOpen);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    dispatch(setMenuOpen(!menuOpen));
   };
 
   return (
     <div className="page-header container">
       <div className="page-header__content">
-        <NavigationHeader
-          setMenuOpen={setMenuOpen}
-        />
+        <NavigationHeader />
         <button
           className="button button--menu"
           onClick={toggleMenu}

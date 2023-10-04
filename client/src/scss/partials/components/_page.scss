@@ -18,6 +18,9 @@
   scrollbar-gutter: stable both-edges; // Center content horizontally while accounting for desktop scrollbar
   color: var(--color-page-main-text);
   background-color: var(--color-page-main-background);
+  transition:
+    color $transition-constant, // Transition switch between themes
+    background-color $transition-constant; // Transition switch between themes
 
   .page--menu-open & {
     display: none;

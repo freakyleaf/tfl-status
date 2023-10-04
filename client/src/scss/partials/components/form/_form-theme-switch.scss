@@ -1,3 +1,7 @@
+.form-theme-switch {
+  color: var(--color-form-theme-switch-icon);
+}
+
 .form-theme-switch__list,
 .form-theme-switch__list-item {
   display: inline-flex;
@@ -7,9 +11,9 @@
   @extend %list-unstyled;
 
   background-color: var(--color-form-theme-switch-background);
-  border-color: var(--color-form-theme-switch-background);
+  border-color: var(--color-form-theme-switch-border);
   border-style: $border-style-generic;
-  border-width: $border-width-generic;
+  border-width: $form-theme-switch-list-border-width;
   border-radius: $form-theme-switch-list-border-radius;
 }
 
@@ -61,5 +65,5 @@
   top: 0;
   left: 0;
   background-color: var(--color-primary);
-  transition: transform $form-theme-switch-animation-duration;
+  transition: transform $transition-constant;
 }

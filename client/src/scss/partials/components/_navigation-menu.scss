@@ -6,9 +6,9 @@
   display: block;
   text-decoration: none;
   color: var(--color-navigation-menu-text);
-  margin-left: $navigation-menu-link-padding * -1;
-  margin-right: $navigation-menu-link-padding * -1;
-  padding: $navigation-menu-link-padding;
+  margin-left: $link-padding * -1;
+  margin-right: $link-padding * -1;
+  padding: $link-padding;
 
   &:active,
   &:focus,

@@ -1,0 +1,16 @@
+.back-to-home {
+  margin-top: auto; // Send to bottom of flex container
+  margin-bottom: $spacer-global;
+}
+
+.back-to-home__link {
+  display: inline-flex;
+  align-items: center;
+  margin-left: $link-padding * -1;
+  padding: $link-padding;
+  font-size: $font-size-small;
+}
+
+.back-to-home__icon {
+  margin-right: $link-icon-spacing;
+}

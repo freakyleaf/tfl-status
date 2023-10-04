@@ -1,6 +1,6 @@
 .hr {
-  margin-top: $spacer-7;
-  margin-bottom: $spacer-7;
+  margin-top: $spacer-global;
+  margin-bottom: $spacer-global;
   border: 0;
-  border-top: $border-generic;
+  border-top: $border-style-generic $border-width-generic var(--color-hr-border);
 }

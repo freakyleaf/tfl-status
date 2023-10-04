@@ -4,6 +4,14 @@
   cursor: pointer;
 }
 
+// Flex
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 // Link
 
 %link-stretched {

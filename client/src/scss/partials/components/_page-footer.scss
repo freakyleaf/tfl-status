@@ -1,5 +1,5 @@
 .page-footer__content {
-  text-align: right;
-  padding-top: $spacer-global;
-  padding-bottom: $spacer-global;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -1,17 +1,16 @@
 import React from 'react';
 
 import FormThemeSwitch from '@components/form/FormThemeSwitch';
+import BackToHome from '@components/BackToHome';
 
 function Settings() {
   return (
     <div className="settings">
-      <h2 className="settings__heading">
-        Settings
-      </h2>
-      <h3 className="settings__subheading">
+      <h2 className="settings__heading h4">
         Theme
-      </h3>
+      </h2>
       <FormThemeSwitch />
+      <BackToHome />
     </div>
   );
 }

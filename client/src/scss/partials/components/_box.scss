@@ -4,12 +4,14 @@
   background-color: var(--color-box-background);
   border-radius: $border-radius-generic;
 
-  &:first-of-type {
-    margin-top: $home-table-padding-y;
-  }
-
   &:not(:first-of-type) {
     margin-top: $spacer-4;
+  }
+
+  &:first-of-type {
+    .view--home & {
+      margin-top: $home-table-padding-y;
+    }
   }
 
   @include device-min(tablet) {

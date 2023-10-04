@@ -2,8 +2,17 @@
 
 $color-black: rgb(0 0 0);
 $color-white: rgb(255 255 255);
-$color-dark: color.adjust($color-black, $lightness: 10%);
-$color-light: color.adjust($color-white, $lightness: -10%);
+$color-gray-900: rgb(24 24 27);
+$color-gray-800: rgb(39 39 42);
+$color-gray-700: rgb(63 63 70);
+$color-gray-600: rgb(82 82 91);
+$color-gray-500: rgb(113 113 122);
+$color-gray-400: rgb(161 161 170);
+$color-gray-300: rgb(212 212 216);
+$color-gray-200: rgb(228 228 231);
+$color-gray-100: rgb(244 244 245);
+$color-dark: $color-gray-900;
+$color-light: $color-gray-200;
 
 /* stylelint-disable no-duplicate-selectors */
 
@@ -23,7 +32,7 @@ $color-light: color.adjust($color-white, $lightness: -10%);
 
 // Border
 :root {
-  --color-border: #{$color-tfl-gray};
+  --color-border: #{$color-gray-200};
 }
 
 // Box
@@ -43,20 +52,28 @@ $color-light: color.adjust($color-white, $lightness: -10%);
 
 // Form Theme Switch
 :root {
-  --color-form-theme-switch-background: #{$color-tfl-dark-gray};
+  --color-form-theme-switch-icon: #{$color-light};
+  --color-form-theme-switch-icon-active: #{$color-light};
+  --color-form-theme-switch-background: #{$color-gray-600};
+  --color-form-theme-switch-border: #{$color-gray-600};
+}
+
+// Hr
+:root {
+  --color-hr-border: #{$color-gray-200};
 }
 
 // Loading
 :root {
-  --color-loading-icon: #{$color-tfl-gray};
+  --color-loading-icon: #{$color-gray-300};
 }
 
 // Navigation
 :root {
-  --color-navigation-header-text: #{$color-light};
-  --color-navigation-header-text-hover: #{$color-white};
   --color-navigation-menu-text: #{$color-light};
   --color-navigation-menu-text-hover: #{$color-white};
+  --color-navigation-primary-text: #{$color-light};
+  --color-navigation-primary-text-hover: #{$color-white};
 }
 
 // Page
@@ -69,12 +86,6 @@ $color-light: color.adjust($color-white, $lightness: -10%);
   --color-page-header-text: #{$color-light};
   --color-page-main-background: #{$color-white};
   --color-page-main-text: #{$color-black};
-}
-
-// Settings
-:root {
-  --color-settings-background: #{$color-black};
-  --color-settings-text: #{$color-light};
 }
 
 // Status
@@ -105,16 +116,30 @@ $color-light: color.adjust($color-white, $lightness: -10%);
   --color-body-text: #{$color-light};
 
   // Box
-  --color-box-background: #{$color-tfl-dark-gray};
+  --color-box-background: #{$color-gray-800};
   --color-box-text: #{$color-light};
 
+  // Form Theme Switch
+  --color-form-theme-switch-background: #{$color-gray-700};
+  --color-form-theme-switch-border: #{$color-gray-700};
+
+  // Hr
+  --color-hr-border: #{$color-gray-700};
+
+  // Loading
+  --color-loading-icon: #{$color-gray-700};
+
   // Page
-  --color-page-main-background: #{$color-black};
+  --color-page-main-background: #{$color-gray-900};
   --color-page-main-text: #{$color-light};
 
   // Status
   --color-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio
   --color-status-positive-text: #{$color-light};
+
+  // Typography
+  --color-link: #{color.adjust($color-tfl-blue, $lightness: 40%)};
+  --color-link-hover: #{color.adjust($color-tfl-blue, $lightness: 50%)};
 }
 
 /* stylelint-enable no-duplicate-selectors */

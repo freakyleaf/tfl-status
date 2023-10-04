@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import BackToHome from '@components/BackToHome';
 import PageMain from '@components/PageMain';
 import Status from '@components/Status';
 import StatusReason from '@components/StatusReason';
@@ -34,6 +35,7 @@ function ViewService() {
           <StatusReason
             service={service}
           />
+          <BackToHome />
         </div>
       </PageMain>
     </div>

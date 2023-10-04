@@ -1,7 +1,7 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import { Outlet, useOutletContext } from 'react-router-dom';
+import { Outlet, useLocation, useOutletContext } from 'react-router-dom';
 import PullToRefresh from 'react-simple-pull-to-refresh';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -9,6 +9,7 @@ import {
 } from '@constants/theme';
 
 import {
+  setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,
   setThemeApp,
@@ -29,9 +30,11 @@ import PullToRefreshMessage from '@components/PullToRefreshMessage';
 
 function Layout() {
   const dispatch = useDispatch();
+  const location = useLocation();
   const refPageMain = useRef();
 
   const {
+    menuOpen,
     themeApp,
     themeSystem,
   } = useSelector((state) => state.settings);
@@ -81,8 +84,6 @@ function Layout() {
     }
   }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
 
-  const [ menuOpen, setMenuOpen ] = useState(false);
-
   const classes = () => {
     const output = [ 'page' ];
     if (menuOpen) output.push('page--menu-open');
@@ -112,6 +113,11 @@ function Layout() {
     }, 0);
   }, [ themeApp ]);
 
+  // Close the menu on any route change
+  useEffect(() => {
+    dispatch(setMenuOpen(false));
+  }, [ location ]);
+
   return (
     <>
       {
@@ -135,10 +141,7 @@ function Layout() {
           >
             <div className={classes()}>
               <header className="page__header">
-                <PageHeader
-                  menuOpen={menuOpen}
-                  setMenuOpen={setMenuOpen}
-                />
+                <PageHeader />
               </header>
               <main
                 className="page__main"
@@ -155,7 +158,6 @@ function Layout() {
               <aside className="page__aside">
                 <PageAside
                   services={services}
-                  setMenuOpen={setMenuOpen}
                 />
               </aside>
               <footer className="page__footer">
