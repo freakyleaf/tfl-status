@@ -11,7 +11,6 @@ import ViewErrorPageNotFound from '@views/ViewErrorPageNotFound';
 import ViewErrorService from '@views/ViewErrorService';
 import ViewHome from '@views/ViewHome';
 import ViewService from '@views/ViewService';
-import ViewSettings from '@views/ViewSettings';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,10 +26,6 @@ const router = createBrowserRouter(
         element={<ViewService />}
         errorElement={<ViewErrorService />}
         path="service/:id"
-      />
-      <Route
-        element={<ViewSettings />}
-        path="settings"
       />
       <Route
         path='*'

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setMenuOpen,
+  setSettingsOpen,
 } from '@stores/storeSliceSettings';
 
 import Icon from '@components/Icon';
@@ -12,10 +13,14 @@ import NavigationHeader from '@components/NavigationHeader';
 
 function PageHeader() {
   const dispatch = useDispatch();
-  const menuOpen = useSelector((state) => state.settings.menuOpen);
+  const {
+    menuOpen,
+    settingsOpen,
+  } = useSelector((state) => state.settings);
 
   const toggleMenu = () => {
     dispatch(setMenuOpen(!menuOpen));
+    if (settingsOpen) dispatch(setSettingsOpen(false));
   };
 
   return (
@@ -23,7 +28,7 @@ function PageHeader() {
       <div className="page-header__content">
         <NavigationHeader />
         <button
-          className="button button--menu"
+          className="button button--utility"
           onClick={toggleMenu}
         >
           <div className="button__content">
@@ -34,7 +39,7 @@ function PageHeader() {
               Menu
             </span>
             <Icon
-              className="button__icon"
+              className="button__icon button__icon--right"
               icon={menuOpen ? <IconClose /> : <IconHamburger />}
             />
           </div>

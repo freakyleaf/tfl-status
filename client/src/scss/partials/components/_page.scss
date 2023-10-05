@@ -18,24 +18,15 @@
   scrollbar-gutter: stable both-edges; // Center content horizontally while accounting for desktop scrollbar
   color: var(--color-page-main-text);
   background-color: var(--color-page-main-background);
-  transition:
-    color $transition-constant, // Transition switch between themes
-    background-color $transition-constant; // Transition switch between themes
-
-  .page--menu-open & {
-    display: none;
-  }
 }
 
 .page__aside {
-  display: none; // Default 'menu closed' state
-
-  .page--menu-open & {
-    color-scheme: dark; // Better desktop scrollbar presentation regardless of theme
-    display: block;
-    color: var(--color-page-aside-text);
-    background-color: var(--color-page-aside-background);
-  }
+  color-scheme: var(--color-scheme); // Better desktop scrollbar presentation regardless of theme
+  color: var(--color-page-aside-text);
+  background-color: var(--color-page-aside-background);
+  transition:
+    color $transition-constant, // Transition switch between themes
+    background-color $transition-constant; // Transition switch between themes
 }
 
 .page__footer {

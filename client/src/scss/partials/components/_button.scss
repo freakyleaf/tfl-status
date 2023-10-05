@@ -20,7 +20,7 @@
     border-radius: 100%; // Better keyboard focus presentation
   }
 
-  &--menu {
+  &--utility {
     font-size: $font-size-small;
     color: var(--color-button-menu-text);
     white-space: nowrap;
@@ -45,5 +45,11 @@
 }
 
 .button__icon {
-  margin-left: $link-icon-spacing;
+  &--left {
+    margin-right: $link-icon-spacing;
+  }
+
+  &--right {
+    margin-left: $link-icon-spacing;
+  }
 }

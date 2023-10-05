@@ -12,6 +12,7 @@ import {
   setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,
+  setSettingsOpen,
   setThemeApp,
 } from '@stores/storeSliceSettings';
 
@@ -23,10 +24,12 @@ import ViewErrorGeneric from '@views/ViewErrorGeneric';
 
 import Error from '@components/Error';
 import Loading from '@components/Loading';
+import NavigationMenu from '@components/NavigationMenu';
 import PageAside from '@components/PageAside';
 import PageFooter from '@components/PageFooter';
 import PageHeader from '@components/PageHeader';
 import PullToRefreshMessage from '@components/PullToRefreshMessage';
+import Settings from '@components/Settings';
 
 function Layout() {
   const dispatch = useDispatch();
@@ -35,6 +38,7 @@ function Layout() {
 
   const {
     menuOpen,
+    settingsOpen,
     themeApp,
     themeSystem,
   } = useSelector((state) => state.settings);
@@ -84,13 +88,6 @@ function Layout() {
     }
   }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
 
-  const pageClasses = () => {
-    const output = [ 'page' ];
-    if (menuOpen) output.push('page--menu-open');
-    output.push('h-100');
-    return output.join(' ');
-  };
-
   const pageMainClasses = () => {
     const output = [ 'container' ];
     if (location.pathname === '/') output.push('container--px');
@@ -113,9 +110,10 @@ function Layout() {
     }, 0);
   }, [ themeApp ]);
 
-  // Close the menu on any route change
+  // Close the menu or settings on any route change
   useEffect(() => {
     dispatch(setMenuOpen(false));
+    dispatch(setSettingsOpen(false));
   }, [ location ]);
 
   const handlePullToRefresh = () => {
@@ -148,33 +146,52 @@ function Layout() {
             onRefresh={handlePullToRefresh}
             pullingContent={<PullToRefreshMessage />}
           >
-            <div className={pageClasses()}>
+            <div className="page h-100">
               <header className="page__header">
                 <div className="container container--px">
                   <PageHeader />
                 </div>
               </header>
-              <main
-                className="page__main"
-                ref={refPageMain}
-              >
-                <div className={pageMainClasses()}>
-                  <ErrorBoundary
-                    fallbackRender={ViewErrorGeneric}
+              {
+                (!menuOpen && !settingsOpen) && (
+                  <main
+                    className="page__main"
+                    ref={refPageMain}
                   >
-                    <Outlet
-                      context={{ scrollTo, services }}
-                    />
-                  </ErrorBoundary>
-                </div>
-              </main>
-              <aside className="page__aside">
-                <div className="container container--px container--py">
-                  <PageAside
-                    services={services}
-                  />
-                </div>
-              </aside>
+                    <div className={pageMainClasses()}>
+                      <ErrorBoundary
+                        fallbackRender={ViewErrorGeneric}
+                      >
+                        <Outlet
+                          context={{ scrollTo, services }}
+                        />
+                      </ErrorBoundary>
+                    </div>
+                  </main>
+                )
+              }
+              {
+                (menuOpen || settingsOpen) && (
+                  <aside className="page__aside">
+                    <div className="container container--px container--py">
+                      <PageAside>
+                        {
+                          menuOpen && (
+                            <NavigationMenu
+                              services={services}
+                            />
+                          )
+                        }
+                        {
+                          settingsOpen && (
+                            <Settings />
+                          )
+                        }
+                      </PageAside>
+                    </div>
+                  </aside>
+                )
+              }
               <footer className="page__footer">
                 <div className="container container--px">
                   <PageFooter />

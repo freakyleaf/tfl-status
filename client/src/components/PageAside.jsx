@@ -1,23 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import NavigationMenu from '@components/NavigationMenu';
-
 PageAside.propTypes = {
-  services: PropTypes.array.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]).isRequired,
 };
 
 function PageAside(props) {
   const {
-    services,
+    children,
   } = props;
 
   return (
     <div className="page-aside">
       <div className="page-aside__content">
-        <NavigationMenu
-          services={services}
-        />
+        {children}
       </div>
     </div>
   );

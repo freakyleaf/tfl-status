@@ -32,5 +32,6 @@ $spacer-status: $spacer-4;
 }
 
 .status__icon {
+  flex: 0 0 auto;
   margin-right: $spacer-status;
 }

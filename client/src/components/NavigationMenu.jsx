@@ -16,34 +16,40 @@ function NavigationMenu(props) {
       <h2 className="navigation-menu__heading">
         All Services
       </h2>
-      <NavLink
-        className="navigation-menu__link"
-        to="/"
-      >
-        Home
-      </NavLink>
+      <ul className="navigation-menu__list navigation-menu__list--all-services">
+        <li className="navigation-menu__list-item">
+          <NavLink
+            className="navigation-menu__link"
+            to="/"
+          >
+            Home
+          </NavLink>
+        </li>
+      </ul>
       {
         !!services.length && (
           <>
             <h2 className="navigation-menu__heading mt-global">
               Individual Services
             </h2>
-            <ul className="navigation-menu__list">
-              <li className="navigation-menu__list-item">
-                {
-                  services.map((service) => {
-                    return (
+            <ul className="navigation-menu__list navigation-menu__list--individual-services">
+              {
+                services.map((service) => {
+                  return (
+                    <li
+                      className="navigation-menu__list-item"
+                      key={service.id}
+                    >
                       <NavLink
                         className="navigation-menu__link"
-                        key={service.id}
                         to={`/service/${service.id}`}
                       >
                         {service.name}
                       </NavLink>
-                    );
-                  })
-                }
-              </li>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </>
         )

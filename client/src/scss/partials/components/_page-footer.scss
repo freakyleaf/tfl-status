@@ -3,3 +3,10 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.page-footer__text {
+  margin-top: $navigation-primary-link-margin-y;
+  margin-bottom: $navigation-primary-link-margin-y;
+  padding-top:$navigation-primary-link-padding-y;
+  padding-bottom: $navigation-primary-link-padding-y;
+}

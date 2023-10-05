@@ -16,6 +16,11 @@ $color-light: $color-gray-200;
 
 /* stylelint-disable no-duplicate-selectors */
 
+// Global
+:root {
+  --color-scheme: light;
+}
+
 // Alert
 :root {
   --color-alert-error-background: #{$color-state-error};
@@ -70,16 +75,16 @@ $color-light: $color-gray-200;
 
 // Navigation
 :root {
-  --color-navigation-menu-text: #{$color-light};
-  --color-navigation-menu-text-hover: #{$color-white};
+  --color-navigation-menu-text: #{$color-dark};
+  --color-navigation-menu-text-hover: #{$color-black};
   --color-navigation-primary-text: #{$color-light};
   --color-navigation-primary-text-hover: #{$color-white};
 }
 
 // Page
 :root {
-  --color-page-aside-background: #{$color-gray-900};
-  --color-page-aside-text: #{$color-light};
+  --color-page-aside-background: #{$color-white};
+  --color-page-aside-text: #{$color-black};
   --color-page-footer-background: #{$color-black};
   --color-page-footer-text: #{$color-light};
   --color-page-header-background: #{$color-black};
@@ -108,8 +113,11 @@ $color-light: $color-gray-200;
 
 [data-theme='dark'] {
   * {
-    color-scheme: dark;
+    color-scheme: var(--color-scheme);
   }
+
+  // Global
+  --color-scheme: dark;
 
   // Base
   --color-body-background: #{$color-black};
@@ -129,7 +137,13 @@ $color-light: $color-gray-200;
   // Loading
   --color-loading-icon: #{$color-gray-700};
 
+  // Navigation
+  --color-navigation-menu-text: #{$color-light};
+  --color-navigation-menu-text-hover: #{$color-white};
+
   // Page
+  --color-page-aside-background: #{$color-gray-900};
+  --color-page-aside-text: #{$color-light};
   --color-page-main-background: #{$color-gray-900};
   --color-page-main-text: #{$color-light};
 

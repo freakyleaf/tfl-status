@@ -11,10 +11,10 @@
   &:first-of-type {
     .view--home & {
       margin-top: $home-table-padding-y;
-    }
-  }
 
-  @include device-min(tablet) {
-    margin-top: $spacer-5;
+      @include device-min(tablet) {
+        margin-top: $spacer-5;
+      }
+    }
   }
 }

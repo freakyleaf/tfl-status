@@ -37,7 +37,11 @@ function FormSwitch() {
 
   return (
     <div className="form-theme-switch">
-      <ul className="form-theme-switch__list">
+      <ul
+        aria-labelledby="settings-theme"
+        className="form-theme-switch__list"
+        role="radiogroup"
+      >
         <li className="form-theme-switch__list-item">
           <input
             checked={themeApp === THEME_AUTO}
