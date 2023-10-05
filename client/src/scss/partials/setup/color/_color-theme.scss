@@ -75,8 +75,8 @@ $color-light: $color-gray-200;
 
 // Navigation
 :root {
-  --color-navigation-menu-text: #{$color-dark};
-  --color-navigation-menu-text-hover: #{$color-black};
+  --color-navigation-menu-text: var(--color-link);
+  --color-navigation-menu-text-hover: var(--color-link-hover);
   --color-navigation-primary-text: #{$color-light};
   --color-navigation-primary-text-hover: #{$color-white};
 }
