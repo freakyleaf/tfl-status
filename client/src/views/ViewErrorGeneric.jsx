@@ -18,7 +18,7 @@ function ViewErrorGeneric(props) {
   const errorMessage = typeof error === 'object' ? error.message : error;
 
   return (
-    <div className="view view--error h-100 pt-global">
+    <div className="view view--error h-100">
       <PageMain>
         <div className="error h-100">
           <h1>Error</h1>

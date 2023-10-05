@@ -25,7 +25,7 @@ function NavigationMenu(props) {
       {
         !!services.length && (
           <>
-            <h2 className="navigation-menu__heading">
+            <h2 className="navigation-menu__heading mt-global">
               Individual Services
             </h2>
             <ul className="navigation-menu__list">

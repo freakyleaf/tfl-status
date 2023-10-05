@@ -14,9 +14,9 @@ function PageMain(props) {
   } = props;
 
   return (
-    <div className="container h-100">
+    <>
       { children }
-    </div>
+    </>
   );
 }
 

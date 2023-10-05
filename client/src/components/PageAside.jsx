@@ -13,7 +13,7 @@ function PageAside(props) {
   } = props;
 
   return (
-    <div className="page-aside container">
+    <div className="page-aside">
       <div className="page-aside__content">
         <NavigationMenu
           services={services}

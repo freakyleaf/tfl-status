@@ -12,7 +12,7 @@ function ViewErrorPageNotFound() {
   }, []);
 
   return (
-    <div className="view view--error h-100 pt-global">
+    <div className="view view--error h-100">
       <PageMain>
         <div className="error h-100">
           <h1>Page Not Found</h1>

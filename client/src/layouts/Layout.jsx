@@ -46,6 +46,13 @@ function Layout() {
     refetch,
   } = useFetchStatusesQuery();
 
+  const scrollTo = (top) => {
+    refPageMain.current.scrollTo({
+      behavior: 'instant',
+      top,
+    });
+  };
+
   const setRefPageMainHeight = () => {
     const refPageMainHeight = refPageMain.current?.clientHeight;
     dispatch(setPageMainHeight(refPageMainHeight));
@@ -65,13 +72,6 @@ function Layout() {
     setRefPageMeasurements();
   }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
 
-  const scrollTo = (top) => {
-    refPageMain.current.scrollTo({
-      behavior: 'instant',
-      top,
-    });
-  };
-
   useEffect(() => {
     if (refPageMain.current) {
       refPageMain.current.addEventListener('scroll', setRefPageMainScrollTop);
@@ -84,20 +84,20 @@ function Layout() {
     }
   }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
 
-  const classes = () => {
+  const pageClasses = () => {
     const output = [ 'page' ];
     if (menuOpen) output.push('page--menu-open');
     output.push('h-100');
     return output.join(' ');
   };
 
-  const handlePullToRefresh = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        refetch();
-        resolve();
-      }, 1000);
-    });
+  const pageMainClasses = () => {
+    const output = [ 'container' ];
+    if (location.pathname === '/') output.push('container--px');
+    else if (location.pathname.includes('service')) output.push('container--pb container--px');
+    else output.push('container--px container--py');
+    output.push('h-100');
+    return output.join(' ');
   };
 
   useEffect(() => {
@@ -117,6 +117,15 @@ function Layout() {
   useEffect(() => {
     dispatch(setMenuOpen(false));
   }, [ location ]);
+
+  const handlePullToRefresh = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        refetch();
+        resolve();
+      }, 1000);
+    });
+  };
 
   return (
     <>
@@ -139,29 +148,37 @@ function Layout() {
             onRefresh={handlePullToRefresh}
             pullingContent={<PullToRefreshMessage />}
           >
-            <div className={classes()}>
+            <div className={pageClasses()}>
               <header className="page__header">
-                <PageHeader />
+                <div className="container container--px">
+                  <PageHeader />
+                </div>
               </header>
               <main
                 className="page__main"
                 ref={refPageMain}
               >
-                <ErrorBoundary
-                  fallbackRender={ViewErrorGeneric}
-                >
-                  <Outlet
-                    context={{ scrollTo, services }}
-                  />
-                </ErrorBoundary>
+                <div className={pageMainClasses()}>
+                  <ErrorBoundary
+                    fallbackRender={ViewErrorGeneric}
+                  >
+                    <Outlet
+                      context={{ scrollTo, services }}
+                    />
+                  </ErrorBoundary>
+                </div>
               </main>
               <aside className="page__aside">
-                <PageAside
-                  services={services}
-                />
+                <div className="container container--px container--py">
+                  <PageAside
+                    services={services}
+                  />
+                </div>
               </aside>
               <footer className="page__footer">
-                <PageFooter />
+                <div className="container container--px">
+                  <PageFooter />
+                </div>
               </footer>
             </div>
           </PullToRefresh>

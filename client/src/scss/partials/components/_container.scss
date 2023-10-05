@@ -2,8 +2,20 @@
   max-width: $device-desktop;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $container-padding-x;
-  padding-right: $container-padding-x;
+
+  &--pb {
+    padding-bottom: $container-padding;
+  }
+
+  &--px {
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+  }
+
+  &--py {
+    padding-top: $container-padding;
+    padding-bottom: $container-padding;
+  }
 }
 
 @include device-max(tablet) {

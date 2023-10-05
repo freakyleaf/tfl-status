@@ -19,7 +19,7 @@ function PageHeader() {
   };
 
   return (
-    <div className="page-header container">
+    <div className="page-header">
       <div className="page-header__content">
         <NavigationHeader />
         <button
