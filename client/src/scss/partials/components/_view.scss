@@ -1,0 +1,8 @@
+.view {
+  &--home {
+    @include device-max(tablet) {
+      margin-left: $container-padding * -1; // Push up against edge of viewport
+      margin-right: $container-padding * -1; // Push up against edge of viewport
+    }
+  }
+}

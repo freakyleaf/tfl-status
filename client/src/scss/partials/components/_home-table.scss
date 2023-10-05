@@ -11,11 +11,11 @@
   vertical-align: middle;
 
   &--status {
-    padding: $home-table-padding-y 0 $home-table-padding-y $home-table-padding-x;
-  }
+    padding: $home-table-padding-y $home-table-padding-x;
 
-  @include device-min(desktop) {
-    padding-right: 0;
+    @include device-min(desktop) {
+      padding-right: 0;
+    }
   }
 }
 
