@@ -1,12 +1,12 @@
 $spacer-status: $spacer-4;
 
 .status {
-  .view--home & {
-    margin-right: $spacer-status;
-  }
-
   .view--service & {
     margin-bottom: $spacer-global;
+  }
+
+  .view--services & {
+    margin-right: $spacer-status;
   }
 }
 

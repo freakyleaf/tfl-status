@@ -83,6 +83,12 @@
   padding-top: $spacer-global !important;
 }
 
+// Text
+
+.word-break-all {
+  word-break: break-all;
+}
+
 // Visibility
 
 %visually-hidden {

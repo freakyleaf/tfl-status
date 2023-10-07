@@ -5,6 +5,12 @@ import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
+  PATH_BUS,
+  PATH_HOME,
+  PATH_NATIONAL_RAIL,
+} from '@constants/paths';
+
+import {
   THEME_AUTO,
 } from '@constants/theme';
 
@@ -90,7 +96,7 @@ function Layout() {
 
   const pageMainClasses = () => {
     const output = [ 'container' ];
-    if (location.pathname === '/') output.push('container--px');
+    if ([ `/${PATH_BUS}`, PATH_HOME, `/${PATH_NATIONAL_RAIL}` ].includes(location.pathname)) output.push('container--px');
     else if (location.pathname.includes('service')) output.push('container--pb container--px');
     else output.push('container--px container--py');
     output.push('h-100');

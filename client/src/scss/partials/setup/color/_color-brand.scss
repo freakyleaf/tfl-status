@@ -4,8 +4,8 @@ $color-tfl-blue: rgb(0 15 159);
 $color-tfl-red: rgb(225 37 27);
 $color-tfl-yellow: rgb(255 205 0);
 $color-tfl-green: rgb(0 121 52);
-$color-tflblack: rgb(0 0 0);
-$color-tflwhite: rgb(255 255 255);
+$color-tfl-black: rgb(0 0 0);
+$color-tfl-white: rgb(255 255 255);
 $color-tfl-gray: rgb(123 134 140);
 $color-tfl-dark-gray: rgb(50 62 72);
 
@@ -29,69 +29,79 @@ $color-tfl-tram: rgb(118 188 33);
 $brands: (
   'bakerloo': (
     colorBrand: $color-tfl-bakerloo,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'central': (
     colorBrand: $color-tfl-central,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'circle': (
     colorBrand: $color-tfl-circle,
-    colorText: #000,
+    colorText: $color-tfl-black,
   ),
   'district': (
     colorBrand: $color-tfl-district,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'hammersmith-city': (
     colorBrand: $color-tfl-hammersmith-city,
-    colorText: #000,
+    colorText: $color-tfl-black,
   ),
   'jubilee': (
     colorBrand: $color-tfl-jubilee,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'metropolitan': (
     colorBrand: $color-tfl-metropolitan,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'northern': (
     colorBrand: $color-tfl-northern,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'piccadilly': (
     colorBrand: $color-tfl-piccadilly,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'victoria': (
     colorBrand: $color-tfl-victoria,
-    colorText: #000,
+    colorText: $color-tfl-black,
   ),
   'waterloo-city': (
     colorBrand: $color-tfl-waterloo-city,
-    colorText: #000,
+    colorText: $color-tfl-black,
   ),
   'dlr': (
     colorBrand: $color-tfl-dlr,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'elizabeth': (
     colorBrand: $color-tfl-elizabeth,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
   'london-overground': (
     colorBrand: $color-tfl-overground,
-    colorText: #000,
+    colorText: $color-tfl-black,
   ),
   'tram': (
     colorBrand: $color-tfl-tram,
-    colorText: #fff,
+    colorText: $color-tfl-white,
   ),
 );
 
 @each $key, $value in $brands {
-  .brand-background--#{$key} {
+  .brand-background--id-#{$key} {
     color: map.get($value, colorText);
     background-color: map.get($value, colorBrand);
   }
+}
+
+.brand-background--mode-bus {
+  color: $color-tfl-white;
+  background-color: $color-tfl-red;
+}
+
+.brand-background--mode-national-rail {
+  color: $color-tfl-white;
+  background-color: $color-tfl-blue;
 }

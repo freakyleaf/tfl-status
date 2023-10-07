@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import isUrl from '@utils/isUrl';
+
 StatusReason.propTypes = {
   service: PropTypes.object.isRequired,
 };
@@ -21,9 +23,24 @@ function StatusReason(props) {
                   lineStatus.reason.map((reason) => {
                     return (
                       <div className="box" key={reason}>
-                        <p className="status-reason__text">
-                          {reason.trim()}
-                        </p>
+                        <span className="status-reason__text">
+                          {
+                            isUrl(reason.trim()) ? (
+                              <>
+                                For more information see <a
+                                  className="status-reason__link"
+                                  href={reason.trim()}
+                                  rel="noreferrer"
+                                  target="_blank"
+                                >
+                                  <span className="word-break-all">
+                                    {reason.trim()}
+                                  </span>
+                                </a>.
+                              </>
+                            ) : reason.trim()
+                          }
+                        </span>
                       </div>
                     );
                   })

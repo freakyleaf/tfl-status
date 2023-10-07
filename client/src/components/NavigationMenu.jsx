@@ -2,6 +2,12 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import {
+  PATH_BUS,
+  PATH_HOME,
+  PATH_NATIONAL_RAIL,
+} from '@constants/paths';
+
 NavigationMenu.propTypes = {
   services: PropTypes.array.isRequired,
 };
@@ -20,11 +26,33 @@ function NavigationMenu(props) {
         <li className="navigation-menu__list-item">
           <NavLink
             className="navigation-menu__link"
-            to="/"
+            to={PATH_HOME}
           >
             Home
           </NavLink>
         </li>
+        {
+          !!services.length && (
+            <>
+              <li className="navigation-menu__list-item">
+                <NavLink
+                  className="navigation-menu__link"
+                  to={`/${PATH_BUS}`}
+                >
+                  Bus
+                </NavLink>
+              </li>
+              <li className="navigation-menu__list-item">
+                <NavLink
+                  className="navigation-menu__link"
+                  to={`/${PATH_NATIONAL_RAIL}`}
+                >
+                  National Rail
+                </NavLink>
+              </li>
+            </>
+          )
+        }
       </ul>
       {
         !!services.length && (

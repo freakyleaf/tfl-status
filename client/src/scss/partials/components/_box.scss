@@ -9,8 +9,8 @@
   }
 
   &:first-of-type {
-    .view--home & {
-      margin-top: $home-table-padding-y;
+    .view--services & {
+      margin-top: $services-table-padding-y;
 
       @include device-min(tablet) {
         margin-top: $spacer-5;

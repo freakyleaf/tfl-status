@@ -1,8 +1,8 @@
-.back-to-home {
+.back-to {
   margin-top: auto; // Send to bottom of flex container
 }
 
-.back-to-home__link {
+.back-to__link {
   display: inline-flex;
   align-items: center;
   margin-left: $link-padding * -1;
@@ -10,6 +10,6 @@
   font-size: $font-size-small;
 }
 
-.back-to-home__icon {
+.back-to__icon {
   margin-right: $link-icon-spacing;
 }

@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import React, { createRef, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -18,7 +19,20 @@ import buildPageTitle from '@utils/buildPageTitle';
 
 import { havingTroubleFetchingData } from '@constants/textContent';
 
-function ViewHome() {
+ViewServices.propTypes = {
+  pageTitle: PropTypes.string.isRequired,
+  serviceModes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  serviceSort: PropTypes.bool,
+  viewMode: PropTypes.string.isRequired,
+};
+
+function ViewServices(props) {
+  const {
+    pageTitle,
+    serviceModes,
+    viewMode,
+  } = props;
+
   const { scrollTo } = useScrollTo();
   const { services } = useServices();
 
@@ -26,9 +40,27 @@ function ViewHome() {
     throw new Error(havingTroubleFetchingData);
   }
 
+  const servicesFiltered = services.filter((service) => serviceModes.includes(service.modeName));
+
+  const servicesOrdered = [];
+
+  if (viewMode === 'home') {
+    serviceModes.forEach((modeName) => {
+      servicesOrdered.push(...servicesFiltered.filter((service) => service.modeName === modeName));
+    });
+  } else if (viewMode === 'bus') {
+    servicesOrdered.push(...servicesFiltered.sort((a, b) => a.id.localeCompare(b.id, undefined, {
+      numeric: true,
+      sensitivity: 'base',
+    })));
+  }
+  else {
+    servicesOrdered.push(...servicesFiltered);
+  }
+
   useEffect(() => {
-    document.title = buildPageTitle();
-  }, []);
+    document.title = buildPageTitle(pageTitle);
+  }, [ location ]);
 
   const hasStatusReason = (service) => {
     return service.lineStatuses[0].reason;
@@ -39,7 +71,7 @@ function ViewHome() {
     pageMainScrollTop,
   } = useSelector((state) => state.settings);
 
-  const refServices = useRef(services.map(() => createRef()));
+  const refServices = useRef(servicesOrdered.map(() => createRef()));
   const [ activeService, setActiveService ] = useState(null);
   const [ statusReasonVisibility, setStatusReasonVisibility ] = useState({});
 
@@ -76,11 +108,11 @@ function ViewHome() {
   };
 
   return (
-    <div className="view view--home h-100">
+    <div className={`view view--services view--${viewMode} h-100`}>
       <PageMain>
-        <div className="home h-100">
-          <h1 className="visually-hidden">Home</h1>
-          <table className="home-table">
+        <div className="services h-100">
+          <h1 className="visually-hidden">{pageTitle}</h1>
+          <table className="services-table">
             <thead className="visually-hidden">
               <tr>
                 <th>Service</th>
@@ -89,26 +121,28 @@ function ViewHome() {
             </thead>
             <tbody>
               {
-                services.map((service, index) => {
+                servicesOrdered.map((service, index) => {
                   return (
                     <tr
-                      className="home-table__row"
+                      className="services-table__row"
                       key={service.id}
                     >
-                      <td className={`home-table__cell home-table__cell--service brand-background--${service.id}`}>
+                      <td className={`services-table__cell services-table__cell--service brand-background--id-${service.id} brand-background--mode-${service.modeName}`}>
                         <NavLink
-                          className="home-table__link"
-                          to={`/service/${service.id}`}
+                          className="services-table__link"
+                          to={`${location.pathname === '/' ? `/service/${service.id}` : `${location.pathname}/service/${service.id}`}`}
                         >
-                          {service.name}
+                          <span className="services-table__text">
+                            {service.name}
+                          </span>
                         </NavLink>
                       </td>
                       <td
-                        className={`home-table__cell home-table__cell--status ${hasStatusReason(service) ? 'clickable' : ''}`.trim()}
+                        className={`services-table__cell services-table__cell--status ${hasStatusReason(service) ? 'clickable' : ''}`.trim()}
                         onClick={handleClick(service.id, index)}
                         ref={refServices.current[index]}
                       >
-                        <div className="home-table__status">
+                        <div className="services-table__status">
                           <Status
                             service={service}
                           />
@@ -145,4 +179,4 @@ function ViewHome() {
   );
 }
 
-export default ViewHome;
+export default ViewServices;

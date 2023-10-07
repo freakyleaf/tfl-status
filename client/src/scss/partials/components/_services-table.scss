@@ -1,17 +1,19 @@
-.home-table {
+@use 'sass:math';
+
+.services-table {
   width: 100%;
   min-height: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-.home-table__cell {
-  position: relative; // Required for `.home-table__link` %link-stretched
+.services-table__cell {
+  position: relative; // Required for `.services-table__link` %link-stretched
   width: 50%;
   vertical-align: middle;
 
   &--status {
-    padding: $home-table-padding-y $home-table-padding-x;
+    padding: $services-table-padding-y $services-table-padding-x;
 
     @include device-min(desktop) {
       padding-right: 0;
@@ -19,11 +21,11 @@
   }
 }
 
-.home-table__link {
+.services-table__link {
   @extend %link-stretched;
 
   display: block;
-  padding: $home-table-padding-y $home-table-padding-x;
+  padding: $services-table-padding-y $services-table-padding-x;
   text-decoration: none;
   color: inherit;
 
@@ -34,7 +36,7 @@
   }
 }
 
-.home-table__status {
+.services-table__status {
   display: flex;
   align-items: center;
   justify-content: space-between;

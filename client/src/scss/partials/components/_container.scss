@@ -20,7 +20,7 @@
 
 @include device-max(tablet) {
   .container {
-    .page__main .view--home & {
+    .page__main .view--services & {
       padding-left: 0;
       padding-right: 0;
     }

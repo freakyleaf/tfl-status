@@ -8,9 +8,6 @@ $form-theme-switch-list-item-height: 3rem;
 $form-theme-switch-list-item-border-radius: math.div($form-theme-switch-list-item-height, 2);
 $form-theme-switch-list-border-radius: calc($form-theme-switch-list-item-border-radius + ($form-theme-switch-list-border-width * 2));
 
-$home-table-padding-x: $spacer-5;
-$home-table-padding-y: $spacer-3;
-
 $link-icon-spacing: $spacer-3;
 $link-padding: $spacer-2;
 
@@ -19,3 +16,6 @@ $loading-icon-size: 5rem;
 $navigation-primary-link-margin-y: $spacer-4;
 $navigation-primary-link-padding-x: $spacer-4;
 $navigation-primary-link-padding-y: $spacer-3;
+
+$services-table-padding-x: $spacer-5;
+$services-table-padding-y: $spacer-3;

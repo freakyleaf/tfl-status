@@ -17,7 +17,7 @@ const router = express.Router();
 
 router.get('/', async(req, res) => {
   try {
-    const { data } = await axios.get(`https://api.tfl.gov.uk/line/mode/dlr,elizabeth-line,overground,tram,tube/status?app_id=${PRIVATE_TFL_APP_ID}&app_key=${PRIVATE_TFL_APP_KEY}`);
+    const { data } = await axios.get(`https://api.tfl.gov.uk/line/mode/bus,dlr,elizabeth-line,national-rail,overground,tram,tube/status?app_id=${PRIVATE_TFL_APP_ID}&app_key=${PRIVATE_TFL_APP_KEY}`);
     res.json(data);
     res.status(200);
   } catch (error) {
