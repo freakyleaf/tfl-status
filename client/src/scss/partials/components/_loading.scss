@@ -5,10 +5,3 @@
   width: 100%;
   height: 100%;
 }
-
-.loading__icon {
-  width: $loading-icon-size;
-  height: $loading-icon-size;
-  color: var(--color-loading-icon);
-  animation: loading 1s linear infinite;
-}

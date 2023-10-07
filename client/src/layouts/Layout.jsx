@@ -30,6 +30,7 @@ import ViewErrorGeneric from '@views/ViewErrorGeneric';
 
 import Error from '@components/Error';
 import Loading from '@components/Loading';
+import LoadingSpinner from '@components/LoadingSpinner';
 import NavigationMenu from '@components/NavigationMenu';
 import PageAside from '@components/PageAside';
 import PageFooter from '@components/PageFooter';
@@ -151,6 +152,7 @@ function Layout() {
           <PullToRefresh
             onRefresh={handlePullToRefresh}
             pullingContent={<PullToRefreshMessage />}
+            refreshingContent={<LoadingSpinner />}
           >
             <div className="page h-100">
               <header className="page__header">

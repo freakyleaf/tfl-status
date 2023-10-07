@@ -2,3 +2,8 @@
 .ptr__pull-down {
   overflow: hidden !important; // Required to override `hidden auto` value and prevent body scrollbar
 }
+
+.ptr__pull-down,
+.ptr__loader {
+  height: 100%;
+}
