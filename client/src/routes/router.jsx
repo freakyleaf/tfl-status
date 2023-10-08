@@ -17,6 +17,16 @@ import {
   serviceModesNationalRail,
 } from '@constants/serviceModes';
 
+import {
+  VIEW_MODE_BUS,
+  VIEW_MODE_CORE,
+  VIEW_MODE_NATIONAL_RAIL,
+} from '@constants/viewModes';
+
+import {
+  VIEW_TYPE_SERVICES,
+} from '@constants/viewTypes';
+
 import Layout from '@layouts/Layout';
 
 import ViewErrorPageNotFound from '@views/ViewErrorPageNotFound';
@@ -35,8 +45,8 @@ const router = createBrowserRouter(
           <ViewServices
             pageTitle="Home"
             serviceModes={serviceModesCore}
-            viewMode="core"
-            viewType="services"
+            viewMode={VIEW_MODE_CORE}
+            viewType={VIEW_TYPE_SERVICES}
           />}
         index
       />
@@ -57,8 +67,8 @@ const router = createBrowserRouter(
           <ViewServices
             pageTitle="Bus"
             serviceModes={serviceModesBus}
-            viewMode="bus"
-            viewType="services"
+            viewMode={VIEW_MODE_BUS}
+            viewType={VIEW_TYPE_SERVICES}
           />}
         path={PATH_BUS}
       />
@@ -79,8 +89,8 @@ const router = createBrowserRouter(
           <ViewServices
             pageTitle="National Rail"
             serviceModes={serviceModesNationalRail}
-            viewMode="national-rail"
-            viewType="services"
+            viewMode={VIEW_MODE_NATIONAL_RAIL}
+            viewType={VIEW_TYPE_SERVICES}
           />}
         path={PATH_NATIONAL_RAIL}
       />

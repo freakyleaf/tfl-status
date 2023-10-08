@@ -3,6 +3,17 @@ import PropTypes from 'prop-types';
 import React, { createRef, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import buildPageTitle from '@utils/buildPageTitle';
+
+import {
+  havingTroubleFetchingData,
+} from '@constants/textContent';
+
+import {
+  VIEW_MODE_BUS,
+  VIEW_MODE_CORE,
+} from '@constants/viewModes';
+
 import {
   useScrollTo,
   useServices,
@@ -14,10 +25,6 @@ import IconCirclePlus from '@components/icons/IconCirclePlus';
 import PageMain from '@components/PageMain';
 import Status from '@components/Status';
 import StatusReason from '@components/StatusReason';
-
-import buildPageTitle from '@utils/buildPageTitle';
-
-import { havingTroubleFetchingData } from '@constants/textContent';
 
 ViewServices.propTypes = {
   pageTitle: PropTypes.string.isRequired,
@@ -44,11 +51,11 @@ function ViewServices(props) {
 
   const servicesOrdered = [];
 
-  if (viewMode === 'home') {
+  if (viewMode === VIEW_MODE_CORE) {
     serviceModes.forEach((modeName) => {
       servicesOrdered.push(...servicesFiltered.filter((service) => service.modeName === modeName));
     });
-  } else if (viewMode === 'bus') {
+  } else if (viewMode === VIEW_MODE_BUS) {
     servicesOrdered.push(...servicesFiltered.sort((a, b) => a.id.localeCompare(b.id, undefined, {
       numeric: true,
       sensitivity: 'base',
