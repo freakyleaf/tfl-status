@@ -1,6 +1,7 @@
 .icon {
   fill: currentcolor;
 
+  .page__aside &,
   .page__main & {
     @include device-min(tablet) {
       width: $spacer-6;

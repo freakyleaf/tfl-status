@@ -6,13 +6,8 @@ import { useSelector } from 'react-redux';
 import buildPageTitle from '@utils/buildPageTitle';
 
 import {
-  havingTroubleFetchingData,
+  contentHavingTroubleFetchingData,
 } from '@constants/textContent';
-
-import {
-  VIEW_MODE_BUS,
-  VIEW_MODE_CORE,
-} from '@constants/viewModes';
 
 import {
   useScrollTo,
@@ -23,54 +18,37 @@ import Icon from '@components/Icon';
 import IconCircleMinus from '@components/icons/IconCircleMinus';
 import IconCirclePlus from '@components/icons/IconCirclePlus';
 import PageMain from '@components/PageMain';
+import Reason from '@components/Reason';
 import Status from '@components/Status';
-import StatusReason from '@components/StatusReason';
 
 ViewServices.propTypes = {
-  pageTitle: PropTypes.string.isRequired,
-  serviceModes: PropTypes.arrayOf(PropTypes.string).isRequired,
-  serviceSort: PropTypes.bool,
+  serviceGroup: PropTypes.string.isRequired,
+  serviceNamePretty: PropTypes.string.isRequired,
   viewMode: PropTypes.string.isRequired,
 };
 
 function ViewServices(props) {
   const {
-    pageTitle,
-    serviceModes,
+    serviceGroup,
+    serviceNamePretty,
     viewMode,
   } = props;
 
   const { scrollTo } = useScrollTo();
   const { services } = useServices();
 
-  if (!services.length) {
-    throw new Error(havingTroubleFetchingData);
+  if (!Object.keys(services).length) {
+    throw new Error(contentHavingTroubleFetchingData);
   }
 
-  const servicesFiltered = services.filter((service) => serviceModes.includes(service.modeName));
-
-  const servicesOrdered = [];
-
-  if (viewMode === VIEW_MODE_CORE) {
-    serviceModes.forEach((modeName) => {
-      servicesOrdered.push(...servicesFiltered.filter((service) => service.modeName === modeName));
-    });
-  } else if (viewMode === VIEW_MODE_BUS) {
-    servicesOrdered.push(...servicesFiltered.sort((a, b) => a.id.localeCompare(b.id, undefined, {
-      numeric: true,
-      sensitivity: 'base',
-    })));
-  }
-  else {
-    servicesOrdered.push(...servicesFiltered);
-  }
+  const pageTitle = `${serviceNamePretty} Services`;
 
   useEffect(() => {
     document.title = buildPageTitle(pageTitle);
   }, [ location ]);
 
-  const hasStatusReason = (service) => {
-    return service.lineStatuses[0].reason;
+  const hasReason = (service) => {
+    return !!service.reasonsConformed.length;
   };
 
   const {
@@ -78,9 +56,11 @@ function ViewServices(props) {
     pageMainScrollTop,
   } = useSelector((state) => state.settings);
 
-  const refServices = useRef(servicesOrdered.map(() => createRef()));
+  const servicesModes = services[serviceGroup].modes;
+
+  const refServices = useRef(servicesModes.map(() => createRef()));
   const [ activeService, setActiveService ] = useState(null);
-  const [ statusReasonVisibility, setStatusReasonVisibility ] = useState({});
+  const [ reasonVisibility, setReasonVisibility ] = useState({});
 
   useEffect(() => {
     if (activeService === null) return;
@@ -105,9 +85,9 @@ function ViewServices(props) {
     return () => {
       if (activeService === index) setActiveService(null);
 
-      setStatusReasonVisibility({
-        ...statusReasonVisibility,
-        [serviceId]: !statusReasonVisibility[serviceId],
+      setReasonVisibility({
+        ...reasonVisibility,
+        [serviceId]: !reasonVisibility[serviceId],
       });
 
       setTimeout(() => setActiveService(index), 0);
@@ -128,13 +108,13 @@ function ViewServices(props) {
             </thead>
             <tbody>
               {
-                servicesOrdered.map((service, index) => {
+                servicesModes.map((service, index) => {
                   return (
                     <tr
                       className="services-table__row"
                       key={service.id}
                     >
-                      <td className={`services-table__cell services-table__cell--service brand-background--id-${service.id} brand-background--mode-${service.modeName}`}>
+                      <td className={`services-table__cell services-table__cell--service brand-background--id-${service.id} brand-background--mode-${service.mode}`}>
                         <NavLink
                           className="services-table__link"
                           to={`${location.pathname === '/' ? `/service/${service.id}` : `${location.pathname}/service/${service.id}`}`}
@@ -145,7 +125,7 @@ function ViewServices(props) {
                         </NavLink>
                       </td>
                       <td
-                        className={`services-table__cell services-table__cell--status ${hasStatusReason(service) ? 'clickable' : ''}`.trim()}
+                        className={`services-table__cell services-table__cell--status ${hasReason(service) ? 'clickable' : ''}`.trim()}
                         onClick={handleClick(service.id, index)}
                         ref={refServices.current[index]}
                       >
@@ -154,21 +134,21 @@ function ViewServices(props) {
                             service={service}
                           />
                           {
-                            hasStatusReason(service) && (
+                            hasReason(service) && (
                               <button className="button button--icon">
                                 <span className="visually-hidden">
-                                  {statusReasonVisibility[service.id] ? 'Hide' : 'Show'} status details for {service.name}
+                                  {reasonVisibility[service.id] ? 'Hide' : 'Show'} status details for {service.name}
                                 </span>
                                 <Icon
-                                  icon={statusReasonVisibility[service.id] ? <IconCircleMinus /> : <IconCirclePlus />}
+                                  icon={reasonVisibility[service.id] ? <IconCircleMinus /> : <IconCirclePlus />}
                                 />
                               </button>
                             )
                           }
                         </div>
                         {
-                          statusReasonVisibility[service.id] && (
-                            <StatusReason
+                          reasonVisibility[service.id] && (
+                            <Reason
                               service={service}
                             />
                           )

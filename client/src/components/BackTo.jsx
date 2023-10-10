@@ -7,14 +7,14 @@ import Icon from '@components/Icon';
 import IconArrow from '@components/icons/IconArrow';
 
 BackTo.propTypes = {
-  name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 function BackTo(props) {
   const {
-    name,
     path,
+    text,
   } = props;
 
   return (
@@ -29,7 +29,7 @@ function BackTo(props) {
           icon={<IconArrow direction="left" />}
         />
         <span className="back-to__text">
-          Back to {name}
+          Back to {text}
         </span>
       </NavLink>
     </div>

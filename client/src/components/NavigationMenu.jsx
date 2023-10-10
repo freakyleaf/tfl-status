@@ -1,15 +1,19 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
-  PATH_BUS,
-  PATH_HOME,
-  PATH_NATIONAL_RAIL,
-} from '@constants/paths';
+  SERVICE_GROUP_BUS,
+  SERVICE_GROUP_CORE,
+  SERVICE_GROUP_NATIONAL_RAIL,
+} from '@constants/serviceGroups';
+
+import Icon from '@components/Icon';
+import IconCircleMinus from '@components/icons/IconCircleMinus';
+import IconCirclePlus from '@components/icons/IconCirclePlus';
 
 NavigationMenu.propTypes = {
-  services: PropTypes.array.isRequired,
+  services: PropTypes.object.isRequired,
 };
 
 function NavigationMenu(props) {
@@ -17,71 +21,111 @@ function NavigationMenu(props) {
     services,
   } = props;
 
+  const menuItems = [
+    SERVICE_GROUP_CORE,
+    SERVICE_GROUP_BUS,
+    SERVICE_GROUP_NATIONAL_RAIL,
+  ];
+
+  const hasServices = !!Object.keys(services).length;
+
+  const [ menuItemVisibility, setMenuItemVisibility ] = useState({});
+
+  const handleClick = (menuItem) => () => {
+    setMenuItemVisibility({
+      ...menuItemVisibility,
+      [menuItem]: !menuItemVisibility[menuItem],
+    });
+  };
+
   return (
     <nav className="navigation-menu">
       <h2 className="navigation-menu__heading">
-        All Services
+        {
+          hasServices ? 'All Services': 'Navigation'
+        }
       </h2>
       <ul className="navigation-menu__list navigation-menu__list--all-services">
-        <li className="navigation-menu__list-item">
-          <NavLink
-            className="navigation-menu__link"
-            to={PATH_HOME}
-          >
-            Home
-          </NavLink>
-        </li>
         {
-          !!services.length && (
-            <>
-              <li className="navigation-menu__list-item">
-                <NavLink
-                  className="navigation-menu__link"
-                  to={`/${PATH_BUS}`}
-                >
-                  Bus
-                </NavLink>
-              </li>
-              <li className="navigation-menu__list-item">
-                <NavLink
-                  className="navigation-menu__link"
-                  to={`/${PATH_NATIONAL_RAIL}`}
-                >
-                  National Rail
-                </NavLink>
-              </li>
-            </>
+          !hasServices && (
+            <li className="navigation-menu__list-item">
+              <NavLink
+                className="navigation-menu__link"
+                to="/"
+              >
+                Home
+              </NavLink>
+            </li>
           )
         }
+        {
+          hasServices && menuItems.map((menuItem) => (
+            <li
+              className="navigation-menu__list-item"
+              key={services[menuItem].namePretty}
+            >
+              <NavLink
+                className="navigation-menu__link"
+                to={services[menuItem].path}
+              >
+                {services[menuItem].namePretty}
+              </NavLink>
+            </li>
+          ))
+        }
       </ul>
-      {
-        !!services.length && (
-          <>
-            <h2 className="navigation-menu__heading mt-global">
-              Individual Services
-            </h2>
-            <ul className="navigation-menu__list navigation-menu__list--individual-services">
+      <h2 className="mt-global">
+        Individual Services
+      </h2>
+      <ul className="navigation-menu__list navigation-menu__list--individual-services">
+        {
+          menuItems.map((menuItem) => (
+            <li
+              className="navigation-menu__list-item"
+              key={services[menuItem].namePretty}
+            >
+              <div
+                className="navigation-menu__collapsible clickable"
+                onClick={handleClick(menuItem)}
+              >
+                <h3 className="navigation-menu__subheading">
+                  {services[menuItem].namePretty}
+                </h3>
+                <button className="button button--icon">
+                  <span className="visually-hidden">
+                    {menuItemVisibility[menuItem] ? 'Hide' : 'Show'} individual {services[menuItem].namePretty} services
+                  </span>
+                  <Icon
+                    icon={menuItemVisibility[menuItem] ? <IconCircleMinus /> : <IconCirclePlus />}
+                  />
+                </button>
+              </div>
               {
-                services.map((service) => {
-                  return (
-                    <li
-                      className="navigation-menu__list-item"
-                      key={service.id}
-                    >
-                      <NavLink
-                        className="navigation-menu__link"
-                        to={`/service/${service.id}`}
-                      >
-                        {service.name}
-                      </NavLink>
-                    </li>
-                  );
-                })
+                menuItemVisibility[menuItem] && (
+                  <ul className="navigation-menu__list">
+                    {
+                      services[menuItem].modes.map((mode) => (
+
+                        <li
+                          className="navigation-menu__list-item"
+                          key={mode.name}
+                        >
+                          <NavLink
+                            className="navigation-menu__link"
+                            to={`${menuItem === SERVICE_GROUP_CORE ? '' : services[menuItem].path}/service/${mode.id}`}
+                          >
+                            {mode.name}
+                          </NavLink>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                )
               }
-            </ul>
-          </>
-        )
-      }
+            </li>
+          ))
+        }
+      </ul>
     </nav>
   );
 }

@@ -7,15 +7,24 @@ import {
 
 import {
   PATH_BUS,
-  PATH_HOME,
+  PATH_CORE,
   PATH_NATIONAL_RAIL,
 } from '@constants/paths';
 
 import {
-  serviceModesBus,
-  serviceModesCore,
-  serviceModesNationalRail,
-} from '@constants/serviceModes';
+  SERVICE_GROUP_BUS,
+  SERVICE_GROUP_CORE,
+  SERVICE_GROUP_NATIONAL_RAIL,
+  SERVICE_NAME_PRETTY_BUS,
+  SERVICE_NAME_PRETTY_CORE,
+  SERVICE_NAME_PRETTY_NATIONAL_RAIL,
+} from '@constants/serviceGroups';
+
+import {
+  contentBackToBus,
+  contentBackToCore,
+  contentBackToNationalRail,
+} from '@constants/textContent';
 
 import {
   VIEW_MODE_BUS,
@@ -38,13 +47,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       element={<Layout />}
-      path={PATH_HOME}
+      path={PATH_CORE}
     >
       <Route
         element={
           <ViewServices
-            pageTitle="Home"
-            serviceModes={serviceModesCore}
+            serviceGroup="core"
+            serviceNamePretty={SERVICE_NAME_PRETTY_CORE}
             viewMode={VIEW_MODE_CORE}
             viewType={VIEW_TYPE_SERVICES}
           />}
@@ -54,9 +63,10 @@ const router = createBrowserRouter(
         element={
           <ViewService
             backTo={{
-              name: 'Home',
-              path: PATH_HOME,
+              path: PATH_CORE,
+              text: contentBackToCore,
             }}
+            serviceGroup={SERVICE_GROUP_CORE}
           />
         }
         errorElement={<ViewErrorService />}
@@ -65,8 +75,8 @@ const router = createBrowserRouter(
       <Route
         element={
           <ViewServices
-            pageTitle="Bus"
-            serviceModes={serviceModesBus}
+            serviceGroup="bus"
+            serviceNamePretty={SERVICE_NAME_PRETTY_BUS}
             viewMode={VIEW_MODE_BUS}
             viewType={VIEW_TYPE_SERVICES}
           />}
@@ -76,9 +86,10 @@ const router = createBrowserRouter(
         element={
           <ViewService
             backTo={{
-              name: 'all bus services',
               path: `/${PATH_BUS}`,
+              text: contentBackToBus,
             }}
+            serviceGroup={SERVICE_GROUP_BUS}
           />
         }
         errorElement={<ViewErrorService />}
@@ -87,8 +98,8 @@ const router = createBrowserRouter(
       <Route
         element={
           <ViewServices
-            pageTitle="National Rail"
-            serviceModes={serviceModesNationalRail}
+            serviceGroup="nationalRail"
+            serviceNamePretty={SERVICE_NAME_PRETTY_NATIONAL_RAIL}
             viewMode={VIEW_MODE_NATIONAL_RAIL}
             viewType={VIEW_TYPE_SERVICES}
           />}
@@ -98,9 +109,10 @@ const router = createBrowserRouter(
         element={
           <ViewService
             backTo={{
-              name: 'all National Rail services',
               path: `/${PATH_NATIONAL_RAIL}`,
+              text: contentBackToNationalRail,
             }}
+            serviceGroup={SERVICE_GROUP_NATIONAL_RAIL}
           />
         }
         errorElement={<ViewErrorService />}

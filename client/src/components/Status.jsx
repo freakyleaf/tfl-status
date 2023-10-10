@@ -18,26 +18,26 @@ function Status(props) {
     <div className="status">
       <ul className="status__list">
         {
-          service.lineStatusesConformed.map((lineStatus) => {
+          service.statusesConformed.map((status) => {
             return (
               <li
-                className={`status__list-item ${lineStatus.statusSeverity === 10 ? 'status__list-item--positive' : 'status__list-item--negative'}`}
-                key={lineStatus.statusSeverityDescription}
+                className={`status__list-item ${status.severity === 10 ? 'status__list-item--positive' : 'status__list-item--negative'}`}
+                key={status.description}
               >
                 <Icon
                   className="status__icon"
-                  icon={lineStatus.statusSeverity === 10 ? <IconCircleCheck /> : <IconCircleExclamation />}
+                  icon={status.severity === 10 ? <IconCircleCheck /> : <IconCircleExclamation />}
                 />
                 <span className="status__text">
-                  {lineStatus.statusSeverityDescription}
+                  {status.description}
                 </span>
                 <span className="visually-hidden">
                   on the {service.name}
                   {
-                    service.modeName === 'tube' && (' line.')
+                    service.mode === 'tube' && (' line.')
                   }
                   {
-                    (service.modeName === 'overground' || service.modeName === 'tram') && (' network.')
+                    (service.mode === 'overground' || service.mode === 'tram') && (' network.')
                   }
                 </span>
               </li>

@@ -1,5 +1,20 @@
+.navigation-menu__collapsible {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation-menu__subheading {
+  margin-bottom: 0;
+}
+
 .navigation-menu__list {
   @extend %list-unstyled;
+
+  .navigation-menu__list--individual-services & {
+    margin-top: $spacer-global;
+    margin-bottom: $spacer-global;
+  }
 }
 
 .navigation-menu__link {

@@ -10,9 +10,9 @@ import buildPageTitle from '@utils/buildPageTitle';
 import getSuggested from '@utils/getSuggested';
 
 import {
-  havingTroubleFetchingData,
-  noSimilarServices,
-  pleaseUseMenu,
+  contentHavingTroubleFetchingData,
+  contentNoSimilarServices,
+  contentPleaseUseMenu,
 } from '@constants/textContent';
 
 function ViewErrorService() {
@@ -49,7 +49,7 @@ function ViewErrorService() {
             !services.length && (
               <>
                 <h1>Error</h1>
-                <p>{havingTroubleFetchingData}</p>
+                <p>{contentHavingTroubleFetchingData}</p>
               </>
             )
           }
@@ -65,8 +65,8 @@ function ViewErrorService() {
                 {
                   !suggested && (
                     <>
-                      <p>{noSimilarServices}</p>
-                      <p>{pleaseUseMenu}</p>
+                      <p>{contentNoSimilarServices}</p>
+                      <p>{contentPleaseUseMenu}</p>
                     </>
                   )
                 }

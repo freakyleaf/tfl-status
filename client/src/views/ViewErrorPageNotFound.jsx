@@ -4,7 +4,7 @@ import PageMain from '@components/PageMain';
 
 import buildPageTitle from '@utils/buildPageTitle';
 
-import { pleaseUseMenu } from '@constants/textContent';
+import { contentPleaseUseMenu } from '@constants/textContent';
 
 function ViewErrorPageNotFound() {
   useEffect(() => {
@@ -16,7 +16,7 @@ function ViewErrorPageNotFound() {
       <PageMain>
         <div className="error h-100">
           <h1>Page Not Found</h1>
-          <p>{pleaseUseMenu}</p>
+          <p>{contentPleaseUseMenu}</p>
         </div>
       </PageMain>
     </div>

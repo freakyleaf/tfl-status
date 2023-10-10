@@ -1,10 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import groupBy from 'lodash.groupby';
 
 import { baseUrlServer } from '@constants/baseUrl';
-import { serviceModesAll } from '@constants/serviceModes';
 
-import conformStatusSeverity from '@utils/conformStatusSeverity';
+import conformData from '@utils/conformData';
 
 export const statusApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseUrlServer }),
@@ -14,13 +12,7 @@ export const statusApi = createApi({
     fetchStatuses: builder.query({
       query: () => '/status',
       providesTags: [ 'status' ],
-      transformResponse: (status) => {
-        if (status.code === 'ERR_BAD_REQUEST' || status.code === 'ENOTFOUND') return [];
-        const statusGrouped = groupBy(status, 'modeName');
-        const statusSorted = serviceModesAll.flatMap((serviceMode) => statusGrouped[serviceMode]);
-        const statusConformed = conformStatusSeverity(statusSorted);
-        return statusConformed;
-      },
+      transformResponse: (data) => conformData(data),
     }),
   }),
 });
