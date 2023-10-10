@@ -69,7 +69,11 @@ const router = createBrowserRouter(
             serviceGroup={SERVICE_GROUP_CORE}
           />
         }
-        errorElement={<ViewErrorService />}
+        errorElement={
+          <ViewErrorService
+            serviceGroup={SERVICE_GROUP_CORE}
+          />
+        }
         path="service/:id"
       />
       <Route
@@ -92,7 +96,11 @@ const router = createBrowserRouter(
             serviceGroup={SERVICE_GROUP_BUS}
           />
         }
-        errorElement={<ViewErrorService />}
+        errorElement={
+          <ViewErrorService
+            serviceGroup={SERVICE_GROUP_BUS}
+          />
+        }
         path={`${PATH_BUS}/service/:id`}
       />
       <Route
@@ -115,7 +123,11 @@ const router = createBrowserRouter(
             serviceGroup={SERVICE_GROUP_NATIONAL_RAIL}
           />
         }
-        errorElement={<ViewErrorService />}
+        errorElement={
+          <ViewErrorService
+            serviceGroup={SERVICE_GROUP_NATIONAL_RAIL}
+          />
+        }
         path={`${PATH_NATIONAL_RAIL}/service/:id`}
       />
       <Route

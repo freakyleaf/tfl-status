@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -15,10 +16,19 @@ import {
   contentPleaseUseMenu,
 } from '@constants/textContent';
 
-function ViewErrorService() {
+ViewErrorService.propTypes = {
+  serviceGroup: PropTypes.string.isRequired,
+};
+
+function ViewErrorService(props) {
+  const {
+    serviceGroup,
+  } = props;
+
   const { id } = useParams();
   const { services } = useServices();
-  const serviceIds = services.map((service) => service.id);
+  const serviceIds = services[serviceGroup].modes.map((service) => service.id);
+  const path = services[serviceGroup].path === '/' ? '' : services[serviceGroup].path;
 
   useEffect(() => {
     document.title = buildPageTitle('Error');
@@ -36,17 +46,19 @@ function ViewErrorService() {
 
   useEffect(() => {
     setSuggested(getSuggested({
-      item: idx,
       items: serviceIds,
+      item: idx,
     }));
   }, [ id ]);
+
+  const hasServices = !!Object.keys(services).length;
 
   return (
     <div className="view view--error h-100 pt-global">
       <PageMain>
         <div className="error h-100">
           {
-            !services.length && (
+            !hasServices && (
               <>
                 <h1>Error</h1>
                 <p>{contentHavingTroubleFetchingData}</p>
@@ -54,12 +66,12 @@ function ViewErrorService() {
             )
           }
           {
-            !!services.length && (
+            !!hasServices && (
               <>
                 <h1>Service ID Not Found: {id}</h1>
                 {
                   suggested && (
-                    <p>Did you mean <NavLink to={`/service/${suggested}`}>/service/{suggested}</NavLink>?</p>
+                    <p>Did you mean <NavLink to={`${path}/service/${suggested}`}>{path}/service/{suggested}</NavLink>?</p>
                   )
                 }
                 {
