@@ -12,7 +12,10 @@ export const statusApi = createApi({
     fetchStatuses: builder.query({
       query: () => '/status',
       providesTags: [ 'status' ],
-      transformResponse: (data) => conformData(data),
+      transformResponse: (data) => {
+        if ([ 'ENOTFOUND', 'ERR_BAD_REQUEST' ].includes(data.code)) return [];
+        return conformData(data);
+      },
     }),
   }),
 });

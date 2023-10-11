@@ -1,6 +1,4 @@
 const createServices = (data) => {
-  if ([ 'ENOTFOUND', 'ERR_BAD_REQUEST' ].includes(data.code)) return [];
-
   return data.map((datum) => {
     return {
       id: datum.id,
