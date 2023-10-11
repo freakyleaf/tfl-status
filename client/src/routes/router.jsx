@@ -9,6 +9,8 @@ import {
   PATH_BUS,
   PATH_CORE,
   PATH_NATIONAL_RAIL,
+  PATH_PINNED,
+  PATH_SERVICE,
 } from '@constants/paths';
 
 import {
@@ -40,6 +42,7 @@ import Layout from '@layouts/Layout';
 
 import ViewErrorPageNotFound from '@views/ViewErrorPageNotFound';
 import ViewErrorService from '@views/ViewErrorService';
+import ViewPinned from '@views/ViewPinned';
 import ViewServices from '@views/ViewServices';
 import ViewService from '@views/ViewService';
 
@@ -47,7 +50,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       element={<Layout />}
-      path={PATH_CORE}
+      path={`/${PATH_CORE}`}
     >
       <Route
         element={
@@ -63,7 +66,7 @@ const router = createBrowserRouter(
         element={
           <ViewService
             backTo={{
-              path: PATH_CORE,
+              path: `/${PATH_CORE}`,
               text: contentBackToCore,
             }}
             serviceGroup={SERVICE_GROUP_CORE}
@@ -74,7 +77,19 @@ const router = createBrowserRouter(
             serviceGroup={SERVICE_GROUP_CORE}
           />
         }
-        path="service/:id"
+        path={`${PATH_SERVICE}/:id`}
+      />
+      <Route
+        element={
+          <ViewPinned
+            backTo={{
+              path: `/${PATH_CORE}`,
+              text: contentBackToCore,
+            }}
+            serviceGroup={SERVICE_GROUP_CORE}
+          />
+        }
+        path={`/${PATH_PINNED}`}
       />
       <Route
         element={
@@ -101,7 +116,19 @@ const router = createBrowserRouter(
             serviceGroup={SERVICE_GROUP_BUS}
           />
         }
-        path={`${PATH_BUS}/service/:id`}
+        path={`${PATH_BUS}/${PATH_SERVICE}/:id`}
+      />
+      <Route
+        element={
+          <ViewPinned
+            backTo={{
+              path: `/${PATH_BUS}`,
+              text: contentBackToBus,
+            }}
+            serviceGroup={SERVICE_GROUP_BUS}
+          />
+        }
+        path={`${PATH_BUS}/${PATH_PINNED}`}
       />
       <Route
         element={
@@ -128,7 +155,19 @@ const router = createBrowserRouter(
             serviceGroup={SERVICE_GROUP_NATIONAL_RAIL}
           />
         }
-        path={`${PATH_NATIONAL_RAIL}/service/:id`}
+        path={`${PATH_NATIONAL_RAIL}/${PATH_SERVICE}/:id`}
+      />
+      <Route
+        element={
+          <ViewPinned
+            backTo={{
+              path: `/${PATH_NATIONAL_RAIL}`,
+              text: contentBackToNationalRail,
+            }}
+            serviceGroup={SERVICE_GROUP_NATIONAL_RAIL}
+          />
+        }
+        path={`${PATH_NATIONAL_RAIL}/${PATH_PINNED}`}
       />
       <Route
         path='*'

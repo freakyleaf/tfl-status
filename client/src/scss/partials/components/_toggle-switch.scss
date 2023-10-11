@@ -1,0 +1,43 @@
+.toggle-switch,
+.toggle-switch * {
+  cursor: pointer;
+}
+
+.toggle-switch {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-switch__input {
+  appearance: none;
+  width: $toggle-switch-width;
+  height: $toggle-switch-height;
+  margin-right: $spacer-3;
+  background-color: var(--color-toggle-switch-background-unchecked);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28228, 228, 231%29'/%3e%3c/svg%3e");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-color: var(--color-toggle-switch-border-unchecked);
+  border-style: $border-style-generic;
+  border-width: $border-width-generic;
+  border-radius: $toggle-switch-border-radius;
+  transition: background-position $transition-constant;
+
+  &:checked {
+    background-color: var(--color-toggle-switch-background-checked);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28255, 255, 255%29'/%3e%3c/svg%3e");
+    background-position: right center;
+    border-color: var(--color-toggle-switch-border-checked);
+  }
+}
+
+[data-theme='dark'] {
+  .toggle-switch__input {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%2863, 63, 70%29'/%3e%3c/svg%3e");
+
+    &:checked {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28255, 255, 255%29'/%3e%3c/svg%3e");
+    }
+  }
+}

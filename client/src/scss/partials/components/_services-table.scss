@@ -1,8 +1,8 @@
 @use 'sass:math';
 
 .services-table {
+  flex: 1 1 auto;
   width: 100%;
-  min-height: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -21,10 +21,15 @@
   }
 }
 
-.services-table__link {
-  @extend %link-stretched;
+.services-table__links {
+  display: flex;
+  justify-content: space-between;
+}
 
-  display: block;
+.services-table__link {
+  display: flex;
+  align-items: center; // Required for pinned icon
+  justify-content: space-between; // Required for pinned icon
   padding: $services-table-padding-y $services-table-padding-x;
   text-decoration: none;
   color: inherit;
@@ -33,6 +38,14 @@
   &:focus,
   &:hover {
     color: inherit;
+  }
+
+  &--pinned {
+    flex-shrink: 0;
+  }
+
+  &--service {
+    flex-grow: 1;
   }
 }
 

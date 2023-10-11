@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import PageMain from '@components/PageMain';
 
@@ -7,9 +8,11 @@ import buildPageTitle from '@utils/buildPageTitle';
 import { contentPleaseUseMenu } from '@constants/textContent';
 
 function ViewErrorPageNotFound() {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = buildPageTitle('Error');
-  }, []);
+  }, [ location ]);
 
   return (
     <div className="view view--error h-100">

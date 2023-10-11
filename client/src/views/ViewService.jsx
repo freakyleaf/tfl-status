@@ -1,15 +1,20 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import {
+  PATH_PINNED,
+} from '@constants/paths';
+
+import { useServices } from '@layouts/Layout';
+
+import buildPageTitle from '@utils/buildPageTitle';
 
 import BackTo from '@components/BackTo';
 import PageMain from '@components/PageMain';
 import Reason from '@components/Reason';
 import Status from '@components/Status';
-
-import buildPageTitle from '@utils/buildPageTitle';
-
-import { useServices } from '@layouts/Layout';
 
 ViewService.propTypes = {
   backTo: PropTypes.shape({
@@ -26,6 +31,8 @@ function ViewService(props) {
   } = props;
 
   const { id } = useParams();
+  const { pinned } = useSelector((state) => state.settings);
+
   const { services } = useServices();
   const service = services[serviceGroup].modes.find((service) => service.id === id);
 
@@ -33,9 +40,11 @@ function ViewService(props) {
     throw new Error(`Service not found: ${id}`);
   }
 
+  const location = useLocation();
+
   useEffect(() => {
     document.title = buildPageTitle(service.name);
-  }, [ service ]);
+  }, [ location ]);
 
   return (
     <div className="view view--service h-100">
@@ -50,6 +59,9 @@ function ViewService(props) {
           <Reason
             service={service}
           />
+          <div className="service__pinned-message">
+            This service is currently {pinned[service.id] ? 'pinned' : 'not pinned'}. To view/edit all pinned {services[serviceGroup].namePretty.toLowerCase()} services <Link to={`${services[serviceGroup].path}/${PATH_PINNED}`}>click here</Link>.
+          </div>
           <BackTo
             path={backTo.path}
             text={backTo.text}

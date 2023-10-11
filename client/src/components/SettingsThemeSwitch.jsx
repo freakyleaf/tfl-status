@@ -16,7 +16,7 @@ import IconCircleFillEmpty from '@components/icons/IconCircleFillEmpty';
 import IconCircleFillFull from '@components/icons/IconCircleFillFull';
 import IconCircleFillHalf from '@components/icons/IconCircleFillHalf';
 
-function FormSwitch() {
+function SettingsThemeSwitch() {
   const dispatch = useDispatch();
   const refMarker = useRef(null);
   const themeApp = useSelector((state) => state.settings.themeApp);
@@ -36,82 +36,82 @@ function FormSwitch() {
   }, [ themeApp ]);
 
   return (
-    <div className="form-theme-switch">
+    <div className="settings-theme-switch">
       <ul
         aria-labelledby="settings-theme"
-        className="form-theme-switch__list"
+        className="settings-theme-switch__list"
         role="radiogroup"
       >
-        <li className="form-theme-switch__list-item">
+        <li className="settings-theme-switch__list-item">
           <input
             checked={themeApp === THEME_AUTO}
-            className="form-theme-switch__input"
-            id="form-theme-switch-mode-auto"
-            name="form-theme-switch"
+            className="settings-theme-switch__input"
+            id="settings-theme-switch-mode-auto"
+            name="settings-theme-switch"
             onChange={onChange}
             type="radio"
             value={THEME_AUTO}
           />
           <label
-            className="form-theme-switch__label"
-            htmlFor="form-theme-switch-mode-auto"
+            className="settings-theme-switch__label"
+            htmlFor="settings-theme-switch-mode-auto"
           >
             <Icon
-              className="form-theme-switch__icon"
+              className="settings-theme-switch__icon"
               icon={<IconCircleFillHalf />}
             />
-            <span className="form-theme-switch__text">
+            <span className="settings-theme-switch__text">
               Auto <span className="visually-hidden">theme</span>
             </span>
           </label>
           <div
             aria-hidden="true"
-            className="form-theme-switch__marker"
+            className="settings-theme-switch__marker"
             ref={refMarker}
           />
         </li>
-        <li className="form-theme-switch__list-item">
+        <li className="settings-theme-switch__list-item">
           <input
             checked={themeApp === THEME_LIGHT}
-            className="form-theme-switch__input"
-            id="form-theme-switch-mode-light"
-            name="form-theme-switch"
+            className="settings-theme-switch__input"
+            id="settings-theme-switch-mode-light"
+            name="settings-theme-switch"
             onChange={onChange}
             type="radio"
             value={THEME_LIGHT}
           />
           <label
-            className="form-theme-switch__label"
-            htmlFor="form-theme-switch-mode-light"
+            className="settings-theme-switch__label"
+            htmlFor="settings-theme-switch-mode-light"
           >
             <Icon
-              className="form-theme-switch__icon"
+              className="settings-theme-switch__icon"
               icon={<IconCircleFillFull />}
             />
-            <span className="form-theme-switch__text">
+            <span className="settings-theme-switch__text">
               Light <span className="visually-hidden">theme</span>
             </span>
           </label>
         </li>
-        <li className="form-theme-switch__list-item">
+        <li className="settings-theme-switch__list-item">
           <input
             checked={themeApp === THEME_DARK}
-            className="form-theme-switch__input"
-            id="form-theme-switch-mode-dark"
-            name="form-theme-switch"
+            className="settings-theme-switch__input"
+            id="settings-theme-switch-mode-dark"
+            name="settings-theme-switch"
             onChange={onChange}
             type="radio"
             value={THEME_DARK}
           />
           <label
-            className="form-theme-switch__label"
-            htmlFor="form-theme-switch-mode-dark"
+            className="settings-theme-switch__label"
+            htmlFor="settings-theme-switch-mode-dark"
           >
             <Icon
-              className="form-theme-switch__icon"
+              className="settings-theme-switch__icon"
               icon={<IconCircleFillEmpty />}
             />
-            <span className="form-theme-switch__text">
+            <span className="settings-theme-switch__text">
               Dark <span className="visually-hidden">theme</span>
             </span>
           </label>
@@ -121,4 +121,4 @@ function FormSwitch() {
   );
 }
 
-export default FormSwitch;
+export default SettingsThemeSwitch;

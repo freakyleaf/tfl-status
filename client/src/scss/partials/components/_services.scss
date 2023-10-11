@@ -1,0 +1,10 @@
+.services {
+  display: flex;
+  flex-direction: column;
+}
+
+.services__divider {
+  flex: 0 0 auto;
+  height: $spacer-2;
+  background-color: var(--color-services-divider-background);
+}

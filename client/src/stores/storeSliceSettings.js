@@ -10,6 +10,7 @@ const initialState = {
   menuOpen: false,
   pageMainHeight: 0,
   pageMainScrollTop: 0,
+  pinned: {},
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   settingsOpen: false,
   themeApp: THEME_AUTO,
@@ -32,6 +33,19 @@ export const storeSliceSettings = createSlice({
       const { payload } = action;
       state.pageMainScrollTop = payload;
     },
+    setPinned: (state, action) => {
+      const { payload } = action;
+      state.pinned = payload;
+    },
+    setPinnedItem: (state, action) => {
+      const { payload } = action;
+      const { id, pinned } = payload;
+      if (pinned) {
+        state.pinned[id] = pinned;
+      } else {
+        delete state.pinned[id];
+      }
+    },
     setSettingsOpen: (state, action) => {
       const { payload } = action;
       state.settingsOpen = payload;
@@ -47,6 +61,8 @@ export const {
   setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,
+  setPinned,
+  setPinnedItem,
   setSettingsOpen,
   setThemeApp,
 } = storeSliceSettings.actions;

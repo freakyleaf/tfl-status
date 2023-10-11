@@ -55,17 +55,9 @@ $color-light: $color-gray-200;
   --color-button-menu-text-hover: #{$color-white};
 }
 
-// Form Theme Switch
-:root {
-  --color-form-theme-switch-icon: #{$color-light};
-  --color-form-theme-switch-icon-active: #{$color-light};
-  --color-form-theme-switch-background: #{$color-gray-600};
-  --color-form-theme-switch-border: #{$color-gray-600};
-}
-
 // Hr
 :root {
-  --color-hr-border: #{$color-gray-200};
+  --color-hr-border: var(--color-border);
 }
 
 // Loading
@@ -93,10 +85,31 @@ $color-light: $color-gray-200;
   --color-page-main-text: #{$color-black};
 }
 
+// Services
+:root {
+  --color-services-divider-background: #{$color-black};
+}
+
+// Settings Theme Switch
+:root {
+  --color-settings-theme-switch-icon: #{$color-light};
+  --color-settings-theme-switch-icon-active: #{$color-light};
+  --color-settings-theme-switch-background: #{$color-gray-600};
+  --color-settings-theme-switch-border: #{$color-gray-600};
+}
+
 // Status
 :root {
   --color-status-negative-text: #{$color-state-error};
   --color-status-positive-text: #{$color-state-info};
+}
+
+// Toggle Switch
+:root {
+  --color-toggle-switch-background-checked: var(--color-primary);
+  --color-toggle-switch-background-unchecked: #{$color-white};
+  --color-toggle-switch-border-checked: var(--color-primary);
+  --color-toggle-switch-border-unchecked: var(--color-border);
 }
 
 // Typography
@@ -123,16 +136,12 @@ $color-light: $color-gray-200;
   --color-body-background: #{$color-black};
   --color-body-text: #{$color-light};
 
+  // Border
+  --color-border: #{$color-gray-700};
+
   // Box
   --color-box-background: #{$color-gray-800};
   --color-box-text: #{$color-light};
-
-  // Form Theme Switch
-  --color-form-theme-switch-background: #{$color-gray-700};
-  --color-form-theme-switch-border: #{$color-gray-700};
-
-  // Hr
-  --color-hr-border: #{$color-gray-700};
 
   // Loading
   --color-loading-icon: #{$color-gray-700};
@@ -147,9 +156,16 @@ $color-light: $color-gray-200;
   --color-page-main-background: #{$color-gray-900};
   --color-page-main-text: #{$color-light};
 
+  // Settings Theme Switch
+  --color-settings-theme-switch-background: #{$color-gray-700};
+  --color-settings-theme-switch-border: #{$color-gray-700};
+
   // Status
   --color-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio
   --color-status-positive-text: #{$color-light};
+
+  // Toggle Switch
+  --color-toggle-switch-background-unchecked: #{$color-gray-900};
 
   // Typography
   --color-link: #{color.adjust($color-tfl-blue, $lightness: 40%)};

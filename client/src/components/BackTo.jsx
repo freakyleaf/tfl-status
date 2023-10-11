@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import React from 'react';
 
 import Hr from '@components/Hr';
@@ -20,7 +20,7 @@ function BackTo(props) {
   return (
     <div className="back-to">
       <Hr />
-      <NavLink
+      <Link
         className="back-to__link"
         to={path}
       >
@@ -31,7 +31,7 @@ function BackTo(props) {
         <span className="back-to__text">
           Back to {text}
         </span>
-      </NavLink>
+      </Link>
     </div>
   );
 }

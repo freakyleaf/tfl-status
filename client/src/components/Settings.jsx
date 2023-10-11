@@ -1,8 +1,18 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-import FormThemeSwitch from '@components/form/FormThemeSwitch';
+import SettingsPinned from '@components/SettingsPinned';
+import SettingsThemeSwitch from '@components/SettingsThemeSwitch';
 
-function Settings() {
+Settings.propTypes = {
+  services: PropTypes.object.isRequired,
+};
+
+function Settings(props) {
+  const {
+    services,
+  } = props;
+
   return (
     <div className="settings">
       <h2
@@ -11,7 +21,13 @@ function Settings() {
       >
         Theme
       </h2>
-      <FormThemeSwitch />
+      <SettingsThemeSwitch />
+      <h2 className="settings__heading">
+        Pinned Services
+      </h2>
+      <SettingsPinned
+        services={services}
+      />
     </div>
   );
 }

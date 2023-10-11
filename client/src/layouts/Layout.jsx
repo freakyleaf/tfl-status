@@ -8,6 +8,7 @@ import {
   PATH_BUS,
   PATH_CORE,
   PATH_NATIONAL_RAIL,
+  PATH_SERVICE,
 } from '@constants/paths';
 
 import {
@@ -18,6 +19,7 @@ import {
   setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,
+  setPinned,
   setSettingsOpen,
   setThemeApp,
 } from '@stores/storeSliceSettings';
@@ -45,6 +47,7 @@ function Layout() {
 
   const {
     menuOpen,
+    pinned,
     settingsOpen,
     themeApp,
     themeSystem,
@@ -97,10 +100,9 @@ function Layout() {
 
   const pageMainClasses = () => {
     const output = [ 'container' ];
-    if ([ `/${PATH_BUS}`, PATH_CORE, `/${PATH_NATIONAL_RAIL}` ].includes(location.pathname)) output.push('container--px');
-    else if (location.pathname.includes('service')) output.push('container--pb container--px');
+    if ([ `/${PATH_BUS}`, `/${PATH_CORE}`, `/${PATH_NATIONAL_RAIL}` ].includes(location.pathname)) output.push('container--px h-100');
+    else if (location.pathname.includes(PATH_SERVICE)) output.push('container--pb container--px');
     else output.push('container--px container--py');
-    output.push('h-100');
     return output.join(' ');
   };
 
@@ -116,6 +118,17 @@ function Layout() {
       localStorage.setItem('theme', themeApp);
     }, 0);
   }, [ themeApp ]);
+
+  useEffect(() => {
+    const pinned = localStorage.getItem('pinned');
+    if (pinned) dispatch(setPinned(JSON.parse(pinned)));
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem('pinned', JSON.stringify(pinned));
+    }, 0);
+  }, [ pinned ]);
 
   // Close the menu or settings on any route change
   useEffect(() => {
@@ -192,7 +205,9 @@ function Layout() {
                         }
                         {
                           settingsOpen && (
-                            <Settings />
+                            <Settings
+                              services={services}
+                            />
                           )
                         }
                       </PageAside>

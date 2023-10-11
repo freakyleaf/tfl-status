@@ -64,7 +64,8 @@ $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
 
 // Elements that need an 'outer' focus state
 a,
-button {
+button,
+input {
   @extend %focusable;
   @extend %focusable-outer;
 }
