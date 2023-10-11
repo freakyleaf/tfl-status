@@ -1,8 +1,10 @@
-.pinned-services__list {
-  @extend %list-unstyled;
-
+.pinned-services {
   margin-top: $list-spaced-margin-y;
   margin-bottom: $list-spaced-margin-y;
+}
+
+.pinned-services__list {
+  @extend %list-unstyled;
 }
 
 .pinned-services__list-item {

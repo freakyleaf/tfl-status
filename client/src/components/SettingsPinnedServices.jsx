@@ -8,11 +8,11 @@ import kebabCase from '@utils/kebabCase';
 import Collapsible from '@components/Collapsible';
 import PinnedSevices from '@components/PinnedServices';
 
-SettingsPinnedItems.propTypes = {
+SettingsPinnedServices.propTypes = {
   services: PropTypes.object.isRequired,
 };
 
-function SettingsPinnedItems(props) {
+function SettingsPinnedServices(props) {
   const {
     services,
   } = props;
@@ -27,12 +27,12 @@ function SettingsPinnedItems(props) {
   };
 
   return (
-    <div className="settings-pinned">
-      <ul className="settings-pinned__list">
+    <div className="settings-pinned-services">
+      <ul className="settings-pinned-services__list">
         {
           menuItems.map((menuItem) => (
             <li
-              className="settings-pinned__list-item"
+              className="settings-pinned-services__list-item"
               key={services[menuItem].namePretty}
             >
               <Collapsible
@@ -57,4 +57,4 @@ function SettingsPinnedItems(props) {
   );
 }
 
-export default SettingsPinnedItems;
+export default SettingsPinnedServices;

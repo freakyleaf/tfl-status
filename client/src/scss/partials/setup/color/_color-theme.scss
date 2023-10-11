@@ -92,10 +92,10 @@ $color-light: $color-gray-200;
 
 // Settings Theme Switch
 :root {
-  --color-settings-theme-switch-icon: #{$color-light};
-  --color-settings-theme-switch-icon-active: #{$color-light};
-  --color-settings-theme-switch-background: #{$color-gray-600};
-  --color-settings-theme-switch-border: #{$color-gray-600};
+  --color-settings-theme-icon: #{$color-light};
+  --color-settings-theme-icon-active: #{$color-light};
+  --color-settings-theme-background: #{$color-gray-600};
+  --color-settings-theme-border: #{$color-gray-600};
 }
 
 // Status
@@ -157,8 +157,8 @@ $color-light: $color-gray-200;
   --color-page-main-text: #{$color-light};
 
   // Settings Theme Switch
-  --color-settings-theme-switch-background: #{$color-gray-700};
-  --color-settings-theme-switch-border: #{$color-gray-700};
+  --color-settings-theme-background: #{$color-gray-700};
+  --color-settings-theme-border: #{$color-gray-700};
 
   // Status
   --color-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio

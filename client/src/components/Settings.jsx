@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import SettingsPinned from '@components/SettingsPinned';
-import SettingsThemeSwitch from '@components/SettingsThemeSwitch';
+import SettingsPinnedServices from '@components/SettingsPinnedServices';
+import SettingsTheme from '@components/SettingsTheme';
 
 Settings.propTypes = {
   services: PropTypes.object.isRequired,
@@ -21,11 +21,11 @@ function Settings(props) {
       >
         Theme
       </h2>
-      <SettingsThemeSwitch />
+      <SettingsTheme />
       <h2 className="settings__heading">
         Pinned Services
       </h2>
-      <SettingsPinned
+      <SettingsPinnedServices
         services={services}
       />
     </div>

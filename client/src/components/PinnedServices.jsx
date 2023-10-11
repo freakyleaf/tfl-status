@@ -28,23 +28,25 @@ function ViewPinned(props) {
   };
 
   return (
-    <ul className="pinned-services__list">
-      {
-        services.modes.map((service) => (
-          <li
-            className="pinned-services__list-item"
-            key={service.id}
-          >
-            <ToggleSwitch
-              checked={pinned[service.id] || false}
-              id={service.id}
-              label={service.name}
-              onChange={({ checked, value }) => onChange({ checked, value })}
-            />
-          </li>
-        ))
-      }
-    </ul>
+    <div className="pinned-services">
+      <ul className="pinned-services__list">
+        {
+          services.modes.map((service) => (
+            <li
+              className="pinned-services__list-item"
+              key={service.id}
+            >
+              <ToggleSwitch
+                checked={pinned[service.id] || false}
+                id={service.id}
+                label={service.name}
+                onChange={({ checked, value }) => onChange({ checked, value })}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   );
 }
 
