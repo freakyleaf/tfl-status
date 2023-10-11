@@ -16,7 +16,7 @@
     "sitemap": "node buildSitemap.js"
   },
   "devDependencies": {
-    "eslint": "^8.35.0",
+    "eslint": "^8.51.0",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3"
   },
