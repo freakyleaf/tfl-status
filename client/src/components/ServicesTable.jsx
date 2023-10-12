@@ -109,7 +109,7 @@ function ServicesTable(props) {
                         to={`${services[serviceGroup].path}/${PATH_PINNED}`}
                       >
                         <span className="visually-hidden">
-                          Edit pinned {service.name} service
+                          Edit pinned services
                         </span>
                         <Icon
                           className="services-table__pinned"

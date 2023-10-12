@@ -39,7 +39,7 @@ function ViewPinned(props) {
               <ToggleSwitch
                 checked={pinned[service.id] || false}
                 id={service.id}
-                label={service.name}
+                label={<><span className="visually-hidden">Toggle pinned status for </span>{service.name}</>}
                 onChange={({ checked, value }) => onChange({ checked, value })}
               />
             </li>

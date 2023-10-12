@@ -9,7 +9,6 @@ Collapsible.propTypes = {
   a11yHelperText: PropTypes.string.isRequired,
   collapsed: PropTypes.bool.isRequired,
   heading: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
@@ -18,7 +17,6 @@ function Collapsible(props) {
     a11yHelperText,
     collapsed,
     heading,
-    id,
     onClick,
   } = props;
   return (
@@ -26,16 +24,10 @@ function Collapsible(props) {
       className="collapsible clickable"
       onClick={onClick}
     >
-      <h3
-        className="collapsible__heading"
-        id={id}
-      >
+      <h3 className="collapsible__heading">
         {heading}
       </h3>
-      <button
-        aria-labelledby={id}
-        className="button button--icon"
-      >
+      <button className="button button--icon">
         <span className="visually-hidden">
           {collapsed ? 'Show' : 'Hide'} {a11yHelperText}
         </span>

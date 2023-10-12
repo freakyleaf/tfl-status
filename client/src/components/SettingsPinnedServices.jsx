@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 
 import menuItems from '@constants/menuItems';
 
-import kebabCase from '@utils/kebabCase';
-
 import Collapsible from '@components/Collapsible';
 import PinnedSevices from '@components/PinnedServices';
 
@@ -39,7 +37,6 @@ function SettingsPinnedServices(props) {
                 a11yHelperText={`individual ${services[menuItem].namePretty} services`}
                 collapsed={!pinnedItemVisibility[menuItem]}
                 heading={services[menuItem].namePretty}
-                id={`collapsible-${kebabCase(services[menuItem].namePretty)}`}
                 onClick={handleClick(menuItem)}
               />
               {

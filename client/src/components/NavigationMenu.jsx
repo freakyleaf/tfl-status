@@ -8,8 +8,6 @@ import {
   PATH_SERVICE,
 } from '@constants/paths';
 
-import kebabCase from '@utils/kebabCase';
-
 import Collapsible from '@components/Collapsible';
 
 NavigationMenu.propTypes = {
@@ -82,7 +80,6 @@ function NavigationMenu(props) {
                 a11yHelperText={`individual ${services[menuItem].namePretty} services`}
                 collapsed={!menuItemVisibility[menuItem]}
                 heading={services[menuItem].namePretty}
-                id={`collapsible-${kebabCase(services[menuItem].namePretty)}`}
                 onClick={handleClick(menuItem)}
               />
               {
