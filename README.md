@@ -1,6 +1,6 @@
 # TfL Status Checker
 
-Uses the TfL Unified API to display service statuses for the various TfL services. The app is live at [tfl-status.co.uk](https://tfl-status.co.uk).
+Uses the TfL Unified API to display service statuses for the various TfL services. The app is live at [tflstatus.co.uk](https://tflstatus.co.uk).
 
 ## Features
 - First class accessibility support - app is keyboard navigable and screen reader friendly
