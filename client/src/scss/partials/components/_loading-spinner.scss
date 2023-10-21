@@ -12,6 +12,7 @@ $loading-spinner-animation-duration: 1.8s;
 
 .loading-spinner {
   position: relative;
+  transform: translateY($loading-spinner-size * -1);
   animation-delay: $loading-spinner-animation-delay;
 
   .ptr__loader & {

@@ -1,0 +1,149 @@
+@use 'sass:math';
+
+.map {
+  margin-top: $spacer-global;
+}
+
+.map__diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 10rem; // Arbitrary figure to accommodate loading spinner
+  padding-top: $spacer-global; // Make space for terminal stations with a large number of interchanges (e.g. 'Liverpool Street')
+  padding-bottom: $spacer-global; // Make space for terminal stations with a large number of interchanges (e.g. 'Liverpool Street')
+  font-size: 0.75em; // Very small phones only
+  border: $border-generic;
+
+  @include device-min(mobile) {
+    font-size: 1em;
+  }
+}
+
+.map__list {
+  @extend %list-unstyled;
+}
+
+.map__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $map-list-item-height;
+}
+
+.map__line {
+  position: relative;
+  width: $map-line-width;
+  height: 100%;
+
+  .map__list-item:first-of-type &,
+  .map__list-item:last-of-type & {
+    &::after { // Mask to hide first and last station overrun
+      content: '';
+      display: block;
+      position: absolute;
+      left: -50%;
+      width: $map-line-width * 2;
+      height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+      background-color: $color-tfl-white;
+    }
+  }
+
+  .map__list-item:first-of-type & {
+    &::after {
+      top: 0;
+    }
+  }
+
+  .map__list-item:last-of-type & {
+    &::after {
+      bottom: 0;
+    }
+  }
+}
+
+.map__marker {
+  z-index: 1; // Position above first and last station mask
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  &--interchange {
+    width: $map-marker-size--interchange;
+    height: $map-marker-size--interchange;
+    background-color: $color-tfl-white;
+    border-color: $color-tfl-black;
+    border-radius: 50%;
+    border-style: $border-style-generic;
+    border-width: $map-marker-interchange-border-width;
+    transform: translate(math.div(($map-marker-size--interchange - $map-line-width), 2) * -1, -50%);
+  }
+
+  &--regular {
+    width: $map-marker-width--regular;
+    height: $map-marker-height--regular;
+    transform: translate($map-line-width - 0.1rem, -50%); // `0.1rem` prevents potential gap between line and marker
+  }
+}
+
+.map__station,
+.map__interchanges-list {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.map__station {
+  display: flex;
+  align-items: center;
+  left: 100%;
+  margin-left: math.div($map-marker-size--interchange, 2);
+  color: $color-map-station-text;
+}
+
+.map__name {
+  @include device-min(tablet) {
+    white-space: nowrap; // Force single line
+  }
+}
+
+.map__icon {
+  &--international-rail,
+  &--national-rail {
+    margin-left: $spacer-3;
+    flex-shrink: 0;
+  }
+}
+
+.map__interchanges-list {
+  @extend %list-unstyled;
+
+  right: 100%;
+  margin-right: math.div($map-marker-size--interchange, 2);
+  width: 8rem; // Very small phones only - accommodate for 'Hammersmith & City'
+
+  @include device-min(mobile) {
+    width: 10rem; // Accommodate for 'Hammersmith & City'
+  }
+
+  @include device-min(desktop) {
+    width: 12rem; // Accommodate for 'Hammersmith & City'
+  }
+}
+
+.map__interchanges-list-item {
+  text-align: center;
+}
+
+.map__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}

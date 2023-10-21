@@ -12,6 +12,7 @@ import { useServices } from '@layouts/Layout';
 import buildPageTitle from '@utils/buildPageTitle';
 
 import BackTo from '@components/BackTo';
+import Map from '@components/Map';
 import PageMain from '@components/PageMain';
 import Reason from '@components/Reason';
 import Status from '@components/Status';
@@ -62,6 +63,9 @@ function ViewService(props) {
           <div className="service__pinned-message">
             This service is currently {pinned[service.id] ? 'pinned' : 'not pinned'}. To view/edit all pinned {services[serviceGroup].namePretty.toLowerCase()} services <Link to={`${services[serviceGroup].path}/${PATH_PINNED}`}>click here</Link>.
           </div>
+          <Map
+            service={service}
+          />
           <BackTo
             path={backTo.path}
             text={backTo.text}
