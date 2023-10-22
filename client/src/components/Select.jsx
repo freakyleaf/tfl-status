@@ -31,6 +31,7 @@ function Select(props) {
       >
         {items.map((item) => (
           <option
+            className="option"
             key={item.id}
             value={item.name}
           >

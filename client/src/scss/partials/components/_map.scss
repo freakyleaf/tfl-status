@@ -13,6 +13,7 @@
   padding-top: $spacer-global; // Make space for terminal stations with a large number of interchanges (e.g. 'Liverpool Street')
   padding-bottom: $spacer-global; // Make space for terminal stations with a large number of interchanges (e.g. 'Liverpool Street')
   font-size: 0.75em; // Very small phones only
+  background-color: var(--color-map-diagram-background);
   border: $border-generic;
 
   @include device-min(mobile) {
@@ -45,7 +46,7 @@
       left: -50%;
       width: $map-line-width * 2;
       height: calc(50% - #{math.div($map-marker-height--regular, 2)});
-      background-color: $color-tfl-white;
+      background-color: var(--color-map-diagram-background);;
     }
   }
 
@@ -98,7 +99,7 @@
   align-items: center;
   left: 100%;
   margin-left: math.div($map-marker-size--interchange, 2);
-  color: $color-map-station-text;
+  color: var(--color-map-station-text);
 }
 
 .map__name {

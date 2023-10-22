@@ -14,8 +14,6 @@ $color-gray-100: rgb(244 244 245);
 $color-dark: $color-gray-900;
 $color-light: $color-gray-200;
 
-$color-map-station-text: rgb(46 65 143);
-
 /* stylelint-disable no-duplicate-selectors */
 
 // Global
@@ -67,12 +65,24 @@ $color-map-station-text: rgb(46 65 143);
   --color-loading-icon: #{$color-gray-300};
 }
 
+// Map
+:root {
+  --color-map-station-text: var(--color-primary);
+  --color-map-diagram-background: var(--color-body-background);
+}
+
 // Navigation
 :root {
   --color-navigation-menu-text: var(--color-link);
   --color-navigation-menu-text-hover: var(--color-link-hover);
   --color-navigation-primary-text: #{$color-light};
   --color-navigation-primary-text-hover: #{$color-white};
+}
+
+// Option
+:root {
+  --color-option-text: #{$color-black};
+  --color-option-background: #{$color-white};
 }
 
 // Page
@@ -85,6 +95,11 @@ $color-map-station-text: rgb(46 65 143);
   --color-page-header-text: #{$color-light};
   --color-page-main-background: #{$color-white};
   --color-page-main-text: #{$color-black};
+}
+
+// Select
+:root {
+  --color-select-background: #{$color-white};
 }
 
 // Services
@@ -148,15 +163,26 @@ $color-map-station-text: rgb(46 65 143);
   // Loading
   --color-loading-icon: #{$color-gray-700};
 
+  // Map
+  --color-map-station-text: #{$color-light};
+  --color-map-diagram-background: #{$color-gray-800};
+
   // Navigation
   --color-navigation-menu-text: #{$color-light};
   --color-navigation-menu-text-hover: #{$color-white};
+
+  // Option
+  --color-option-text: #{$color-light};
+  --color-option-background: #{$color-dark};
 
   // Page
   --color-page-aside-background: #{$color-gray-900};
   --color-page-aside-text: #{$color-light};
   --color-page-main-background: #{$color-gray-900};
   --color-page-main-text: #{$color-light};
+
+  // Select
+  --color-select-background: #{$color-dark};
 
   // Settings Theme Switch
   --color-settings-theme-background: #{$color-gray-700};
