@@ -89,7 +89,7 @@ function Map(props) {
               !loading && lineHasMultipleRoutes && (
                 <>
                   <Alert
-                    text="This line has multiple routes. Please select a route to view a map."
+                    text="This line has multiple routes. Please select a route below to view a map."
                     type="info"
                   />
                   <Select
@@ -138,7 +138,7 @@ function Map(props) {
                             }
                           </div>
                           {
-                            !!station.interchanges && (
+                            !!station.interchanges.length && (
                               <>
                                 <span className="visually-hidden">
                                   {station.name} interchanges:
