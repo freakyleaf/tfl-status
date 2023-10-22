@@ -60,12 +60,12 @@ function ViewService(props) {
           <Reason
             service={service}
           />
-          <div className="service__pinned-message">
-            This service is currently {pinned[service.id] ? 'pinned' : 'not pinned'}. To view/edit all pinned {services[serviceGroup].namePretty.toLowerCase()} services <Link to={`${services[serviceGroup].path}/${PATH_PINNED}`}>click here</Link>.
-          </div>
           <Map
             service={service}
           />
+          <div className="service__pinned-message">
+            This service is currently {pinned[service.id] ? 'pinned' : 'not pinned'}. To view/edit all pinned {services[serviceGroup].namePretty.toLowerCase()} services <Link to={`${services[serviceGroup].path}/${PATH_PINNED}`}>click here</Link>.
+          </div>
           <BackTo
             path={backTo.path}
             text={backTo.text}
