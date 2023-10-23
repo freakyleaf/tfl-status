@@ -10,8 +10,7 @@
   justify-content: center;
   width: 100%;
   min-height: 10rem; // Arbitrary figure to accommodate loading spinner
-  padding-top: $spacer-global; // Make space for terminal stations with a large number of interchanges (e.g. 'Liverpool Street')
-  padding-bottom: $spacer-global; // Make space for terminal stations with a large number of interchanges (e.g. 'Liverpool Street')
+  padding: $spacer-global;
   font-size: 0.75em; // Very small phones only
   background-color: var(--color-map-diagram-background);
   border: $border-generic;
@@ -23,17 +22,35 @@
 
 .map__list {
   @extend %list-unstyled;
+
+  width: 100%;
 }
 
 .map__list-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: $map-list-item-height;
+  width: 100%;
+  min-height: $map-list-item-min-height;
+
+  @include device-min(desktop) {
+    min-height: $map-list-item-min-height--desktop;
+  }
+}
+
+.map__ornaments {
+  order: 2;
+  position: absolute;
+  top: 0;
+  width: $map-marker-size--interchange;
+  height: 100%;
 }
 
 .map__line {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   width: $map-line-width;
   height: 100%;
 
@@ -63,48 +80,21 @@
   }
 }
 
-.map__marker {
-  z-index: 1; // Position above first and last station mask
-  position: absolute;
-  top: 50%;
-  left: 0;
-
-  &--interchange {
-    width: $map-marker-size--interchange;
-    height: $map-marker-size--interchange;
-    background-color: $color-tfl-white;
-    border-color: $color-tfl-black;
-    border-radius: 50%;
-    border-style: $border-style-generic;
-    border-width: $map-marker-interchange-border-width;
-    transform: translate(math.div(($map-marker-size--interchange - $map-line-width), 2) * -1, -50%);
-  }
-
-  &--regular {
-    width: $map-marker-width--regular;
-    height: $map-marker-height--regular;
-    transform: translate($map-line-width - 0.1rem, -50%); // `0.1rem` prevents potential gap between line and marker
-  }
-}
-
 .map__station,
-.map__interchanges-list {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.map__interchanges {
+  display: flex;
+  align-items: center;
+  width: 50%; // `.map__ornaments` effectively has a width of `0` as it's absolutely positioned
 }
 
 .map__station {
-  display: flex;
-  align-items: center;
+  order: 3;
   left: 100%;
-  margin-left: math.div($map-marker-size--interchange, 2);
+  padding-left: $map-spacing; // Very small phones only
   color: var(--color-map-station-text);
-}
 
-.map__name {
-  @include device-min(tablet) {
-    white-space: nowrap; // Force single line
+  @include device-min(mobile) {
+    padding-left: $map-spacing-mobile;
   }
 }
 
@@ -116,11 +106,53 @@
   }
 }
 
+.map__marker {
+  z-index: 1; // Position above first and last station mask
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  &--interchange {
+    width: $map-marker-size--interchange;
+    height: $map-marker-size--interchange;
+    background-color: $color-tfl-white;
+    border-color: $color-tfl-black;
+    border-radius: 50%;
+    border-style: $border-style-generic;
+    border-width: $map-marker-interchange-border-width;
+    transform: translate(-50%, -50%);
+  }
+
+  &--regular {
+    width: $map-marker-width--regular;
+    height: $map-marker-height--regular;
+    transform: translate(calc(50% - 0.1rem), -50%); // `0.1rem` prevents potential gap between line and marker
+  }
+}
+
+.map__interchanges {
+  order: 1;
+  justify-content: flex-end;
+  margin-top: $spacer-3; // Ensure adjacent station interchanges never touch
+  margin-bottom: $spacer-3; // Ensure adjacent station interchanges never touch
+  padding-right: $map-spacing; // Very small phones only
+
+  @include device-min(mobile) {
+    padding-right: $map-spacing-mobile;
+  }
+
+  .map__list-item:first-of-type & {
+    margin-top: 0;
+  }
+
+  .map__list-item:last-of-type & {
+    margin-bottom: 0;
+  }
+}
+
 .map__interchanges-list {
   @extend %list-unstyled;
 
-  right: 100%;
-  margin-right: math.div($map-marker-size--interchange, 2);
   width: 8rem; // Very small phones only - accommodate for 'Hammersmith & City'
 
   @include device-min(mobile) {

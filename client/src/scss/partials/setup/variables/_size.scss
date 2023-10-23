@@ -11,11 +11,14 @@ $list-spaced-margin-y: $spacer-global;
 $loading-spinner-size: 1rem;
 
 $map-line-width: $spacer-4;
-$map-list-item-height: 9rem; // Arbitrary figure but prevents adjacent station interchange items from overlapping (e.g. 'Farringdon' and 'St Pancras International' on Thameslink)
+$map-list-item-min-height: 5rem; // Arbitrary figure
+$map-list-item-min-height--desktop: 6rem; // Arbitrary figure
 $map-marker-height--regular: $map-line-width;
 $map-marker-interchange-border-width: 0.36rem;
 $map-marker-size--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
 $map-marker-width--regular: $spacer-4;
+$map-spacing: math.div($map-marker-size--interchange, 4) * 3;
+$map-spacing-mobile: $map-marker-size--interchange;
 
 $navigation-primary-link-margin-y: $spacer-4;
 $navigation-primary-link-padding-x: $spacer-4;

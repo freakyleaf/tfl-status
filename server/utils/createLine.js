@@ -1,4 +1,19 @@
-import { coreServices } from '../constants/services.js';
+import {
+  SERVICE_MODE_DLR,
+  SERVICE_MODE_ELIZABETH_LINE,
+  SERVICE_MODE_OVERGROUND,
+  SERVICE_MODE_TRAM,
+  SERVICE_MODE_TUBE,
+} from '../constants/serviceModes.js';
+
+import {
+  coreServices,
+  dlrServices,
+  elizabethLineServices,
+  overgroundServices,
+  tramServices,
+  tubeServices,
+} from '../constants/services.js';
 
 import stringToKebabCase from './stringToKebabCase.js';
 
@@ -31,6 +46,7 @@ const getInterchanges = (lines, id) => {
     .map((line) => {
       return {
         id: line.id,
+        mode: getMode(line.id),
         name: line.name,
       };
     });
@@ -42,6 +58,14 @@ const getInterchanges = (lines, id) => {
   });
 
   return linesSorted;
+};
+
+const getMode = (id) => {
+  if (dlrServices.includes(id)) return SERVICE_MODE_DLR;
+  if (elizabethLineServices.includes(id)) return SERVICE_MODE_ELIZABETH_LINE;
+  if (overgroundServices.includes(id)) return SERVICE_MODE_OVERGROUND;
+  if (tramServices.includes(id)) return SERVICE_MODE_TRAM;
+  if (tubeServices.includes(id)) return SERVICE_MODE_TUBE;
 };
 
 const createLine = (data, id) => {

@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
+  VIEW_MODE_TUBE,
+} from '@constants/viewModes';
+
+import {
   useFetchLinesQuery,
 } from '@api/linesApi';
 
@@ -117,26 +121,29 @@ function Map(props) {
                         className="map__list-item"
                         key={`${station.name}-${index}`}
                       >
-                        <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}>
+                        <div className="map__ornaments">
+                          <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`} />
                           <div className={`map__marker ${(station.interchanges.length || station.hasNationalRailInterchange || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
-                          <div className="map__station">
-                            <span className="map__name">
-                              <span className="visually-hidden">
-                                Station stop:
-                              </span>
-                              {station.name}
+                        </div>
+                        <div className="map__station">
+                          <span className="map__name">
+                            <span className="visually-hidden">
+                              Station stop:
                             </span>
-                            {
-                              station.hasNationalRailInterchange && (
-                                <MapIconNationalRail />
-                              )
-                            }
-                            {
-                              stationHasInternationalRailInterchange(station) && (
-                                <MapIconInternationalRail />
-                              )
-                            }
-                          </div>
+                            {station.name}
+                          </span>
+                          {
+                            station.hasNationalRailInterchange && (
+                              <MapIconNationalRail />
+                            )
+                          }
+                          {
+                            stationHasInternationalRailInterchange(station) && (
+                              <MapIconInternationalRail />
+                            )
+                          }
+                        </div>
+                        <div className="map__interchanges">
                           {
                             !!station.interchanges.length && (
                               <>
@@ -154,7 +161,18 @@ function Map(props) {
                                           className="map__link"
                                           to={`/service/${interchange.id}`}
                                         >
+                                          <span className="visually-hidden">
+                                            View the
+                                          </span>
                                           {interchange.name}
+                                          <span className="visually-hidden">
+                                            {
+                                              interchange.mode === VIEW_MODE_TUBE && (
+                                                <>line</>
+                                              )
+                                            }
+                                            service page
+                                          </span>
                                         </Link>
                                       </div>
                                     </li>

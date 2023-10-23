@@ -1,4 +1,20 @@
-export const coreServices = [
+export const dlrServices = [
+  'dlr',
+];
+
+export const elizabethLineServices = [
+  'elizabeth',
+];
+
+export const overgroundServices = [
+  'london-overground',
+];
+
+export const tramServices = [
+  'tram',
+];
+
+export const tubeServices = [
   'bakerloo',
   'central',
   'circle',
@@ -10,8 +26,13 @@ export const coreServices = [
   'piccadilly',
   'victoria',
   'waterloo-city',
-  'london-overground',
-  'elizabeth',
-  'dlr',
-  'trams',
+];
+
+// Ordered as they need to appear
+export const coreServices = [
+  ...tubeServices,
+  ...overgroundServices,
+  ...elizabethLineServices,
+  ...dlrServices,
+  ...tramServices,
 ];
