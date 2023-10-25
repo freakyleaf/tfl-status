@@ -105,6 +105,8 @@
 }
 
 .map__icon {
+  transform: translateY(-0.05rem); // Minor adjustment to better align icons with text
+
   &--international-rail,
   &--national-rail {
     margin-left: $spacer-3;
