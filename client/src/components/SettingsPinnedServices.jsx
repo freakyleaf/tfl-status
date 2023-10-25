@@ -36,7 +36,7 @@ function SettingsPinnedServices(props) {
               <Collapsible
                 a11yHelperText={`individual ${services[menuItem].name} services`}
                 collapsed={!pinnedItemVisibility[menuItem]}
-                heading={services[menuItem].name}
+                heading={`Pinned ${services[menuItem].name} Services`}
                 onClick={handleClick(menuItem)}
               />
               {

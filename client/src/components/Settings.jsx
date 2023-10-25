@@ -6,6 +6,8 @@ import {
 } from '@constants/textContent';
 
 import Alert from '@components/Alert';
+import Hr from '@components/Hr';
+import SettingsMapVisibility from '@components/SettingsMapVisibility';
 import SettingsPinnedServices from '@components/SettingsPinnedServices';
 import SettingsTheme from '@components/SettingsTheme';
 
@@ -27,6 +29,7 @@ function Settings(props) {
         Theme
       </h2>
       <SettingsTheme />
+      <Hr />
       <h2 className="settings__heading">
         Pinned Services
       </h2>
@@ -37,6 +40,11 @@ function Settings(props) {
       <SettingsPinnedServices
         services={services}
       />
+      <Hr />
+      <h2 className="settings__heading">
+        Map Station Interchange Visibility
+      </h2>
+      <SettingsMapVisibility />
     </div>
   );
 }
