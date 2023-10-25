@@ -29,10 +29,10 @@ function Select(props) {
         id={id}
         onChange={onChange}
       >
-        {items.map((item) => (
+        {items.map((item, index) => (
           <option
             className="option"
-            key={item.id}
+            key={`${item.id}-${index}`} // We can't rely on the id being unique as some services return the same id for multiple routes
             value={item.name}
           >
             {item.name}

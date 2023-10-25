@@ -19,14 +19,14 @@ import ServicesTable from '@components/ServicesTable';
 
 ViewServices.propTypes = {
   serviceGroup: PropTypes.string.isRequired,
-  serviceNamePretty: PropTypes.string.isRequired,
+  serviceName: PropTypes.string.isRequired,
   viewMode: PropTypes.string.isRequired,
 };
 
 function ViewServices(props) {
   const {
     serviceGroup,
-    serviceNamePretty,
+    serviceName,
     viewMode,
   } = props;
 
@@ -34,13 +34,12 @@ function ViewServices(props) {
   const { scrollTo } = useScrollTo();
   const { services } = useServices();
 
-
   if (!Object.keys(services).length) {
     throw new Error(contentHavingTroubleFetchingData);
   }
 
   const location = useLocation();
-  const pageTitle = `${serviceNamePretty} Services`;
+  const pageTitle = `${serviceName} Services`;
 
   useEffect(() => {
     document.title = buildPageTitle(pageTitle);

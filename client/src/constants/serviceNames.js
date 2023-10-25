@@ -1,0 +1,9 @@
+const SERVICE_NAME_BUS = 'Bus';
+const SERVICE_NAME_CORE = 'Core';
+const SERVICE_NAME_NATIONAL_RAIL = 'National Rail';
+
+export {
+  SERVICE_NAME_BUS,
+  SERVICE_NAME_CORE,
+  SERVICE_NAME_NATIONAL_RAIL,
+};

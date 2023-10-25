@@ -31,12 +31,12 @@ function SettingsPinnedServices(props) {
           menuItems.map((menuItem) => (
             <li
               className="settings-pinned-services__list-item"
-              key={services[menuItem].namePretty}
+              key={services[menuItem].name}
             >
               <Collapsible
-                a11yHelperText={`individual ${services[menuItem].namePretty} services`}
+                a11yHelperText={`individual ${services[menuItem].name} services`}
                 collapsed={!pinnedItemVisibility[menuItem]}
-                heading={services[menuItem].namePretty}
+                heading={services[menuItem].name}
                 onClick={handleClick(menuItem)}
               />
               {

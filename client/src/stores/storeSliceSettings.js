@@ -7,6 +7,7 @@ import {
 } from '@constants/theme';
 
 const initialState = {
+  mapVisibility: {},
   menuOpen: false,
   pageMainHeight: 0,
   pageMainScrollTop: 0,
@@ -21,6 +22,19 @@ export const storeSliceSettings = createSlice({
   name: 'settings',
   initialState,
   reducers: {
+    setMapVisibility: (state, action) => {
+      const { payload } = action;
+      state.mapVisibility = payload;
+    },
+    setMapVisibilityItem: (state, action) => {
+      const { payload } = action;
+      const { id, visible } = payload;
+      if (visible) {
+        state.mapVisibility[id] = visible;
+      } else {
+        delete state.mapVisibility[id];
+      }
+    },
     setMenuOpen: (state, action) => {
       const { payload } = action;
       state.menuOpen = payload;
@@ -58,6 +72,8 @@ export const storeSliceSettings = createSlice({
 });
 
 export const {
+  setMapVisibility,
+  setMapVisibilityItem,
   setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,

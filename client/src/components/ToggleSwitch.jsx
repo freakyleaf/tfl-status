@@ -4,7 +4,10 @@ import React from 'react';
 ToggleSwitch.propTypes = {
   checked: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

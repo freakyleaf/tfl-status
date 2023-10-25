@@ -1,5 +1,7 @@
 import serviceModes, { SERVICE_MODE_BUS } from '../constants/serviceModes.js';
 
+import sortLinesBus from './sortLinesBus.js';
+
 const sortServcies = (services) => {
   const output = {};
 
@@ -7,12 +9,7 @@ const sortServcies = (services) => {
     output[serviceMode] = services.filter((service) => service.mode === serviceMode);
   });
 
-  output[SERVICE_MODE_BUS].sort((a, b) => {
-    return a.id.localeCompare(b.id, 'en', {
-      numeric: true,
-      sensitivity: 'base',
-    });
-  });
+  output[SERVICE_MODE_BUS] = sortLinesBus(output[SERVICE_MODE_BUS]);
 
   return output;
 };

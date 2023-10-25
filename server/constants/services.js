@@ -1,3 +1,7 @@
+export const busServices = [
+  'bus',
+];
+
 export const dlrServices = [
   'dlr',
 ];
@@ -8,6 +12,10 @@ export const elizabethLineServices = [
 
 export const overgroundServices = [
   'london-overground',
+];
+
+export const nationalRailServices = [
+  'national-rail',
 ];
 
 export const tramServices = [

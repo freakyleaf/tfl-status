@@ -54,13 +54,13 @@ function NavigationMenu(props) {
           hasServices && menuItems.map((menuItem) => (
             <li
               className="navigation-menu__list-item"
-              key={services[menuItem].namePretty}
+              key={services[menuItem].name}
             >
               <NavLink
                 className="navigation-menu__link"
                 to={services[menuItem].path}
               >
-                {services[menuItem].namePretty}
+                {services[menuItem].name}
               </NavLink>
             </li>
           ))
@@ -74,12 +74,12 @@ function NavigationMenu(props) {
           menuItems.map((menuItem) => (
             <li
               className="navigation-menu__list-item"
-              key={services[menuItem].namePretty}
+              key={services[menuItem].name}
             >
               <Collapsible
-                a11yHelperText={`individual ${services[menuItem].namePretty} services`}
+                a11yHelperText={`individual ${services[menuItem].name} services`}
                 collapsed={!menuItemVisibility[menuItem]}
-                heading={services[menuItem].namePretty}
+                heading={services[menuItem].name}
                 onClick={handleClick(menuItem)}
               />
               {

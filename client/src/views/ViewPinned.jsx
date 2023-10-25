@@ -33,7 +33,7 @@ function ViewPinned(props) {
   const { services } = useServices();
 
   const location = useLocation();
-  const pageTitle = `Pinned ${services[serviceGroup].namePretty} Services`;
+  const pageTitle = `Pinned ${services[serviceGroup].name} Services`;
 
   useEffect(() => {
     document.title = buildPageTitle(pageTitle);
@@ -47,7 +47,7 @@ function ViewPinned(props) {
             {pageTitle}
           </h1>
           <Alert
-            text={`${contentPinnedItemsAppearStart} ${services[serviceGroup].namePretty} ${contentPinnedItemsAppearEnd}`}
+            text={`${contentPinnedItemsAppearStart} ${services[serviceGroup].name} ${contentPinnedItemsAppearEnd}`}
             type="info"
           />
           <PinnedSevices

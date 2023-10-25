@@ -3,15 +3,15 @@ import serviceGroups from '@constants/serviceGroups';
 function formatServiceGroups(services) {
   const output = {};
 
-  for (const [ group, { modes, namePretty, path } ] of Object.entries(serviceGroups)) {
-    output[group] = {
-      modes: modes.flatMap((mode) => {
+  serviceGroups.forEach((serviceGroup) => {
+    output[serviceGroup.group] = {
+      modes: serviceGroup.modes.flatMap((mode) => {
         return services[mode];
       }),
-      namePretty,
-      path,
+      name: serviceGroup.name,
+      path: serviceGroup.path,
     };
-  }
+  });
 
   return output;
 }

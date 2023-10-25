@@ -12,10 +12,15 @@ import {
 } from '@constants/paths';
 
 import {
+  SERVICE_GROUP_CORE,
+} from '@constants/serviceGroups';
+
+import {
   THEME_AUTO,
 } from '@constants/theme';
 
 import {
+  setMapVisibility,
   setMenuOpen,
   setPageMainHeight,
   setPageMainScrollTop,
@@ -46,6 +51,7 @@ function Layout() {
   const refPageMain = useRef();
 
   const {
+    mapVisibility,
     menuOpen,
     pinned,
     settingsOpen,
@@ -129,6 +135,23 @@ function Layout() {
       localStorage.setItem('pinned', JSON.stringify(pinned));
     }, 0);
   }, [ pinned ]);
+
+  useEffect(() => {
+    const mapVisibility = localStorage.getItem('mapVisibility');
+    if (mapVisibility) {
+      dispatch(setMapVisibility(JSON.parse(mapVisibility)));
+    } else {
+      dispatch(setMapVisibility({
+        [SERVICE_GROUP_CORE]: true, // Default setting - core only
+      }));
+    }
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem('mapVisibility', JSON.stringify(mapVisibility));
+    }, 0);
+  }, [ mapVisibility ]);
 
   // Close the menu or settings on any route change
   useEffect(() => {

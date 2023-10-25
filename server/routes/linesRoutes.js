@@ -22,7 +22,7 @@ router.get('/:id', async(req, res) => {
 
   try {
     const { data } = await axios.get(`https://api.tfl.gov.uk/line/${id}/route/sequence/inbound?app_id=${PRIVATE_TFL_APP_ID}&app_key=${PRIVATE_TFL_APP_KEY}`);
-    const line = createLine(data, id);
+    const line = await createLine({ data, id });
 
     res.json(line);
     res.status(200);

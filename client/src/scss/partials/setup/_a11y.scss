@@ -27,6 +27,7 @@ $focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
 }
 
 %focus-outer {
+  z-index: 1; // Ensure the box shadow is visible above other elements
   box-shadow: $focusable-box-shadow-focused !important;
 }
 

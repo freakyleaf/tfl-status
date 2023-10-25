@@ -17,10 +17,13 @@ import {
   SERVICE_GROUP_BUS,
   SERVICE_GROUP_CORE,
   SERVICE_GROUP_NATIONAL_RAIL,
-  SERVICE_NAME_PRETTY_BUS,
-  SERVICE_NAME_PRETTY_CORE,
-  SERVICE_NAME_PRETTY_NATIONAL_RAIL,
 } from '@constants/serviceGroups';
+
+import {
+  SERVICE_NAME_BUS,
+  SERVICE_NAME_CORE,
+  SERVICE_NAME_NATIONAL_RAIL,
+} from '@constants/serviceNames';
 
 import {
   contentBackToBus,
@@ -56,7 +59,7 @@ const router = createBrowserRouter(
         element={
           <ViewServices
             serviceGroup="core"
-            serviceNamePretty={SERVICE_NAME_PRETTY_CORE}
+            serviceName={SERVICE_NAME_CORE}
             viewMode={VIEW_MODE_CORE}
             viewType={VIEW_TYPE_SERVICES}
           />}
@@ -95,7 +98,7 @@ const router = createBrowserRouter(
         element={
           <ViewServices
             serviceGroup="bus"
-            serviceNamePretty={SERVICE_NAME_PRETTY_BUS}
+            serviceName={SERVICE_NAME_BUS}
             viewMode={VIEW_MODE_BUS}
             viewType={VIEW_TYPE_SERVICES}
           />}
@@ -134,7 +137,7 @@ const router = createBrowserRouter(
         element={
           <ViewServices
             serviceGroup="nationalRail"
-            serviceNamePretty={SERVICE_NAME_PRETTY_NATIONAL_RAIL}
+            serviceName={SERVICE_NAME_NATIONAL_RAIL}
             viewMode={VIEW_MODE_NATIONAL_RAIL}
             viewType={VIEW_TYPE_SERVICES}
           />}

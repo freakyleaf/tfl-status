@@ -4,6 +4,12 @@
   margin-top: $spacer-global;
 }
 
+.map__toggles-list {
+  @extend %list-unstyled;
+
+  margin-bottom: $spacer-global;
+}
+
 .map__diagram {
   display: flex;
   align-items: center;
@@ -153,14 +159,14 @@
 .map__interchanges-list {
   @extend %list-unstyled;
 
-  width: 8rem; // Very small phones only - accommodate for 'Hammersmith & City'
+  width: 8rem; // Arbitrary figure - very small phones only
 
   @include device-min(mobile) {
-    width: 10rem; // Accommodate for 'Hammersmith & City'
+    width: 10rem; // Arbitrary figure
   }
 
   @include device-min(desktop) {
-    width: 12rem; // Accommodate for 'Hammersmith & City'
+    width: 12rem; // Arbitrary figure
   }
 }
 
@@ -168,15 +174,37 @@
   text-align: center;
 }
 
+.map__lines-list {
+  @extend %list-unstyled;
+
+  .map__interchanges-list-item:not(:last-of-type) & {
+    margin-bottom: $spacer-1;
+  }
+}
+
 .map__link {
+  position: relative;
   display: block;
   color: inherit;
   text-decoration: none;
+  padding-left: $spacer-3;
+  padding-right: $spacer-3;
 
   &:active,
   &:focus,
   &:hover {
     color: inherit;
     text-decoration: none;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255 255 255 / 0.15);
+    }
   }
 }
