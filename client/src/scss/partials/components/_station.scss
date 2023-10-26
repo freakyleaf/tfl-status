@@ -1,0 +1,40 @@
+.station__contact,
+.station__disruptions,
+.station__facilities,
+.station__interchanges,
+.station__nothing,
+.station__zone {
+  margin-top: $spacer-global;
+}
+
+.station__zone {
+  padding-top: $station-item-padding-y;
+  padding-bottom: $station-item-padding-y;
+  color: var(--color-station-zone-text);
+  text-align: center;
+  background-color: var(--color-station-zone-background);
+}
+
+.station__disruptions-list {
+  @extend %list-unstyled;
+}
+
+.station__disruptions-list-item {
+  &:not(:last-of-type) {
+    margin-bottom: $spacer-global;
+  }
+}
+
+.station__contact-list {
+  @extend %list-unstyled;
+}
+
+.station__contact-list-item {
+  &--address {
+    user-select: all;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: $spacer-global;
+  }
+}

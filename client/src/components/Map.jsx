@@ -4,15 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  PATH_SERVICE,
+  PATH_STATION,
 } from '@constants/paths';
 
 import serviceGroups, { SERVICE_GROUP_NATIONAL_RAIL } from '@constants/serviceGroups';
-
-import {
-  VIEW_MODE_BUS,
-  VIEW_MODE_TUBE,
-} from '@constants/viewModes';
 
 import {
   useFetchLinesQuery,
@@ -26,13 +21,13 @@ import {
   setMapVisibilityItem,
 } from '@stores/storeSliceSettings';
 
-import getPretty from '@utils/getPretty';
-
 import Alert from '@components/Alert';
 import Error from '@components/Error';
+import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
 import MapIconInternationalRail from '@components/icons/MapIconInternationalRail';
 import MapIconNationalRail from '@components/icons/MapIconNationalRail';
+import MapIconWarning from '@components/icons/MapIconWarning';
 import Select from '@components/Select';
 import ToggleSwitch from '@components/ToggleSwitch';
 
@@ -187,15 +182,18 @@ function Map(props) {
                           <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
                         </div>
                         <div className="map__station">
-                          <span
-                            className="map__name"
+                          <Link
+                            className="map__station-link"
                             id={`station-${station.id}`}
+                            to={`/${PATH_STATION}/${station.naptanId}`}
                           >
-                            <span className="visually-hidden">
-                              Station stop:
-                            </span>
                             {station.name}
-                          </span>
+                          </Link>
+                          {
+                            station.hasDisruption && (
+                              <MapIconWarning />
+                            )
+                          }
                           {
                             stationHasNationalRailInterchange(station) && (
                               <MapIconNationalRail />
@@ -210,58 +208,10 @@ function Map(props) {
                         <div className="map__interchanges">
                           {
                             !!station.interchanges.length && (
-                              <ul
-                                aria-labelledby={`station-${station.id}`}
-                                className="map__interchanges-list"
-                              >
-                                {
-                                  stationInterchanges(station).map((stationInterchange) => (
-                                    <li
-                                      className="map__interchanges-list-item"
-                                      key={stationInterchange.group}
-                                    >
-                                      <span className="visually-hidden">
-                                        {getPretty(stationInterchange.group)} interchanges for {station.name}:
-                                      </span>
-                                      <ul className="map__lines-list">
-                                        {
-                                          stationInterchange.lines.map((line) => (
-                                            <li
-                                              className="map__lines-list-item"
-                                              key={line.id}
-                                            >
-                                              <div className={`map__interchange brand-background--id-${line.id} brand-background--mode-${line.mode}`}>
-                                                <Link
-                                                  className="map__link"
-                                                  to={`${stationInterchange.path}/${PATH_SERVICE}/${line.id}`}
-                                                >
-                                                  <span className="visually-hidden">
-                                                    View the
-                                                  </span>
-                                                  {line.name}
-                                                  <span className="visually-hidden">
-                                                    {
-                                                      line.mode === VIEW_MODE_TUBE && (
-                                                        <>line</>
-                                                      )
-                                                    }
-                                                    {
-                                                      line.mode === VIEW_MODE_BUS && (
-                                                        <>bus</>
-                                                      )
-                                                    }
-                                                    service page
-                                                  </span>
-                                                </Link>
-                                              </div>
-                                            </li>
-                                          ))
-                                        }
-                                      </ul>
-                                    </li>
-                                  ))
-                                }
-                              </ul>
+                              <Interchanges
+                                station={station}
+                                stationInterchanges={stationInterchanges(station)}
+                              />
                             )
                           }
                         </div>

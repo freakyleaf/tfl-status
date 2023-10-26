@@ -14,6 +14,7 @@ dotenv.config({
 
 import linesRoutes from './routes/linesRoutes.js';
 import statusRoutes from './routes/statusRoutes.js';
+import stationsRoutes from './routes/stationsRoutes.js';
 
 const {
   PUBLIC_PORT_NUMBER_SERVER,
@@ -27,5 +28,6 @@ app.use(cors());
 
 app.use('/lines', linesRoutes);
 app.use('/status', statusRoutes);
+app.use('/stations', stationsRoutes);
 
 app.listen(PUBLIC_PORT_NUMBER_SERVER, () => console.info(`Server running on port ${PUBLIC_PORT_NUMBER_SERVER}`));

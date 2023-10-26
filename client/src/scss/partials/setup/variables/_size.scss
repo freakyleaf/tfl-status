@@ -1,6 +1,9 @@
 @use 'sass:math';
 @use './transition' as *;
 
+$box-padding-x: $spacer-4;
+$box-padding-y: $spacer-3;
+
 $container-padding: $spacer-global;
 
 $link-icon-spacing: $spacer-3;
@@ -33,6 +36,8 @@ $settings-theme-list-border-width: 3px;
 $settings-theme-list-item-height: 3rem;
 $settings-theme-list-item-border-radius: math.div($settings-theme-list-item-height, 2);
 $settings-theme-list-border-radius: calc($settings-theme-list-item-border-radius + ($settings-theme-list-border-width * 2));
+
+$station-item-padding-y: $spacer-3;
 
 $toggle-switch-height: $spacer-5;
 $toggle-switch-width: $toggle-switch-height * 2;

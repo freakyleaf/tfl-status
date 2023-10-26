@@ -1,0 +1,55 @@
+.interchange__lines-list {
+  @extend %list-unstyled;
+
+  .map__interchanges & {
+    width: 8rem; // Arbitrary figure - very small phones only
+
+    @include device-min(mobile) {
+      width: 10rem; // Arbitrary figure
+    }
+
+    @include device-min(desktop) {
+      width: 12rem; // Arbitrary figure
+    }
+  }
+
+  .interchanges__list-item:not(:last-of-type) & {
+    margin-bottom: $spacer-1;
+  }
+}
+
+.interchange__lines-list-item {
+  text-align: center;
+}
+
+.interchange__link {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  padding-left: $spacer-3;
+  padding-right: $spacer-3;
+
+  .station__interchanges & {
+    padding-top: $station-item-padding-y;
+    padding-bottom: $station-item-padding-y;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255 255 255 / 0.15);
+    }
+  }
+}

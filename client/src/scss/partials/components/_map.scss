@@ -104,11 +104,26 @@
   }
 }
 
+.map__station-link {
+  text-decoration: none;
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .map__icon {
   transform: translateY(-0.05rem); // Minor adjustment to better align icons with text
 
+  @include device-min(desktop) {
+    transform: translateY(-0.1rem); // Minor adjustment to better align icons with text
+  }
+
   &--international-rail,
-  &--national-rail {
+  &--national-rail,
+  &--warning {
     margin-left: $spacer-3;
     flex-shrink: 0;
   }
@@ -155,58 +170,5 @@
 
   .map__list-item:last-of-type & {
     margin-bottom: 0;
-  }
-}
-
-.map__interchanges-list {
-  @extend %list-unstyled;
-
-  width: 8rem; // Arbitrary figure - very small phones only
-
-  @include device-min(mobile) {
-    width: 10rem; // Arbitrary figure
-  }
-
-  @include device-min(desktop) {
-    width: 12rem; // Arbitrary figure
-  }
-}
-
-.map__interchanges-list-item {
-  text-align: center;
-}
-
-.map__lines-list {
-  @extend %list-unstyled;
-
-  .map__interchanges-list-item:not(:last-of-type) & {
-    margin-bottom: $spacer-1;
-  }
-}
-
-.map__link {
-  position: relative;
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  padding-left: $spacer-3;
-  padding-right: $spacer-3;
-
-  &:active,
-  &:focus,
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255 255 255 / 0.15);
-    }
   }
 }

@@ -11,6 +11,7 @@ import {
   PATH_NATIONAL_RAIL,
   PATH_PINNED,
   PATH_SERVICE,
+  PATH_STATION,
 } from '@constants/paths';
 
 import {
@@ -48,6 +49,7 @@ import ViewErrorService from '@views/ViewErrorService';
 import ViewPinned from '@views/ViewPinned';
 import ViewServices from '@views/ViewServices';
 import ViewService from '@views/ViewService';
+import ViewStation from '@views/ViewStation';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -171,6 +173,12 @@ const router = createBrowserRouter(
           />
         }
         path={`${PATH_NATIONAL_RAIL}/${PATH_PINNED}`}
+      />
+      <Route
+        element={
+          <ViewStation />
+        }
+        path={`/${PATH_STATION}/:id`}
       />
       <Route
         path='*'

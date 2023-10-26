@@ -1,0 +1,11 @@
+.table {
+  border: none;
+  border-collapse: collapse;
+
+  tbody {
+    th {
+      text-align: left;
+      padding-right: $spacer-global;
+    }
+  }
+}

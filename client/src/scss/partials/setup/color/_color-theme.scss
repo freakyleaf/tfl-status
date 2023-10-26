@@ -43,6 +43,7 @@ $color-light: $color-gray-200;
 // Box
 :root {
   --color-box-background: #{color.adjust($color-tfl-yellow, $lightness: 35%)};
+  --color-box-icon-background: #{color.adjust($color-tfl-yellow, $lightness: 15%)};
   --color-box-text: #{$color-black};
 }
 
@@ -115,6 +116,12 @@ $color-light: $color-gray-200;
   --color-settings-theme-border: #{$color-gray-600};
 }
 
+// Station
+:root {
+  --color-station-zone-background: var(--color-primary);
+  --color-station-zone-text: #{$color-white};
+}
+
 // Status
 :root {
   --color-status-negative-text: #{$color-state-error};
@@ -158,6 +165,7 @@ $color-light: $color-gray-200;
 
   // Box
   --color-box-background: #{$color-gray-800};
+  --color-box-icon-background: #{$color-gray-700};
   --color-box-text: #{$color-light};
 
   // Loading
