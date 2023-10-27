@@ -124,7 +124,7 @@ function ViewStation() {
                               <th>
                                 Car Park
                               </th>
-                              <td>
+                              <td className="w-100">
                                 {station.meta.facilities.carPark}
                               </td>
                             </tr>

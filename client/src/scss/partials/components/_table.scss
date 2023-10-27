@@ -1,11 +1,19 @@
 .table {
-  border: none;
+  width: 100%;
+  border: $border-generic;
   border-collapse: collapse;
 
-  tbody {
-    th {
-      text-align: left;
-      padding-right: $spacer-global;
-    }
+  th,
+  td {
+    padding: $table-padding-y $table-padding-x;
+  }
+
+  th {
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  tr:nth-child(even) {
+    background-color: $color-gray-100;
   }
 }
