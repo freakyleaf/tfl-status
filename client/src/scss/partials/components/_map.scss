@@ -95,8 +95,8 @@
 }
 
 .map__station {
+  position: relative; // Required to increase clickable area of `.map__station-link`
   order: 3;
-  left: 100%;
   padding-left: $map-spacing; // Very small phones only
   color: var(--color-map-station-text);
 
@@ -112,6 +112,16 @@
   &:focus,
   &:hover {
     text-decoration: none;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
