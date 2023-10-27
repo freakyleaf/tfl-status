@@ -15,6 +15,7 @@ const {
 const cleanDescription = (description) => {
   // We can have multiple descriptions whereby the only difference is `\n` and `\r` so we need to normalize them
   return description
+    .replaceAll('\\n', ' ') // Required specifically for bus descriptions
     .replaceAll('\n', ' ')
     .replaceAll('\r', ' ')
     .replace(/\s+/g, ' ')
