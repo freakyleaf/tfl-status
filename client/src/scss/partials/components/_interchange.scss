@@ -27,8 +27,7 @@
   display: block;
   color: inherit;
   text-decoration: none;
-  padding-left: $spacer-3;
-  padding-right: $spacer-3;
+  padding: $spacer-2 $spacer-3;
 
   .station__interchanges & {
     padding-top: $station-item-padding-y;

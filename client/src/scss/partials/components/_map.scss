@@ -18,6 +18,7 @@
   min-height: 10rem; // Arbitrary figure to accommodate loading spinner
   padding: $spacer-global;
   font-size: 0.75em; // Very small phones only
+  line-height: 1;
   background-color: var(--color-map-diagram-background);
   border: $border-generic;
 
@@ -115,12 +116,6 @@
 }
 
 .map__icon {
-  transform: translateY(-0.05rem); // Minor adjustment to better align icons with text
-
-  @include device-min(desktop) {
-    transform: translateY(-0.1rem); // Minor adjustment to better align icons with text
-  }
-
   &--international-rail,
   &--national-rail,
   &--warning {
