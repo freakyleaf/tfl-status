@@ -1,8 +1,16 @@
 @use 'sass:math';
 @use './transition' as *;
 
+$a11y-box-shadow-width: $spacer-2;
+
+$alert-padding-x: $spacer-global;
+$alert-padding-y: $spacer-4;
+
 $box-padding-x: $spacer-4;
 $box-padding-y: $spacer-3;
+
+$collapsible-padding-x: $spacer-global;
+$collapsible-padding-y: $spacer-4;
 
 $container-padding: $spacer-global;
 
@@ -13,15 +21,19 @@ $list-spaced-margin-y: $spacer-global;
 
 $loading-spinner-size: 1rem;
 
+$map-diagram-padding: $spacer-global;
 $map-line-width: $spacer-4;
 $map-list-item-min-height: 5rem; // Arbitrary figure
 $map-list-item-min-height--desktop: 6rem; // Arbitrary figure
+$map-list-item-only-of-type-min-height--desktop: 12rem; // Allow for potential 'Zones X & Y' text
 $map-marker-height--regular: $map-line-width;
 $map-marker-interchange-border-width: 0.36rem;
 $map-marker-size--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
 $map-marker-width--regular: $spacer-4;
 $map-spacing: math.div($map-marker-size--interchange, 4) * 3;
 $map-spacing-mobile: $map-marker-size--interchange;
+$map-zone-size-mobile: 1.5rem;
+$map-zone-size-tablet: 2rem;
 
 $navigation-primary-link-margin-y: $spacer-4;
 $navigation-primary-link-padding-x: $spacer-4;

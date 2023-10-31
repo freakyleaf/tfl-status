@@ -3,16 +3,21 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import {
+  useFetchServicesQuery,
+} from '@api/servicesApi';
+
+import {
+  contentHavingTroubleFetchingData,
   contentPinnedItemsAppearEnd,
   contentPinnedItemsAppearStart,
-} from '@constants/textContent';
-
-import { useServices } from '@layouts/Layout';
+} from '@constants/text';
 
 import buildPageTitle from '@utils/buildPageTitle';
+import getPretty from '@utils/getPretty';
 
-import Alert from '@components/Alert';
 import BackTo from '@components/BackTo';
+import Box from '@components/Box';
+import Loading from '@components/Loading';
 import PageMain from '@components/PageMain';
 import PinnedSevices from '@components/PinnedServices';
 
@@ -22,6 +27,8 @@ ViewPinned.propTypes = {
     text: PropTypes.string.isRequired,
   }),
   serviceGroup: PropTypes.string.isRequired,
+  viewMode: PropTypes.string.isRequired,
+  viewType: PropTypes.string.isRequired,
 };
 
 function ViewPinned(props) {
@@ -30,10 +37,18 @@ function ViewPinned(props) {
     serviceGroup,
   } = props;
 
-  const { services } = useServices();
+  const {
+    data: services,
+    error,
+    isFetching,
+  } = useFetchServicesQuery(serviceGroup);
+
+  if (error) {
+    throw new Error(contentHavingTroubleFetchingData);
+  }
 
   const location = useLocation();
-  const pageTitle = `Pinned ${services[serviceGroup].name} Services`;
+  const pageTitle = services && `Pinned ${getPretty(serviceGroup)} Services`;
 
   useEffect(() => {
     document.title = buildPageTitle(pageTitle);
@@ -42,22 +57,38 @@ function ViewPinned(props) {
   return (
     <div className="view view--pinned">
       <PageMain>
-        <div className="pinned">
-          <h1 className="pinned__heading">
-            {pageTitle}
-          </h1>
-          <Alert
-            text={`${contentPinnedItemsAppearStart} ${services[serviceGroup].name} ${contentPinnedItemsAppearEnd}`}
-            type="info"
-          />
-          <PinnedSevices
-            services={services[serviceGroup]}
-          />
-          <BackTo
-            path={backTo.path}
-            text={backTo.text}
-          />
-        </div>
+        <>
+          {
+            services && (
+              <div className="pinned">
+                <h1 className="pinned__heading">
+                  {pageTitle}
+                </h1>
+                <Box
+                  type="information"
+                >
+                  {contentPinnedItemsAppearStart} {getPretty(serviceGroup)} {contentPinnedItemsAppearEnd}
+                </Box>
+                {
+                  isFetching && (
+                    <Loading />
+                  )
+                }
+                {
+                  services && (
+                    <PinnedSevices
+                      services={services}
+                    />
+                  )
+                }
+                <BackTo
+                  path={backTo.path}
+                  text={backTo.text}
+                />
+              </div>
+            )
+          }
+        </>
       </PageMain>
     </div>
   );

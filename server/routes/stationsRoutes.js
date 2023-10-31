@@ -17,7 +17,7 @@ const {
 
 const router = express.Router();
 
-router.get('/:id', async(req, res) => {
+router.get('/:id', async(req, res, next) => {
   const { id } = req.params;
 
   try {
@@ -27,7 +27,7 @@ router.get('/:id', async(req, res) => {
     res.json(station);
     res.status(200);
   } catch (error) {
-    res.json(error);
+    next(error);
     res.status(503);
   }
 });

@@ -1,19 +1,7 @@
-import serviceGroups from '@constants/serviceGroups';
-
-function formatServiceGroups(services) {
-  const output = {};
-
-  serviceGroups.forEach((serviceGroup) => {
-    output[serviceGroup.group] = {
-      modes: serviceGroup.modes.flatMap((mode) => {
-        return services[mode];
-      }),
-      name: serviceGroup.name,
-      path: serviceGroup.path,
-    };
+function formatServiceModes(services) {
+  return Object.keys(services).flatMap((mode) => {
+    return services[mode];
   });
-
-  return output;
 }
 
 function reasonIsUnique(reasons, newReason) {
@@ -50,6 +38,6 @@ function reconcileStatuses(modes) {
   return modes;
 }
 
-export default function conformData(services) {
-  return formatServiceGroups(reconcileStatuses(services));
+export default function conformServices(services) {
+  return formatServiceModes(reconcileStatuses(services));
 }

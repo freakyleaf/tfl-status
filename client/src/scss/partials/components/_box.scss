@@ -1,4 +1,5 @@
 .box {
+  overflow: hidden; // Allow for correct `border-radius` presentation
   padding: $box-padding-y $box-padding-x;
   color: var(--color-box-text);
   background-color: var(--color-box-background);
@@ -6,6 +7,11 @@
 
   @include device-min(tablet) {
     display: flex;
+  }
+
+  .settings & {
+    margin-top: 0;
+    margin-bottom: $spacer-global;
   }
 
   &:not(:first-of-type) {

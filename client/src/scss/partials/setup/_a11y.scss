@@ -19,15 +19,19 @@
   outline: none !important; // Remove outline for non-keyboard focus
 }
 
-$focusable-box-shadow-initial: 0 0 0 0 rgba($color-state-focus, 0);
-$focusable-box-shadow-focused: 0 0 0 $spacer-2 $color-state-focus;
+$focusable-box-shadow-initial:
+  0 0 0 0 transparent,
+  0 0 0 0 transparent;
+$focusable-box-shadow-focused:
+  0 0 0 $a11y-box-shadow-width var(--color-a11y-focus-inner),
+  0 0 0 $a11y-box-shadow-width * 2 var(--color-a11y-focus-outer);
 
 %focus-inner {
   box-shadow: inset $focusable-box-shadow-focused !important;
 }
 
 %focus-outer {
-  z-index: 1; // Ensure the box shadow is visible above other elements
+  z-index: $z-index-a11yfocus-outer; // Ensure the box shadow is visible above other elements
   box-shadow: $focusable-box-shadow-focused !important;
 }
 

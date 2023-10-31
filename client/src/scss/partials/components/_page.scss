@@ -1,6 +1,10 @@
 .page {
   display: flex;
   flex-direction: column;
+
+  &--loading {
+    opacity: 0;
+  }
 }
 
 .page__header {

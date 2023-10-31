@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-import menuItems from '@constants/menuItems';
+import serviceGroups from '@constants/serviceGroups';
 
 import Collapsible from '@components/Collapsible';
 import PinnedSevices from '@components/PinnedServices';
@@ -28,21 +28,21 @@ function SettingsPinnedServices(props) {
     <div className="settings-pinned-services">
       <ul className="settings-pinned-services__list">
         {
-          menuItems.map((menuItem) => (
+          serviceGroups.map((serviceGroup) => (
             <li
               className="settings-pinned-services__list-item"
-              key={services[menuItem].name}
+              key={serviceGroup.name}
             >
               <Collapsible
-                a11yHelperText={`individual ${services[menuItem].name} services`}
-                collapsed={!pinnedItemVisibility[menuItem]}
-                heading={`Pinned ${services[menuItem].name} Services`}
-                onClick={handleClick(menuItem)}
+                a11yHelperText={`pinned ${serviceGroup.name} services`}
+                collapsed={!pinnedItemVisibility[serviceGroup.name]}
+                heading={`Pinned ${serviceGroup.name} Services`}
+                onClick={handleClick(serviceGroup.name)}
               />
               {
-                pinnedItemVisibility[menuItem] && (
+                pinnedItemVisibility[serviceGroup.name] && (
                   <PinnedSevices
-                    services={services[menuItem]}
+                    services={services[serviceGroup.group]}
                   />
                 )
               }

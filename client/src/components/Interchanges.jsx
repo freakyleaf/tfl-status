@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import serviceGroups from '@constants/serviceGroups';
+
 import Interchange from '@components/Interchange';
 
 Interchanges.propTypes = {
@@ -11,8 +13,15 @@ Interchanges.propTypes = {
 function Interchanges(props) {
   const {
     station,
-    stationInterchanges,
+    stationInterchanges: stationInterchangesRaw,
   } = props;
+
+  const stationInterchanges = stationInterchangesRaw?.map((stationInterchangeRaw) => {
+    return {
+      ...stationInterchangeRaw,
+      path: serviceGroups.find((serviceGroup) => serviceGroup.group === stationInterchangeRaw.group).path,
+    };
+  });
 
   return (
     <div className="interchanges">

@@ -22,7 +22,7 @@ import {
 
 const SERVICE_GROUP_BUS = 'bus';
 const SERVICE_GROUP_CORE = 'core';
-const SERVICE_GROUP_NATIONAL_RAIL = 'nationalRail';
+const SERVICE_GROUP_NATIONAL_RAIL = 'national-rail';
 
 // Ordered as they need to appear (core, bus, national rail)
 const serviceGroups = [

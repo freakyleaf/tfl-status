@@ -2,8 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: $collapsible-padding-y $collapsible-padding-x;
+  background-color: var(--color-collapsible-background);
+  border-radius: $border-radius-generic;
 }
 
 .collapsible__heading {
+  @extend %font-size-h5;
+
   margin-bottom: 0;
 }

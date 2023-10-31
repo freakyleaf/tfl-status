@@ -9,7 +9,7 @@ import {
 import ToggleSwitch from '@components/ToggleSwitch';
 
 ViewPinned.propTypes = {
-  services: PropTypes.object.isRequired,
+  services: PropTypes.array.isRequired,
 };
 
 function ViewPinned(props) {
@@ -31,7 +31,7 @@ function ViewPinned(props) {
     <div className="pinned-services">
       <ul className="pinned-services__list">
         {
-          services.modes.map((service) => (
+          services.map((service) => (
             <li
               className="pinned-services__list-item"
               key={service.id}

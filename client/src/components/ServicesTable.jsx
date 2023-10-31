@@ -8,6 +8,8 @@ import {
   PATH_SERVICE,
 } from '@constants/paths';
 
+import serviceGroups from '@constants/serviceGroups';
+
 import Icon from '@components/Icon';
 import IconCircleMinus from '@components/icons/IconCircleMinus';
 import IconCirclePlus from '@components/icons/IconCirclePlus';
@@ -19,7 +21,6 @@ ServicesTable.propTypes = {
   pinned: PropTypes.bool,
   scrollTo: PropTypes.func.isRequired,
   serviceGroup: PropTypes.string.isRequired,
-  services: PropTypes.object.isRequired,
   servicesModes: PropTypes.array.isRequired,
 };
 
@@ -28,13 +29,14 @@ function ServicesTable(props) {
     pinned,
     scrollTo,
     serviceGroup,
-    services,
     servicesModes,
   } = props;
 
   const hasReason = (service) => {
     return !!service.reasonsConformed.length;
   };
+
+  const path = serviceGroups.find((group) => group.group === serviceGroup).path;
 
   const {
     pageMainHeight,
@@ -96,7 +98,7 @@ function ServicesTable(props) {
                 <div className="services-table__links">
                   <Link
                     className="services-table__link services-table__link--service"
-                    to={`${services[serviceGroup].path}/${PATH_SERVICE}/${service.id}`}
+                    to={`${path}/${PATH_SERVICE}/${service.id}`}
                   >
                     <span className="services-table__text">
                       {service.name}
@@ -106,7 +108,7 @@ function ServicesTable(props) {
                     pinned && (
                       <Link
                         className="services-table__link services-table__link--pinned"
-                        to={`${services[serviceGroup].path}/${PATH_PINNED}`}
+                        to={`${path}/${PATH_PINNED}`}
                       >
                         <span className="visually-hidden">
                           Edit pinned services

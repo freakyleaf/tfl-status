@@ -2,29 +2,25 @@ const { PUBLIC_ENV } = import.meta.env;
 
 import { configureStore } from '@reduxjs/toolkit/';
 
-import { linesApi } from '@api/linesApi';
+import { mapsApi } from '@api/mapsApi';
+import { servicesApi } from '@api/servicesApi';
 import { stationsApi } from '@api/stationsApi';
-import { statusApi } from '@api/statusApi';
 
-import linesReducer from './storeSliceLines';
 import settingsReducer from './storeSliceSettings';
-import stationsReducer from './storeSliceStations';
-import statusReducer from './storeSliceStatus';
+import stateReducer from './storeSliceState';
 
 export const store = configureStore({
   reducer: {
-    [linesApi.reducerPath]: linesApi.reducer,
+    [mapsApi.reducerPath]: mapsApi.reducer,
+    [servicesApi.reducerPath]: servicesApi.reducer,
     [stationsApi.reducerPath]: stationsApi.reducer,
-    [statusApi.reducerPath]: statusApi.reducer,
-    lines: linesReducer,
-    settings: settingsReducer,
-    stations: stationsReducer,
-    status: statusReducer,
     devTools: PUBLIC_ENV === 'development',
+    settings: settingsReducer,
+    state: stateReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
-    linesApi.middleware,
+    mapsApi.middleware,
+    servicesApi.middleware,
     stationsApi.middleware,
-    statusApi.middleware,
   ),
 });

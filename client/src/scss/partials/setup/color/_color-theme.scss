@@ -21,6 +21,12 @@ $color-light: $color-gray-200;
   --color-scheme: light;
 }
 
+// A11y
+:root {
+  --color-a11y-focus-inner: #{$color-state-warning};
+  --color-a11y-focus-outer: #{$color-black};
+}
+
 // Alert
 :root {
   --color-alert-error-background: #{$color-state-error};
@@ -56,6 +62,11 @@ $color-light: $color-gray-200;
   --color-button-menu-text-hover: #{$color-white};
 }
 
+// Collapsible
+:root {
+  --color-collapsible-background: #{$color-gray-100};
+}
+
 // Hr
 :root {
   --color-hr-border: var(--color-border);
@@ -70,12 +81,15 @@ $color-light: $color-gray-200;
 :root {
   --color-map-station-text: var(--color-primary);
   --color-map-diagram-background: var(--color-body-background);
+  --color-map-zone-background-desktop: #{$color-tfl-blue};
+  --color-map-zone-text-mobile: #{$color-white};
+  --color-map-zone-text-tablet: #{$color-white};
 }
 
-// Navigation
+// Menu
 :root {
-  --color-navigation-menu-text: var(--color-link);
-  --color-navigation-menu-text-hover: var(--color-link-hover);
+  --color-menu-text: var(--color-link);
+  --color-menu-text-hover: var(--color-link-hover);
   --color-navigation-primary-text: #{$color-light};
   --color-navigation-primary-text-hover: #{$color-white};
 }
@@ -156,6 +170,9 @@ $color-light: $color-gray-200;
   // Global
   --color-scheme: dark;
 
+  // A11y
+  --color-a11y-focus-outer: #{$color-white};
+
   // Base
   --color-body-background: #{$color-black};
   --color-body-text: #{$color-light};
@@ -168,16 +185,22 @@ $color-light: $color-gray-200;
   --color-box-icon-background: #{$color-gray-700};
   --color-box-text: #{$color-light};
 
+  // Collapsible
+  --color-collapsible-background: #{$color-gray-800};
+
   // Loading
   --color-loading-icon: #{$color-gray-700};
 
   // Map
   --color-map-station-text: #{$color-light};
   --color-map-diagram-background: #{$color-gray-800};
+  --color-map-zone-background-desktop: #{$color-gray-700};
+  --color-map-zone-text-mobile: #{$color-dark};
+  --color-map-zone-text-tablet: #{$color-dark};
 
-  // Navigation
-  --color-navigation-menu-text: #{$color-light};
-  --color-navigation-menu-text-hover: #{$color-white};
+  // Menu
+  --color-menu-text: #{$color-light};
+  --color-menu-text-hover: #{$color-white};
 
   // Option
   --color-option-text: #{$color-light};

@@ -12,8 +12,8 @@ dotenv.config({
   path: envPath,
 });
 
-import linesRoutes from './routes/linesRoutes.js';
-import statusRoutes from './routes/statusRoutes.js';
+import mapsRoutes from './routes/mapsRoutes.js';
+import servicesRoutes from './routes/servicesRoutes.js';
 import stationsRoutes from './routes/stationsRoutes.js';
 
 const {
@@ -26,8 +26,8 @@ app.use(bodyParser.json());
 app.use(cache('1 minute'));
 app.use(cors());
 
-app.use('/lines', linesRoutes);
-app.use('/status', statusRoutes);
+app.use('/maps', mapsRoutes);
+app.use('/services', servicesRoutes);
 app.use('/stations', stationsRoutes);
 
 app.listen(PUBLIC_PORT_NUMBER_SERVER, () => console.info(`Server running on port ${PUBLIC_PORT_NUMBER_SERVER}`));

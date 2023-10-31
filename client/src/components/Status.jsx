@@ -1,6 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import {
+  SERVICE_MODE_BUS,
+  SERVICE_MODE_NATIONAL_RAIL,
+  SERVICE_MODE_OVERGROUND,
+  SERVICE_MODE_TRAM,
+  SERVICE_MODE_TUBE,
+} from '@constants/serviceModes';
+
 import Icon from '@components/Icon';
 import IconCircleCheck from '@components/icons/IconCircleCheck';
 import IconCircleExclamation from '@components/icons/IconCircleExclamation';
@@ -31,13 +39,21 @@ function Status(props) {
                 {status.description}
               </span>
               <span className="visually-hidden">
-                on the {service.name}
+                on
                 {
-                  service.mode === 'tube' && (' line.')
+                  service.mode !== SERVICE_MODE_NATIONAL_RAIL && ('the')
+                }
+                {service.name}
+                {
+                  service.mode === SERVICE_MODE_BUS && ('route')
                 }
                 {
-                  (service.mode === 'overground' || service.mode === 'tram') && (' network.')
+                  (service.mode === SERVICE_MODE_OVERGROUND || service.mode === SERVICE_MODE_TRAM) && ('network')
                 }
+                {
+                  service.mode === SERVICE_MODE_TUBE && ('line')
+                }
+                .
               </span>
             </li>
           ))

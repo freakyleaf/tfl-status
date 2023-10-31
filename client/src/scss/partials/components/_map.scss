@@ -16,7 +16,7 @@
   justify-content: center;
   width: 100%;
   min-height: 10rem; // Arbitrary figure to accommodate loading spinner
-  padding: $spacer-global;
+  padding: $map-diagram-padding;
   font-size: 0.75em; // Very small phones only
   line-height: 1;
   background-color: var(--color-map-diagram-background);
@@ -27,13 +27,103 @@
   }
 }
 
-.map__list {
+.map__station-list,
+.map__zone-list {
   @extend %list-unstyled;
 
   width: 100%;
 }
 
-.map__list-item {
+.map__zone-list-item {
+  position: relative;
+
+  &:not(:last-of-type) {
+    &::after { // Zone dividing line
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      height: $border-width-generic;
+      background-color: $border-color-generic;
+    }
+  }
+}
+
+.map__zone {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @include device-max(mobile) {
+    height: $map-zone-size-mobile;
+    padding-right: $spacer-4;
+    background-color: $border-color-generic;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: math.div($map-zone-size-mobile, 2);
+      border-color: $border-color-generic $border-color-generic transparent transparent;
+    }
+  }
+
+  @include device-min(tablet) {
+    top: $border-width-generic;
+    width: $map-zone-size-tablet;
+    height: calc(100% - #{$border-width-generic});
+    background-color: var(--color-map-zone-background-desktop);
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: math.div($map-zone-size-tablet, 2);
+    }
+
+    &::before {
+      top: 0;
+      border-color: var(--color-map-diagram-background) transparent transparent var(--color-map-diagram-background);
+    }
+
+    &::after {
+      bottom: 0;
+      border-color: transparent transparent var(--color-map-diagram-background) var(--color-map-diagram-background);
+    }
+  }
+}
+
+.map__zone-text {
+  @include device-max(mobile) {
+    color: var(--color-map-zone-text-mobile);
+  }
+
+  @include device-min(tablet) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--color-map-zone-text-tablet);
+    white-space: nowrap;
+    transform-origin: center center;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+.map__station-list-item {
   position: relative;
   display: flex;
   align-items: center;
@@ -41,8 +131,12 @@
   width: 100%;
   min-height: $map-list-item-min-height;
 
-  @include device-min(desktop) {
+  @include device-min(tablet) {
     min-height: $map-list-item-min-height--desktop;
+
+    &:only-of-type {
+      min-height: $map-list-item-only-of-type-min-height--desktop;
+    }
   }
 }
 
@@ -61,8 +155,8 @@
   width: $map-line-width;
   height: 100%;
 
-  .map__list-item:first-of-type &,
-  .map__list-item:last-of-type & {
+  .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
+  .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
     &::after { // Mask to hide first and last station overrun
       content: '';
       display: block;
@@ -74,13 +168,13 @@
     }
   }
 
-  .map__list-item:first-of-type & {
+  .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {
     &::after {
       top: 0;
     }
   }
 
-  .map__list-item:last-of-type & {
+  .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
     &::after {
       bottom: 0;
     }
@@ -102,6 +196,10 @@
 
   @include device-min(mobile) {
     padding-left: $map-spacing-mobile;
+  }
+
+  @include device-min(tablet) {
+    padding-right: $map-diagram-padding + $map-zone-size-tablet;
   }
 }
 
@@ -169,11 +267,11 @@
     padding-right: $map-spacing-mobile;
   }
 
-  .map__list-item:first-of-type & {
+  .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {
     margin-top: 0;
   }
 
-  .map__list-item:last-of-type & {
+  .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
     margin-bottom: 0;
   }
 }

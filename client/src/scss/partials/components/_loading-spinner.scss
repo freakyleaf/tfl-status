@@ -16,6 +16,7 @@ $loading-spinner-animation-duration: 1.8s;
   animation-delay: $loading-spinner-animation-delay;
 
   .ptr__loader & {
+    margin-top: $spacer-global;
     margin-left: auto;
     margin-right: auto;
   }

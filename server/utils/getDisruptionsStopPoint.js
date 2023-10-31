@@ -23,26 +23,33 @@ const cleanDescription = (description) => {
 };
 
 const getDisruptionsStopPoint = async(naptanId) => {
-  const { data } = await axios.get(`https://api.tfl.gov.uk/stoppoint/${naptanId}/disruption?app_id=${PRIVATE_TFL_APP_ID}&app_key=${PRIVATE_TFL_APP_KEY}`);
+  try {
+    const { data } = await axios.get(`https://api.tfl.gov.uk/stoppoint/${naptanId}/disruption?app_id=${PRIVATE_TFL_APP_ID}&app_key=${PRIVATE_TFL_APP_KEY}`);
 
-  if (!data.length) return [];
+    if (!data.length) return [];
 
-  const disruptions = data.map((datum) => {
-    return {
-      appearance: datum.appearance.toLowerCase() || null,
-      description: cleanDescription(datum.description) || null,
-      type: datum.type.toLowerCase() || null,
-    };
-  });
+    const disruptions = data.map((datum) => {
+      return {
+        appearance: datum.appearance.toLowerCase() || null,
+        description: cleanDescription(datum.description) || null,
+        type: datum.type.toLowerCase() || null,
+      };
+    });
 
-  // Remove duplicate disruptions
-  const seen = new Set();
+    // Remove duplicate disruptions
+    const seen = new Set();
 
-  return disruptions.filter((disruption) => {
-    const duplicate = seen.has(disruption.description);
-    seen.add(disruption.description);
-    return !duplicate;
-  });
+    return disruptions.filter((disruption) => {
+      const duplicate = seen.has(disruption.description);
+      seen.add(disruption.description);
+      return !duplicate;
+    });
+  } catch (error) {
+    throw new Error({
+      error,
+      message: `'getDisruptionsStopPoint': Could not getDisruptionsStopPoint for naptanId '${naptanId}'`,
+    });
+  }
 };
 
 export default getDisruptionsStopPoint;

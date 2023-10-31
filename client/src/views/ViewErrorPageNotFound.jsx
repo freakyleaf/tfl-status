@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import PageMain from '@components/PageMain';
+import { contentPleaseUseMenu } from '@constants/text';
 
 import buildPageTitle from '@utils/buildPageTitle';
 
-import { contentPleaseUseMenu } from '@constants/textContent';
+import PageMain from '@components/PageMain';
 
 function ViewErrorPageNotFound() {
   const location = useLocation();

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   setMenuOpen,
   setSettingsOpen,
-} from '@stores/storeSliceSettings';
+} from '@stores/storeSliceState';
 
 import Icon from '@components/Icon';
 import IconClose from '@components/icons/IconClose';
@@ -16,7 +16,7 @@ function PageHeader() {
   const {
     menuOpen,
     settingsOpen,
-  } = useSelector((state) => state.settings);
+  } = useSelector((state) => state.state);
 
   const toggleMenu = () => {
     dispatch(setMenuOpen(!menuOpen));

@@ -2,24 +2,25 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { baseUrlServer } from '@constants/baseUrl';
 
-import conformData from '@utils/conformData';
+import sortMapRouteStationsByZones from '@utils/sortMapRouteStationsByZones';
 
-export const statusApi = createApi({
+export const mapsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseUrlServer }),
-  reducerPath: 'statusApi',
-  tagTypes: [ 'status' ],
+  reducerPath: 'mapsApi',
+  tagTypes: [ 'maps' ],
   endpoints: (builder) => ({
-    fetchStatuses: builder.query({
-      query: () => '/status',
-      providesTags: [ 'status' ],
+    fetchMaps: builder.query({
+      query: (id) => `/maps/${id}`,
+      providesTags: [ 'maps' ],
       transformResponse: (data) => {
         if ([ 'ENOTFOUND', 'ERR_BAD_REQUEST' ].includes(data.code)) return [];
-        return conformData(data);
+        return sortMapRouteStationsByZones(data);
       },
     }),
   }),
 });
 
 export const {
-  useFetchStatusesQuery,
-} = statusApi;
+  useFetchMapsQuery,
+  useLazyFetchMapsQuery,
+} = mapsApi;

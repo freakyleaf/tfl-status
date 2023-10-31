@@ -1,15 +1,16 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import { Outlet, useLocation, useOutletContext } from 'react-router-dom';
+import { Outlet, useLocation, useOutletContext, useParams } from 'react-router-dom';
 import PullToRefresh from 'react-simple-pull-to-refresh';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  PATH_BUS,
-  PATH_CORE,
-  PATH_NATIONAL_RAIL,
-  PATH_SERVICE,
-} from '@constants/paths';
+  useLazyFetchServicesQuery,
+} from '@api/servicesApi';
+
+import {
+  useLazyFetchStationsQuery,
+} from '@api/stationsApi';
 
 import {
   SERVICE_GROUP_CORE,
@@ -20,25 +21,33 @@ import {
 } from '@constants/theme';
 
 import {
+  TIMING_CONSTANT,
+} from '@constants/time';
+
+import {
+  VIEW_TYPE_SERVICE,
+  VIEW_TYPE_SERVICES,
+  VIEW_TYPE_STATION,
+} from '@constants/viewTypes';
+
+import {
   setMapVisibility,
-  setMenuOpen,
-  setPageMainHeight,
-  setPageMainScrollTop,
   setPinned,
-  setSettingsOpen,
   setThemeApp,
 } from '@stores/storeSliceSettings';
 
 import {
-  useFetchStatusesQuery,
-} from '@api/statusApi';
+  setMenuOpen,
+  setPageMainHeight,
+  setPageMainScrollTop,
+  setSettingsOpen,
+} from '@stores/storeSliceState';
 
 import ViewErrorGeneric from '@views/ViewErrorGeneric';
 
-import Error from '@components/Error';
 import Loading from '@components/Loading';
 import LoadingSpinner from '@components/LoadingSpinner';
-import NavigationMenu from '@components/NavigationMenu';
+import Menu from '@components/Menu';
 import PageAside from '@components/PageAside';
 import PageFooter from '@components/PageFooter';
 import PageHeader from '@components/PageHeader';
@@ -47,24 +56,27 @@ import Settings from '@components/Settings';
 
 function Layout() {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const location = useLocation();
   const refPageMain = useRef();
 
   const {
     mapVisibility,
-    menuOpen,
     pinned,
-    settingsOpen,
     themeApp,
     themeSystem,
   } = useSelector((state) => state.settings);
 
   const {
-    data: services,
-    error,
-    isLoading,
-    refetch,
-  } = useFetchStatusesQuery();
+    globalLoading,
+    menuOpen,
+    settingsOpen,
+    viewMode,
+    viewType,
+  } = useSelector((state) => state.state);
+
+  const [ fetchServicesTrigger ] = useLazyFetchServicesQuery();
+  const [ fetchStationsTrigger ] = useLazyFetchStationsQuery();
 
   const scrollTo = (top) => {
     refPageMain.current.scrollTo({
@@ -89,33 +101,59 @@ function Layout() {
   };
 
   useEffect(() => {
-    setRefPageMeasurements();
-  }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
+    setTimeout(() => {
+      setRefPageMeasurements();
+    }, 0);
+  }, []);
 
   useEffect(() => {
-    if (refPageMain.current) {
-      refPageMain.current.addEventListener('scroll', setRefPageMainScrollTop);
-      window.addEventListener('resize', setRefPageMeasurements);
+    setTimeout(() => {
+      if (refPageMain.current) {
+        refPageMain.current.addEventListener('scroll', setRefPageMainScrollTop);
+        window.addEventListener('resize', setRefPageMeasurements);
 
-      return function cleanup() {
-        refPageMain.current.removeEventListener('scroll', setRefPageMainScrollTop);
-        window.removeEventListener('resize', setRefPageMeasurements);
-      };
-    }
-  }, [ services ]); // Using `services` instead of `refPageMain` as `refPageMain` doesn't calculate the correct value on app init
+        return function cleanup() {
+          refPageMain.current.removeEventListener('scroll', setRefPageMainScrollTop);
+          window.removeEventListener('resize', setRefPageMeasurements);
+        };
+      }
+    }, 0);
+  }, []);
 
-  const pageMainClasses = () => {
+  const isServicePage = () => viewType === VIEW_TYPE_SERVICE;
+  const isServicesPage = () => viewType === VIEW_TYPE_SERVICES;
+  const isStationPage = () => viewType === VIEW_TYPE_STATION;
+
+  const containerClasses = () => {
     const output = [ 'container' ];
-    if ([ `/${PATH_BUS}`, `/${PATH_CORE}`, `/${PATH_NATIONAL_RAIL}` ].includes(location.pathname)) output.push('container--px h-100');
-    else if (location.pathname.includes(PATH_SERVICE)) output.push('container--pb container--px');
+    if (isServicePage()) output.push('container--pb container--px');
+    else if (isServicesPage()) output.push('container--px h-100');
     else output.push('container--px container--py');
     return output.join(' ');
   };
+
+  const pageClasses = () => {
+    const output = [ 'page' ];
+    if (globalLoading) output.push('page--loading');
+    output.push('h-100');
+    return output.join(' ');
+  };
+
+  useEffect(() => {
+    const pinned = localStorage.getItem('pinned');
+    if (pinned) dispatch(setPinned(JSON.parse(pinned)));
+  }, []);
 
   useEffect(() => {
     const theme = localStorage.getItem('theme');
     if (theme) dispatch(setThemeApp(theme));
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem('pinned', JSON.stringify(pinned));
+    }, 0);
+  }, [ pinned ]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -126,23 +164,12 @@ function Layout() {
   }, [ themeApp ]);
 
   useEffect(() => {
-    const pinned = localStorage.getItem('pinned');
-    if (pinned) dispatch(setPinned(JSON.parse(pinned)));
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      localStorage.setItem('pinned', JSON.stringify(pinned));
-    }, 0);
-  }, [ pinned ]);
-
-  useEffect(() => {
     const mapVisibility = localStorage.getItem('mapVisibility');
     if (mapVisibility) {
       dispatch(setMapVisibility(JSON.parse(mapVisibility)));
     } else {
       dispatch(setMapVisibility({
-        [SERVICE_GROUP_CORE]: true, // Default setting - core only
+        [SERVICE_GROUP_CORE]: true, // Default = `SERVICE_GROUP_CORE`
       }));
     }
   }, []);
@@ -153,7 +180,6 @@ function Layout() {
     }, 0);
   }, [ mapVisibility ]);
 
-  // Close the menu or settings on any route change
   useEffect(() => {
     dispatch(setMenuOpen(false));
     dispatch(setSettingsOpen(false));
@@ -162,35 +188,38 @@ function Layout() {
   const handlePullToRefresh = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        refetch();
+        if (isServicePage()) {
+          fetchServicesTrigger(viewMode);
+        }
+        if (isServicesPage()) {
+          fetchServicesTrigger(viewMode);
+        }
+        if (isStationPage()) {
+          fetchStationsTrigger(id);
+        }
         resolve();
-      }, 1000);
+      }, TIMING_CONSTANT);
     });
   };
 
   return (
     <>
       {
-        isLoading && (
-          <Loading />
-        )
-      }
-      {
-        error && (
-          <Error
-            message={error.data.message}
-            status={error.status}
+        globalLoading && (
+          <Loading
+            global={true}
           />
         )
       }
       {
-        services && (
+        (
           <PullToRefresh
             onRefresh={handlePullToRefresh}
             pullingContent={<PullToRefreshMessage />}
+            pullDownThreshold="48"
             refreshingContent={<LoadingSpinner />}
           >
-            <div className="page h-100">
+            <div className={pageClasses()}>
               <header className="page__header">
                 <div className="container container--px">
                   <PageHeader />
@@ -202,12 +231,12 @@ function Layout() {
                     className="page__main"
                     ref={refPageMain}
                   >
-                    <div className={pageMainClasses()}>
+                    <div className={containerClasses()}>
                       <ErrorBoundary
                         fallbackRender={ViewErrorGeneric}
                       >
                         <Outlet
-                          context={{ scrollTo, services }}
+                          context={{ scrollTo }}
                         />
                       </ErrorBoundary>
                     </div>
@@ -220,18 +249,10 @@ function Layout() {
                     <div className="container container--px container--py">
                       <PageAside>
                         {
-                          menuOpen && (
-                            <NavigationMenu
-                              services={services}
-                            />
-                          )
+                          menuOpen && (<Menu />)
                         }
                         {
-                          settingsOpen && (
-                            <Settings
-                              services={services}
-                            />
-                          )
+                          settingsOpen && (<Settings />)
                         }
                       </PageAside>
                     </div>
@@ -254,9 +275,5 @@ function Layout() {
 export default Layout;
 
 export function useScrollTo() {
-  return useOutletContext();
-}
-
-export function useServices() {
   return useOutletContext();
 }

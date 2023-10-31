@@ -9,9 +9,7 @@ import {
   contentHavingTroubleFetchingData,
   contentNoSimilarServices,
   contentPleaseUseMenu,
-} from '@constants/textContent';
-
-import { useServices } from '@layouts/Layout';
+} from '@constants/text';
 
 import buildPageTitle from '@utils/buildPageTitle';
 import getSuggested from '@utils/getSuggested';
@@ -20,6 +18,8 @@ import PageMain from '@components/PageMain';
 
 ViewErrorService.propTypes = {
   serviceGroup: PropTypes.string.isRequired,
+  viewMode: PropTypes.string.isRequired,
+  viewType: PropTypes.string.isRequired,
 };
 
 function ViewErrorService(props) {
@@ -28,7 +28,6 @@ function ViewErrorService(props) {
   } = props;
 
   const { id } = useParams();
-  const { services } = useServices();
   const serviceIds = services[serviceGroup].modes.map((service) => service.id);
   const path = services[serviceGroup].path === '/' ? '' : services[serviceGroup].path;
 

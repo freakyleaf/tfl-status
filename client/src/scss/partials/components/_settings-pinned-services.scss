@@ -1,3 +1,9 @@
 .settings-pinned-services__list {
   @extend %list-unstyled;
 }
+
+.settings-pinned-services__list-item {
+  &:not(:last-of-type) {
+    margin-bottom: $spacer-global;
+  }
+}

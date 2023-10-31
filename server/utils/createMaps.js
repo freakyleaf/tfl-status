@@ -1,10 +1,12 @@
 import cleanName from './cleanName.js';
 import getInterchanges from './getInterchanges.js';
 import getModesById from './getModesById.js';
+import getZone from './getZone.js';
 
 import stringToKebabCase from './stringToKebabCase.js';
 
-const createLine = async({ data, id }) => {
+const createMaps = async({ data, id }) => {
+  const mode = data.mode;
   const modesById = await getModesById();
 
   return data.orderedLineRoutes.map((orderedLineRoute) => {
@@ -25,14 +27,20 @@ const createLine = async({ data, id }) => {
 
         return {
           hasDisruption: !!stopPointSequencesStation.hasDisruption,
+          id: stringToKebabCase(stationName),
           interchanges: getInterchanges({ id, lines: station.lines, modesById }),
           name: stationName,
           naptanId,
-          id: stringToKebabCase(stationName),
+          zone: getZone({
+            id,
+            mode,
+            naptanId,
+            zone: station.zone,
+          }),
         };
       }),
     };
   });
 };
 
-export default createLine;
+export default createMaps;

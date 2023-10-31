@@ -4,7 +4,7 @@ import express from 'express';
 
 import envPath from '../constants/envPath.js';
 
-import createLine from '../utils/createLine.js';
+import createMaps from '../utils/createMaps.js';
 
 dotenv.config({
   path: envPath,
@@ -17,17 +17,17 @@ const {
 
 const router = express.Router();
 
-router.get('/:id', async(req, res) => {
+router.get('/:id', async(req, res, next) => {
   const { id } = req.params;
 
   try {
     const { data } = await axios.get(`https://api.tfl.gov.uk/line/${id}/route/sequence/inbound?app_id=${PRIVATE_TFL_APP_ID}&app_key=${PRIVATE_TFL_APP_KEY}`);
-    const line = await createLine({ data, id });
+    const maps = await createMaps({ data, id });
 
-    res.json(line);
+    res.json(maps);
     res.status(200);
   } catch (error) {
-    res.json(error);
+    next(error);
     res.status(503);
   }
 });

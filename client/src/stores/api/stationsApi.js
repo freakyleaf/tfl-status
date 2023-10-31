@@ -8,7 +8,7 @@ export const stationsApi = createApi({
   tagTypes: [ 'stations' ],
   endpoints: (builder) => ({
     fetchStations: builder.query({
-      query: (station) => `/stations/${station}`,
+      query: (id) => `/stations/${id}`,
       providesTags: [ 'stations' ],
       transformResponse: (data) => {
         if ([ 'ENOTFOUND', 'ERR_BAD_REQUEST' ].includes(data.code)) return [];
@@ -20,4 +20,5 @@ export const stationsApi = createApi({
 
 export const {
   useFetchStationsQuery,
+  useLazyFetchStationsQuery,
 } = stationsApi;

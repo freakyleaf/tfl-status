@@ -8,12 +8,8 @@ import {
 
 const initialState = {
   mapVisibility: {},
-  menuOpen: false,
-  pageMainHeight: 0,
-  pageMainScrollTop: 0,
   pinned: {},
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  settingsOpen: false,
   themeApp: THEME_AUTO,
   themeSystem: window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME_DARK : THEME_LIGHT,
 };
@@ -35,18 +31,6 @@ export const storeSliceSettings = createSlice({
         delete state.mapVisibility[id];
       }
     },
-    setMenuOpen: (state, action) => {
-      const { payload } = action;
-      state.menuOpen = payload;
-    },
-    setPageMainHeight: (state, action) => {
-      const { payload } = action;
-      state.pageMainHeight = payload;
-    },
-    setPageMainScrollTop: (state, action) => {
-      const { payload } = action;
-      state.pageMainScrollTop = payload;
-    },
     setPinned: (state, action) => {
       const { payload } = action;
       state.pinned = payload;
@@ -60,10 +44,6 @@ export const storeSliceSettings = createSlice({
         delete state.pinned[id];
       }
     },
-    setSettingsOpen: (state, action) => {
-      const { payload } = action;
-      state.settingsOpen = payload;
-    },
     setThemeApp: (state, action) => {
       const { payload } = action;
       state.themeApp = payload;
@@ -74,12 +54,8 @@ export const storeSliceSettings = createSlice({
 export const {
   setMapVisibility,
   setMapVisibilityItem,
-  setMenuOpen,
-  setPageMainHeight,
-  setPageMainScrollTop,
   setPinned,
   setPinnedItem,
-  setSettingsOpen,
   setThemeApp,
 } = storeSliceSettings.actions;
 

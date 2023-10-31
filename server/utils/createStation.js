@@ -2,6 +2,7 @@ import cleanName from './cleanName.js';
 import getDisruptionsStopPoint from './getDisruptionsStopPoint.js';
 import getInterchanges from './getInterchanges.js';
 import getModesById from './getModesById.js';
+import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
 const facilityBoolean = (facility) => {
@@ -29,7 +30,7 @@ const getMeta = (facilities) => {
   const output = {
     contact: {},
     facilities: {},
-    zone: null,
+    zone: {},
   };
 
   if (meta.address?.address) output.contact.address = meta.address.address;
@@ -40,7 +41,7 @@ const getMeta = (facilities) => {
   if (meta.facility?.lifts) output.facilities.lifts = facilityInteger(meta.facility.lifts);
   if (meta.facility?.toilets) output.facilities.toilets = facilityBoolean(meta.facility.toilets);
   if (meta.facility?.['wi-fi']) output.facilities.wiFi = facilityBoolean(meta.facility['wi-fi']);
-  if (meta.geo?.zone) output.zone = meta.geo.zone;
+  if (meta.geo?.zone) output.zone = getZone(meta.geo.zone);
 
   return output;
 };
@@ -52,8 +53,8 @@ const createStation = async({ data, id }) => {
     disruptions: await getDisruptions(id),
     interchanges: getInterchanges({ lines: data.lines, modesById }),
     meta: getMeta(data.additionalProperties),
-    naptanId: data.naptanId,
     name: cleanName(data.commonName),
+    naptanId: data.naptanId,
   };
 };
 

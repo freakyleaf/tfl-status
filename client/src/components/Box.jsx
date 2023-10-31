@@ -7,27 +7,27 @@ import IconCircleExclamation from '@components/icons/IconCircleExclamation';
 import IconCircleInformation from '@components/icons/IconCircleInformation';
 
 Box.propTypes = {
-  appearance: PropTypes.oneOf([
+  children: PropTypes.node.isRequired,
+  type: PropTypes.oneOf([
     'default',
     'information',
     'plannedwork',
     'realtime',
   ]),
-  children: PropTypes.node.isRequired,
 };
 
 Box.defaultProps = {
-  appearance: 'default',
+  type: 'default',
 };
 
 function Box(props) {
   const {
-    appearance,
     children,
+    type,
   } = props;
 
   const getIcon = () => {
-    switch (appearance) {
+    switch (type) {
     case 'default':
     case 'plannedwork':
       return <IconCircleExclamation />;
@@ -41,7 +41,7 @@ function Box(props) {
   };
 
   return (
-    <div className={`box box--${appearance}`}>
+    <div className={`box box--${type}`}>
       <div className="box__meta">
         <Icon
           className="box__icon"

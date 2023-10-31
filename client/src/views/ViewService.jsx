@@ -1,15 +1,27 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  useFetchServicesQuery,
+} from '@api/servicesApi';
 
 import {
   PATH_PINNED,
 } from '@constants/paths';
 
-import { useServices } from '@layouts/Layout';
+import {
+  contentHavingTroubleFetchingData,
+} from '@constants/text';
+
+import {
+  setGlobalLoading,
+} from '@stores/storeSliceState';
 
 import buildPageTitle from '@utils/buildPageTitle';
+import getPretty from '@utils/getPretty';
+import setView from '@utils/setView';
 
 import BackTo from '@components/BackTo';
 import Map from '@components/Map';
@@ -23,54 +35,79 @@ ViewService.propTypes = {
     text: PropTypes.string.isRequired,
   }),
   serviceGroup: PropTypes.string.isRequired,
+  serviceGroupPath: PropTypes.string.isRequired,
+  viewMode: PropTypes.string.isRequired,
+  viewType: PropTypes.string.isRequired,
 };
 
 function ViewService(props) {
   const {
     backTo,
     serviceGroup,
+    serviceGroupPath,
+    viewMode,
+    viewType,
   } = props;
 
-  const { id } = useParams();
-  const { pinned } = useSelector((state) => state.settings);
+  const {
+    data: services,
+    error,
+    isFetching,
+  } = useFetchServicesQuery(serviceGroup);
 
-  const { services } = useServices();
-  const service = services[serviceGroup].modes.find((service) => service.id === id);
-
-  if (!service) {
-    throw new Error(`Service not found: ${id}`);
+  if (error) {
+    throw new Error(contentHavingTroubleFetchingData);
   }
 
-  const location = useLocation();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const { pinned } = useSelector((state) => state.settings);
+  const service = services?.find((service) => service.id === id);
 
   useEffect(() => {
+    setView({ viewMode, viewType });
+  }, []);
+
+  useEffect(() => {
+    dispatch(setGlobalLoading(isFetching));
+  }, [ isFetching ]);
+
+  useEffect(() => {
+    if (!service) return;
+
     document.title = buildPageTitle(service.name);
-  }, [ location ]);
+  }, [ service ]);
 
   return (
     <div className="view view--service h-100">
       <PageMain>
-        <div className="service">
-          <h1 className={`service__heading brand-background--id-${service.id} brand-background--mode-${service.mode}`}>
-            {service.name}
-          </h1>
-          <Status
-            service={service}
-          />
-          <Reason
-            service={service}
-          />
-          <Map
-            service={service}
-          />
-          <div className="service__pinned-message">
-            This service is {!pinned[service.id] && 'not'} currently pinned. To view/edit all pinned {services[serviceGroup].name} services <Link to={`${services[serviceGroup].path}/${PATH_PINNED}`}>click here</Link>.
-          </div>
-          <BackTo
-            path={backTo.path}
-            text={backTo.text}
-          />
-        </div>
+        <>
+          {
+            service && (
+              <div className="service">
+                <h1 className={`service__heading brand-background--id-${service.id} brand-background--mode-${service.mode}`}>
+                  {service.name}
+                </h1>
+                <Status
+                  service={service}
+                />
+                <Reason
+                  service={service}
+                />
+                <Map
+                  service={service}
+                />
+                <div className="service__pinned-message">
+                  This service is {!pinned[service.id] && 'not'} currently pinned. To view/edit all pinned {getPretty(viewMode)} services <Link to={`${serviceGroupPath}/${PATH_PINNED}`}>click here</Link>.
+                </div>
+                <BackTo
+                  path={backTo.path}
+                  text={backTo.text}
+                />
+              </div>
+            )
+          }
+        </>
       </PageMain>
     </div>
   );

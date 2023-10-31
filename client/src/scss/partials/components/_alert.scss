@@ -1,6 +1,6 @@
 .alert {
   margin-bottom: $spacer-global;
-  padding: $spacer-4 $spacer-global;
+  padding: $alert-padding-y $alert-padding-x;
   border-radius: $border-radius-generic;
 
   &--error {
