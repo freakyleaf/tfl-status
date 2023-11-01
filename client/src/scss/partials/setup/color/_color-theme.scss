@@ -82,7 +82,7 @@ $color-light: $color-gray-200;
   --color-map-station-text: var(--color-primary);
   --color-map-diagram-background: var(--color-body-background);
   --color-map-zone-background-desktop: #{$color-tfl-blue};
-  --color-map-zone-text-mobile: #{$color-white};
+  --color-map-zone-text-mobile: #{$color-gray-500};
   --color-map-zone-text-tablet: #{$color-white};
 }
 
@@ -195,7 +195,6 @@ $color-light: $color-gray-200;
   --color-map-station-text: #{$color-light};
   --color-map-diagram-background: #{$color-gray-800};
   --color-map-zone-background-desktop: #{$color-gray-700};
-  --color-map-zone-text-mobile: #{$color-dark};
   --color-map-zone-text-tablet: #{$color-dark};
 
   // Menu

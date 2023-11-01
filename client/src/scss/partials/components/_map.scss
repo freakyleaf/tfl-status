@@ -60,21 +60,9 @@
 
   @include device-max(mobile) {
     height: $map-zone-size-mobile;
+    padding-left: $spacer-4;
     padding-right: $spacer-4;
-    background-color: $border-color-generic;
-
-    &::before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 100%;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: math.div($map-zone-size-mobile, 2);
-      border-color: $border-color-generic $border-color-generic transparent transparent;
-    }
+    border: $border-generic;
   }
 
   @include device-min(tablet) {
