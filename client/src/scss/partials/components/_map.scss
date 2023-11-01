@@ -59,9 +59,7 @@
   right: 0;
 
   @include device-max(mobile) {
-    height: $map-zone-size-mobile;
-    padding-left: $spacer-4;
-    padding-right: $spacer-4;
+    padding: $map-zone-padding-y-mobile $map-zone-padding-x-mobile;
     border: $border-generic;
   }
 

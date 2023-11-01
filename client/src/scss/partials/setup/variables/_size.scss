@@ -32,7 +32,8 @@ $map-marker-size--interchange: 2.2rem; // Somewhere between $spacer-6 and $space
 $map-marker-width--regular: $spacer-4;
 $map-spacing: math.div($map-marker-size--interchange, 4) * 3;
 $map-spacing-mobile: $map-marker-size--interchange;
-$map-zone-size-mobile: 1.5rem;
+$map-zone-padding-x-mobile: $spacer-4;
+$map-zone-padding-y-mobile: 0.35rem; // Somewhere between $spacer-2 and $spacer-3
 $map-zone-size-tablet: 2rem;
 
 $navigation-primary-link-margin-y: $spacer-4;
