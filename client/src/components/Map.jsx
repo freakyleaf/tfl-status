@@ -83,7 +83,12 @@ function Map(props) {
   };
 
   const stationHasInternationalRailInterchange = (station) => {
-    return station.name.includes('International'); // Totally taking liberties here as this includes Stratford International, Ebbsfleet International, and Ashford International :)
+    return [
+      'Ashford International',
+      'Ebbsfleet International',
+      'King\'s Cross & St Pancras International',
+      'Stratford International',
+    ].includes(station.name); // Totally taking liberties here :)
   };
 
   const stationHasNationalRailInterchange = (station) => {
