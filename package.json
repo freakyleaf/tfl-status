@@ -13,7 +13,7 @@
     "server:dev": "cd ./server && yarn dev",
     "server:dev:inspect": "cd ./server && yarn dev:inspect",
     "server:build": "cd ./server && node index.js",
-    "sitemap": "node buildSitemap.js"
+    "sitemap": "node sitemap.js"
   },
   "devDependencies": {
     "eslint": "^8.51.0",

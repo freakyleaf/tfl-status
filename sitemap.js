@@ -31,7 +31,7 @@ const serviceGroups = {
     pathService: '/service',
     pathServices: '/',
   },
-  nationalRail: {
+  ['national-rail']: {
     modes: [
       'national-rail',
     ],
@@ -56,7 +56,7 @@ function formatServiceGroups(services) {
   return output;
 }
 
-const { data } = await axios.get(`${baseUrlServer}/status`);
+const { data } = await axios.get(`${baseUrlServer}/services/all`);
 const date = new Date().toISOString().slice(0, 10);
 const serviceGroupsFormatted = formatServiceGroups(data);
 
