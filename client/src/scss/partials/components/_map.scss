@@ -10,6 +10,12 @@
   margin-bottom: $spacer-global;
 }
 
+.map__toggles-list-item {
+  &:not(:last-of-type) {
+    margin-bottom: $toggles-list-item-margin-bottom;
+  }
+}
+
 .map__diagram {
   display: flex;
   align-items: center;
