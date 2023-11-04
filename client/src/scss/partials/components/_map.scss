@@ -264,8 +264,8 @@
 .map__interchanges {
   order: 1;
   justify-content: flex-end;
-  margin-top: $spacer-3; // Ensure adjacent station interchanges never touch
-  margin-bottom: $spacer-3; // Ensure adjacent station interchanges never touch
+  margin-top: $spacer-4; // Ensure adjacent station interchanges never touch
+  margin-bottom: $spacer-4; // Ensure adjacent station interchanges never touch
   padding-right: $map-spacing; // Very small phones only
 
   @include device-min(mobile) {
