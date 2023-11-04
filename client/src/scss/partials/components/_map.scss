@@ -16,14 +16,10 @@
   }
 }
 
-.map__diagram,
-.map__route {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .map__diagram {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 10rem; // Arbitrary figure to accommodate loading spinner
   padding: $map-diagram-padding;
   background-color: var(--color-map-diagram-background);
@@ -154,7 +150,7 @@
   width: $map-line-width;
   height: 100%;
 
-  .map__diagram--service-closed & {
+  .map__diagram--service-disabled & {
     background-color: var(--color-map-disabled) !important;
   }
 
@@ -251,7 +247,7 @@
     border-width: $map-marker-interchange-border-width;
     transform: translate(-50%, -50%);
 
-    .map__diagram--service-closed & {
+    .map__diagram--service-disabled & {
       background-color: var(--color-map-interchange-background-disabled);
       border-color: var(--color-map-interchange-border-disabled);
     }

@@ -10,6 +10,7 @@ export const contentBackToNationalRail = `all ${SERVICE_NAME_NATIONAL_RAIL} serv
 
 export const contentHavingTroubleFetchingData = 'We\'re having trouble fetching service data from the TfL API. Please try again later.';
 export const contentMapServiceClosed = 'This service is currently closed.';
+export const contentMapServiceSuspended = 'This service is currently suspended.';
 export const contentNoInformationAvailable = 'No other information is available for this station.';
 export const contentNoSimilarServices = 'There are no similar services to the one you requested.';
 export const contentPinnedItemsAppearEnd = 'services page.';

@@ -17,10 +17,12 @@ import serviceGroups, {
 
 import {
   STATUS_DESCRIPTION_PLANNED_CLOSURE,
+  STATUS_DESCRIPTION_SUSPENDED,
 } from '@constants/statusDescriptions';
 
 import {
   contentMapServiceClosed,
+  contentMapServiceSuspended,
   contentServiceMultipleRoutes,
 } from '@constants/text';
 
@@ -66,7 +68,12 @@ function Map(props) {
   const { mapVisibility } = useSelector((state) => state.settings);
 
   const serviceHasMultipleRoutes = maps?.length > 1;
-  const serviceHasPlannedClosure = service?.statusesConformed.some((status) => status.description === STATUS_DESCRIPTION_PLANNED_CLOSURE);
+
+  const serviceStatusPlannedClosure = service?.statusesConformed.some((status) => status.description === STATUS_DESCRIPTION_PLANNED_CLOSURE);
+  const serviceStatusSuspended = service?.statusesConformed.some((status) => status.description === STATUS_DESCRIPTION_SUSPENDED);
+
+  const serviceDisabled = serviceStatusPlannedClosure || serviceStatusSuspended;
+  const contentServiceDisabled = serviceStatusPlannedClosure ? contentMapServiceClosed : contentMapServiceSuspended;
 
   useEffect(() => {
     setMapLoading(true);
@@ -173,7 +180,7 @@ function Map(props) {
               </ul>
             </div>
 
-            <div className={serviceHasPlannedClosure ? 'map__diagram map__diagram--service-closed' : 'map__diagram'}>
+            <div className={serviceDisabled ? 'map__diagram map__diagram--service-disabled' : 'map__diagram'}>
               {
                 isLoading && (<Loading />)
               }
@@ -181,11 +188,11 @@ function Map(props) {
                 !isLoading && (
                   <>
                     {
-                      serviceHasPlannedClosure && (
+                      serviceDisabled && (
                         <Box
                           type="information"
                         >
-                          {contentMapServiceClosed}
+                          {contentServiceDisabled}
                         </Box>
                       )
                     }
