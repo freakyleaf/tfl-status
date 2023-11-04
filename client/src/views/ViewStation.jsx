@@ -62,14 +62,14 @@ function ViewStation(props) {
     document.title = station && buildPageTitle(station.name);
   }, [ location, station ]);
 
-  const hasContact = station && Object.keys(station.meta.contact).length;
-  const hasDisruptions = station && station.disruptions.length;
-  const hasFacilities = station && Object.keys(station.meta.facilities).length;
-  const hasZone = station && Object.keys(station.meta.zone).length;
+  const hasContact = station && !!Object.keys(station.meta.contact).length;
+  const hasDisruptions = station && !!station.disruptions.length;
+  const hasFacilities = station && !!Object.keys(station.meta.facilities).length;
+  const hasZone = station && !!Object.keys(station.meta.zone).length;
   const nothingToDisplay = !hasContact && !hasFacilities && !hasZone;
 
   return (
-    <div className="view view--station h-100">
+    <div className="view view--station">
       <PageMain>
         <>
           {

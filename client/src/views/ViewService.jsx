@@ -98,7 +98,7 @@ function ViewService(props) {
                   service={service}
                 />
                 <div className="service__pinned-message">
-                  This service is {!pinned[service.id] && 'not'} currently pinned. To view/edit all pinned {getPretty(viewMode)} services <Link to={`${serviceGroupPath}/${PATH_PINNED}`}>click here</Link>.
+                  This service is {!pinned[service.id] && 'not'} currently pinned to the top of the {getPretty(viewMode)} services page. To view/edit all pinned {getPretty(viewMode)} services <Link to={`${serviceGroupPath}/${PATH_PINNED}`}>click here</Link>.
                 </div>
                 <BackTo
                   path={backTo.path}

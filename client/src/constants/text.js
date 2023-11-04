@@ -16,5 +16,5 @@ export const contentPinnedItemsAppearStart = 'Set the services to appear at the 
 export const contentPleaseUseMenu = 'Please use the menu at the top of the page to navigate your way through the app.';
 export const contentServiceMultipleRoutes = 'This service has multiple routes. Please select a route below to view a map.';
 export const contentSettingsHelperPinnedServices = `Set the services to appear at the top of the '${SERVICE_NAME_CORE}', '${SERVICE_NAME_BUS}', and '${SERVICE_NAME_NATIONAL_RAIL}' services pages.`;
-export const contentSettingsHelperTheme = 'Set the appliction theme. Selecting \'Auto\' will set the theme based on your device\'s settings.';
-export const contentSettingsMapStationInterchangeVisibility = 'Set the service groups to appear as interchanges on maps.';
+export const contentSettingsHelperTheme = 'Set the appliction theme. Selecting \'Auto\' will use your device\'s theme.';
+export const contentSettingsMapStationInterchangeVisibility = 'Set the services to appear as interchanges on maps.';
