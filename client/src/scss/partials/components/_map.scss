@@ -16,18 +16,22 @@
   }
 }
 
+.map__diagram,
+.map__route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .map__diagram {
+  min-height: 10rem; // Arbitrary figure to accommodate loading spinner
   padding: $map-diagram-padding;
   background-color: var(--color-map-diagram-background);
   border: $border-generic;
 }
 
 .map__route {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  min-height: 10rem; // Arbitrary figure to accommodate loading spinner
   font-size: 0.75em; // Very small phones only
   line-height: 1;
 
