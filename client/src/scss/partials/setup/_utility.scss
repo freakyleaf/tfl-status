@@ -1,3 +1,10 @@
+// Bordered box
+
+%bordered-box {
+  padding: $spacer-global !important; // `!important` required to override potential `%list-unstyled` padding rule
+  border: $border-generic;
+}
+
 // Clickable
 
 .clickable {
@@ -10,6 +17,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+// Height
+
+.h-100 {
+  height: 100% !important;
+}
+
+.min-h-100 {
+  min-height: 100% !important;
 }
 
 // Link
@@ -39,16 +56,6 @@
 
 .list-unstyled {
   @extend %list-unstyled;
-}
-
-// Height
-
-.h-100 {
-  height: 100% !important;
-}
-
-.min-h-100 {
-  min-height: 100% !important;
 }
 
 // Margin

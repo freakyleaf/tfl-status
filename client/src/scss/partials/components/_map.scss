@@ -5,6 +5,7 @@
 }
 
 .map__toggles-list {
+  @extend %bordered-box;
   @extend %list-unstyled;
 
   margin-bottom: $spacer-global;

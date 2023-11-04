@@ -4,6 +4,7 @@
 }
 
 .pinned-services__list {
+  @extend %bordered-box;
   @extend %list-unstyled;
 }
 
