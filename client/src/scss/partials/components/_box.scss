@@ -9,6 +9,10 @@
     display: flex;
   }
 
+  .map__diagram & {
+    margin-bottom: $spacer-global;
+  }
+
   .settings & {
     margin-top: 0;
     margin-bottom: $spacer-global;

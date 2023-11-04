@@ -17,16 +17,19 @@
 }
 
 .map__diagram {
+  padding: $map-diagram-padding;
+  background-color: var(--color-map-diagram-background);
+  border: $border-generic;
+}
+
+.map__route {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   min-height: 10rem; // Arbitrary figure to accommodate loading spinner
-  padding: $map-diagram-padding;
   font-size: 0.75em; // Very small phones only
   line-height: 1;
-  background-color: var(--color-map-diagram-background);
-  border: $border-generic;
 
   @include device-min(mobile) {
     font-size: 1em;
@@ -147,6 +150,10 @@
   width: $map-line-width;
   height: 100%;
 
+  .map__diagram--service-closed & {
+    background-color: var(--color-map-disabled) !important;
+  }
+
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
     &::after { // Mask to hide first and last station overrun
@@ -233,12 +240,17 @@
   &--interchange {
     width: $map-marker-size--interchange;
     height: $map-marker-size--interchange;
-    background-color: $color-tfl-white;
-    border-color: $color-tfl-black;
+    background-color: var(--color-map-interchange-background);
+    border-color: var(--color-map-interchange-border);
     border-radius: 50%;
     border-style: $border-style-generic;
     border-width: $map-marker-interchange-border-width;
     transform: translate(-50%, -50%);
+
+    .map__diagram--service-closed & {
+      background-color: var(--color-map-interchange-background-disabled);
+      border-color: var(--color-map-interchange-border-disabled);
+    }
   }
 
   &--regular {

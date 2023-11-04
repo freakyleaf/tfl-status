@@ -16,6 +16,11 @@ import serviceGroups, {
 } from '@constants/serviceGroups';
 
 import {
+  STATUS_DESCRIPTION_PLANNED_CLOSURE,
+} from '@constants/statusDescriptions';
+
+import {
+  contentMapServiceClosed,
   contentServiceMultipleRoutes,
 } from '@constants/text';
 
@@ -30,6 +35,7 @@ import {
 import stringToKebabCase from '@utils/stringToKebabCase';
 
 import Alert from '@components/Alert';
+import Box from '@components/Box';
 import Error from '@components/Error';
 import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
@@ -60,6 +66,7 @@ function Map(props) {
   const { mapVisibility } = useSelector((state) => state.settings);
 
   const serviceHasMultipleRoutes = maps?.length > 1;
+  const serviceHasPlannedClosure = service?.statusesConformed.some((status) => status.description === STATUS_DESCRIPTION_PLANNED_CLOSURE);
 
   useEffect(() => {
     setMapLoading(true);
@@ -166,80 +173,91 @@ function Map(props) {
               </ul>
             </div>
 
-            <div className="map__diagram">
+            <div className={serviceHasPlannedClosure ? 'map__diagram map__diagram--service-closed' : 'map__diagram'}>
               {
-                isLoading && (
-                  <Loading />
-                )
+                isLoading && (<Loading />)
               }
               {
                 !isLoading && (
-                  <ul className="map__zone-list">
+                  <>
                     {
-                      currentRoute && currentRoute.zones.map((zone, index) => (
-                        <li
-                          aria-labelledby={hasMapZone(zone.zone.zones) ? stringToKebabCase(`zone-${zone.zone.zones}-index-${index}`) : null}
-                          className="map__zone-list-item"
-                          key={`${zone.zone.zones}-${index}`}
+                      serviceHasPlannedClosure && (
+                        <Box
+                          type="information"
                         >
-                          {
-                            hasMapZone(zone.zone.zones) && (
-                              <div className="map__zone">
-                                <span
-                                  className="map__zone-text"
-                                  id={stringToKebabCase(`zone-${zone.zone.zones}-index-${index}`)}
-                                >
-                                  {zone.zone.multiple ? 'Zones' : 'Zone'} {zone.zone.zones}
-                                </span>
-                              </div>
-                            )
-                          }
-                          <ul className="map__station-list">
-                            {
-                              zone.stations.map((station, index) => (
-                                <li
-                                  className="map__station-list-item"
-                                  key={`${station.id}-${index}`}
-                                >
-                                  <div className="map__ornaments">
-                                    <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`} />
-                                    <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
-                                  </div>
-                                  <div className="map__station">
-                                    <Link
-                                      className="map__station-link"
-                                      id={`station-${station.id}`}
-                                      to={`/${PATH_STATION}/${station.naptanId}`}
-                                    >
-                                      {station.name}
-                                    </Link>
-                                    {
-                                      station.hasDisruption && (<MapIconWarning />)
-                                    }
-                                    {
-                                      stationHasNationalRailInterchange(station) && (<MapIconNationalRail />)
-                                    }
-                                    {
-                                      stationHasInternationalRailInterchange(station) && (<MapIconInternationalRail />)
-                                    }
-                                  </div>
-                                  <div className="map__interchanges">
-                                    {
-                                      !!station.interchanges.length && (
-                                        <Interchanges
-                                          station={station}
-                                          stationInterchanges={stationInterchanges(station)}
-                                        />
-                                      )
-                                    }
-                                  </div>
-                                </li>
-                              ))}
-                          </ul>
-                        </li>
-                      ))
+                          {contentMapServiceClosed}
+                        </Box>
+                      )
                     }
-                  </ul>
+                    <div className="map__route">
+                      <ul className="map__zone-list">
+                        {
+                          currentRoute && currentRoute.zones.map((zone, index) => (
+                            <li
+                              aria-labelledby={hasMapZone(zone.zone.zones) ? stringToKebabCase(`zone-${zone.zone.zones}-index-${index}`) : null}
+                              className="map__zone-list-item"
+                              key={`${zone.zone.zones}-${index}`}
+                            >
+                              {
+                                hasMapZone(zone.zone.zones) && (
+                                  <div className="map__zone">
+                                    <span
+                                      className="map__zone-text"
+                                      id={stringToKebabCase(`zone-${zone.zone.zones}-index-${index}`)}
+                                    >
+                                      {zone.zone.multiple ? 'Zones' : 'Zone'} {zone.zone.zones}
+                                    </span>
+                                  </div>
+                                )
+                              }
+                              <ul className="map__station-list">
+                                {
+                                  zone.stations.map((station, index) => (
+                                    <li
+                                      className="map__station-list-item"
+                                      key={`${station.id}-${index}`}
+                                    >
+                                      <div className="map__ornaments">
+                                        <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`} />
+                                        <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
+                                      </div>
+                                      <div className="map__station">
+                                        <Link
+                                          className="map__station-link"
+                                          id={`station-${station.id}`}
+                                          to={`/${PATH_STATION}/${station.naptanId}`}
+                                        >
+                                          {station.name}
+                                        </Link>
+                                        {
+                                          station.hasDisruption && (<MapIconWarning />)
+                                        }
+                                        {
+                                          stationHasNationalRailInterchange(station) && (<MapIconNationalRail />)
+                                        }
+                                        {
+                                          stationHasInternationalRailInterchange(station) && (<MapIconInternationalRail />)
+                                        }
+                                      </div>
+                                      <div className="map__interchanges">
+                                        {
+                                          !!station.interchanges.length && (
+                                            <Interchanges
+                                              station={station}
+                                              stationInterchanges={stationInterchanges(station)}
+                                            />
+                                          )
+                                        }
+                                      </div>
+                                    </li>
+                                  ))}
+                              </ul>
+                            </li>
+                          ))
+                        }
+                      </ul>
+                    </div>
+                  </>
                 )
               }
             </div>

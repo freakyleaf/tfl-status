@@ -79,8 +79,13 @@ $color-light: $color-gray-200;
 
 // Map
 :root {
-  --color-map-station-text: var(--color-primary);
   --color-map-diagram-background: var(--color-body-background);
+  --color-map-disabled: #{$color-gray-200};
+  --color-map-interchange-background: #{$color-white};
+  --color-map-interchange-background-disabled: #{$color-white};
+  --color-map-interchange-border: #{$color-black};
+  --color-map-interchange-border-disabled: var(--color-map-disabled);
+  --color-map-station-text: var(--color-primary);
   --color-map-zone-background-desktop: #{$color-tfl-blue};
   --color-map-zone-text-mobile: #{$color-gray-500};
   --color-map-zone-text-tablet: #{$color-white};
@@ -204,8 +209,10 @@ $color-light: $color-gray-200;
   --color-loading-icon: #{$color-gray-700};
 
   // Map
+  --color-map-diagram-background: var(--color-page-main-background);
+  --color-map-disabled: #{$color-gray-700};
+  --color-map-interchange-background-disabled: var(--color-map-diagram-background);
   --color-map-station-text: #{$color-light};
-  --color-map-diagram-background: #{$color-gray-800};
   --color-map-zone-background-desktop: #{$color-gray-700};
   --color-map-zone-text-tablet: #{$color-dark};
 
