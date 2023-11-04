@@ -142,6 +142,11 @@ $color-light: $color-gray-200;
   --color-status-positive-text: #{$color-state-info};
 }
 
+// Table
+:root {
+  --color-table-tr-even-background: #{$color-gray-100};
+}
+
 // Toggle Switch
 :root {
   --color-toggle-switch-background-checked: var(--color-primary);
@@ -221,6 +226,9 @@ $color-light: $color-gray-200;
   // Status
   --color-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio
   --color-status-positive-text: #{$color-light};
+
+  // Table
+  --color-table-tr-even-background: #{$color-gray-800};
 
   // Toggle Switch
   --color-toggle-switch-background-unchecked: #{$color-gray-900};
