@@ -36,3 +36,9 @@ $device-desktop: 1024px;
     }
   }
 }
+
+@mixin device-pointer () {
+  @media (pointer: fine) {
+    @content;
+  }
+}

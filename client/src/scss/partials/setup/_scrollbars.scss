@@ -1,0 +1,37 @@
+* {
+  @include device-pointer () {
+    .page__aside,
+    .page__main {
+      &:focus,
+      &:focus-within,
+      &:hover {
+        --color-scrollbar: var(--color-scrollbar-page-hover);
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: block;
+      width: $scrollbar-size-outer;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent;
+      border: $scrollbar-size-inner solid transparent;
+      border-radius: $scrollbar-size-outer;
+      box-shadow: $scrollbar-size-inner 0 0 $scrollbar-size-inner var(--color-scrollbar) inset;
+
+      &:hover {
+        --color-scrollbar: var(--color-scrollbar-scrollbar-hover)
+      }
+    }
+
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track-piece {
+      background-color: transparent;
+    }
+  }
+}

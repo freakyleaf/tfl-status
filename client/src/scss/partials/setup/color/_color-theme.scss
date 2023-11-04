@@ -112,6 +112,13 @@ $color-light: $color-gray-200;
   --color-page-main-text: #{$color-black};
 }
 
+// Scrollbars
+:root {
+  --color-scrollbar: #{$color-gray-300};
+  --color-scrollbar-page-hover: #{$color-gray-400};
+  --color-scrollbar-scrollbar-hover: #{$color-gray-500};
+}
+
 // Select
 :root {
   --color-select-background: #{$color-white};
@@ -215,6 +222,11 @@ $color-light: $color-gray-200;
   --color-page-aside-text: #{$color-light};
   --color-page-main-background: #{$color-gray-900};
   --color-page-main-text: #{$color-light};
+
+  // Scrollbars
+  --color-scrollbar: #{$color-gray-800};
+  --color-scrollbar-page-hover: #{$color-gray-700};
+  --color-scrollbar-scrollbar-hover: #{$color-gray-600};
 
   // Select
   --color-select-background: #{$color-dark};
