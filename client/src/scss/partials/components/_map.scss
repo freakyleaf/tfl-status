@@ -153,29 +153,39 @@
 
   .map__diagram--service-disabled & {
     background-color: var(--color-map-disabled) !important;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: math.div($map-line-width, 3);
+      height: 100%;
+      width: math.div($map-line-width, 3);
+      background-color: var(--color-map-diagram-background);;
+    }
   }
 
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    &::after { // Mask to hide first and last station overrun
+    &::after { // Mask to hide the first and last station overrun
       content: '';
       display: block;
       position: absolute;
       left: -50%;
       width: $map-line-width * 2;
       height: calc(50% - #{math.div($map-marker-height--regular, 2)});
-      background-color: var(--color-map-diagram-background);;
+      background-color: var(--color-map-diagram-background);
     }
   }
 
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {
-    &::after {
+    &::after { // Mask to hide the first station overrun
       top: 0;
     }
   }
 
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    &::after {
+    &::after { // Mask to hide the last station overrun
       bottom: 0;
     }
   }
@@ -255,9 +265,28 @@
   }
 
   &--regular {
+    $map-marker-regular-shim: 0.1rem; // Prevents potential gap between line and marker
+
     width: $map-marker-width--regular;
     height: $map-marker-height--regular;
-    transform: translate(calc(50% - 0.1rem), -50%); // `0.1rem` prevents potential gap between line and marker
+    transform: translate(calc(50% - $map-marker-regular-shim), -50%);
+
+    .map__diagram--service-disabled & {
+      background-color: var(--color-map-disabled) !important;
+    }
+
+    .map__diagram--service-disabled .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: calc(100% - ($map-marker-regular-shim * 2));
+        width: $map-line-width;
+        height: 100%;
+        background-color: var(--color-map-disabled);
+      }
+    }
   }
 }
 

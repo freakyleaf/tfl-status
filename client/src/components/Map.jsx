@@ -226,7 +226,7 @@ function Map(props) {
                                     >
                                       <div className="map__ornaments">
                                         <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`} />
-                                        <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
+                                        <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
                                       </div>
                                       <div className="map__station">
                                         <Link
