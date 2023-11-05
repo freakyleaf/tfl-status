@@ -151,23 +151,88 @@
   width: $map-line-width;
   height: 100%;
 
-  .map__diagram--service-disabled & {
-    background-color: var(--color-map-disabled) !important;
+  .map__station-list-item--next-station-suspended-full &,
+  .map__station-list-item--previous-station-suspended-full & {
+    &::before { // Fake disabled line
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+      background-color: var(--color-map-disabled);
+    }
+  }
 
-    &::before {
+  .map__station-list-item--next-station-suspended-full & {
+    &::before { // Fake disabled line
+      bottom: 0;
+    }
+  }
+
+  .map__station-list-item--previous-station-suspended-full & {
+    &::before { // Fake disabled line
+      top: 0;
+    }
+  }
+
+  .map__diagram--service-disabled &,
+  .map__station-list-item--service-suspended-full &,
+  .map__station-list-item--service-suspended-half &,
+  .map__station-list-item--next-station-suspended-full &,
+  .map__station-list-item--next-station-suspended-half &,
+  .map__station-list-item--previous-station-suspended-full &,
+  .map__station-list-item--previous-station-suspended-half & {
+    &::after { // Hollowed out solid line
       content: '';
       display: block;
       position: absolute;
       left: math.div($map-line-width, 3);
-      height: 100%;
       width: math.div($map-line-width, 3);
-      background-color: var(--color-map-diagram-background);;
+      background-color: var(--color-map-diagram-background);
     }
+  }
+
+  .map__diagram--service-disabled &,
+  .map__station-list-item--service-suspended-full &,
+  .map__station-list-item--service-suspended-half & {
+    &::after { // Hollowed out solid line
+      top: 0;
+      height: 100%;
+    }
+  }
+
+  .map__station-list-item--next-station-suspended-full &,
+  .map__station-list-item--next-station-suspended-half &,
+  .map__station-list-item--previous-station-suspended-full &,
+  .map__station-list-item--previous-station-suspended-half & {
+    &::after { // Hollowed out solid line
+      height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+    }
+  }
+
+  .map__station-list-item--next-station-suspended-full &,
+  .map__station-list-item--next-station-suspended-half & {
+    &::after { // Hollowed out solid line
+      bottom: 0;
+    }
+  }
+
+  .map__station-list-item--previous-station-suspended-full &,
+  .map__station-list-item--previous-station-suspended-half & {
+    &::after { // Hollowed out solid line
+      top: 0;
+    }
+  }
+
+  .map__diagram--service-disabled &,
+  .map__station-list-item--service-suspended-full & {
+    background-color: var(--color-map-disabled) !important;
   }
 
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    &::after { // Mask to hide the first and last station overrun
+    &::before { // Mask to hide the first and last station overrun
       content: '';
       display: block;
       position: absolute;
@@ -179,13 +244,13 @@
   }
 
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {
-    &::after { // Mask to hide the first station overrun
+    &::before { // Mask to hide the first station overrun
       top: 0;
     }
   }
 
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    &::after { // Mask to hide the last station overrun
+    &::before { // Mask to hide the last station overrun
       bottom: 0;
     }
   }
@@ -258,7 +323,8 @@
     border-width: $map-marker-interchange-border-width;
     transform: translate(-50%, -50%);
 
-    .map__diagram--service-disabled & {
+    .map__diagram--service-disabled &,
+    .map__station-list-item--service-suspended-full & {
       background-color: var(--color-map-interchange-background-disabled);
       border-color: var(--color-map-interchange-border-disabled);
     }
@@ -271,20 +337,22 @@
     height: $map-marker-height--regular;
     transform: translate(calc(50% - $map-marker-regular-shim), -50%);
 
-    .map__diagram--service-disabled & {
+    .map__diagram--service-disabled &,
+    .map__station-list-item--service-suspended-full & {
       background-color: var(--color-map-disabled) !important;
     }
 
-    .map__diagram--service-disabled .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
+    .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
+    .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
       &::after {
         content: '';
         display: block;
         position: absolute;
         top: 0;
-        right: calc(100% - ($map-marker-regular-shim * 2));
+        right: calc(100% - $map-marker-regular-shim);
         width: $map-line-width;
         height: 100%;
-        background-color: var(--color-map-disabled);
+        background-color: inherit;
       }
     }
   }

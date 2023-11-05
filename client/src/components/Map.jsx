@@ -34,6 +34,7 @@ import {
   setMapVisibilityItem,
 } from '@stores/storeSliceSettings';
 
+import serviceStatusIncludes from '@utils/serviceStatusIncludes';
 import stringToKebabCase from '@utils/stringToKebabCase';
 
 import Alert from '@components/Alert';
@@ -60,7 +61,7 @@ function Map(props) {
     data: maps,
     error,
     isFetching,
-  } = useFetchMapsQuery(service.id);
+  } = useFetchMapsQuery(service);
 
   const dispatch = useDispatch();
   const [ currentRoute, setCurrentRoute ] = useState();
@@ -69,8 +70,8 @@ function Map(props) {
 
   const serviceHasMultipleRoutes = maps?.length > 1;
 
-  const serviceStatusPlannedClosure = service?.statusesConformed.some((status) => status.description === STATUS_DESCRIPTION_PLANNED_CLOSURE);
-  const serviceStatusSuspended = service?.statusesConformed.some((status) => status.description === STATUS_DESCRIPTION_SUSPENDED);
+  const serviceStatusPlannedClosure = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_PLANNED_CLOSURE });
+  const serviceStatusSuspended = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_SUSPENDED });
 
   const serviceDisabled = serviceStatusPlannedClosure || serviceStatusSuspended;
   const contentServiceDisabled = serviceStatusPlannedClosure ? contentMapServiceClosed : contentMapServiceSuspended;
@@ -87,6 +88,17 @@ function Map(props) {
   }, [ maps ]);
 
   const isLoading = isFetching || mapLoading;
+
+  const mapStationListItemClasses = (station) => {
+    const classes = [ 'map__station-list-item' ];
+    if (station.isSuspendedFull) classes.push('map__station-list-item--service-suspended-full');
+    if (station.isSuspendedHalf) classes.push('map__station-list-item--service-suspended-half');
+    if (station.nextStationSuspendedFull) classes.push('map__station-list-item--next-station-suspended-full');
+    if (station.nextStationSuspendedHalf) classes.push('map__station-list-item--next-station-suspended-half');
+    if (station.previousStationSuspendedFull) classes.push('map__station-list-item--previous-station-suspended-full');
+    if (station.previousStationSuspendedHalf) classes.push('map__station-list-item--previous-station-suspended-half');
+    return classes.join(' ');
+  };
 
   const hasMapZone = (zone) => {
     return zone !== 'None';
@@ -221,7 +233,7 @@ function Map(props) {
                                 {
                                   zone.stations.map((station, index) => (
                                     <li
-                                      className="map__station-list-item"
+                                      className={mapStationListItemClasses(station)}
                                       key={`${station.id}-${index}`}
                                     >
                                       <div className="map__ornaments">
@@ -235,6 +247,18 @@ function Map(props) {
                                           to={`/${PATH_STATION}/${station.naptanId}`}
                                         >
                                           {station.name}
+                                          {
+                                            (station.isSuspendedFull || station.isSuspendedHalf) && (
+                                              <span className="visually-hidden">
+                                                {
+                                                  station.isSuspendedFull && ' - services from this station are currently suspended.'
+                                                }
+                                                {
+                                                  station.isSuspendedHalf && ' - services from this station are currently partially suspended.'
+                                                }
+                                              </span>
+                                            )
+                                          }
                                         </Link>
                                         {
                                           station.hasDisruption && (<MapIconWarning />)
