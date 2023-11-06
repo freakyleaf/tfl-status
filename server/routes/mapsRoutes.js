@@ -1,3 +1,4 @@
+import apicache from 'apicache';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -18,8 +19,9 @@ const {
 } = process.env;
 
 const router = express.Router();
+const cache = apicache.middleware;
 
-router.get('/:id', async(req, res, next) => {
+router.get('/:id', cache('15 minutes'), async(req, res, next) => {
   const { id } = req.params;
   const { reasons } = req.query;
 

@@ -6,26 +6,30 @@ import express from 'express';
 
 import envPath from './constants/envPath.js';
 
-let cache = apicache.middleware;
+import cacheRoutes from './routes/cacheRoutes.js';
+import mapsRoutes from './routes/mapsRoutes.js';
+import servicesRoutes from './routes/servicesRoutes.js';
+import stationsRoutes from './routes/stationsRoutes.js';
 
 dotenv.config({
   path: envPath,
 });
 
-import mapsRoutes from './routes/mapsRoutes.js';
-import servicesRoutes from './routes/servicesRoutes.js';
-import stationsRoutes from './routes/stationsRoutes.js';
-
 const {
+  PUBLIC_ENV,
   PUBLIC_PORT_NUMBER_SERVER,
 } = process.env;
 
 const app = express();
 
+apicache.options({
+  debug: PUBLIC_ENV === 'development',
+});
+
 app.use(bodyParser.json());
-app.use(cache('1 minute'));
 app.use(cors());
 
+app.use('/cache', cacheRoutes);
 app.use('/maps', mapsRoutes);
 app.use('/services', servicesRoutes);
 app.use('/stations', stationsRoutes);

@@ -1,3 +1,4 @@
+import apicache from 'apicache';
 import express from 'express';
 
 import createServices from '../utils/createServices.js';
@@ -6,8 +7,9 @@ import getServices from '../utils/getServices.js';
 import sortServices from '../utils/sortServices.js';
 
 const router = express.Router();
+const cache = apicache.middleware;
 
-router.get('/:group', async(req, res, next) => {
+router.get('/:group', cache('5 minutes'), async(req, res, next) => {
   const { group } = req.params;
 
   try {
