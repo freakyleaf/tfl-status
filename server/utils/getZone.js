@@ -1,6 +1,5 @@
 import {
   SERVICE_MODE_BUS,
-  SERVICE_MODE_TRAM,
 } from '../constants/serviceModes.js';
 
 const getZone = ({
@@ -10,7 +9,7 @@ const getZone = ({
   zone,
 }) => {
   // Some data is missing from the TfL API
-  if (id === SERVICE_MODE_TRAM) zone = 'Tram';
+  if (id === 'tram') zone = 'Tram'; // `id` = `stringToKebabCase(name)`
   if (mode === SERVICE_MODE_BUS) zone = 'None'; // We don't want to display zones for bus routes
   if (naptanId === '910GABWD' || naptanId === '910GABWDXR') zone = '4'; // Abbey Wood
   if (naptanId === '910GBCKNHMJ') zone = '4'; // Beckenham Junction

@@ -70,7 +70,8 @@ $focusable-box-shadow-focused:
 // Elements that need an 'outer' focus state
 a,
 button,
-input {
+input,
+select {
   @extend %focusable;
   @extend %focusable-outer;
 }

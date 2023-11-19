@@ -12,6 +12,7 @@ const cleanName = (name) => {
     .replace(' Underground Station', '')
     .replace('-Underground', '')
     .replace('&harr;', 'to')
+    .replace('London City', 'London City Airport')
     .replace('London Euston', 'Euston')
     .replace('London Gatwick', 'Gatwick Airport')
     .replace('London Liverpool Street', 'Liverpool Street')

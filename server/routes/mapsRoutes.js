@@ -32,7 +32,7 @@ router.get('/:id', cache('15 minutes'), async(req, res, next) => {
       id,
       reasons: reasons ? JSON.parse(reasons) : null,
     });
-    const mapsEnriched = (PUBLIC_MAP_ENRICHMENT === 'true' && !!reasons?.length) ? enrichMaps({ maps, reasons }) : maps;
+    const mapsEnriched = (PUBLIC_MAP_ENRICHMENT === 'true' && !!reasons?.length) ? await enrichMaps({ id, maps, reasons }) : { maps };
 
     res.json(mapsEnriched);
     res.status(200);

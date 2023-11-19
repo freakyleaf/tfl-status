@@ -9,8 +9,12 @@ export const contentBackToCore = `all ${SERVICE_NAME_CORE} services`;
 export const contentBackToNationalRail = `all ${SERVICE_NAME_NATIONAL_RAIL} services`;
 
 export const contentHavingTroubleFetchingData = 'We\'re having trouble fetching service data from the TfL API. Please try again later.';
-export const contentMapServiceClosed = 'This service is currently closed.';
-export const contentMapServiceSuspended = 'This service is currently suspended.';
+export const contentMapServiceClosedFull = 'This service is currently closed.';
+export const contentMapServiceClosedHalf = 'This service is currently partially closed.';
+export const contentMapServiceSuspendedFull = 'This service is currently suspended.';
+export const contentMapServiceSuspendedHalf = 'This service is currently partially suspended.';
+export const contentMapStationServiceSuspendedFull = ' - services from this station are currently suspended.';
+export const contentMapStationServiceSuspendedHalf = ' - services from this station are currently partially suspended.';
 export const contentNoInformationAvailable = 'No other information is available for this station.';
 export const contentNoSimilarServices = 'There are no similar services to the one you requested.';
 export const contentPinnedItemsAppearEnd = 'services page.';

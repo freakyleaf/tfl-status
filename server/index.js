@@ -1,4 +1,4 @@
-import apicache from 'apicache';
+// import apicache from 'apicache';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -16,15 +16,14 @@ dotenv.config({
 });
 
 const {
-  PUBLIC_ENV,
   PUBLIC_PORT_NUMBER_SERVER,
 } = process.env;
 
 const app = express();
 
-apicache.options({
-  debug: PUBLIC_ENV === 'development',
-});
+// apicache.options({
+//   debug: true,
+// });
 
 app.use(bodyParser.json());
 app.use(cors());

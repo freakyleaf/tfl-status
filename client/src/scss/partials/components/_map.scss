@@ -131,7 +131,7 @@
     min-height: $map-list-item-min-height--desktop;
 
     &:only-of-type {
-      min-height: $map-list-item-only-of-type-min-height--desktop;
+      min-height: $map-list-item-only-of-type-min-height--desktop; // Allow for vertically-aligned zone text
     }
   }
 }
@@ -229,30 +229,24 @@
   .map__station-list-item--service-suspended-full & {
     background-color: var(--color-map-disabled) !important;
   }
+}
 
+.map__mask { // Used to hide the first and last station overrun
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    &::before { // Mask to hide the first and last station overrun
-      content: '';
-      display: block;
-      position: absolute;
-      left: -50%;
-      width: $map-line-width * 2;
-      height: calc(50% - #{math.div($map-marker-height--regular, 2)});
-      background-color: var(--color-map-diagram-background);
-    }
+    position: absolute;
+    left: -50%;
+    width: $map-line-width * 2;
+    height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+    background-color: var(--color-map-diagram-background);
   }
 
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {
-    &::before { // Mask to hide the first station overrun
-      top: 0;
-    }
+    top: 0;
   }
 
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    &::before { // Mask to hide the last station overrun
-      bottom: 0;
-    }
+    bottom: 0;
   }
 }
 
@@ -324,7 +318,9 @@
     transform: translate(-50%, -50%);
 
     .map__diagram--service-disabled &,
-    .map__station-list-item--service-suspended-full & {
+    .map__station-list-item--service-suspended-full &,
+    .map__zone-list-item:first-of-type .map__station-list-item:first-of-type.map__station-list-item--next-station-suspended-full &,
+    .map__zone-list-item:last-of-type .map__station-list-item:last-of-type.map__station-list-item--previous-station-suspended-full & {
       background-color: var(--color-map-interchange-background-disabled);
       border-color: var(--color-map-interchange-border-disabled);
     }
@@ -339,7 +335,7 @@
 
     .map__diagram--service-disabled &,
     .map__station-list-item--service-suspended-full & {
-      background-color: var(--color-map-disabled) !important;
+      background-color: var(--color-map-disabled);
     }
 
     .map__zone-list-item:first-of-type .map__station-list-item:first-of-type &,
@@ -353,6 +349,15 @@
         width: $map-line-width;
         height: 100%;
         background-color: inherit;
+      }
+    }
+
+    .map__zone-list-item:first-of-type .map__station-list-item:first-of-type.map__station-list-item--next-station-suspended-full &,
+    .map__zone-list-item:last-of-type .map__station-list-item:last-of-type.map__station-list-item--previous-station-suspended-full & {
+      background-color: var(--color-map-disabled);
+
+      &::after {
+        background-color: var(--color-map-disabled);
       }
     }
   }

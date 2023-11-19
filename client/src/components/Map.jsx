@@ -16,13 +16,20 @@ import serviceGroups, {
 } from '@constants/serviceGroups';
 
 import {
+  STATUS_DESCRIPTION_CLOSED,
+  STATUS_DESCRIPTION_PART_CLOSURE,
+  STATUS_DESCRIPTION_PART_SUSPENDED,
   STATUS_DESCRIPTION_PLANNED_CLOSURE,
   STATUS_DESCRIPTION_SUSPENDED,
 } from '@constants/statusDescriptions';
 
 import {
-  contentMapServiceClosed,
-  contentMapServiceSuspended,
+  contentMapServiceClosedFull,
+  contentMapServiceClosedHalf,
+  contentMapServiceSuspendedFull,
+  contentMapServiceSuspendedHalf,
+  contentMapStationServiceSuspendedFull,
+  contentMapStationServiceSuspendedHalf,
   contentServiceMultipleRoutes,
 } from '@constants/text';
 
@@ -70,11 +77,21 @@ function Map(props) {
 
   const serviceHasMultipleRoutes = maps?.length > 1;
 
+  const serviceStatusClosed = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_CLOSED });
+  const serviceStatusPartClosure = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_PART_CLOSURE });
+  const serviceStatusPartSuspended = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_PART_SUSPENDED });
   const serviceStatusPlannedClosure = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_PLANNED_CLOSURE });
   const serviceStatusSuspended = serviceStatusIncludes({ service, statusDescription: STATUS_DESCRIPTION_SUSPENDED });
 
-  const serviceDisabled = serviceStatusPlannedClosure || serviceStatusSuspended;
-  const contentServiceDisabled = serviceStatusPlannedClosure ? contentMapServiceClosed : contentMapServiceSuspended;
+  const serviceDisabled = serviceStatusClosed || serviceStatusPlannedClosure || serviceStatusSuspended;
+  const serviceInterrupted = serviceDisabled || serviceStatusPartClosure || serviceStatusPartSuspended;
+
+  const contentServiceInterrupted = () => {
+    if (serviceStatusClosed || serviceStatusPlannedClosure) return contentMapServiceClosedFull;
+    if (serviceStatusPartClosure) return contentMapServiceClosedHalf;
+    if (serviceStatusPartSuspended) return contentMapServiceSuspendedHalf;
+    if (serviceStatusSuspended) return contentMapServiceSuspendedFull;
+  };
 
   useEffect(() => {
     setMapLoading(true);
@@ -91,8 +108,8 @@ function Map(props) {
 
   const mapStationListItemClasses = (station) => {
     const classes = [ 'map__station-list-item' ];
-    if (station.isSuspendedFull) classes.push('map__station-list-item--service-suspended-full');
-    if (station.isSuspendedHalf) classes.push('map__station-list-item--service-suspended-half');
+    if (station.currentStationSuspendedFull) classes.push('map__station-list-item--service-suspended-full');
+    if (station.currentStationSuspendedHalf) classes.push('map__station-list-item--service-suspended-half');
     if (station.nextStationSuspendedFull) classes.push('map__station-list-item--next-station-suspended-full');
     if (station.nextStationSuspendedHalf) classes.push('map__station-list-item--next-station-suspended-half');
     if (station.previousStationSuspendedFull) classes.push('map__station-list-item--previous-station-suspended-full');
@@ -121,13 +138,13 @@ function Map(props) {
     return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_NATIONAL_RAIL);
   };
 
-  // This isn't required but makes for better UX as when changing routes it can seem as if nothing has happened if the routes begin with the same stations
+  // The `setTimeout()` isn't required but makes for better UX as when changing routes it can seem as if nothing has happened if the routes begin with the same stations
   const onChangeSelect = (event) => {
     setMapLoading(true);
     setTimeout(() => {
       setCurrentRoute(maps.find((route) => route.name === event.target.value));
       setMapLoading(false);
-    }, TIMING_CONSTANT / 2);
+    }, TIMING_CONSTANT / 4);
   };
 
   const onChangeToggleSwitch = ({ checked, value }) => {
@@ -200,29 +217,39 @@ function Map(props) {
                 !isLoading && (
                   <>
                     {
-                      serviceDisabled && (
-                        <Box
-                          type="information"
-                        >
-                          {contentServiceDisabled}
-                        </Box>
+                      serviceInterrupted && (
+                        <>
+                          {
+                            currentRoute.message && (
+                              <Alert
+                                text="Real-time map data is currently in beta and may be incorrect."
+                                type="info"
+                              />
+                            )
+                          }
+                          <Box
+                            type="information"
+                          >
+                            {currentRoute.message ? currentRoute.message : contentServiceInterrupted()}
+                          </Box>
+                        </>
                       )
                     }
                     <div className="map__route">
                       <ul className="map__zone-list">
                         {
-                          currentRoute && currentRoute.zones.map((zone, index) => (
+                          currentRoute && currentRoute.zones.map((zone, zoneIndex) => (
                             <li
-                              aria-labelledby={hasMapZone(zone.zone.zones) ? stringToKebabCase(`zone-${zone.zone.zones}-index-${index}`) : null}
+                              aria-labelledby={hasMapZone(zone.zone.zones) ? stringToKebabCase(`zone-${zone.zone.zones}-index-${zoneIndex}`) : null}
                               className="map__zone-list-item"
-                              key={`${zone.zone.zones}-${index}`}
+                              key={`${zone.zone.zones}-${zoneIndex}`}
                             >
                               {
                                 hasMapZone(zone.zone.zones) && (
                                   <div className="map__zone">
                                     <span
                                       className="map__zone-text"
-                                      id={stringToKebabCase(`zone-${zone.zone.zones}-index-${index}`)}
+                                      id={stringToKebabCase(`zone-${zone.zone.zones}-index-${zoneIndex}`)}
                                     >
                                       {zone.zone.multiple ? 'Zones' : 'Zone'} {zone.zone.zones}
                                     </span>
@@ -231,13 +258,17 @@ function Map(props) {
                               }
                               <ul className="map__station-list">
                                 {
-                                  zone.stations.map((station, index) => (
+                                  zone.stations.map((station, stationIndex) => (
                                     <li
                                       className={mapStationListItemClasses(station)}
-                                      key={`${station.id}-${index}`}
+                                      key={`${station.id}-${stationIndex}`}
                                     >
                                       <div className="map__ornaments">
-                                        <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`} />
+                                        <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}>
+                                          {
+                                            ((zoneIndex === 0 && stationIndex === 0) || (zoneIndex === currentRoute.zones.length - 1 && stationIndex === zone.stations.length - 1)) && (<div className="map__mask" />)
+                                          }
+                                        </div>
                                         <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
                                       </div>
                                       <div className="map__station">
@@ -251,10 +282,10 @@ function Map(props) {
                                             (station.isSuspendedFull || station.isSuspendedHalf) && (
                                               <span className="visually-hidden">
                                                 {
-                                                  station.isSuspendedFull && ' - services from this station are currently suspended.'
+                                                  station.isSuspendedFull && contentMapStationServiceSuspendedFull
                                                 }
                                                 {
-                                                  station.isSuspendedHalf && ' - services from this station are currently partially suspended.'
+                                                  station.isSuspendedHalf && contentMapStationServiceSuspendedHalf
                                                 }
                                               </span>
                                             )

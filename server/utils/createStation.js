@@ -18,7 +18,7 @@ const getDisruptions = async(naptanId) => {
   return disruptions;
 };
 
-const getMeta = (facilities) => {
+const getMeta = ({ facilities, naptanId }) => {
   const meta = {};
 
   facilities.forEach((facility) => {
@@ -41,7 +41,12 @@ const getMeta = (facilities) => {
   if (meta.facility?.lifts) output.facilities.lifts = facilityInteger(meta.facility.lifts);
   if (meta.facility?.toilets) output.facilities.toilets = facilityBoolean(meta.facility.toilets);
   if (meta.facility?.['wi-fi']) output.facilities.wiFi = facilityBoolean(meta.facility['wi-fi']);
-  if (meta.geo?.zone) output.zone = getZone(meta.geo.zone);
+  if (meta.geo?.zone) {
+    output.zone = getZone({
+      naptanId,
+      zone: meta.geo.zone,
+    });
+  }
 
   return output;
 };
@@ -52,9 +57,13 @@ const createStation = async({ data, id }) => {
   return {
     disruptions: await getDisruptions(id),
     interchanges: getInterchanges({ lines: data.lines, modesById }),
-    meta: getMeta(data.additionalProperties),
+    meta: getMeta({
+      facilities: data.additionalProperties,
+      naptanId: data.naptanId,
+    }),
     name: cleanName(data.commonName),
     naptanId: data.naptanId,
+    data,
   };
 };
 
