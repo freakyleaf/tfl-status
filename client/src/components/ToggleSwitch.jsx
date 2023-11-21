@@ -3,6 +3,7 @@ import React from 'react';
 
 ToggleSwitch.propTypes = {
   checked: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   label: PropTypes.oneOfType([
     PropTypes.object,
@@ -14,6 +15,7 @@ ToggleSwitch.propTypes = {
 function ToggleSwitch(props) {
   const {
     checked,
+    disabled,
     id,
     label,
     onChange,
@@ -25,10 +27,11 @@ function ToggleSwitch(props) {
   };
 
   return (
-    <div className="toggle-switch">
+    <div className={disabled ? 'toggle-switch toggle-switch--disabled' : 'toggle-switch'}>
       <input
         checked={checked}
         className="toggle-switch__input"
+        disabled={disabled}
         id={`service-${id}`}
         onChange={handleOnChange}
         role="switch"
