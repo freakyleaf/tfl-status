@@ -8,6 +8,7 @@ Select.propTypes = {
   items: propTypes.array.isRequired,
   label: propTypes.string.isRequired,
   onChange: propTypes.func.isRequired,
+  value: propTypes.string.isRequired,
 };
 
 function Select(props) {
@@ -16,6 +17,7 @@ function Select(props) {
     items,
     label,
     onChange,
+    value,
   } = props;
 
   return (
@@ -28,11 +30,12 @@ function Select(props) {
         className="select"
         id={id}
         onChange={onChange}
+        value={value}
       >
         {items.map((item, index) => (
           <option
             className="option"
-            key={`${item.id}-${index}`} // We can't rely on the id being unique as some services return the same id for multiple routes
+            key={`${item.id}-${index}`} // We can't rely on `item.id` being unique as some services return the same `item.id` value for multiple routes
             value={item.name}
           >
             {item.name}

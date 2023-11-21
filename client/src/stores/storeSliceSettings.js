@@ -7,6 +7,7 @@ import {
 } from '@constants/theme';
 
 const initialState = {
+  currentMapRoutes: {},
   mapVisibility: {},
   pinned: {},
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -18,6 +19,11 @@ export const storeSliceSettings = createSlice({
   name: 'settings',
   initialState,
   reducers: {
+    setCurrentMapRoute: (state, action) => {
+      const { payload } = action;
+      const { id, map } = payload;
+      state.currentMapRoutes[id] = map;
+    },
     setMapVisibility: (state, action) => {
       const { payload } = action;
       state.mapVisibility = payload;
@@ -52,6 +58,7 @@ export const storeSliceSettings = createSlice({
 });
 
 export const {
+  setCurrentMapRoute,
   setMapVisibility,
   setMapVisibilityItem,
   setPinned,

@@ -38,6 +38,7 @@ import {
 } from '@constants/time';
 
 import {
+  setCurrentMapRoute,
   setMapVisibilityItem,
 } from '@stores/storeSliceSettings';
 
@@ -73,7 +74,10 @@ function Map(props) {
   const dispatch = useDispatch();
   const [ currentRoute, setCurrentRoute ] = useState();
   const [ mapLoading, setMapLoading ] = useState();
-  const { mapVisibility } = useSelector((state) => state.settings);
+  const {
+    currentMapRoutes,
+    mapVisibility,
+  } = useSelector((state) => state.settings);
 
   const serviceHasMultipleRoutes = maps?.length > 1;
 
@@ -93,6 +97,13 @@ function Map(props) {
     if (serviceStatusSuspended) return contentMapServiceSuspendedFull;
   };
 
+  const getCurrentMapRoute = () => {
+    if (currentMapRoutes[service.id]) {
+      return maps.find((route) => route.name === currentMapRoutes[service.id]);
+    }
+    return maps[0];
+  };
+
   useEffect(() => {
     setMapLoading(true);
   }, [ service ]);
@@ -100,7 +111,7 @@ function Map(props) {
   useEffect(() => {
     if (!maps) return;
 
-    setCurrentRoute(maps[0]);
+    setCurrentRoute(getCurrentMapRoute());
     setMapLoading(false);
   }, [ maps ]);
 
@@ -140,6 +151,10 @@ function Map(props) {
 
   // The `setTimeout()` isn't required but makes for better UX as when changing routes it can seem as if nothing has happened if the routes begin with the same stations
   const onChangeSelect = (event) => {
+    dispatch(setCurrentMapRoute({
+      id: service.id,
+      map: event.target.value,
+    }));
     setMapLoading(true);
     setTimeout(() => {
       setCurrentRoute(maps.find((route) => route.name === event.target.value));
@@ -182,6 +197,7 @@ function Map(props) {
                     items={maps}
                     label="Select a route"
                     onChange={(event) => onChangeSelect(event)}
+                    value={getCurrentMapRoute().name}
                   />
                 </>
               )
