@@ -202,28 +202,32 @@ function Map(props) {
                 </>
               )
             }
-            <div className="map__toggles">
-              <span className="label">
-                Toggle station interchange visibility
-              </span>
-              <ul className="map__toggles-list">
-                {
-                  serviceGroups.map((serviceGroup) => (
-                    <li
-                      className="map__toggles-list-item"
-                      key={serviceGroup.group}
-                    >
-                      <ToggleSwitch
-                        checked={!!mapVisibility[serviceGroup.group]}
-                        id={serviceGroup.group}
-                        label={<><span className="visually-hidden">Toggle visibility for </span>{serviceGroup.name} services</>}
-                        onChange={({ checked, value }) => onChangeToggleSwitch({ checked, value })}
-                      />
-                    </li>
-                  ))
-                }
-              </ul>
-            </div>
+            {
+              !isLoading && (
+                <div className="map__toggles">
+                  <span className="label">
+                    Toggle station interchange visibility
+                  </span>
+                  <ul className="map__toggles-list">
+                    {
+                      serviceGroups.map((serviceGroup) => (
+                        <li
+                          className="map__toggles-list-item"
+                          key={serviceGroup.group}
+                        >
+                          <ToggleSwitch
+                            checked={!!mapVisibility[serviceGroup.group]}
+                            id={serviceGroup.group}
+                            label={<><span className="visually-hidden">Toggle visibility for </span>{serviceGroup.name} services</>}
+                            onChange={({ checked, value }) => onChangeToggleSwitch({ checked, value })}
+                          />
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+              )
+            }
 
             <div className={serviceDisabled ? 'map__diagram map__diagram--service-disabled' : 'map__diagram'}>
               {
