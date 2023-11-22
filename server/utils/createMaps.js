@@ -26,7 +26,7 @@ const createMaps = async({ data, id }) => {
         const stationName = cleanName(station.name);
 
         return {
-          hasDisruption: !!stopPointSequencesStation.hasDisruption,
+          hasDisruptions: !!stopPointSequencesStation.hasDisruption,
           id: stringToKebabCase(stationName),
           interchanges: getInterchanges({ id, lines: station.lines, modesById }),
           name: stationName,

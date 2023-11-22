@@ -47,10 +47,10 @@ function Interchanges(props) {
                   {line.name}
                   <span className="visually-hidden">
                     {
-                      line.mode === VIEW_MODE_TUBE && (<>line</>)
+                      line.mode === VIEW_MODE_TUBE && (<> line </>)
                     }
                     {
-                      line.mode === VIEW_MODE_BUS && (<>bus</>)
+                      line.mode === VIEW_MODE_BUS && (<> bus </>)
                     }
                     service page
                   </span>

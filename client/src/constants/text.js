@@ -13,6 +13,7 @@ export const contentMapServiceClosedFull = 'This service is currently closed.';
 export const contentMapServiceClosedHalf = 'This service is currently partially closed.';
 export const contentMapServiceSuspendedFull = 'This service is currently suspended.';
 export const contentMapServiceSuspendedHalf = 'This service is currently partially suspended.';
+export const contentMapStationHasDisruptions = ' - this station has disruptions. Follow this link for more information.';
 export const contentMapStationServiceSuspendedFull = ' - services from this station are currently suspended.';
 export const contentMapStationServiceSuspendedHalf = ' - services from this station are currently partially suspended.';
 export const contentNoInformationAvailable = 'No other information is available for this station.';

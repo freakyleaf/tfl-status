@@ -28,6 +28,7 @@ import {
   contentMapServiceClosedHalf,
   contentMapServiceSuspendedFull,
   contentMapServiceSuspendedHalf,
+  contentMapStationHasDisruptions,
   contentMapStationServiceSuspendedFull,
   contentMapStationServiceSuspendedHalf,
   contentServiceMultipleRoutes,
@@ -117,6 +118,15 @@ function Map(props) {
 
   const isLoading = isFetching || mapLoading;
 
+  const getStationNumber = (stationName) => {
+    const stationIndex = currentRoute.stations.findIndex((station) => station.name === stationName);
+    return `Station ${stationIndex + 1} of ${currentRoute.stations.length}:`;
+  };
+
+  const hasMapZone = (zone) => {
+    return zone !== 'None';
+  };
+
   const mapStationListItemClasses = (station) => {
     const classes = [ 'map__station-list-item' ];
     if (station.currentStationSuspendedFull) classes.push('map__station-list-item--service-suspended-full');
@@ -128,8 +138,16 @@ function Map(props) {
     return classes.join(' ');
   };
 
-  const hasMapZone = (zone) => {
-    return zone !== 'None';
+  const stationIsSuspendedFull = (station) => {
+    return station.currentStationSuspendedFull || station.nextStationSuspendedFull || station.previousStationSuspendedFull;
+  };
+
+  const stationIsSuspendedHalf = (station) => {
+    return station.currentStationSuspendedHalf || station.nextStationSuspendedHalf || station.previousStationSuspendedHalf;
+  };
+
+  const stationIsSuspended = (station) => {
+    return stationIsSuspendedFull(station) || stationIsSuspendedHalf(station);
   };
 
   const stationInterchanges = (station) => {
@@ -297,22 +315,31 @@ function Map(props) {
                                           id={`station-${station.id}`}
                                           to={`/${PATH_STATION}/${station.naptanId}`}
                                         >
+                                          <span className="visually-hidden">{getStationNumber(station.name)}</span>
                                           {station.name}
+                                          <span className="visually-hidden">. This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {zone.zone.zones}.</span>
                                           {
-                                            (station.isSuspendedFull || station.isSuspendedHalf) && (
+                                            (stationIsSuspended(station)) && (
                                               <span className="visually-hidden">
                                                 {
-                                                  station.isSuspendedFull && contentMapStationServiceSuspendedFull
+                                                  stationIsSuspendedFull(station) && contentMapStationServiceSuspendedFull
                                                 }
                                                 {
-                                                  station.isSuspendedHalf && contentMapStationServiceSuspendedHalf
+                                                  stationIsSuspendedHalf(station) && contentMapStationServiceSuspendedHalf
                                                 }
+                                              </span>
+                                            )
+                                          }
+                                          {
+                                            station.hasDisruptions && (
+                                              <span className="visually-hidden">
+                                                {contentMapStationHasDisruptions}
                                               </span>
                                             )
                                           }
                                         </Link>
                                         {
-                                          station.hasDisruption && (<MapIconWarning />)
+                                          station.hasDisruptions && (<MapIconWarning />)
                                         }
                                         {
                                           stationHasNationalRailInterchange(station) && (<MapIconNationalRail />)

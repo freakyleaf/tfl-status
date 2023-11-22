@@ -16,10 +16,7 @@ function Alert(props) {
   } = props;
 
   return (
-    <div
-      className={`alert alert--${type}`}
-      role="alert"
-    >
+    <div className={`alert alert--${type}`}>
       {text}
     </div>
   );
