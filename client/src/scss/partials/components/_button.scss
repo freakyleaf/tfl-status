@@ -20,6 +20,10 @@
     border-radius: 100%; // Better keyboard focus presentation
   }
 
+  &--settings {
+    margin-left: auto;
+  }
+
   &--utility {
     font-size: $font-size-small;
     color: var(--color-button-menu-text);

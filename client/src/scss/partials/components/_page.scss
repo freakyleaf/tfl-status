@@ -14,12 +14,12 @@
 
 .page__main,
 .page__aside {
+  scrollbar-gutter: stable both-edges; // Center content horizontally while accounting for desktop scrollbar
   overflow-y: scroll;
   flex-grow: 1;
 }
 
 .page__main {
-  scrollbar-gutter: stable both-edges; // Center content horizontally while accounting for desktop scrollbar
   color: var(--color-page-main-text);
   background-color: var(--color-page-main-background);
 }

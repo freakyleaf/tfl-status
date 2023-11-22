@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,10 +8,19 @@ import {
 } from '@stores/storeSliceState';
 
 import Icon from '@components/Icon';
+import IconArrow from '@components/icons/IconArrow';
 import IconClose from '@components/icons/IconClose';
 import IconGear from '@components/icons/IconGear';
 
-function PageFooter() {
+PageFooter.propTypes = {
+  showBackButton: propTypes.bool,
+};
+
+function PageFooter(props) {
+  const {
+    showBackButton,
+  } = props;
+
   const dispatch = useDispatch();
   const {
     menuOpen,
@@ -25,11 +35,26 @@ function PageFooter() {
   return (
     <div className="page-footer">
       <div className="page-footer__content">
-        <span className="page-footer__text">
-          &copy; 2023
-        </span>
+        {
+          showBackButton && (
+            <button
+              className="button button--utility"
+              onClick={() => window.history.back()}
+            >
+              <div className="button__content">
+                <Icon
+                  className="button__icon button__icon--left"
+                  icon={<IconArrow direction="left" />}
+                />
+                <span className="button__text">
+                  Back
+                </span>
+              </div>
+            </button>
+          )
+        }
         <button
-          className="button button--utility"
+          className="button button--utility button--settings"
           onClick={toggleSettings}
         >
           <div className="button__content">

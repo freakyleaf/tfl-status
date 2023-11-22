@@ -261,7 +261,9 @@ function Layout() {
               }
               <footer className="page__footer">
                 <div className="container container--px">
-                  <PageFooter />
+                  <PageFooter
+                    showBackButton={isServicePage() || isStationPage()}
+                  />
                 </div>
               </footer>
             </div>
