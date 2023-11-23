@@ -19,7 +19,7 @@ import IconCircleFillHalf from '@components/icons/IconCircleFillHalf';
 function SettingsTheme() {
   const dispatch = useDispatch();
   const refMarker = useRef(null);
-  const themeApp = useSelector((state) => state.settings.themeApp);
+  const { themeApp } = useSelector((state) => state.settings);
 
   const onChange = (event) => {
     const { value } = event.target;

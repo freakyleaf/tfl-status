@@ -100,7 +100,7 @@ function ServicesTable(props) {
                     className="services-table__link services-table__link--service"
                     to={`${path}/${PATH_SERVICE}/${service.id}`}
                   >
-                    <span className="services-table__text">
+                    <span className="services-table__text high-contrast-mode-text">
                       {service.name}
                     </span>
                   </Link>

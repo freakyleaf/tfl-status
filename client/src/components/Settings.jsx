@@ -20,6 +20,7 @@ import {
 import Box from '@components/Box';
 import Hr from '@components/Hr';
 import Loading from '@components/Loading';
+import SettingsHighContrastMode from '@components/SettingsHighContrastMode';
 import SettingsMapVisibility from '@components/SettingsMapVisibility';
 import SettingsPinnedServices from '@components/SettingsPinnedServices';
 import SettingsTheme from '@components/SettingsTheme';
@@ -57,6 +58,11 @@ function Settings() {
 
   return (
     <div className="settings">
+      <h2 className="settings__heading">
+        High Contrast Mode
+      </h2>
+      <SettingsHighContrastMode />
+      <Hr />
       <h2
         className="settings__heading"
         id="settings-theme"

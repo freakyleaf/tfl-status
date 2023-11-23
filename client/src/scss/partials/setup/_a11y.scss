@@ -77,3 +77,12 @@ select {
   @extend %focusable;
   @extend %focusable-outer;
 }
+
+.high-contrast-mode-text {
+  .page--high-contrast-mode-enabled & {
+    display: inline-block;
+    padding: $spacer-2;
+    color: var(--color-a11y-high-contrast-mode-text);
+    background-color: var(--color-a11y-high-contrast-mode-background);
+  }
+}

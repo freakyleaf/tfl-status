@@ -25,6 +25,8 @@ $color-light: $color-gray-200;
 :root {
   --color-a11y-focus-inner: #{$color-state-warning};
   --color-a11y-focus-outer: #{$color-black};
+  --color-a11y-high-contrast-mode-background: #{$color-white} !important;
+  --color-a11y-high-contrast-mode-text: #{$color-black} !important;
 }
 
 // Alert
@@ -189,6 +191,8 @@ $color-light: $color-gray-200;
 
   // A11y
   --color-a11y-focus-outer: #{$color-white};
+  --color-a11y-high-contrast-mode-background: #{$color-black} !important;
+  --color-a11y-high-contrast-mode-text: #{$color-white} !important;
 
   // Base
   --color-body-background: #{$color-black};

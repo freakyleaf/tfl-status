@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   currentMapRoutes: {},
+  highContrastModeEnabled: window.matchMedia('(forced-colors: active)').matches,
   mapVisibility: {},
   pinned: {},
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
@@ -23,6 +24,10 @@ export const storeSliceSettings = createSlice({
       const { payload } = action;
       const { id, map } = payload;
       state.currentMapRoutes[id] = map;
+    },
+    setHighContrastModeEnabled: (state, action) => {
+      const { payload } = action;
+      state.highContrastModeEnabled = payload;
     },
     setMapVisibility: (state, action) => {
       const { payload } = action;
@@ -59,6 +64,7 @@ export const storeSliceSettings = createSlice({
 
 export const {
   setCurrentMapRoute,
+  setHighContrastModeEnabled,
   setMapVisibility,
   setMapVisibilityItem,
   setPinned,

@@ -31,6 +31,7 @@ import {
 } from '@constants/viewTypes';
 
 import {
+  setHighContrastModeEnabled,
   setMapVisibility,
   setPinned,
   setThemeApp,
@@ -61,6 +62,7 @@ function Layout() {
   const refPageMain = useRef();
 
   const {
+    highContrastModeEnabled,
     mapVisibility,
     pinned,
     themeApp,
@@ -134,10 +136,16 @@ function Layout() {
 
   const pageClasses = () => {
     const output = [ 'page' ];
+    if (highContrastModeEnabled) output.push('page--high-contrast-mode-enabled');
     if (globalLoading) output.push('page--loading');
     output.push('h-100');
     return output.join(' ');
   };
+
+  useEffect(() => {
+    const highContrastModeEnabled = localStorage.getItem('highContrastModeEnabled') === 'true' || matchMedia('(forced-colors: active)').matches;
+    if (highContrastModeEnabled) dispatch(setHighContrastModeEnabled(highContrastModeEnabled));
+  }, []);
 
   useEffect(() => {
     const pinned = localStorage.getItem('pinned');
@@ -148,6 +156,12 @@ function Layout() {
     const theme = localStorage.getItem('theme');
     if (theme) dispatch(setThemeApp(theme));
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem('highContrastModeEnabled', highContrastModeEnabled);
+    }, 0);
+  }, [ highContrastModeEnabled ]);
 
   useEffect(() => {
     setTimeout(() => {

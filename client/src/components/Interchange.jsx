@@ -44,7 +44,9 @@ function Interchanges(props) {
                   <span className="visually-hidden">
                     View the
                   </span>
-                  {line.name}
+                  <span className="interchange__text high-contrast-mode-text">
+                    {line.name}
+                  </span>
                   <span className="visually-hidden">
                     {
                       line.mode === VIEW_MODE_TUBE && (<> line </>)
