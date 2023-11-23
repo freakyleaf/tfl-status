@@ -8,6 +8,11 @@ import {
 } from '@api/mapsApi';
 
 import {
+  ACCESSIBLE_PLATFORM,
+  ACCESSIBLE_TRAIN,
+} from '@constants/accessibility';
+
+import {
   PATH_STATION,
 } from '@constants/paths';
 
@@ -51,6 +56,7 @@ import Box from '@components/Box';
 import Error from '@components/Error';
 import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
+import MapIconAccessibility from '@components/icons/MapIconAccessibility';
 import MapIconInternationalRail from '@components/icons/MapIconInternationalRail';
 import MapIconNationalRail from '@components/icons/MapIconNationalRail';
 import MapIconWarning from '@components/icons/MapIconWarning';
@@ -127,6 +133,16 @@ function Map(props) {
     return zone !== 'None';
   };
 
+  const mapMarkerClasses = (station) => {
+    const classes = [ 'map__marker' ];
+    if (station.accessibility === ACCESSIBLE_PLATFORM) classes.push('map__marker--accessibility map__marker--accessibility-platform');
+    else if (station.accessibility === ACCESSIBLE_TRAIN) classes.push('map__marker--accessibility map__marker--accessibility-train');
+    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) classes.push('map__marker--interchange');
+    else classes.push('map__marker--regular');
+    classes.push(`brand-background--id-${service.id} brand-background--mode-${service.mode}`);
+    return classes.join(' ');
+  };
+
   const mapStationListItemClasses = (station) => {
     const classes = [ 'map__station-list-item' ];
     if (station.currentStationSuspendedFull) classes.push('map__station-list-item--service-suspended-full');
@@ -165,6 +181,10 @@ function Map(props) {
 
   const stationHasNationalRailInterchange = (station) => {
     return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_NATIONAL_RAIL);
+  };
+
+  const stationIsAccessible = (station) => {
+    return station.accessibility === ACCESSIBLE_PLATFORM || station.accessibility === ACCESSIBLE_TRAIN;
   };
 
   // The `setTimeout()` isn't required but makes for better UX as when changing routes it can seem as if nothing has happened if the routes begin with the same stations
@@ -307,7 +327,13 @@ function Map(props) {
                                             ((zoneIndex === 0 && stationIndex === 0) || (zoneIndex === currentRoute.zones.length - 1 && stationIndex === zone.stations.length - 1)) && (<div className="map__mask" />)
                                           }
                                         </div>
-                                        <div className={`map__marker ${(stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) ? 'map__marker--interchange' : `map__marker--regular brand-background--id-${service.id} brand-background--mode-${service.mode}`}`} />
+                                        <div className={mapMarkerClasses(station)}>
+                                          {
+                                            stationIsAccessible(station) && (
+                                              <MapIconAccessibility />
+                                            )
+                                          }
+                                        </div>
                                       </div>
                                       <div className="map__station">
                                         <Link

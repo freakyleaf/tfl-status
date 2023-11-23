@@ -140,7 +140,7 @@
   order: 2;
   position: absolute;
   top: 0;
-  width: $size-map-marker-size--interchange;
+  width: $size-map-marker--interchange;
   height: 100%;
 }
 
@@ -307,9 +307,40 @@
   top: 50%;
   left: 50%;
 
+  &--accessibility {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $size-map-marker--accessibility;
+    height: $size-map-marker--accessibility;
+    background-color: var(--color-map-interchange-background);
+    border-color: var(--color-map-interchange-border);
+    border-radius: 50%;
+    border-style: $border-style-generic;
+    border-width: $size-map-marker-accessibility-border-width;
+    transform: translate(-50%, -50%);
+
+    .map__icon {
+      width: $size-map-marker-accessibility-icon;
+      height: $size-map-marker-accessibility-icon;
+    }
+  }
+
+  &--accessibility-platform {
+    color: var(--color-map-accessibility-platform-icon);
+    background-color: var(--color-map-accessibility-platform-background);
+    border-color: var(--color-map-accessibility-platform-border);
+  }
+
+  &--accessibility-train {
+    color: var(--color-map-accessibility-train-icon);
+    background-color: var(--color-map-accessibility-train-background);
+    border-color: var(--color-map-accessibility-train-border);
+  }
+
   &--interchange {
-    width: $size-map-marker-size--interchange;
-    height: $size-map-marker-size--interchange;
+    width: $size-map-marker--interchange;
+    height: $size-map-marker--interchange;
     background-color: var(--color-map-interchange-background);
     border-color: var(--color-map-interchange-border);
     border-radius: 50%;

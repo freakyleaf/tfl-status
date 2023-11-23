@@ -27,11 +27,14 @@ $size-map-list-item-min-height: 5rem; // Arbitrary figure
 $size-map-list-item-min-height--desktop: 6rem; // Arbitrary figure
 $size-map-list-item-only-of-type-min-height--desktop: 12rem; // Allow for potential 'Zones X & Y' text
 $size-map-marker-height--regular: $size-map-line-width;
+$size-map-marker-accessibility-border-width: 2px;
+$size-map-marker-accessibility-icon: 1.5rem;
 $size-map-marker-interchange-border-width: 0.36rem;
-$size-map-marker-size--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
+$size-map-marker--accessibility: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
+$size-map-marker--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
 $size-map-marker-width--regular: $spacer-4;
-$size-map-spacing: math.div($size-map-marker-size--interchange, 4) * 3;
-$size-map-spacing-mobile: $size-map-marker-size--interchange;
+$size-map-spacing: math.div($size-map-marker--interchange, 4) * 3;
+$size-map-spacing-mobile: $size-map-marker--interchange;
 $size-map-zone-padding-x-mobile: $spacer-4;
 $size-map-zone-padding-y-mobile: 0.35rem; // Somewhere between $spacer-2 and $spacer-3
 $size-map-zone-size-tablet: 2rem;
