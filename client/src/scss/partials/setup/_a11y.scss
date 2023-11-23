@@ -3,7 +3,9 @@
     scroll-behavior: auto;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     animation-delay: 0ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
@@ -23,8 +25,8 @@ $focusable-box-shadow-initial:
   0 0 0 0 transparent,
   0 0 0 0 transparent;
 $focusable-box-shadow-focused:
-  0 0 0 $a11y-box-shadow-width var(--color-a11y-focus-inner),
-  0 0 0 $a11y-box-shadow-width * 2 var(--color-a11y-focus-outer);
+  0 0 0 $size-a11y-box-shadow-width var(--color-a11y-focus-inner),
+  0 0 0 $size-a11y-box-shadow-width * 2 var(--color-a11y-focus-outer);
 
 %focus-inner {
   box-shadow: inset $focusable-box-shadow-focused !important;

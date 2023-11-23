@@ -14,13 +14,13 @@
   background-color: var(--color-settings-theme-background);
   border-color: var(--color-settings-theme-border);
   border-style: $border-style-generic;
-  border-width: $settings-theme-list-border-width;
-  border-radius: $settings-theme-list-border-radius;
+  border-width: $size-settings-theme-list-border-width;
+  border-radius: $size-settings-theme-list-border-radius;
 }
 
 .settings-theme__list-item {
   position: relative; // Required for absolute positioning of `.settings-theme__marker`
-  height: $settings-theme-list-item-height;
+  height: $size-settings-theme-list-item-height;
 }
 
 .settings-theme__input {
@@ -31,7 +31,7 @@
 .settings-theme__marker {
   width: 100%;
   height: 100%;
-  border-radius: $settings-theme-list-item-border-radius;
+  border-radius: $size-settings-theme-list-item-border-radius;
 }
 
 .settings-theme__label {

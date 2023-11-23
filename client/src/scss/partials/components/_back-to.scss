@@ -5,11 +5,11 @@
 .back-to__link {
   display: inline-flex;
   align-items: center;
-  margin-left: $link-padding * -1;
-  padding: $link-padding;
+  margin-left: $size-link-padding * -1;
+  padding: $size-link-padding;
   font-size: $font-size-small;
 }
 
 .back-to__icon {
-  margin-right: $link-icon-spacing;
+  margin-right: $size-link-icon-spacing;
 }

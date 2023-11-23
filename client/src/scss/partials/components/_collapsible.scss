@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $collapsible-padding-y $collapsible-padding-x;
+  padding: $size-collapsible-padding-y $size-collapsible-padding-x;
   background-color: var(--color-collapsible-background);
   border-radius: $border-radius-generic;
 }

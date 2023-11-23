@@ -1,6 +1,6 @@
 .box {
   overflow: hidden; // Allow for correct `border-radius` presentation
-  padding: $box-padding-y $box-padding-x;
+  padding: $size-box-padding-y $size-box-padding-x;
   color: var(--color-box-text);
   background-color: var(--color-box-background);
   border-radius: $border-radius-generic;
@@ -24,7 +24,7 @@
 
   &:first-of-type {
     .view--services & {
-      margin-top: $services-table-padding-y;
+      margin-top: $size-services-table-padding-y;
 
       @include device-min(tablet) {
         margin-top: $spacer-5;
@@ -34,12 +34,12 @@
 }
 
 .box__meta {
-  margin: $box-padding-y * -1 $box-padding-x * -1 $box-padding-y;
-  padding: $box-padding-y $box-padding-x;
+  margin: $size-box-padding-y * -1 $size-box-padding-x * -1 $size-box-padding-y;
+  padding: $size-box-padding-y $size-box-padding-x;
   background-color: var(--color-box-icon-background);
 
   @include device-min(tablet) {
-    margin: $box-padding-y * -1 $box-padding-x $box-padding-y * -1 $box-padding-x * -1;
+    margin: $size-box-padding-y * -1 $size-box-padding-x $size-box-padding-y * -1 $size-box-padding-x * -1;
   }
 }
 

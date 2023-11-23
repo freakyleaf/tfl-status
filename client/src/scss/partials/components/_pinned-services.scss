@@ -1,6 +1,6 @@
 .pinned-services {
-  margin-top: $list-spaced-margin-y;
-  margin-bottom: $list-spaced-margin-y;
+  margin-top: $size-list-spaced-margin-y;
+  margin-bottom: $size-list-spaced-margin-y;
 }
 
 .pinned-services__list {
@@ -10,6 +10,6 @@
 
 .pinned-services__list-item {
   &:not(:last-of-type) {
-    margin-bottom: $toggles-list-item-margin-bottom;
+    margin-bottom: $size-toggles-list-item-margin-bottom;
   }
 }

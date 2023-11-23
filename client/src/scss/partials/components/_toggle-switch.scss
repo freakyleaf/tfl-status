@@ -15,9 +15,9 @@
 
 .toggle-switch__input {
   appearance: none;
-  width: $toggle-switch-width;
-  height: $toggle-switch-height;
-  margin-right: $a11y-box-shadow-width * 3; // Allows for a11y focus state `box-shadow` plus some extra spacing
+  width: $size-toggle-switch-width;
+  height: $size-toggle-switch-height;
+  margin-right: $size-a11y-box-shadow-width * 3; // Allows for a11y focus state `box-shadow` plus some extra spacing
   background-color: var(--color-toggle-switch-background-unchecked);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgb%28228, 228, 231%29'/%3e%3c/svg%3e");
   background-position: left center;
@@ -26,7 +26,7 @@
   border-color: var(--color-toggle-switch-border-unchecked);
   border-style: $border-style-generic;
   border-width: $border-width-generic;
-  border-radius: $toggle-switch-border-radius;
+  border-radius: $size-toggle-switch-border-radius;
   transition:
     background-position $transition-constant,
     box-shadow $transition-constant; // `box-shadow` required for keyboard navigation focus

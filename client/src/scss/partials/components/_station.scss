@@ -8,8 +8,8 @@
 }
 
 .station__zone {
-  padding-top: $station-item-padding-y;
-  padding-bottom: $station-item-padding-y;
+  padding-top: $size-station-item-padding-y;
+  padding-bottom: $size-station-item-padding-y;
   color: var(--color-station-zone-text);
   text-align: center;
   background-color: var(--color-station-zone-background);

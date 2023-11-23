@@ -13,7 +13,7 @@
   vertical-align: middle;
 
   &--status {
-    padding: $services-table-padding-y $services-table-padding-x;
+    padding: $size-services-table-padding-y $size-services-table-padding-x;
 
     @include device-min(desktop) {
       padding-right: 0;
@@ -35,7 +35,7 @@
   display: flex;
   align-items: center; // Required for pinned icon
   justify-content: space-between; // Required for pinned icon
-  padding: $services-table-padding-y $services-table-padding-x;
+  padding: $size-services-table-padding-y $size-services-table-padding-x;
   text-decoration: none;
   color: inherit;
 

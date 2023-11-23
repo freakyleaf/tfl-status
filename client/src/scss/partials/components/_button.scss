@@ -50,10 +50,10 @@
 
 .button__icon {
   &--left {
-    margin-right: $link-icon-spacing;
+    margin-right: $size-link-icon-spacing;
   }
 
   &--right {
-    margin-left: $link-icon-spacing;
+    margin-left: $size-link-icon-spacing;
   }
 }

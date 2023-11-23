@@ -11,7 +11,7 @@
 
     &::-webkit-scrollbar {
       display: block;
-      width: $scrollbar-size-outer;
+      width: $size-scrollbar-size-outer;
     }
 
     &::-webkit-scrollbar-button {
@@ -20,9 +20,9 @@
 
     &::-webkit-scrollbar-thumb {
       background-color: transparent;
-      border: $scrollbar-size-inner solid transparent;
-      border-radius: $scrollbar-size-outer;
-      box-shadow: $scrollbar-size-inner 0 0 $scrollbar-size-inner var(--color-scrollbar) inset;
+      border: $size-scrollbar-size-inner solid transparent;
+      border-radius: $size-scrollbar-size-outer;
+      box-shadow: $size-scrollbar-size-inner 0 0 $size-scrollbar-size-inner var(--color-scrollbar) inset;
 
       &:hover {
         --color-scrollbar: var(--color-scrollbar-scrollbar-hover)

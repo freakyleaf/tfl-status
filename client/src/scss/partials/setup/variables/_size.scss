@@ -1,65 +1,68 @@
 @use 'sass:math';
 @use './transition' as *;
 
-$a11y-box-shadow-width: $spacer-2;
+$size-a11y-box-shadow-width: $spacer-2;
 
-$alert-padding-x: $spacer-global;
-$alert-padding-y: $spacer-4;
+$size-alert-padding-x: $spacer-global;
+$size-alert-padding-y: $spacer-4;
 
-$box-padding-x: $spacer-4;
-$box-padding-y: $spacer-3;
+$size-box-padding-x: $spacer-4;
+$size-box-padding-y: $spacer-3;
 
-$collapsible-padding-x: $spacer-global;
-$collapsible-padding-y: $spacer-4;
+$size-collapsible-padding-x: $spacer-global;
+$size-collapsible-padding-y: $spacer-4;
 
-$container-padding: $spacer-global;
+$size-container-padding: $spacer-global;
 
-$link-icon-spacing: $spacer-3;
-$link-padding: $spacer-2;
+$size-link-icon-spacing: $spacer-3;
+$size-link-padding: $spacer-2;
 
-$list-spaced-margin-y: $spacer-global;
+$size-list-spaced-margin-y: $spacer-global;
 
-$loading-spinner-size: 1rem;
+$size-loading-spinner: 1rem;
 
-$map-diagram-padding: $spacer-global;
-$map-line-width: $spacer-4;
-$map-list-item-min-height: 5rem; // Arbitrary figure
-$map-list-item-min-height--desktop: 6rem; // Arbitrary figure
-$map-list-item-only-of-type-min-height--desktop: 12rem; // Allow for potential 'Zones X & Y' text
-$map-marker-height--regular: $map-line-width;
-$map-marker-interchange-border-width: 0.36rem;
-$map-marker-size--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
-$map-marker-width--regular: $spacer-4;
-$map-spacing: math.div($map-marker-size--interchange, 4) * 3;
-$map-spacing-mobile: $map-marker-size--interchange;
-$map-zone-padding-x-mobile: $spacer-4;
-$map-zone-padding-y-mobile: 0.35rem; // Somewhere between $spacer-2 and $spacer-3
-$map-zone-size-tablet: 2rem;
+$size-map-diagram-padding: $spacer-global;
+$size-map-line-width: $spacer-4;
+$size-map-list-item-min-height: 5rem; // Arbitrary figure
+$size-map-list-item-min-height--desktop: 6rem; // Arbitrary figure
+$size-map-list-item-only-of-type-min-height--desktop: 12rem; // Allow for potential 'Zones X & Y' text
+$size-map-marker-height--regular: $size-map-line-width;
+$size-map-marker-interchange-border-width: 0.36rem;
+$size-map-marker-size--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
+$size-map-marker-width--regular: $spacer-4;
+$size-map-spacing: math.div($size-map-marker-size--interchange, 4) * 3;
+$size-map-spacing-mobile: $size-map-marker-size--interchange;
+$size-map-zone-padding-x-mobile: $spacer-4;
+$size-map-zone-padding-y-mobile: 0.35rem; // Somewhere between $spacer-2 and $spacer-3
+$size-map-zone-size-tablet: 2rem;
 
-$navigation-primary-link-margin-y: $spacer-4;
-$navigation-primary-link-padding-x: $spacer-4;
-$navigation-primary-link-padding-y: $spacer-3;
+$size-navigation-primary-link-padding-x: $spacer-4;
+$size-navigation-primary-link-padding-y: $spacer-3;
 
-$scrollbar-size-inner: math.div($container-padding, 3);
-$scrollbar-size-outer: $container-padding;
+$size-page-footer-header-content-margin-y: $spacer-4;
 
-$select-arrow-background-size: 0.75rem; // Somewhere between $spacer-4 and $spacer-5
+$size-pull-to-refresh-message-margin-top: $spacer-2;
 
-$services-table-padding-x: $spacer-5;
-$services-table-padding-y: $spacer-3;
+$size-scrollbar-size-inner: math.div($size-container-padding, 3);
+$size-scrollbar-size-outer: $size-container-padding;
 
-$settings-theme-list-border-width: 3px;
-$settings-theme-list-item-height: 3rem;
-$settings-theme-list-item-border-radius: math.div($settings-theme-list-item-height, 2);
-$settings-theme-list-border-radius: calc($settings-theme-list-item-border-radius + ($settings-theme-list-border-width * 2));
+$size-select-arrow-background-size: 0.75rem; // Somewhere between $spacer-4 and $spacer-5
 
-$station-item-padding-y: $spacer-3;
+$size-services-table-padding-x: $spacer-5;
+$size-services-table-padding-y: $spacer-3;
 
-$table-padding-x: $spacer-5;
-$table-padding-y: $spacer-3;
+$size-settings-theme-list-border-width: 3px;
+$size-settings-theme-list-item-height: 3rem;
+$size-settings-theme-list-item-border-radius: math.div($size-settings-theme-list-item-height, 2);
+$size-settings-theme-list-border-radius: calc($size-settings-theme-list-item-border-radius + ($size-settings-theme-list-border-width * 2));
 
-$toggles-list-item-margin-bottom: $spacer-3;
+$size-station-item-padding-y: $spacer-3;
 
-$toggle-switch-height: $spacer-5;
-$toggle-switch-width: $toggle-switch-height * 2;
-$toggle-switch-border-radius: math.div($toggle-switch-height, 2);
+$size-table-padding-x: $spacer-5;
+$size-table-padding-y: $spacer-3;
+
+$size-toggles-list-item-margin-bottom: $spacer-3;
+
+$size-toggle-switch-height: $spacer-5;
+$size-toggle-switch-width: $size-toggle-switch-height * 2;
+$size-toggle-switch-border-radius: math.div($size-toggle-switch-height, 2);

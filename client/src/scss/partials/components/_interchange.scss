@@ -30,8 +30,8 @@
   padding: $spacer-2 $spacer-3;
 
   .station__interchanges & {
-    padding-top: $station-item-padding-y;
-    padding-bottom: $station-item-padding-y;
+    padding-top: $size-station-item-padding-y;
+    padding-bottom: $size-station-item-padding-y;
   }
 
   &:active,

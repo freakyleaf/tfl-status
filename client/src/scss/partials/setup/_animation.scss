@@ -2,10 +2,10 @@
   0%,
   80%,
   100% {
-    box-shadow: 0 $loading-spinner-size 0 $loading-spinner-size * -1 currentcolor;
+    box-shadow: 0 $size-loading-spinner 0 $size-loading-spinner * -1 currentcolor;
   }
 
   40% {
-    box-shadow: 0 $loading-spinner-size 0 0 currentcolor;
+    box-shadow: 0 $size-loading-spinner 0 0 currentcolor;
   }
 }

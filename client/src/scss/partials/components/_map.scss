@@ -13,7 +13,7 @@
 
 .map__toggles-list-item {
   &:not(:last-of-type) {
-    margin-bottom: $toggles-list-item-margin-bottom;
+    margin-bottom: $size-toggles-list-item-margin-bottom;
   }
 }
 
@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: center;
   min-height: 10rem; // Arbitrary figure to accommodate loading spinner
-  padding: $map-diagram-padding;
+  padding: $size-map-diagram-padding;
   background-color: var(--color-map-diagram-background);
   border: $border-generic;
 }
@@ -69,13 +69,13 @@
   right: 0;
 
   @include device-max(mobile) {
-    padding: $map-zone-padding-y-mobile $map-zone-padding-x-mobile;
+    padding: $size-map-zone-padding-y-mobile $size-map-zone-padding-x-mobile;
     border: $border-generic;
   }
 
   @include device-min(tablet) {
     top: $border-width-generic;
-    width: $map-zone-size-tablet;
+    width: $size-map-zone-size-tablet;
     height: calc(100% - #{$border-width-generic});
     background-color: var(--color-map-zone-background-desktop);
 
@@ -88,7 +88,7 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: math.div($map-zone-size-tablet, 2);
+      border-width: math.div($size-map-zone-size-tablet, 2);
     }
 
     &::before {
@@ -125,13 +125,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: $map-list-item-min-height;
+  min-height: $size-map-list-item-min-height;
 
   @include device-min(tablet) {
-    min-height: $map-list-item-min-height--desktop;
+    min-height: $size-map-list-item-min-height--desktop;
 
     &:only-of-type {
-      min-height: $map-list-item-only-of-type-min-height--desktop; // Allow for vertically-aligned zone text
+      min-height: $size-map-list-item-only-of-type-min-height--desktop; // Allow for vertically-aligned zone text
     }
   }
 }
@@ -140,7 +140,7 @@
   order: 2;
   position: absolute;
   top: 0;
-  width: $map-marker-size--interchange;
+  width: $size-map-marker-size--interchange;
   height: 100%;
 }
 
@@ -148,7 +148,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: $map-line-width;
+  width: $size-map-line-width;
   height: 100%;
 
   .map__station-list-item--next-station-suspended-full &,
@@ -159,7 +159,7 @@
       position: absolute;
       left: 0;
       width: 100%;
-      height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+      height: calc(50% - #{math.div($size-map-marker-height--regular, 2)});
       background-color: var(--color-map-disabled);
     }
   }
@@ -187,8 +187,8 @@
       content: '';
       display: block;
       position: absolute;
-      left: math.div($map-line-width, 3);
-      width: math.div($map-line-width, 3);
+      left: math.div($size-map-line-width, 3);
+      width: math.div($size-map-line-width, 3);
       background-color: var(--color-map-diagram-background);
     }
   }
@@ -207,7 +207,7 @@
   .map__station-list-item--previous-station-suspended-full &,
   .map__station-list-item--previous-station-suspended-half & {
     &::after { // Hollowed out solid line
-      height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+      height: calc(50% - #{math.div($size-map-marker-height--regular, 2)});
     }
   }
 
@@ -236,8 +236,8 @@
   .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
     position: absolute;
     left: -50%;
-    width: $map-line-width * 2;
-    height: calc(50% - #{math.div($map-marker-height--regular, 2)});
+    width: $size-map-line-width * 2;
+    height: calc(50% - #{math.div($size-map-marker-height--regular, 2)});
     background-color: var(--color-map-diagram-background);
   }
 
@@ -260,15 +260,15 @@
 .map__station {
   position: relative; // Required to increase clickable area of `.map__station-link`
   order: 3;
-  padding-left: $map-spacing; // Very small phones only
+  padding-left: $size-map-spacing; // Very small phones only
   color: var(--color-map-station-text);
 
   @include device-min(mobile) {
-    padding-left: $map-spacing-mobile;
+    padding-left: $size-map-spacing-mobile;
   }
 
   @include device-min(tablet) {
-    padding-right: $map-diagram-padding + $map-zone-size-tablet;
+    padding-right: $size-map-diagram-padding + $size-map-zone-size-tablet;
   }
 }
 
@@ -308,13 +308,13 @@
   left: 50%;
 
   &--interchange {
-    width: $map-marker-size--interchange;
-    height: $map-marker-size--interchange;
+    width: $size-map-marker-size--interchange;
+    height: $size-map-marker-size--interchange;
     background-color: var(--color-map-interchange-background);
     border-color: var(--color-map-interchange-border);
     border-radius: 50%;
     border-style: $border-style-generic;
-    border-width: $map-marker-interchange-border-width;
+    border-width: $size-map-marker-interchange-border-width;
     transform: translate(-50%, -50%);
 
     .map__diagram--service-disabled &,
@@ -329,8 +329,8 @@
   &--regular {
     $map-marker-regular-shim: 0.1rem; // Prevents potential gap between line and marker
 
-    width: $map-marker-width--regular;
-    height: $map-marker-height--regular;
+    width: $size-map-marker-width--regular;
+    height: $size-map-marker-height--regular;
     transform: translate(calc(50% - $map-marker-regular-shim), -50%);
 
     .map__diagram--service-disabled &,
@@ -346,7 +346,7 @@
         position: absolute;
         top: 0;
         right: calc(100% - $map-marker-regular-shim);
-        width: $map-line-width;
+        width: $size-map-line-width;
         height: 100%;
         background-color: inherit;
       }
@@ -368,10 +368,10 @@
   justify-content: flex-end;
   margin-top: $spacer-4; // Ensure adjacent station interchanges never touch
   margin-bottom: $spacer-4; // Ensure adjacent station interchanges never touch
-  padding-right: $map-spacing; // Very small phones only
+  padding-right: $size-map-spacing; // Very small phones only
 
   @include device-min(mobile) {
-    padding-right: $map-spacing-mobile;
+    padding-right: $size-map-spacing-mobile;
   }
 
   .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {

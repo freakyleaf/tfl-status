@@ -1,51 +1,53 @@
 $loading-spinner-animation-delay: -0.16s;
 $loading-spinner-animation-duration: 1.8s;
 
-.loading-spinner,
-.loading-spinner::before,
-.loading-spinner::after {
-  width: $loading-spinner-size;
-  height: $loading-spinner-size;
-  border-radius: 50%;
-  animation: loading 1.8s infinite ease-in-out both;
+@media (prefers-reduced-motion: no-preference) {
+  .loading-spinner,
+  .loading-spinner::before,
+  .loading-spinner::after {
+    width: $size-loading-spinner;
+    height: $size-loading-spinner;
+    border-radius: 50%;
+    animation: loading-spinner 1.8s infinite ease-in-out both;
+  }
+
+  .loading-spinner {
+    position: relative;
+    transform: translateY($size-loading-spinner * -1);
+    animation-delay: $loading-spinner-animation-delay;
+
+    .ptr__loader & { // Pull to refresh
+      margin-top: $spacer-global;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+    }
+
+    &::before {
+      left: $size-loading-spinner * -1.5;
+      animation-delay: $loading-spinner-animation-delay * 2;
+    }
+
+    &::after {
+      left: $size-loading-spinner * 1.5;
+    }
+  }
 }
 
-.loading-spinner {
-  position: relative;
-  transform: translateY($loading-spinner-size * -1);
-  animation-delay: $loading-spinner-animation-delay;
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    &::before {
+      content: 'Loading...';
+    }
 
-  .ptr__loader & {
-    margin-top: $spacer-global;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-  }
-
-  &::before {
-    left: $loading-spinner-size * -1.5;
-    animation-delay: $loading-spinner-animation-delay * 2;
-  }
-
-  &::after {
-    left: $loading-spinner-size * 1.5;
-  }
-}
-
-@keyframes loading {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 $loading-spinner-size 0 $loading-spinner-size * -1 currentcolor;
-  }
-
-  40% {
-    box-shadow: 0 $loading-spinner-size 0 0 currentcolor;
+    .ptr__loader & { // Pull to refresh
+      margin-top: $size-pull-to-refresh-message-margin-top;
+    }
   }
 }

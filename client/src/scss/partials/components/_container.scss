@@ -4,17 +4,17 @@
   margin-right: auto;
 
   &--pb {
-    padding-bottom: $container-padding;
+    padding-bottom: $size-container-padding;
   }
 
   &--px {
-    padding-left: $container-padding;
-    padding-right: $container-padding;
+    padding-left: $size-container-padding;
+    padding-right: $size-container-padding;
   }
 
   &--py {
-    padding-top: $container-padding;
-    padding-bottom: $container-padding;
+    padding-top: $size-container-padding;
+    padding-bottom: $size-container-padding;
   }
 }
 
