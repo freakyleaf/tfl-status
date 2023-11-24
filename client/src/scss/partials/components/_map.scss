@@ -33,6 +33,10 @@
   line-height: 1;
 
   @include device-min(mobile) {
+    font-size: 0.85em;
+  }
+
+  @include device-min(tablet) {
     font-size: 1em;
   }
 }

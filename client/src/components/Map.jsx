@@ -183,8 +183,16 @@ function Map(props) {
     return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_NATIONAL_RAIL);
   };
 
+  const stationIsAccessiblePlatform = (station) => {
+    return station.accessibility === ACCESSIBLE_PLATFORM;
+  };
+
+  const stationIsAccessibleTrain = (station) => {
+    return station.accessibility === ACCESSIBLE_TRAIN;
+  };
+
   const stationIsAccessible = (station) => {
-    return station.accessibility === ACCESSIBLE_PLATFORM || station.accessibility === ACCESSIBLE_TRAIN;
+    return stationIsAccessiblePlatform(station) || stationIsAccessibleTrain(station);
   };
 
   // The `setTimeout()` isn't required but makes for better UX as when changing routes it can seem as if nothing has happened if the routes begin with the same stations
@@ -324,7 +332,9 @@ function Map(props) {
                                       <div className="map__ornaments">
                                         <div className={`map__line brand-background--id-${service.id} brand-background--mode-${service.mode}`}>
                                           {
-                                            ((zoneIndex === 0 && stationIndex === 0) || (zoneIndex === currentRoute.zones.length - 1 && stationIndex === zone.stations.length - 1)) && (<div className="map__mask" />)
+                                            ((zoneIndex === 0 && stationIndex === 0) || (zoneIndex === currentRoute.zones.length - 1 && stationIndex === zone.stations.length - 1)) && (
+                                              <div className="map__mask" />
+                                            )
                                           }
                                         </div>
                                         <div className={mapMarkerClasses(station)}>
@@ -343,7 +353,14 @@ function Map(props) {
                                         >
                                           <span className="visually-hidden">{getStationNumber(station.name)}</span>
                                           {station.name}
-                                          <span className="visually-hidden">. This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {zone.zone.zones}.</span>
+                                          <span className="visually-hidden">
+                                            . This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {zone.zone.zones}
+                                            {
+                                              stationIsAccessible(station) && (
+                                                <> and has step-free access from {stationIsAccessiblePlatform(station) ? 'platform' : 'street' } to train</>
+                                              )
+                                            }
+                                          .</span>
                                           {
                                             (stationIsSuspended(station)) && (
                                               <span className="visually-hidden">
