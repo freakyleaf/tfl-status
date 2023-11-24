@@ -46,6 +46,7 @@ import {
 import {
   setCurrentMapRoute,
   setMapVisibilityItem,
+  setMapVisibilityStepFreeAccess,
 } from '@stores/storeSliceSettings';
 
 import serviceStatusIncludes from '@utils/serviceStatusIncludes';
@@ -53,6 +54,7 @@ import stringToKebabCase from '@utils/stringToKebabCase';
 
 import Alert from '@components/Alert';
 import Box from '@components/Box';
+import Collapsible from '@components/Collapsible';
 import Error from '@components/Error';
 import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
@@ -81,8 +83,10 @@ function Map(props) {
   const dispatch = useDispatch();
   const [ currentRoute, setCurrentRoute ] = useState();
   const [ mapLoading, setMapLoading ] = useState();
+  const [ mapSettingsVisibility, setMapSettingsVisibility ] = useState(false);
   const {
     currentMapRoutes,
+    mapVisibilityStepFreeAccess,
     mapVisibility,
   } = useSelector((state) => state.settings);
 
@@ -135,10 +139,20 @@ function Map(props) {
 
   const mapMarkerClasses = (station) => {
     const classes = [ 'map__marker' ];
-    if (station.accessibility === ACCESSIBLE_PLATFORM) classes.push('map__marker--accessibility map__marker--accessibility-platform');
-    else if (station.accessibility === ACCESSIBLE_TRAIN) classes.push('map__marker--accessibility map__marker--accessibility-train');
-    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) classes.push('map__marker--interchange');
-    else classes.push('map__marker--regular');
+
+    if (mapVisibilityStepFreeAccess && station.accessibility === ACCESSIBLE_PLATFORM) {
+      classes.push('map__marker--accessibility map__marker--accessibility-platform');
+    }
+    else if (mapVisibilityStepFreeAccess && station.accessibility === ACCESSIBLE_TRAIN) {
+      classes.push('map__marker--accessibility map__marker--accessibility-train');
+    }
+    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) {
+      classes.push('map__marker--interchange');
+    }
+    else {
+      classes.push('map__marker--regular');
+    }
+
     classes.push(`brand-background--id-${service.id} brand-background--mode-${service.mode}`);
     return classes.join(' ');
   };
@@ -208,6 +222,10 @@ function Map(props) {
     }, TIMING_CONSTANT / 4);
   };
 
+  const onChangeMapVisibilityStepFreeAccess = ({ checked }) => {
+    dispatch(setMapVisibilityStepFreeAccess(checked));
+  };
+
   const onChangeToggleSwitch = ({ checked, value }) => {
     dispatch(setMapVisibilityItem({
       id: value,
@@ -250,27 +268,47 @@ function Map(props) {
             }
             {
               !isLoading && (
-                <div className="map__toggles">
-                  <span className="label">
-                    Toggle station interchange visibility
-                  </span>
-                  <ul className="map__toggles-list">
-                    {
-                      serviceGroups.map((serviceGroup) => (
-                        <li
-                          className="map__toggles-list-item"
-                          key={serviceGroup.group}
-                        >
-                          <ToggleSwitch
-                            checked={!!mapVisibility[serviceGroup.group]}
-                            id={serviceGroup.group}
-                            label={<><span className="visually-hidden">Toggle visibility for </span>{serviceGroup.name} services</>}
-                            onChange={({ checked, value }) => onChangeToggleSwitch({ checked, value })}
-                          />
-                        </li>
-                      ))
-                    }
-                  </ul>
+                <div className="map__settings">
+                  <Collapsible
+                    a11yHelperText="map settings"
+                    collapsed={!mapSettingsVisibility}
+                    heading="Map Settings"
+                    onClick={() => setMapSettingsVisibility(!mapSettingsVisibility)}
+                  />
+                  {
+                    mapSettingsVisibility && (
+                      <>
+                        <div className="map__toggles">
+                          <span className="label">
+                            Toggle station interchange visibility
+                          </span>
+                          <ul className="map__toggles-list">
+                            {
+                              serviceGroups.map((serviceGroup) => (
+                                <li
+                                  className="map__toggles-list-item"
+                                  key={serviceGroup.group}
+                                >
+                                  <ToggleSwitch
+                                    checked={!!mapVisibility[serviceGroup.group]}
+                                    id={serviceGroup.group}
+                                    label={<><span className="visually-hidden">Toggle visibility for </span>{serviceGroup.name} services</>}
+                                    onChange={({ checked, value }) => onChangeToggleSwitch({ checked, value })}
+                                  />
+                                </li>
+                              ))
+                            }
+                          </ul>
+                        </div>
+                        <ToggleSwitch
+                          checked={mapVisibilityStepFreeAccess}
+                          id="map-settings-step-free-access-visibility"
+                          label="Toggle step-free access visibility"
+                          onChange={({ checked }) => onChangeMapVisibilityStepFreeAccess({ checked })}
+                        />
+                      </>
+                    )
+                  }
                 </div>
               )
             }

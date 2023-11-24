@@ -10,6 +10,7 @@ const initialState = {
   currentMapRoutes: {},
   highContrastModeEnabled: window.matchMedia('(forced-colors: active)').matches,
   mapVisibility: {},
+  mapVisibilityStepFreeAccess: true,
   pinned: {},
   prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   themeApp: THEME_AUTO,
@@ -42,6 +43,10 @@ export const storeSliceSettings = createSlice({
         delete state.mapVisibility[id];
       }
     },
+    setMapVisibilityStepFreeAccess: (state, action) => {
+      const { payload } = action;
+      state.mapVisibilityStepFreeAccess = payload;
+    },
     setPinned: (state, action) => {
       const { payload } = action;
       state.pinned = payload;
@@ -67,6 +72,7 @@ export const {
   setHighContrastModeEnabled,
   setMapVisibility,
   setMapVisibilityItem,
+  setMapVisibilityStepFreeAccess,
   setPinned,
   setPinnedItem,
   setThemeApp,

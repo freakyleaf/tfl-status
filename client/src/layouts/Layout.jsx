@@ -33,6 +33,7 @@ import {
 import {
   setHighContrastModeEnabled,
   setMapVisibility,
+  setMapVisibilityStepFreeAccess,
   setPinned,
   setThemeApp,
 } from '@stores/storeSliceSettings';
@@ -64,6 +65,7 @@ function Layout() {
   const {
     highContrastModeEnabled,
     mapVisibility,
+    mapVisibilityStepFreeAccess,
     pinned,
     themeApp,
     themeSystem,
@@ -189,10 +191,25 @@ function Layout() {
   }, []);
 
   useEffect(() => {
+    const mapVisibilityStepFreeAccess = localStorage.getItem('mapVisibilityStepFreeAccess');
+    if (mapVisibilityStepFreeAccess === 'true') {
+      dispatch(setMapVisibilityStepFreeAccess(true));
+    } else {
+      dispatch(setMapVisibilityStepFreeAccess(false));
+    }
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => {
       localStorage.setItem('mapVisibility', JSON.stringify(mapVisibility));
     }, 0);
   }, [ mapVisibility ]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem('mapVisibilityStepFreeAccess', mapVisibilityStepFreeAccess);
+    }, 0);
+  }, [ mapVisibilityStepFreeAccess ]);
 
   useEffect(() => {
     dispatch(setMenuOpen(false));

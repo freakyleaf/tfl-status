@@ -4,6 +4,14 @@
   margin-top: $spacer-global;
 }
 
+.map__settings {
+  margin-bottom: $spacer-global;
+}
+
+.map__toggles {
+  margin-top: $spacer-global;
+}
+
 .map__toggles-list {
   @extend %bordered-box;
   @extend %list-unstyled;
