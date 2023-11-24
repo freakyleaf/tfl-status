@@ -256,8 +256,8 @@ $color-light: $color-gray-200;
   --color-settings-theme-border: #{$color-gray-700};
 
   // Status
-  --color-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio
-  --color-status-positive-text: #{$color-light};
+  --color-view-services-status-negative-text: #{color.adjust($color-state-error, $lightness: 5%)}; // 5% lightness required to pass accessibility contrast ratio
+  --color-view-services-status-positive-text: #{$color-light};
 
   // Table
   --color-table-tr-even-background: #{$color-gray-800};
