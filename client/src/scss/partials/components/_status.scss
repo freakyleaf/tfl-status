@@ -22,12 +22,28 @@ $spacer-status: $spacer-4;
     margin-top: $spacer-status;
   }
 
-  &--negative {
-    color: var(--color-status-negative-text);
+  .view--service & {
+    padding: $spacer-global;
+    color: var(--color-view-service-status-text);
+    border-radius: $border-radius-generic;
+
+    &--negative {
+      background-color: var(--color-view-service-status-negative-background);
+    }
+
+    &--positive {
+      background-color: var(--color-view-service-status-positive-background);
+    }
   }
 
-  &--positive {
-    color: var(--color-status-positive-text);
+  .view--services & {
+    &--negative {
+      color: var(--color-view-services-status-negative-text);
+    }
+
+    &--positive {
+      color: var(--color-view-services-status-positive-text);
+    }
   }
 }
 

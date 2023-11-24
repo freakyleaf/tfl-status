@@ -158,8 +158,11 @@ $color-light: $color-gray-200;
 
 // Status
 :root {
-  --color-status-negative-text: #{$color-state-error};
-  --color-status-positive-text: #{$color-state-info};
+  --color-view-service-status-negative-background: #{$color-state-error};
+  --color-view-service-status-positive-background: #{$color-state-info};
+  --color-view-service-status-text: #{$color-white};
+  --color-view-services-status-negative-text: #{$color-state-error};
+  --color-view-services-status-positive-text: #{$color-state-info};
 }
 
 // Table
