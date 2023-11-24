@@ -377,7 +377,7 @@ function Map(props) {
                                         </div>
                                         <div className={mapMarkerClasses(station)}>
                                           {
-                                            stationIsAccessible(station) && (
+                                            (mapVisibilityStepFreeAccess && stationIsAccessible(station)) && (
                                               <MapIconAccessibility />
                                             )
                                           }
