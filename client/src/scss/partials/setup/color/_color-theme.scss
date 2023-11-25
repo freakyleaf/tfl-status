@@ -228,8 +228,9 @@ $color-light: $color-gray-200;
   --color-loading-icon: #{$color-gray-700};
 
   // Map
-  --color-map-accessibility-platform-icon-disabled: #{$color-white};
+  --color-map-accessibility-platform-icon-disabled: var(--color-map-disabled);
   --color-map-accessibility-platform-background-disabled: var(--color-map-diagram-background);
+  --color-map-accessibility-train-icon-disabled: var(--color-map-diagram-background);
   --color-map-diagram-background: var(--color-page-main-background);
   --color-map-disabled: #{$color-gray-700};
   --color-map-interchange-background-disabled: var(--color-map-diagram-background);
