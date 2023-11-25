@@ -283,7 +283,7 @@ function Map(props) {
                       serviceInterrupted && (
                         <>
                           {
-                            currentRoute.message && (
+                            currentRoute?.message && (
                               <Alert
                                 text="Real-time map data is currently in beta and may be incorrect."
                                 type="info"
@@ -293,7 +293,7 @@ function Map(props) {
                           <Box
                             type="information"
                           >
-                            {currentRoute.message ? currentRoute.message : contentServiceInterrupted()}
+                            {currentRoute?.message ? currentRoute.message : contentServiceInterrupted()}
                           </Box>
                         </>
                       )
