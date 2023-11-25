@@ -1,0 +1,8 @@
+@mixin map-station-disabled () {
+  .map__diagram--service-disabled &,
+  .map__station-list-item--service-suspended-full &,
+  .map__zone-list-item:first-of-type .map__station-list-item:first-of-type.map__station-list-item--next-station-suspended-full &,
+  .map__zone-list-item:last-of-type .map__station-list-item:last-of-type.map__station-list-item--previous-station-suspended-full & {
+    @content;
+  }
+}

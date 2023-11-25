@@ -82,11 +82,17 @@ $color-light: $color-gray-200;
 // Map
 :root {
   --color-map-accessibility-platform-background: #{$color-white};
+  --color-map-accessibility-platform-background-disabled: #{$color-white};
   --color-map-accessibility-platform-border: var(--color-primary);
+  --color-map-accessibility-platform-border-disabled: var(--color-map-disabled);
   --color-map-accessibility-platform-icon: var(--color-primary);
+  --color-map-accessibility-platform-icon-disabled: var(--color-map-disabled);
   --color-map-accessibility-train-background: var(--color-primary);
+  --color-map-accessibility-train-background-disabled: var(--color-map-disabled);
   --color-map-accessibility-train-border: var(--color-primary);
+  --color-map-accessibility-train-border-disabled: var(--color-map-disabled);
   --color-map-accessibility-train-icon: #{$color-white};
+  --color-map-accessibility-train-icon-disabled: #{$color-white};
   --color-map-diagram-background: var(--color-body-background);
   --color-map-disabled: #{$color-gray-200};
   --color-map-interchange-background: #{$color-white};
@@ -222,6 +228,8 @@ $color-light: $color-gray-200;
   --color-loading-icon: #{$color-gray-700};
 
   // Map
+  --color-map-accessibility-platform-icon-disabled: #{$color-white};
+  --color-map-accessibility-platform-background-disabled: var(--color-map-diagram-background);
   --color-map-diagram-background: var(--color-page-main-background);
   --color-map-disabled: #{$color-gray-700};
   --color-map-interchange-background-disabled: var(--color-map-diagram-background);

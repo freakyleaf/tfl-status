@@ -325,12 +325,24 @@
     color: var(--color-map-accessibility-platform-icon);
     background-color: var(--color-map-accessibility-platform-background);
     border-color: var(--color-map-accessibility-platform-border);
+
+    @include map-station-disabled () {
+      color: var(--color-map-accessibility-platform-icon-disabled);
+      background-color: var(--color-map-accessibility-platform-background-disabled);
+      border-color: var(--color-map-accessibility-platform-border-disabled);
+    }
   }
 
   &--accessibility-train {
     color: var(--color-map-accessibility-train-icon);
     background-color: var(--color-map-accessibility-train-background);
     border-color: var(--color-map-accessibility-train-border);
+
+    @include map-station-disabled () {
+      color: var(--color-map-accessibility-train-icon-disabled);
+      background-color: var(--color-map-accessibility-train-background-disabled);
+      border-color: var(--color-map-accessibility-train-border-disabled);
+    }
   }
 
   &--interchange {
@@ -343,10 +355,7 @@
     border-width: $size-map-marker-interchange-border-width;
     transform: translate(-50%, -50%);
 
-    .map__diagram--service-disabled &,
-    .map__station-list-item--service-suspended-full &,
-    .map__zone-list-item:first-of-type .map__station-list-item:first-of-type.map__station-list-item--next-station-suspended-full &,
-    .map__zone-list-item:last-of-type .map__station-list-item:last-of-type.map__station-list-item--previous-station-suspended-full & {
+    @include map-station-disabled () {
       background-color: var(--color-map-interchange-background-disabled);
       border-color: var(--color-map-interchange-border-disabled);
     }
