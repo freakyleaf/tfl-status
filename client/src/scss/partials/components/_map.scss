@@ -8,23 +8,6 @@
   margin-bottom: $spacer-global;
 }
 
-.map__toggles {
-  margin-top: $spacer-global;
-}
-
-.map__toggles-list {
-  @extend %bordered-box;
-  @extend %list-unstyled;
-
-  margin-bottom: $spacer-global;
-}
-
-.map__toggles-list-item {
-  &:not(:last-of-type) {
-    margin-bottom: $size-toggles-list-item-margin-bottom;
-  }
-}
-
 .map__diagram {
   display: flex;
   flex-direction: column;

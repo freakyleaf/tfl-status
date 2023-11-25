@@ -16,7 +16,7 @@ import {
   PATH_STATION,
 } from '@constants/paths';
 
-import serviceGroups, {
+import {
   SERVICE_GROUP_NATIONAL_RAIL,
 } from '@constants/serviceGroups';
 
@@ -45,8 +45,6 @@ import {
 
 import {
   setCurrentMapRoute,
-  setMapVisibilityItem,
-  setMapVisibilityStepFreeAccess,
 } from '@stores/storeSliceSettings';
 
 import serviceStatusIncludes from '@utils/serviceStatusIncludes';
@@ -62,8 +60,8 @@ import MapIconAccessibility from '@components/icons/MapIconAccessibility';
 import MapIconInternationalRail from '@components/icons/MapIconInternationalRail';
 import MapIconNationalRail from '@components/icons/MapIconNationalRail';
 import MapIconWarning from '@components/icons/MapIconWarning';
+import MapSettings from '@components/MapSettings';
 import Select from '@components/Select';
-import ToggleSwitch from '@components/ToggleSwitch';
 
 Map.propTypes = {
   service: PropTypes.object,
@@ -222,17 +220,6 @@ function Map(props) {
     }, TIMING_CONSTANT / 4);
   };
 
-  const onChangeMapVisibilityStepFreeAccess = ({ checked }) => {
-    dispatch(setMapVisibilityStepFreeAccess(checked));
-  };
-
-  const onChangeToggleSwitch = ({ checked, value }) => {
-    dispatch(setMapVisibilityItem({
-      id: value,
-      visible: checked,
-    }));
-  };
-
   return (
     <div className='map'>
       <h2>
@@ -250,6 +237,23 @@ function Map(props) {
         !error && (
           <>
             {
+              !isLoading && (
+                <div className="map__settings">
+                  <Collapsible
+                    a11yHelperText="map settings"
+                    collapsed={!mapSettingsVisibility}
+                    heading="Map Settings"
+                    onClick={() => setMapSettingsVisibility(!mapSettingsVisibility)}
+                  />
+                  {
+                    mapSettingsVisibility && (
+                      <MapSettings />
+                    )
+                  }
+                </div>
+              )
+            }
+            {
               serviceHasMultipleRoutes && (
                 <>
                   <Alert
@@ -266,52 +270,7 @@ function Map(props) {
                 </>
               )
             }
-            {
-              !isLoading && (
-                <div className="map__settings">
-                  <Collapsible
-                    a11yHelperText="map settings"
-                    collapsed={!mapSettingsVisibility}
-                    heading="Map Settings"
-                    onClick={() => setMapSettingsVisibility(!mapSettingsVisibility)}
-                  />
-                  {
-                    mapSettingsVisibility && (
-                      <>
-                        <div className="map__toggles">
-                          <span className="label">
-                            Toggle station interchange visibility
-                          </span>
-                          <ul className="map__toggles-list">
-                            {
-                              serviceGroups.map((serviceGroup) => (
-                                <li
-                                  className="map__toggles-list-item"
-                                  key={serviceGroup.group}
-                                >
-                                  <ToggleSwitch
-                                    checked={!!mapVisibility[serviceGroup.group]}
-                                    id={serviceGroup.group}
-                                    label={<><span className="visually-hidden">Toggle visibility for </span>{serviceGroup.name} services</>}
-                                    onChange={({ checked, value }) => onChangeToggleSwitch({ checked, value })}
-                                  />
-                                </li>
-                              ))
-                            }
-                          </ul>
-                        </div>
-                        <ToggleSwitch
-                          checked={mapVisibilityStepFreeAccess}
-                          id="map-settings-step-free-access-visibility"
-                          label="Toggle step-free access visibility"
-                          onChange={({ checked }) => onChangeMapVisibilityStepFreeAccess({ checked })}
-                        />
-                      </>
-                    )
-                  }
-                </div>
-              )
-            }
+
 
             <div className={serviceDisabled ? 'map__diagram map__diagram--service-disabled' : 'map__diagram'}>
               {

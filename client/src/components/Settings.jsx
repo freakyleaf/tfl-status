@@ -21,7 +21,7 @@ import Box from '@components/Box';
 import Hr from '@components/Hr';
 import Loading from '@components/Loading';
 import SettingsHighContrastMode from '@components/SettingsHighContrastMode';
-import SettingsMapVisibility from '@components/SettingsMapVisibility';
+import MapSettings from '@components/MapSettings';
 import SettingsPinnedServices from '@components/SettingsPinnedServices';
 import SettingsTheme from '@components/SettingsTheme';
 
@@ -98,14 +98,14 @@ function Settings() {
       }
       <Hr />
       <h2 className="settings__heading">
-        Map Station Interchange Visibility
+        Map
       </h2>
       <Box
         type="information"
       >
         {contentSettingsMapStationInterchangeVisibility}
       </Box>
-      <SettingsMapVisibility />
+      <MapSettings />
     </div>
   );
 }

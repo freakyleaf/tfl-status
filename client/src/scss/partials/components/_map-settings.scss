@@ -1,0 +1,20 @@
+@use 'sass:math';
+
+.map-settings {
+  .map__settings & {
+    margin-top: $spacer-global;
+  }
+}
+
+.map-settings__toggles-list {
+  @extend %bordered-box;
+  @extend %list-unstyled;
+
+  margin-bottom: $spacer-global;
+}
+
+.map-settings__toggles-list-item {
+  &:not(:last-of-type) {
+    margin-bottom: $size-toggles-list-item-margin-bottom;
+  }
+}
