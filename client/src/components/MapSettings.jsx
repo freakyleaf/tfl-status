@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import serviceGroups from '@constants/serviceGroups';
 
 import {
-  setMapVisibilityItem,
+  setMapVisibilityInterchangeItem,
   setMapVisibilityStepFreeAccess,
 } from '@stores/storeSliceSettings';
 
@@ -14,8 +14,8 @@ function MapSettings() {
   const dispatch = useDispatch();
 
   const {
+    mapVisibilityInterchanges,
     mapVisibilityStepFreeAccess,
-    mapVisibility,
   } = useSelector((state) => state.settings);
 
   const onChangeMapVisibilityStepFreeAccess = ({ checked }) => {
@@ -23,7 +23,7 @@ function MapSettings() {
   };
 
   const onChangeToggleSwitch = ({ checked, value }) => {
-    dispatch(setMapVisibilityItem({
+    dispatch(setMapVisibilityInterchangeItem({
       id: value,
       visible: checked,
     }));
@@ -43,9 +43,9 @@ function MapSettings() {
                 key={serviceGroup.group}
               >
                 <ToggleSwitch
-                  checked={!!mapVisibility[serviceGroup.group]}
+                  checked={!!mapVisibilityInterchanges[serviceGroup.group]}
                   id={serviceGroup.group}
-                  label={<><span className="visually-hidden">Toggle visibility for </span>{serviceGroup.name} services</>}
+                  label={<><span className="visually-hidden">Toggle interchange visibility for </span>{serviceGroup.name} services</>}
                   onChange={({ checked, value }) => onChangeToggleSwitch({ checked, value })}
                 />
               </li>

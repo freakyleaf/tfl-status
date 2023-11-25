@@ -32,7 +32,7 @@ import {
 
 import {
   setHighContrastModeEnabled,
-  setMapVisibility,
+  setMapVisibilityInterchanges,
   setMapVisibilityStepFreeAccess,
   setPinned,
   setThemeApp,
@@ -64,7 +64,7 @@ function Layout() {
 
   const {
     highContrastModeEnabled,
-    mapVisibility,
+    mapVisibilityInterchanges,
     mapVisibilityStepFreeAccess,
     pinned,
     themeApp,
@@ -180,12 +180,12 @@ function Layout() {
   }, [ themeApp ]);
 
   useEffect(() => {
-    const mapVisibility = localStorage.getItem('mapVisibility');
-    if (mapVisibility) {
-      dispatch(setMapVisibility(JSON.parse(mapVisibility)));
+    const mapVisibilityInterchanges = localStorage.getItem('mapVisibilityInterchanges');
+    if (mapVisibilityInterchanges) {
+      dispatch(setMapVisibilityInterchanges(JSON.parse(mapVisibilityInterchanges)));
     } else {
-      dispatch(setMapVisibility({
-        [SERVICE_GROUP_CORE]: true, // Default = `SERVICE_GROUP_CORE`
+      dispatch(setMapVisibilityInterchanges({
+        [SERVICE_GROUP_CORE]: true,
       }));
     }
   }, []);
@@ -201,9 +201,9 @@ function Layout() {
 
   useEffect(() => {
     setTimeout(() => {
-      localStorage.setItem('mapVisibility', JSON.stringify(mapVisibility));
+      localStorage.setItem('mapVisibilityInterchanges', JSON.stringify(mapVisibilityInterchanges));
     }, 0);
-  }, [ mapVisibility ]);
+  }, [ mapVisibilityInterchanges ]);
 
   useEffect(() => {
     setTimeout(() => {

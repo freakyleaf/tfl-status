@@ -84,8 +84,8 @@ function Map(props) {
   const [ mapSettingsVisibility, setMapSettingsVisibility ] = useState(false);
   const {
     currentMapRoutes,
+    mapVisibilityInterchanges,
     mapVisibilityStepFreeAccess,
-    mapVisibility,
   } = useSelector((state) => state.settings);
 
   const serviceHasMultipleRoutes = maps?.length > 1;
@@ -179,7 +179,7 @@ function Map(props) {
   };
 
   const stationInterchanges = (station) => {
-    return station.interchanges.filter((interchange) => mapVisibility[interchange.group]);
+    return station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
   };
 
   const stationHasInternationalRailInterchange = (station) => {
