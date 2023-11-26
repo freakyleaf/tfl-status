@@ -166,6 +166,12 @@ const mapEmbellishments = {
             'river',
           ],
         },
+        {
+          id: '940GZZLUVIC', // Victoria
+          embellishments: [
+            'coach',
+          ],
+        },
       ],
     },
     {
