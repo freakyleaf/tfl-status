@@ -13,6 +13,12 @@ import {
 } from '@constants/accessibility';
 
 import {
+  EMBELLISHMENT_AIRPORT,
+  EMBELLISHMENT_COACH,
+  EMBELLISHMENT_RIVER,
+} from '@constants/embellishments';
+
+import {
   PATH_STATION,
 } from '@constants/paths';
 
@@ -57,8 +63,11 @@ import Error from '@components/Error';
 import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
 import MapIconAccessibility from '@components/icons/MapIconAccessibility';
+import MapIconAirport from '@components/icons/MapIconAirport';
+import MapIconCoach from '@components/icons/MapIconCoach';
 import MapIconInternationalRail from '@components/icons/MapIconInternationalRail';
 import MapIconNationalRail from '@components/icons/MapIconNationalRail';
+import MapIconRiver from '@components/icons/MapIconRiver';
 import MapIconWarning from '@components/icons/MapIconWarning';
 import MapSettings from '@components/MapSettings';
 import Select from '@components/Select';
@@ -166,6 +175,33 @@ function Map(props) {
     return classes.join(' ');
   };
 
+  const stationHasEmbellishmentAirport = (station) => {
+    return station.embellishments?.includes(EMBELLISHMENT_AIRPORT);
+  };
+
+  const stationHasEmbellishmentCoach = (station) => {
+    return station.embellishments?.includes(EMBELLISHMENT_COACH);
+  };
+
+  const stationHasEmbellishmentRiver = (station) => {
+    return station.embellishments?.includes(EMBELLISHMENT_RIVER);
+  };
+
+  const stationHasIcons = (station) => {
+    return !!stationIcons(station).length;
+  };
+
+  const stationIcons = (station) => {
+    const icons = [];
+    if (station.hasDisruptions) icons.push(<MapIconWarning />);
+    if (stationHasNationalRailInterchange(station)) icons.push(<MapIconNationalRail />);
+    if (stationHasInternationalRailInterchange(station)) icons.push(<MapIconInternationalRail />);
+    if (stationHasEmbellishmentAirport(station)) icons.push(<MapIconAirport />);
+    if (stationHasEmbellishmentCoach(station)) icons.push(<MapIconCoach />);
+    if (stationHasEmbellishmentRiver(station)) icons.push(<MapIconRiver />);
+    return icons;
+  };
+
   const stationIsSuspendedFull = (station) => {
     return station.currentStationSuspendedFull || station.nextStationSuspendedFull || station.previousStationSuspendedFull;
   };
@@ -236,23 +272,19 @@ function Map(props) {
       {
         !error && (
           <>
-            {
-              !isLoading && (
-                <div className="map__settings">
-                  <Collapsible
-                    a11yHelperText="map settings"
-                    collapsed={!mapSettingsVisibility}
-                    heading="Map Settings"
-                    onClick={() => setMapSettingsVisibility(!mapSettingsVisibility)}
-                  />
-                  {
-                    mapSettingsVisibility && (
-                      <MapSettings />
-                    )
-                  }
-                </div>
-              )
-            }
+            <div className="map__settings">
+              <Collapsible
+                a11yHelperText="map settings"
+                collapsed={!mapSettingsVisibility}
+                heading="Map Settings"
+                onClick={() => setMapSettingsVisibility(!mapSettingsVisibility)}
+              />
+              {
+                mapSettingsVisibility && (
+                  <MapSettings />
+                )
+              }
+            </div>
             {
               serviceHasMultipleRoutes && (
                 <>
@@ -270,7 +302,6 @@ function Map(props) {
                 </>
               )
             }
-
 
             <div className={serviceDisabled ? 'map__diagram map__diagram--service-disabled' : 'map__diagram'}>
               {
@@ -379,13 +410,18 @@ function Map(props) {
                                           }
                                         </Link>
                                         {
-                                          station.hasDisruptions && (<MapIconWarning />)
-                                        }
-                                        {
-                                          stationHasNationalRailInterchange(station) && (<MapIconNationalRail />)
-                                        }
-                                        {
-                                          stationHasInternationalRailInterchange(station) && (<MapIconInternationalRail />)
+                                          stationHasIcons(station) && (
+                                            <ul className="map__station-icon-list">
+                                              {stationIcons(station).map((icon, iconIndex) => (
+                                                <li
+                                                  className="map__station-icon-list-item"
+                                                  key={iconIndex}
+                                                >
+                                                  {icon}
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          )
                                         }
                                       </div>
                                       <div className="map__interchanges">

@@ -2,6 +2,7 @@ import cleanName from './cleanName.js';
 import getInterchanges from './getInterchanges.js';
 import getModesById from './getModesById.js';
 import getStationAccessibility from './getStationAccessibility.js';
+import getStationEmbellishments from './getStationEmbellishments.js';
 import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
@@ -27,6 +28,7 @@ const createMaps = async({ data, id }) => {
 
         return {
           accessibility: getStationAccessibility({ id, naptanId }),
+          embellishments: getStationEmbellishments({ id, naptanId }),
           hasDisruptions: !!stopPointSequencesStation.hasDisruption,
           id: stringToKebabCase(stationName),
           interchanges: getInterchanges({ id, lines: station.lines, modesById }),

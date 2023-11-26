@@ -1010,7 +1010,6 @@ const mapAccessibility = {
           id: '910GWOLWXR', // Woolwich
           access: 'train',
         },
-
       ],
     },
     {

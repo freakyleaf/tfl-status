@@ -287,13 +287,19 @@
   }
 }
 
-.map__icon {
-  &--international-rail,
-  &--national-rail,
-  &--warning {
-    margin-left: $spacer-3;
-    flex-shrink: 0;
-  }
+.map__station-icon-list,
+.map__station-icon-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.map__station-icon-list {
+  @extend %list-unstyled;
+}
+
+.map__station-icon-list-item {
+  margin-left: $spacer-3;
+  flex-shrink: 0;
 }
 
 .map__marker {
