@@ -16,6 +16,7 @@ const cleanName = (name) => {
     .replace('London Gatwick', 'Gatwick')
     .replace('London Liverpool Street', 'Liverpool Street')
     .replace('London Paddington', 'Paddington')
+    .replace('London Southend', 'Southend')
     .replace('Stn', 'Station')
     .replaceAll(' (London)', '')
     .replaceAll('London Waterloo', 'Waterloo') // `replaceAll` required for circular South Western Railway route names

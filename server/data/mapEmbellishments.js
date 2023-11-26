@@ -266,6 +266,161 @@ const mapEmbellishments = {
         },
       ],
     },
+    {
+      id: 'avant-west-coast',
+      stations: [
+        {
+          id: '910GBHAMINT', // Birmingham International
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'cross-country',
+      stations: [
+        {
+          id: '910GBHAMINT', // Birmingham International
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'east-midlands-railway',
+      stations: [
+        {
+          id: '910GLUTOAPY', // Luton Airport Parkway
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'first-transpennine-express',
+      stations: [
+        {
+          id: '910GMNCRIAP', // Manchester Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'gatwick-express',
+      stations: [
+        {
+          id: '910GGTWK', // Gatwick Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'great-western-railway',
+      stations: [
+        {
+          id: '910GGTWK', // Gatwick Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'greater-anglia',
+      stations: [
+        {
+          id: '910GSTHEAIR', // Southend Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'northern-rail',
+      stations: [
+        {
+          id: '910GMNCRIAP', // Manchester Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'south-western-railway',
+      stations: [
+        {
+          id: '9100SOTPKWY1', // Southampton Airport Parkway
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'southern',
+      stations: [
+        {
+          id: '910GGTWK', // Gatwick Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'thameslink',
+      stations: [
+        {
+          id: '910GGTWK', // Gatwick Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+        {
+          id: '910GLUTOAPY', // Luton Airport Parkway
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'transport-for-wales',
+      stations: [
+        {
+          id: '910GBHAMINT', // Birmingham International
+          embellishments: [
+            'airport',
+          ],
+        },
+        {
+          id: '910GMNCRIAP', // Manchester Airport
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'west-midlands-trains',
+      stations: [
+        {
+          id: '910GBHAMINT', // Birmingham International
+          embellishments: [
+            'airport',
+          ],
+        },
+      ],
+    },
   ],
 };
 
