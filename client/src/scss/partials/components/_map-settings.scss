@@ -3,6 +3,9 @@
 .map-settings {
   .map__settings & {
     margin-top: $spacer-global;
+    padding: $size-collapsible-padding-x;
+    background-color: var(--color-map-settings-background);
+    border-radius: $border-radius-generic;
   }
 }
 

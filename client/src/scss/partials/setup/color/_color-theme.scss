@@ -105,6 +105,11 @@ $color-light: $color-gray-200;
   --color-map-zone-text-tablet: #{$color-white};
 }
 
+// Map Settings
+:root {
+  --color-map-settings-background: var(--color-collapsible-background);
+}
+
 // Menu
 :root {
   --color-menu-text: var(--color-link);
