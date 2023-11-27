@@ -25,6 +25,7 @@ $size-map-diagram-padding: $spacer-global;
 $size-map-line-width: $spacer-4;
 $size-map-list-item-min-height: 5rem; // Arbitrary figure
 $size-map-list-item-min-height--desktop: 6rem; // Arbitrary figure
+$size-map-list-item-only-of-type-min-height: 6rem; // Allow for zones text and station anmes on multiple lines
 $size-map-list-item-only-of-type-min-height--desktop: 12rem; // Allow for potential 'Zones X & Y' text
 $size-map-marker-height--regular: $size-map-line-width;
 $size-map-marker-interchange-border-width: 0.36rem;
@@ -60,6 +61,9 @@ $size-settings-theme-list-item-border-radius: math.div($size-settings-theme-list
 $size-settings-theme-list-border-radius: calc($size-settings-theme-list-item-border-radius + ($size-settings-theme-list-border-width * 2));
 
 $size-station-item-padding-y: $spacer-3;
+
+$size-spacer-reason: $spacer-4;
+$size-spacer-status: $spacer-4;
 
 $size-table-padding-x: $spacer-5;
 $size-table-padding-y: $spacer-3;

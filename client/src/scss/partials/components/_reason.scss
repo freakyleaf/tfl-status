@@ -1,0 +1,17 @@
+.reason__list {
+  @extend %list-unstyled;
+
+  .view--services & {
+    margin-top: $size-services-table-padding-y;
+
+    @include device-min(tablet) {
+      margin-top: $spacer-5;
+    }
+  }
+}
+
+.reason__list-item {
+  &:not(:first-of-type) {
+    margin-top: $size-spacer-reason;
+  }
+}

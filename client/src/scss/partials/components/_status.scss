@@ -1,12 +1,10 @@
-$spacer-status: $spacer-4;
-
 .status {
   .view--service & {
     margin-bottom: $spacer-global;
   }
 
   .view--services & {
-    margin-right: $spacer-status;
+    margin-right: $size-spacer-status;
   }
 }
 
@@ -19,7 +17,7 @@ $spacer-status: $spacer-4;
   align-items: center;
 
   &:not(:first-of-type) {
-    margin-top: $spacer-status;
+    margin-top: $size-spacer-status;
   }
 
   .view--service & {
@@ -49,5 +47,5 @@ $spacer-status: $spacer-4;
 
 .status__icon {
   flex: 0 0 auto;
-  margin-right: $spacer-status;
+  margin-right: $size-spacer-status;
 }

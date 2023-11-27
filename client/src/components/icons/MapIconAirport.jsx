@@ -4,13 +4,13 @@ function MapIconAirport() {
   return (
     <svg
       className="map__icon map__icon--airport"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
+      height="14"
+      viewBox="0 0 14 14"
+      width="14"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M15.9 9.8 9 4.6V1.7c-.2-2.8-2-1.6-2-.4 0 .3-.1 2.1-.1 3.3L.1 9.9v1.7l7.1-3.2.3 5.1L5.4 15v1.1l2.6-.8 2.7.7v-1.1l-2.1-1.4.2-5.1 7.1 3.1V9.8z"
+        d="M13.9,8.5L7.9,4V1.5C7.7-0.9,6.1,0.1,6.1,1.1C6.1,1.4,6,3,6,4L0.1,8.6v1.5l6.2-2.8l0.3,4.4L4.7,13v1L7,13.3l2.3,0.6v-1 l-1.8-1.2l0.2-4.4l6.2,2.7V8.5z"
         fill="currentcolor"
       />
     </svg>

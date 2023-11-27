@@ -9,27 +9,9 @@
     display: flex;
   }
 
-  .map__diagram & {
-    margin-bottom: $spacer-global;
-  }
-
+  .map__diagram &,
   .settings & {
-    margin-top: 0;
     margin-bottom: $spacer-global;
-  }
-
-  &:not(:first-of-type) {
-    margin-top: $spacer-4;
-  }
-
-  &:first-of-type {
-    .view--services & {
-      margin-top: $size-services-table-padding-y;
-
-      @include device-min(tablet) {
-        margin-top: $spacer-5;
-      }
-    }
   }
 }
 

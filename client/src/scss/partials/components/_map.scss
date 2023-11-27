@@ -122,6 +122,10 @@
   width: 100%;
   min-height: $size-map-list-item-min-height;
 
+  &:only-of-type {
+    min-height: $size-map-list-item-only-of-type-min-height; // Allow for horizontally-aligned zone text
+  }
+
   @include device-min(tablet) {
     min-height: $size-map-list-item-min-height--desktop;
 
