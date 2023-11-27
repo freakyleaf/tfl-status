@@ -2,7 +2,7 @@
 
 .map-settings {
   .map__settings & {
-    margin-top: $spacer-global;
+    margin-top: $size-spacer-map-settings;
     padding: $size-collapsible-padding-x;
     background-color: var(--color-map-settings-background);
     border-radius: $border-radius-generic;

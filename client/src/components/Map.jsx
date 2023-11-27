@@ -286,7 +286,7 @@ function Map(props) {
               }
             </div>
             {
-              serviceHasMultipleRoutes && (
+              !isLoading && serviceHasMultipleRoutes && (
                 <>
                   <Alert
                     text={contentServiceMultipleRoutes}
