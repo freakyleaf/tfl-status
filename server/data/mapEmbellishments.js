@@ -1,430 +1,201 @@
 const mapEmbellishments = {
-  services: [
+  stations: [
     {
-      id: 'circle',
-      stations: [
-        {
-          id: '940GZZLUBKF', // Blackfriars
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUEMB', // Embankment
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUTWH', // Tower Hill
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUVIC', // Victoria
-          embellishments: [
-            'coach',
-          ],
-        },
-        {
-          id: '940GZZLUWSM', // Westminster
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: '910GBKRVS', // Barking Riverside
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'district',
-      stations: [
-        {
-          id: '940GZZLUBKF', // Blackfriars
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUEMB', // Embankment
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUPYB', // Putney Bridge
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUTWH', // Tower Hill
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUVIC', // Victoria
-          embellishments: [
-            'coach',
-          ],
-        },
-        {
-          id: '940GZZLUWSM', // Westminster
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: '940GZZBPSUST', // Battersea Power Station
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'jubilee',
-      stations: [
-        {
-          id: '940GZZLUCYF', // Canary Wharf
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLULNB', // London Bridge
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUNGW', // North Greenwich
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUWLO', // Waterloo
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUWSM', // Westminster
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: 'HUBBFR', // Blackfriars
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'northern',
-      stations: [
-        {
-          id: '940GZZBPSUST', // Battersea Power Station
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLULNB', // London Bridge
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUWLO', // Waterloo
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: 'HUBCAW', // Canary Wharf
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'piccadilly',
-      stations: [
-        {
-          id: '940GZZLUHR4', // Heathrow Terminal 4
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '940GZZLUHR5', // Heathrow Terminal 5
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '940GZZLUHRC', // Heathrow Terminals 2 & 3
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBCUT', // Cutty Sark
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'victoria',
-      stations: [
-        {
-          id: '940GZZLUVXL', // Vauxhall
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZLUVIC', // Victoria
-          embellishments: [
-            'coach',
-          ],
-        },
+      topMostParentId: '940GZZLUEMB', // Embankment
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'waterloo-city',
-      stations: [
-        {
-          id: '940GZZLUWLO', // Waterloo
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: 'HUBHX4', // Heathrow Terminal 4
+      embellishments: [
+        'airport',
       ],
     },
     {
-      id: 'london-overground',
-      stations: [
-        {
-          id: '910GCSEAH', // Imperial Wharf
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '910GBKRVS', // Barking Riverside
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: 'HUBHX5', // Heathrow Terminal 5
+      embellishments: [
+        'airport',
       ],
     },
     {
-      id: 'elizabeth',
-      stations: [
-        {
-          id: '910GCANWHRF', // Canary Wharf
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '910GHTRWTM4', // Heathrow Terminal 4
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '910GHTRWTM5', // Heathrow Terminal 5
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '910GHTRWAPT', // Heathrow Terminals 2 & 3
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBH13', // Heathrow Terminals 2 & 3
+      embellishments: [
+        'airport',
       ],
     },
     {
-      id: 'dlr',
-      stations: [
-        {
-          id: '940GZZDLCAN', // Canary Wharf
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZDLCUT', // Cutty Sark
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZDLLCA', // London City Airport
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '940GZZDLTWG', // Tower Gateway
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZDLWFE', // Westferry
-          embellishments: [
-            'river',
-          ],
-        },
-        {
-          id: '940GZZDLWLA', // Woolwich Arsenal
-          embellishments: [
-            'river',
-          ],
-        },
+      topMostParentId: 'HUBIMP', // Imperial Wharf
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'avant-west-coast',
-      stations: [
-        {
-          id: '910GBHAMINT', // Birmingham International
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBKGX', // King's Cross and St Pancras International
+      embellishments: [
+        'eurostar',
       ],
     },
     {
-      id: 'cross-country',
-      stations: [
-        {
-          id: '910GBHAMINT', // Birmingham International
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBLBG', // London Bridge
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'east-midlands-railway',
-      stations: [
-        {
-          id: '910GLUTOAPY', // Luton Airport Parkway
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBLCY', // London City Airport
+      embellishments: [
+        'airport',
       ],
     },
     {
-      id: 'first-transpennine-express',
-      stations: [
-        {
-          id: '910GMNCRIAP', // Manchester Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBNGW', // North Greenwich
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'gatwick-express',
-      stations: [
-        {
-          id: '910GGTWK', // Gatwick Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: '940GZZLUPYB', // Putney Bridge
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'great-western-railway',
-      stations: [
-        {
-          id: '910GGTWK', // Gatwick Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: '940GZZDLSIT', // Stratford International (DLR)
+      embellishments: [
+        'eurostar',
       ],
     },
     {
-      id: 'greater-anglia',
-      stations: [
-        {
-          id: '910GSTHEAIR', // Southend Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBTOG', // Tower Gateway
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'northern-rail',
-      stations: [
-        {
-          id: '910GMNCRIAP', // Manchester Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: '940GZZLUTWH', // Tower Hill
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'south-western-railway',
-      stations: [
-        {
-          id: '9100SOTPKWY1', // Southampton Airport Parkway
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBVXH', // Vauxhall
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'southern',
-      stations: [
-        {
-          id: '910GGTWK', // Gatwick Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBVIC', // Victoria
+      embellishments: [
+        'coach',
       ],
     },
     {
-      id: 'thameslink',
-      stations: [
-        {
-          id: '910GGTWK', // Gatwick Airport
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '910GLUTOAPY', // Luton Airport Parkway
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBWAT', // Waterloo
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'transport-for-wales',
-      stations: [
-        {
-          id: '910GBHAMINT', // Birmingham International
-          embellishments: [
-            'airport',
-          ],
-        },
-        {
-          id: '910GMNCRIAP', // Manchester Airport
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: '940GZZDLWFE', // Westferry
+      embellishments: [
+        'river',
       ],
     },
     {
-      id: 'west-midlands-trains',
-      stations: [
-        {
-          id: '910GBHAMINT', // Birmingham International
-          embellishments: [
-            'airport',
-          ],
-        },
+      topMostParentId: 'HUBWSM', // Westminster
+      embellishments: [
+        'river',
+      ],
+    },
+    {
+      topMostParentId: 'HUBWWA', // Woolwich Arsenal
+      embellishments: [
+        'river',
+      ],
+    },
+    {
+      topMostParentId: '910GASHFKY', // Ashford International
+      embellishments: [
+        'eurostar',
+      ],
+    },
+    {
+      topMostParentId: '910GBHAMINT', // Birmingham International
+      embellishments: [
+        'airport',
+      ],
+    },
+    {
+      topMostParentId: '910GEBSFDOM', // Ebbsfleet International
+      embellishments: [
+        'eurostar',
+      ],
+    },
+    {
+      topMostParentId: '910GGTWK', // Gatwick Airport
+      embellishments: [
+        'airport',
+      ],
+    },
+    {
+      topMostParentId: '910GLUTOAPY', // Luton Airport Parkway
+      embellishments: [
+        'airport',
+      ],
+    },
+    {
+      topMostParentId: '910GMNCRIAP', // Manchester Airport
+      embellishments: [
+        'airport',
+      ],
+    },
+    {
+      topMostParentId: '9100SOTPKWY1', // Southampton Airport Parkway
+      embellishments: [
+        'airport',
+      ],
+    },
+    {
+      topMostParentId: '910GSTHEAIR', // Southend Airport
+      embellishments: [
+        'airport',
+      ],
+    },
+    {
+      topMostParentId: '910GSTFODOM', // Stratford International (Southeastern)
+      embellishments: [
+        'eurostar',
       ],
     },
   ],

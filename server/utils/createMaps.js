@@ -7,10 +7,15 @@ import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
 const createMaps = async({ data, id }) => {
-  const mode = data.mode;
+  const {
+    mode,
+    orderedLineRoutes,
+    stations,
+    stopPointSequences,
+  } = data;
   const modesById = await getModesById();
 
-  return data.orderedLineRoutes.map((orderedLineRoute) => {
+  return orderedLineRoutes.map((orderedLineRoute) => {
     const name = cleanName(orderedLineRoute.name);
 
     return {
@@ -18,22 +23,24 @@ const createMaps = async({ data, id }) => {
       name,
       stations: orderedLineRoute.naptanIds.map((naptanId) => {
         // The `stationId` value in `data.stations` could either be the `naptanId` or the `topMostParentId` value in `data.stopPointSequences`
-        const stopPointSequencesStation = data.stopPointSequences.flatMap((stopPointSequence) => stopPointSequence.stopPoint).find((stopPoint) => stopPoint.id === naptanId);
-        const stationId = stopPointSequencesStation.topMostParentId || naptanId;
-        const station = data.stations.find((station) => station.id === stationId);
+        const stopPointSequencesStation = stopPointSequences.flatMap((stopPointSequence) => stopPointSequence.stopPoint).find((stopPoint) => stopPoint.id === naptanId);
+        const topMostParentId = stopPointSequencesStation.topMostParentId;
+        const stationId = topMostParentId || naptanId;
+        const station = stations.find((station) => station.id === stationId);
 
         if (!station) console.error(`Station not found: ${stationId}`);
 
         const stationName = cleanName(station.name);
 
         return {
-          accessibility: getStationAccessibility({ id, naptanId }),
-          embellishments: getStationEmbellishments({ id, naptanId }),
+          accessibility: getStationAccessibility({ id, naptanId, topMostParentId }),
+          embellishments: getStationEmbellishments({ topMostParentId }),
           hasDisruptions: !!stopPointSequencesStation.hasDisruption,
           id: stringToKebabCase(stationName),
           interchanges: getInterchanges({ id, lines: station.lines, modesById }),
           name: stationName,
           naptanId,
+          topMostParentId: topMostParentId,
           zone: getZone({
             id,
             mode,

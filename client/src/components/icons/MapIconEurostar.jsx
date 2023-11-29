@@ -1,9 +1,9 @@
 import React from 'react';
 
-function MapIconNationalRail() {
+function MapIconEurostar() {
   return (
     <svg
-      className="map__icon map__icon--international-rail"
+      className="map__icon map__icon--eurostar"
       height="11"
       viewBox="0 0 40.2 11"
       width="40.2"
@@ -21,4 +21,4 @@ function MapIconNationalRail() {
   );
 }
 
-export default MapIconNationalRail;
+export default MapIconEurostar;

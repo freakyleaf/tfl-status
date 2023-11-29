@@ -15,6 +15,7 @@ import {
 import {
   EMBELLISHMENT_AIRPORT,
   EMBELLISHMENT_COACH,
+  EMBELLISHMENT_EUROSTAR,
   EMBELLISHMENT_RIVER,
 } from '@constants/embellishments';
 
@@ -65,7 +66,7 @@ import Loading from '@components/Loading';
 import MapIconAccessibility from '@components/icons/MapIconAccessibility';
 import MapIconAirport from '@components/icons/MapIconAirport';
 import MapIconCoach from '@components/icons/MapIconCoach';
-import MapIconInternationalRail from '@components/icons/MapIconInternationalRail';
+import MapIconEurostar from '@components/icons/MapIconEurostar';
 import MapIconNationalRail from '@components/icons/MapIconNationalRail';
 import MapIconRiver from '@components/icons/MapIconRiver';
 import MapIconWarning from '@components/icons/MapIconWarning';
@@ -153,7 +154,7 @@ function Map(props) {
     else if (mapVisibilityStepFreeAccess && station.accessibility === ACCESSIBLE_TRAIN) {
       classes.push('map__marker--accessibility map__marker--accessibility-train');
     }
-    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasInternationalRailInterchange(station)) {
+    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasEmbellishmentEurostar(station)) {
       classes.push('map__marker--interchange');
     }
     else {
@@ -183,6 +184,10 @@ function Map(props) {
     return station.embellishments?.includes(EMBELLISHMENT_COACH);
   };
 
+  const stationHasEmbellishmentEurostar = (station) => {
+    return station.embellishments?.includes(EMBELLISHMENT_EUROSTAR);
+  };
+
   const stationHasEmbellishmentRiver = (station) => {
     return station.embellishments?.includes(EMBELLISHMENT_RIVER);
   };
@@ -195,9 +200,9 @@ function Map(props) {
     const icons = [];
     if (station.hasDisruptions) icons.push(<MapIconWarning />);
     if (stationHasNationalRailInterchange(station)) icons.push(<MapIconNationalRail />);
-    if (stationHasInternationalRailInterchange(station)) icons.push(<MapIconInternationalRail />);
     if (stationHasEmbellishmentAirport(station)) icons.push(<MapIconAirport />);
     if (stationHasEmbellishmentCoach(station)) icons.push(<MapIconCoach />);
+    if (stationHasEmbellishmentEurostar(station)) icons.push(<MapIconEurostar />);
     if (stationHasEmbellishmentRiver(station)) icons.push(<MapIconRiver />);
     return icons;
   };
@@ -216,15 +221,6 @@ function Map(props) {
 
   const stationInterchanges = (station) => {
     return station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
-  };
-
-  const stationHasInternationalRailInterchange = (station) => {
-    return [
-      'Ashford International',
-      'Ebbsfleet International',
-      'King\'s Cross & St Pancras International',
-      'Stratford International',
-    ].includes(station.name); // Totally taking liberties here :)
   };
 
   const stationHasNationalRailInterchange = (station) => {
@@ -377,7 +373,7 @@ function Map(props) {
                                         <Link
                                           className="map__station-link"
                                           id={`station-${station.id}`}
-                                          to={`/${PATH_STATION}/${station.naptanId}`}
+                                          to={`/${PATH_STATION}/${station.topMostParentId}`}
                                         >
                                           <span className="visually-hidden">{getStationNumber(station.name)}</span>
                                           {station.name}

@@ -1,1356 +1,2847 @@
 const mapAccessibility = {
-  services: [
+  stations: [
     {
-      id: 'bakerloo',
-      stations: [
+      topMostParentId: '940GZZDLABR', // Abbey Road
+      services: [
         {
-          id: '940GZZLUHAW', // Harrow & Wealdstone
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUPAC', // Paddington
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWYC', // Wembley Central
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWJN', // Willesden Junction
-          access: 'platform',
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLABR',
         },
       ],
     },
     {
-      id: 'central',
-      stations: [
+      topMostParentId: 'HUBABW', // Abbey Wood
+      services: [
         {
-          id: '940GZZLUBND', // Bond Street
+          id: 'elizabeth',
           access: 'platform',
-        },
-        {
-          id: '940GZZLUBKH', // Buckhurst Hill
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUDBN', // Debden
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUEBY', // Ealing Broadway
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUEPG', // Epping
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUGFD', // Greenford
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUHLT', // Hainault
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUNBP', // Newbury Park
-          access: 'platform',
-        },
-        {
-          id: '940GZZLURVY', // Roding Valley
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUSWF', // South Woodford
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUSTD', // Stratford
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUTCR', // Tottenham Court Road
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWOF', // Woodford
-          access: 'platform',
+          naptanId: '910GABWDXR',
         },
       ],
     },
     {
-      id: 'circle',
-      stations: [
+      topMostParentId: '910GACTNCTL', // Acton Central
+      services: [
         {
-          id: '940GZZLUBKF', // Blackfriars
-          access: 'train',
-        },
-        {
-          id: '940GZZLUFCN', // Farringdon
+          id: 'london-overground',
           access: 'platform',
-        },
-        {
-          id: '940GZZLUHSC', // Hammersmith
-          access: 'train',
-        },
-        {
-          id: '940GZZLUKSX', // King's Cross & St Pancras International
-          access: 'train',
-        },
-        {
-          id: '940GZZLUMGT', // Moorgate
-          access: 'train',
-        },
-        {
-          id: '940GZZLUPAH', // Paddington
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUTWH', // Tower Hill
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUVIC', // Victoria
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWSM', // Westminster
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWLA', // Wood Lane
-          access: 'platform',
+          naptanId: '910GACTNCTL',
         },
       ],
     },
     {
-      id: 'district',
-      stations: [
+      topMostParentId: '910GACTONML', // Acton Main Line
+      services: [
         {
-          id: '940GZZLUACT', // Acton Town
+          id: 'elizabeth',
           access: 'platform',
-        },
-        {
-          id: '940GZZLUBKG', // Barking
-          access: 'train',
-        },
-        {
-          id: '940GZZLUBKF', // Blackfriars
-          access: 'train',
-        },
-        {
-          id: '940GZZLUBBB', // Bromley-by-Bow
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUDGY', // Dagenham Heathway
-          access: 'train',
-        },
-        {
-          id: '940GZZLUEBY', // Ealing Broadway
-          access: 'train',
-        },
-        {
-          id: '940GZZLUECT', // Earl's Court
-          access: 'train',
-        },
-        {
-          id: '940GZZLUEHM', // East Ham
-          access: 'train',
-        },
-        {
-          id: '940GZZLUEPK', // Elm Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUFBY', // Fulham Broadway
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHSD', // Hammersmith
-          access: 'train',
-        },
-        {
-          id: '940GZZLUKWG', // Kew Gardens
-          access: 'platform',
-        },
-        {
-          id: '940GZZLURMD', // Richmond
-          access: 'train',
-        },
-        {
-          id: '940GZZLUSFS', // Southfields
-          access: 'train',
-        },
-        {
-          id: '940GZZLUTWH', // Tower Hill
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUUPM', // Upminster
-          access: 'train',
-        },
-        {
-          id: '940GZZLUUPY', // Upney
-          access: 'train',
-        },
-        {
-          id: '940GZZLUVIC', // Victoria
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWHM', // West Ham
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWSM', // Westminster
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWPL', // Whitechapel
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWIM', // Wimbledon
-          access: 'train',
+          naptanId: '910GACTONML',
         },
       ],
     },
     {
-      id: 'hammersmith-city',
-      stations: [
+      topMostParentId: '940GZZLUACT', // Acton Town
+      services: [
         {
-          id: '940GZZLUBKG', // Barking
-          access: 'train',
-        },
-        {
-          id: '940GZZLUBBB', // Bromley-by-Bow
+          id: 'district',
           access: 'platform',
+          naptanId: '940GZZLUACT',
         },
         {
-          id: '940GZZLUEHM', // East Ham
-          access: 'train',
-        },
-        {
-          id: '940GZZLUFCN', // Farringdon
+          id: 'piccadilly',
           access: 'platform',
-        },
-        {
-          id: '940GZZLUHSC', // Hammersmith
-          access: 'train',
-        },
-        {
-          id: '940GZZLUKSX', // King's Cross & St Pancras International
-          access: 'train',
-        },
-        {
-          id: '940GZZLUMGT', // Moorgate
-          access: 'train',
-        },
-        {
-          id: '940GZZLUPAH', // Paddington
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWHM', // West Ham
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWPL', // Whitechapel
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWLA', // Wood Lane
-          access: 'platform',
+          naptanId: '940GZZLUACT',
         },
       ],
     },
     {
-      id: 'jubilee',
-      stations: [
+      topMostParentId: '940GZZCRADV', // Addington Village
+      services: [
         {
-          id: '940GZZLUBMY', // Bermondsey
+          id: 'tram',
           access: 'train',
-        },
-        {
-          id: '940GZZLUBND', // Bond Street
-          access: 'train',
-        },
-        {
-          id: '940GZZLUCWR', // Canada Water
-          access: 'train',
-        },
-        {
-          id: '940GZZLUCYF', // Canary Wharf
-          access: 'train',
-        },
-        {
-          id: '940GZZLUCGT', // Canning Town
-          access: 'train',
-        },
-        {
-          id: '940GZZLUGPK', // Green Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUKBN', // Kilburn
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUKBY', // Kingsbury
-          access: 'train',
-        },
-        {
-          id: '940GZZLULNB', // London Bridge
-          access: 'train',
-        },
-        {
-          id: '940GZZLUNGW', // North Greenwich
-          access: 'train',
-        },
-        {
-          id: '940GZZLUSWK', // Southwark
-          access: 'train',
-        },
-        {
-          id: '940GZZLUSTM', // Stanmore
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUSTD', // Stratford
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWLO', // Waterloo
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWYP', // Wembley Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWHM', // West Ham
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWSM', // Westminster
-          access: 'train',
+          naptanId: '940GZZCRADV',
         },
       ],
     },
     {
-      id: 'metropolitan',
-      stations: [
+      topMostParentId: '940GZZCRADD', // Addiscombe
+      services: [
         {
-          id: '940GZZLUAMS', // Amersham
+          id: 'tram',
           access: 'train',
-        },
-        {
-          id: '940GZZLUCAL', // Chalfont & Latimer
-          access: 'train',
-        },
-        {
-          id: '940GZZLUCSM', // Chesham
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUCYD', // Chorleywood
-          access: 'train',
-        },
-        {
-          id: '940GZZLUFCN', // Farringdon
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUHOH', // Harrow-on-the-Hill
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHGD', // Hillingdon
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUICK', // Ickenham
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUKSX', // King's Cross & St Pancras International
-          access: 'train',
-        },
-        {
-          id: '940GZZLUMGT', // Moorgate
-          access: 'train',
-        },
-        {
-          id: '940GZZLUPNR', // Pinner
-          access: 'train',
-        },
-        {
-          id: '940GZZLUUXB', // Uxbridge
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWYP', // Wembley Park
-          access: 'train',
+          naptanId: '940GZZCRADD',
         },
       ],
     },
     {
-      id: 'northern',
-      stations: [
+      topMostParentId: '940GZZDLALL', // All Saints
+      services: [
         {
-          id: '940GZZLUBNK', // Bank
+          id: 'dlr',
           access: 'train',
-        },
-        {
-          id: '940GZZBPSUST', // Battersea Power Station
-          access: 'train',
-        },
-        {
-          id: '940GZZLUEGW', // Edgware
-          access: 'train',
-        },
-        {
-          id: '940GZZLUFYC', // Finchley Central
-          access: 'train',
-        },
-        {
-          id: '940GZZLUGGN', // Golders Green
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUHCL', // Hendon Central
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHBT', // High Barnet
-          access: 'train',
-        },
-        {
-          id: '940GZZLUKSX', // King's Cross & St Pancras International
-          access: 'train',
-        },
-        {
-          id: '940GZZLULNB', // London Bridge
-          access: 'train',
-        },
-        {
-          id: '940GZZLUMHL', // Mill Hill East
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUMGT', // Moorgate
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUMDN', // Morden
-          access: 'train',
-        },
-        {
-          id: '940GZZNEUGST', // Nine Elms
-          access: 'train',
-        },
-        {
-          id: '940GZZLUTCR', // Tottenham Court Road
-          access: 'train',
-        },
-        {
-          id: '940GZZLUWFN', // West Finchley
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUWOP', // Woodside Park
-          access: 'train',
+          naptanId: '940GZZDLALL',
         },
       ],
     },
     {
-      id: 'piccadilly',
-      stations: [
+      topMostParentId: 'HUBAMR', // Amersham
+      services: [
         {
-          id: '940GZZLUACT', // Acton Town
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUCAR', // Caledonian Road
+          id: 'metropolitan',
           access: 'train',
-        },
-        {
-          id: '940GZZLUCKS', // Cockfosters
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUECT', // Earl's Court
-          access: 'train',
-        },
-        {
-          id: '940GZZLUFPK', // Finsbury Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUGPK', // Green Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHSD', // Hammersmith
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHR4', // Heathrow Terminal 4
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHR5', // Heathrow Terminal 5
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUHRC', // Heathrow Terminals 2 & 3
-          access: 'train',
-        },
-        {
-          id: '940GZZLUHGD', // Hillingdon
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUHWE', // Hounslow East
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUHWT', // Hounslow West
-          access: 'train',
-        },
-        {
-          id: '940GZZLUICK', // Ickenham
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUKSX', // King's Cross & St Pancras International
-          access: 'train',
-        },
-        {
-          id: '940GZZLUOAK', // Oakwood
-          access: 'train',
-        },
-        {
-          id: '940GZZLUOSY', // Osterley
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUSUH', // Sudbury Hill
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUSUT', // Sudbury Town
-          access: 'platform',
-        },
-        {
-          id: '940GZZLUUXB', // Uxbridge
-          access: 'platform',
+          naptanId: '940GZZLUAMS',
         },
       ],
     },
     {
-      id: 'victoria',
-      stations: [
+      topMostParentId: '940GZZCRAMP', // Ampere Way
+      services: [
         {
-          id: '940GZZLUBXN', // Brixton
+          id: 'tram',
           access: 'train',
-        },
-        {
-          id: '940GZZLUFPK', // Finsbury Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUGPK', // Green Park
-          access: 'train',
-        },
-        {
-          id: '940GZZLUKSX', // King's Cross & St Pancras International
-          access: 'train',
-        },
-        {
-          id: '940GZZLUTMH', // Tottenham Hale
-          access: 'train',
-        },
-        {
-          id: '940GZZLUVXL', // Vauxhall
-          access: 'train',
-        },
-        {
-          id: '940GZZLUVIC', // Victoria
-          access: 'train',
+          naptanId: '940GZZCRAMP',
         },
       ],
     },
     {
-      id: 'waterloo-city',
-      stations: [],
-    },
-    {
-      id: 'london-overground',
-      stations: [
+      topMostParentId: '910GANERLEY', // Anerley
+      services: [
         {
-          id: '910GACTNCTL', // Acton Central
+          id: 'london-overground',
           access: 'platform',
-        },
-        {
-          id: '910GANERLEY', // Anerley
-          access: 'platform',
-        },
-        {
-          id: '910GBARKING', // Barking
-          access: 'platform',
-        },
-        {
-          id: '910GBKRVS', // Barking Riverside
-          access: 'train',
-        },
-        {
-          id: '910GBLCHSRD', // Blackhorse Road
-          access: 'platform',
-        },
-        {
-          id: '910GBROCKLY', // Brockley
-          access: 'platform',
-        },
-        {
-          id: '910GBHILLPK', // Bush Hill Park
-          access: 'platform',
-        },
-        {
-          id: '910GCLDNNRB', // Caledonian Road & Barnsbury
-          access: 'platform',
-        },
-        {
-          id: '910GCMDNRD', // Camden Road
-          access: 'platform',
-        },
-        {
-          id: '910GCNDAW', // Canada Water
-          access: 'train',
-        },
-        {
-          id: '910GCNNB', // Canonbury
-          access: 'platform',
-        },
-        {
-          id: '910GCRPNDPK', // Carpenders Park
-          access: 'platform',
-        },
-        {
-          id: '910GCHESHNT', // Cheshunt
-          access: 'platform',
-        },
-        {
-          id: '910GCHINGFD', // Chingford
-          access: 'platform',
-        },
-        {
-          id: '910GCLPHMJ1', // Clapham Junction
-          access: 'platform',
-        },
-        {
-          id: '910GCRYSTLP', // Crystal Palace
-          access: 'platform',
-        },
-        {
-          id: '910GDALS', // Dalston Junction
-          access: 'train',
-        },
-        {
-          id: '910GEDMNGRN', // Edmonton Green
-          access: 'platform',
-        },
-        {
-          id: '910GEMRSPKH', // Emerson Park
-          access: 'platform',
-        },
-        {
-          id: '910GENFLDTN', // Enfield Town
-          access: 'platform',
-        },
-        {
-          id: '910GEUSTON', // Euston
-          access: 'platform',
-        },
-        {
-          id: '910GFORESTH', // Forest Hill
-          access: 'platform',
-        },
-        {
-          id: '910GGOSPLOK', // Gospel Oak
-          access: 'platform',
-        },
-        {
-          id: '910GHACKNYC', // Hackney Central
-          access: 'platform',
-        },
-        {
-          id: '910GHACKNYW', // Hackney Wick
-          access: 'platform',
-        },
-        {
-          id: '910GHAGGERS', // Haggerston
-          access: 'train',
-        },
-        {
-          id: '910GHMPSTDH', // Hampstead Heath
-          access: 'platform',
-        },
-        {
-          id: '910GHRGYGL', // Harringay Green Lanes
-          access: 'platform',
-        },
-        {
-          id: '910GHROW', // Harrow & Wealdstone
-          access: 'platform',
-        },
-        {
-          id: '910GHGHMSPK', // Highams Park
-          access: 'platform',
-        },
-        {
-          id: '910GHGHI', // Highbury & Islington
-          access: 'platform',
-        },
-        {
-          id: '910GHOMRTON', // Homerton
-          access: 'platform',
-        },
-        {
-          id: '910GHONROPK', // Honor Oak Park
-          access: 'platform',
-        },
-        {
-          id: '910GHOXTON', // Hoxton
-          access: 'train',
-        },
-        {
-          id: '910GCSEAH', // Imperial Wharf
-          access: 'platform',
-        },
-        {
-          id: '910GKENR', // Kensal Rise
-          access: 'platform',
-        },
-        {
-          id: '910GKENOLYM', // Kensington (Olympia)
-          access: 'platform',
-        },
-        {
-          id: '910GKEWGRDN', // Kew Gardens
-          access: 'platform',
-        },
-        {
-          id: '910GLIVST', // Liverpool Street
-          access: 'platform',
-        },
-        {
-          id: '910GNWCRELL', // New Cross
-          access: 'platform',
-        },
-        {
-          id: '910GNEWXGTE', // New Cross Gate
-          access: 'platform',
-        },
-        {
-          id: '910GPCKHMQD', // Queens Road Peckham
-          access: 'platform',
-        },
-        {
-          id: '910GRICHMND', // Richmond
-          access: 'platform',
-        },
-        {
-          id: '910GROMFORD', // Romford
-          access: 'platform',
-        },
-        {
-          id: '910GSHPDSB', // Shepherd's Bush
-          access: 'platform',
-        },
-        {
-          id: '910GSHRDHST', // Shoreditch High Street
-          access: 'train',
-        },
-        {
-          id: '910GSACTON', // South Acton
-          access: 'platform',
-        },
-        {
-          id: '910GSTOTNHM', // South Tottenham
-          access: 'platform',
-        },
-        {
-          id: '910GSTFD', // Stratford
-          access: 'platform',
-        },
-        {
-          id: '910GSYDENHM', // Sydenham
-          access: 'platform',
-        },
-        {
-          id: '910GUPRHLWY', // Upper Holloway
-          access: 'platform',
-        },
-        {
-          id: '910GWLTWCEN', // Walthamstow Central
-          access: 'platform',
-        },
-        {
-          id: '910GWLTHQRD', // Walthamstow Queen's Road
-          access: 'platform',
-        },
-        {
-          id: '910GWATFJDC', // Watford Junction
-          access: 'platform',
-        },
-        {
-          id: '910GWMBY', // Wembley Central
-          access: 'platform',
-        },
-        {
-          id: '910GWBRMPTN', // West Brompton
-          access: 'platform',
-        },
-        {
-          id: '910GWCROYDN', // West Croydon
-          access: 'platform',
-        },
-        {
-          id: '910GWHMDSTD', // West Hampstead
-          access: 'platform',
-        },
-        {
-          id: '910GWHHRTLA', // White Hart Lane
-          access: 'platform',
-        },
-        {
-          id: '910GWCHAPEL', // Whitechapel
-          access: 'platform',
-        },
-        {
-          id: '910GWLSDJHL', // Willesden Junction
-          access: 'platform',
+          naptanId: '910GANERLEY',
         },
       ],
     },
     {
-      id: 'elizabeth',
-      stations: [
+      topMostParentId: '940GZZCRARA', // Arena
+      services: [
         {
-          id: '910GABWDXR', // Abbey Wood
-          access: 'platform',
-        },
-        {
-          id: '910GACTONML', // Acton Main Line
-          access: 'platform',
-        },
-        {
-          id: '910GBONDST', // Bond Street
+          id: 'tram',
           access: 'train',
-        },
-        {
-          id: '910GBRTWOOD', // Brentwood
-          access: 'platform',
-        },
-        {
-          id: '910GBNHAM', // Burnham
-          access: 'platform',
-        },
-        {
-          id: '910GCANWHRF', // Canary Wharf
-          access: 'train',
-        },
-        {
-          id: '910GCHDWLHT', // Chadwell Heath
-          access: 'platform',
-        },
-        {
-          id: '910GCSTMHSXR', // Custom House
-          access: 'train',
-        },
-        {
-          id: '910GEALINGB', // Ealing Broadway
-          access: 'platform',
-        },
-        {
-          id: '910GFRNDXR', // Farringdon
-          access: 'train',
-        },
-        {
-          id: '910GFRSTGT', // Forest Gate
-          access: 'platform',
-        },
-        {
-          id: '910GGIDEAPK', // Gidea Park
-          access: 'platform',
-        },
-        {
-          id: '910GGODMAYS', // Goodmayes
-          access: 'platform',
-        },
-        {
-          id: '910GHANWELL', // Hanwell
-          access: 'platform',
-        },
-        {
-          id: '910GHRLDWOD', // Harold Wood
-          access: 'platform',
-        },
-        {
-          id: '910GHAYESAH', // Hayes & Harlington
-          access: 'platform',
-        },
-        {
-          id: '910GHTRWTM4', // Heathrow Terminal 4
-          access: 'train',
-        },
-        {
-          id: '910GHTRWTM5', // Heathrow Terminal 5
-          access: 'train',
-        },
-        {
-          id: '910GHTRWAPT', // Heathrow Terminals 2 & 3
-          access: 'train',
-        },
-        {
-          id: '910GILFORD', // Ilford
-          access: 'platform',
-        },
-        {
-          id: '910GIVER', // Iver
-          access: 'platform',
-        },
-        {
-          id: '910GLANGLEY', // Langley
-          access: 'platform',
-        },
-        {
-          id: '910GLIVSTLL', // Liverpool Street
-          access: 'train',
-        },
-        {
-          id: '910GLIVST', // Liverpool Street (National Rail)
-          access: 'platform',
-        },
-        {
-          id: '910GMDNHEAD', // Maidenhead
-          access: 'platform',
-        },
-        {
-          id: '910GMANRPK', // Manor Park
-          access: 'platform',
-        },
-        {
-          id: '910GMRYLAND', // Maryland
-          access: 'platform',
-        },
-        {
-          id: '910GPADTLL', // Paddington
-          access: 'train',
-        },
-        {
-          id: '910GPADTON', // Paddington (National Rail)
-          access: 'platform',
-        },
-        {
-          id: '910GRDNGSTN', // Reading
-          access: 'platform',
-        },
-        {
-          id: '910GROMFORD', // Romford
-          access: 'platform',
-        },
-        {
-          id: '910GSVNKNGS', // Seven Kings
-          access: 'platform',
-        },
-        {
-          id: '910GSHENFLD', // Shenfield
-          access: 'platform',
-        },
-        {
-          id: '910GSLOUGH', // Slough
-          access: 'platform',
-        },
-        {
-          id: '910GSTHALL', // Southall
-          access: 'platform',
-        },
-        {
-          id: '910GSTFD', // Stratford
-          access: 'platform',
-        },
-        {
-          id: '910GTAPLOW', // Taplow
-          access: 'platform',
-        },
-        {
-          id: '910GTOTCTRD', // Tottenham Court Road
-          access: 'train',
-        },
-        {
-          id: '910GTWYFORD', // Twyford
-          access: 'platform',
-        },
-        {
-          id: '910GWDRYTON', // West Drayton
-          access: 'platform',
-        },
-        {
-          id: '910GWEALING', // West Ealing
-          access: 'platform',
-        },
-        {
-          id: '910GWCHAPXR', // Whitechapel
-          access: 'train',
-        },
-        {
-          id: '910GWOLWXR', // Woolwich
-          access: 'train',
+          naptanId: '940GZZCRARA',
         },
       ],
     },
     {
-      id: 'dlr',
-      stations: [
+      topMostParentId: '940GZZCRAVE', // Avenue Road
+      services: [
         {
-          id: '940GZZDLABR', // Abbey Road
+          id: 'tram',
           access: 'train',
-        },
-        {
-          id: '940GZZDLALL', // All Saints
-          access: 'train',
-        },
-        {
-          id: '940GZZDLBNK', // Bank
-          access: 'train',
-        },
-        {
-          id: '940GZZDLBEC', // Beckton
-          access: 'train',
-        },
-        {
-          id: '940GZZDLBPK', // Beckton Park
-          access: 'train',
-        },
-        {
-          id: '940GZZDLBLA', // Blackwall
-          access: 'train',
-        },
-        {
-          id: '940GZZDLBOW', // Bow Church
-          access: 'train',
-        },
-        {
-          id: '940GZZDLCAN', // Canary Wharf
-          access: 'train',
-        },
-        {
-          id: '940GZZDLCGT', // Canning Town
-          access: 'train',
-        },
-        {
-          id: '940GZZDLCLA', // Crossharbour
-          access: 'train',
-        },
-        {
-          id: '940GZZDLCUS', // Custom House
-          access: 'train',
-        },
-        {
-          id: '940GZZDLCUT', // Cutty Sark
-          access: 'train',
-        },
-        {
-          id: '940GZZDLCYP', // Cyprus
-          access: 'train',
-        },
-        {
-          id: '940GZZDLDEP', // Deptford Bridge
-          access: 'train',
-        },
-        {
-          id: '940GZZDLDEV', // Devons Road
-          access: 'train',
-        },
-        {
-          id: '940GZZDLEIN', // East India
-          access: 'train',
-        },
-        {
-          id: '940GZZDLELV', // Elverson Road
-          access: 'train',
-        },
-        {
-          id: '940GZZDLGAL', // Gallions Reach
-          access: 'train',
-        },
-        {
-          id: '940GZZDLGRE', // Greenwich
-          access: 'train',
-        },
-        {
-          id: '940GZZDLHEQ', // Heron Quays
-          access: 'train',
-        },
-        {
-          id: '940GZZDLISL', // Island Gardens
-          access: 'train',
-        },
-        {
-          id: '940GZZDLKGV', // King George V
-          access: 'train',
-        },
-        {
-          id: '940GZZDLLDP', // Langdon Park
-          access: 'train',
-        },
-        {
-          id: '940GZZDLLEW', // Lewisham
-          access: 'train',
-        },
-        {
-          id: '940GZZDLLIM', // Limehouse
-          access: 'train',
-        },
-        {
-          id: '940GZZDLLCA', // London City Airport
-          access: 'train',
-        },
-        {
-          id: '940GZZDLMUD', // Mudchute
-          access: 'train',
-        },
-        {
-          id: '940GZZDLPDK', // Pontoon Dock
-          access: 'train',
-        },
-        {
-          id: '940GZZDLPOP', // Poplar
-          access: 'train',
-        },
-        {
-          id: '940GZZDLPRE', // Prince Regent
-          access: 'train',
-        },
-        {
-          id: '940GZZDLPUD', // Pudding Mill Lane
-          access: 'train',
-        },
-        {
-          id: '940GZZDLRAL', // Royal Albert
-          access: 'train',
-        },
-        {
-          id: '940GZZDLRVC', // Royal Victoria
-          access: 'train',
-        },
-        {
-          id: '940GZZDLSHA', // Shadwell
-          access: 'train',
-        },
-        {
-          id: '940GZZDLSOQ', // South Quay
-          access: 'train',
-        },
-        {
-          id: '940GZZDLSTL', // Star Lane
-          access: 'train',
-        },
-        {
-          id: '940GZZDLSTD', // Stratford
-          access: 'train',
-        },
-        {
-          id: '940GZZDLSHS', // Stratford High Street
-          access: 'train',
-        },
-        {
-          id: '940GZZDLSIT', // Stratford International
-          access: 'train',
-        },
-        {
-          id: '940GZZDLTWG', // Tower Gateway
-          access: 'train',
-        },
-        {
-          id: '940GZZDLWHM', // West Ham
-          access: 'train',
-        },
-        {
-          id: '940GZZDLWIQ', // West India Quay
-          access: 'train',
-        },
-        {
-          id: '940GZZDLWSV', // West Silvertown
-          access: 'train',
-        },
-        {
-          id: '940GZZDLWFE', // Westferry
-          access: 'train',
-        },
-        {
-          id: '940GZZDLWLA', // Woolwich Arsenal
-          access: 'train',
+          naptanId: '940GZZCRAVE',
         },
       ],
     },
     {
-      id: 'tram',
-      stations: [
+      topMostParentId: 'HUBBAN', // Bank
+      services: [
         {
-          id: '940GZZCRADV', // Addington Village
+          id: 'northern',
           access: 'train',
+          naptanId: '940GZZLUBNK',
         },
         {
-          id: '940GZZCRADD', // Addiscombe
+          id: 'dlr',
           access: 'train',
+          naptanId: '940GZZDLBNK',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBKG', // Barking
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUBKG',
         },
         {
-          id: '940GZZCRAMP', // Ampere Way
+          id: 'hammersmith-city',
           access: 'train',
+          naptanId: '940GZZLUBKG',
         },
         {
-          id: '940GZZCRARA', // Arena
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GBARKING',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GBKRVS', // Barking Riverside
+      services: [
+        {
+          id: 'london-overground',
           access: 'train',
+          naptanId: '910GBKRVS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZBPSUST', // Battersea Power Station
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZBPSUST',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBEK', // Beckenham Junction
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRBEK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRBRD', // Beckenham Road
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRBRD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLBEC', // Beckton
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLBEC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLBPK', // Beckton Park
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLBPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRBED', // Beddington Lane
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRBED',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRBGV', // Belgrave Walk
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRBGV',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUBMY', // Bermondsey
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUBMY',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBIR', // Birkbeck
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRBIR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBFR', // Blackfriars
+      services: [
+        {
+          id: 'circle',
+          access: 'train',
+          naptanId: '940GZZLUBKF',
         },
         {
-          id: '940GZZCRAVE', // Avenue Road
+          id: 'district',
           access: 'train',
+          naptanId: '940GZZLUBKF',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRBLA', // Blackhorse Lane
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRBLA',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBHO', // Blackhorse Road
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GBLCHSRD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLBLA', // Blackwall
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLBLA',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBDS', // Bond Street
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUBND',
         },
         {
-          id: '940GZZCRBEK', // Beckenham Junction
+          id: 'jubilee',
           access: 'train',
+          naptanId: '940GZZLUBND',
         },
         {
-          id: '940GZZCRBRD', // Beckenham Road
+          id: 'elizabeth',
           access: 'train',
+          naptanId: '910GBONDST',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLBOW', // Bow Church
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLBOW',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GBRTWOOD', // Brentwood
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GBRTWOOD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBBRX', // Brixton
+      services: [
+        {
+          id: 'victoria',
+          access: 'train',
+          naptanId: '940GZZLUBXN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GBROCKLY', // Brockley
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GBROCKLY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUBBB', // Bromley-by-Bow
+      services: [
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUBBB',
         },
         {
-          id: '940GZZCRBED', // Beddington Lane
+          id: 'hammersmith-city',
+          access: 'platform',
+          naptanId: '940GZZLUBBB',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUBKH', // Buckhurst Hill
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUBKH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GBNHAM', // Burnham
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GBNHAM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GBHILLPK', // Bush Hill Park
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GBHILLPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUCAR', // Caledonian Road
+      services: [
+        {
+          id: 'piccadilly',
           access: 'train',
+          naptanId: '940GZZLUCAR',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCLDNNRB', // Caledonian Road & Barnsbury
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCLDNNRB',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCMDNRD', // Camden Road
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCMDNRD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBZCW', // Canada Water
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUCWR',
         },
         {
-          id: '940GZZCRBGV', // Belgrave Walk
+          id: 'london-overground',
           access: 'train',
+          naptanId: '910GCNDAW',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCAW', // Canary Wharf
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUCYF',
         },
         {
-          id: '940GZZCRBIR', // Birkbeck
+          id: 'elizabeth',
           access: 'train',
+          naptanId: '910GCANWHRF',
         },
         {
-          id: '940GZZCRBLA', // Blackhorse Lane
+          id: 'dlr',
           access: 'train',
+          naptanId: '940GZZDLCAN',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCAN', // Canning Town
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUCGT',
         },
         {
-          id: '940GZZCRCTR', // Centrale
+          id: 'dlr',
           access: 'train',
+          naptanId: '940GZZDLCGT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCNNB', // Canonbury
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform', // Stratford to Richmond and Clapham Junction = 'platform'. Other routes = 'train' but not sure how to convey this information.
+          naptanId: '910GCNNB',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCRPNDPK', // Carpenders Park
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCRPNDPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRCTR', // Centrale
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRCTR',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCHDWLHT', // Chadwell Heath
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GCHDWLHT',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCFO', // Chalfont & Latimer
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'train',
+          naptanId: '940GZZLUCAL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUCSM', // Chesham
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'platform',
+          naptanId: '940GZZLUCSM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCHESHNT', // Cheshunt
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCHESHNT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GCHINGFD', // Chingford
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCHINGFD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCLW', // Chorleywood
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'train',
+          naptanId: '940GZZLUCYD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRCHR', // Church Street
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRCHR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCLJ', // Clapham Junction
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCLPHMJ1',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUCKS', // Cockfosters
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUCKS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRCOO', // Coombe Lane
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRCOO',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLCLA', // Crossharbour
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLCLA',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCYP', // Crystal Palace
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCRYSTLP',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCUS', // Custom House
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'train',
+          naptanId: '910GCSTMHSXR',
         },
         {
-          id: '940GZZCRCHR', // Church Street
+          id: 'dlr',
           access: 'train',
+          naptanId: '940GZZDLCUS',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBCUT', // Cutty Sark
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLCUT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLCYP', // Cyprus
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLCYP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUDGY', // Dagenham Heathway
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUDGY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GDALS', // Dalston Junction
+      services: [
+        {
+          id: 'london-overground',
+          access: 'train',
+          naptanId: '910GDALS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUDBN', // Debden
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUDBN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLDEP', // Deptford Bridge
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLDEP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLDEV', // Devons Road
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLDEV',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRDDR', // Dundonald Road
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRDDR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBEAL', // Ealing Broadway
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUEBY',
         },
         {
-          id: '940GZZCRCOO', // Coombe Lane
+          id: 'district',
           access: 'train',
+          naptanId: '940GZZLUEBY',
         },
         {
-          id: '940GZZCRDDR', // Dundonald Road
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GEALINGB',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUECT', // Earl's Court
+      services: [
+        {
+          id: 'district',
           access: 'train',
+          naptanId: '940GZZLUECT',
         },
         {
-          id: '940GZZCRECR', // East Croydon
+          id: 'piccadilly',
           access: 'train',
+          naptanId: '940GZZLUECT',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBECY', // East Croydon
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRECR',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUEHM', // East Ham
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUEHM',
         },
         {
-          id: '940GZZCRELM', // Elmers End
+          id: 'hammersmith-city',
           access: 'train',
+          naptanId: '940GZZLUEHM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLEIN', // East India
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLEIN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUEGW', // Edgware
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUEGW',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GEDMNGRN', // Edmonton Green
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GEDMNGRN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUEPK', // Elm Park
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUEPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBELM', // Elmers End
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRELM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLELV', // Elverson Road
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLELV',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GEMRSPKH', // Emerson Park
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GEMRSPKH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GENFLDTN', // Enfield Town
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GENFLDTN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUEPG', // Epping
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUEPG',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBEUS', // Euston
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GEUSTON',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBZFD', // Farringdon
+      services: [
+        {
+          id: 'circle',
+          access: 'platform',
+          naptanId: '940GZZLUFCN',
         },
         {
-          id: '940GZZCRFLD', // Fieldway
-          access: 'train',
+          id: 'hammersmith-city',
+          access: 'platform',
+          naptanId: '940GZZLUFCN',
         },
         {
-          id: '940GZZCRGRA', // Gravel Hill
-          access: 'train',
+          id: 'metropolitan',
+          access: 'platform',
+          naptanId: '940GZZLUFCN',
         },
         {
-          id: '940GZZCRHAR', // Harrington Road
+          id: 'elizabeth',
           access: 'train',
+          naptanId: '910GFRNDXR',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRFLD', // Fieldway
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRFLD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUFYC', // Finchley Central
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUFYC',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBFPK', // Finsbury Park
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'train',
+          naptanId: '940GZZLUFPK',
         },
         {
-          id: '940GZZCRKGH', // King Henry's Drive
+          id: 'victoria',
           access: 'train',
+          naptanId: '940GZZLUFPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GFRSTGT', // Forest Gate
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GFRSTGT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GFORESTH', // Forest Hill
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GFORESTH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUFBY', // Fulham Broadway
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUFBY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLGAL', // Gallions Reach
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLGAL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GGIDEAPK', // Gidea Park
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GGIDEAPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUGGN', // Golders Green
+      services: [
+        {
+          id: 'northern',
+          access: 'platform',
+          naptanId: '940GZZLUGGN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GGODMAYS', // Goodmayes
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GGODMAYS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GGOSPLOK', // Gospel Oak
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GGOSPLOK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRGRA', // Gravel Hill
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRGRA',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUGPK', // Green Park
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUGPK',
         },
         {
-          id: '940GZZCRLEB', // Lebanon Road
+          id: 'piccadilly',
           access: 'train',
+          naptanId: '940GZZLUGPK',
         },
         {
-          id: '940GZZCRLOY', // Lloyd Park
+          id: 'victoria',
           access: 'train',
+          naptanId: '940GZZLUGPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBGFD', // Greenford
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUGFD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBGNW', // Greenwich
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLGRE',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHACKNYC', // Hackney Central
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHACKNYC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHACKNYW', // Hackney Wick
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHACKNYW',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHAGGERS', // Haggerston
+      services: [
+        {
+          id: 'london-overground',
+          access: 'train',
+          naptanId: '910GHAGGERS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUHLT', // Hainault
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUHLT',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBHMS', // Hammersmith
+      services: [
+        {
+          id: 'circle',
+          access: 'train',
+          naptanId: '940GZZLUHSC',
         },
         {
-          id: '940GZZCRMTP', // Merton Park
+          id: 'district',
           access: 'train',
+          naptanId: '940GZZLUHSD',
         },
         {
-          id: '940GZZCRMCH', // Mitcham
+          id: 'hammersmith-city',
           access: 'train',
+          naptanId: '940GZZLUHSC',
         },
         {
-          id: '940GZZCRMJT', // Mitcham Junction
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUHSD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHMPSTDH', // Hampstead Heath
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHMPSTDH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHANWELL', // Hanwell
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GHANWELL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHRLDWOD', // Harold Wood
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GHRLDWOD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHRGYGL', // Harringay Green Lanes
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHRGYGL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRHAR', // Harrington Road
+      services: [
+        {
+          id: 'tram',
           access: 'train',
+          naptanId: '940GZZCRHAR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBHRW', // Harrow & Wealdstone
+      services: [
+        {
+          id: 'bakerloo',
+          access: 'platform',
+          naptanId: '940GZZLUHAW',
         },
         {
-          id: '940GZZCRMDN', // Morden Road
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHROW',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBHOH', // Harrow-on-the-Hill
+      services: [
+        {
+          id: 'metropolitan',
           access: 'train',
+          naptanId: '940GZZLUHOH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHAYESAH', // Hayes & Harlington
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GHAYESAH',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBHX4', // Heathrow Terminal 4
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'train',
+          naptanId: '940GZZLUHR4',
         },
         {
-          id: '940GZZCRNWA', // New Addington
+          id: 'elizabeth',
           access: 'train',
+          naptanId: '910GHTRWTM4',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBHX5', // Heathrow Terminal 5
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUHR5',
         },
         {
-          id: '940GZZCRPHI', // Phipps Bridge
+          id: 'elizabeth',
           access: 'train',
+          naptanId: '910GHTRWTM5',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBH13', // Heathrow Terminals 2 & 3
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'train',
+          naptanId: '940GZZLUHRC',
         },
         {
-          id: '940GZZCRRVC', // Reeves Corner
+          id: 'elizabeth',
           access: 'train',
+          naptanId: '910GHTRWAPT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUHCL', // Hendon Central
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUHCL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLHEQ', // Heron Quays
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLHEQ',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUHBT', // High Barnet
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUHBT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHGHMSPK', // Highams Park
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHGHMSPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBHHY', // Highbury & Islington
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHGHI',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUHGD', // Hillingdon
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'platform',
+          naptanId: '940GZZLUHGD',
         },
         {
-          id: '940GZZCRSAN', // Sandilands
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUHGD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHOMRTON', // Homerton
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHOMRTON',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHONROPK', // Honor Oak Park
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GHONROPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUHWE', // Hounslow East
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUHWE',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUHWT', // Hounslow West
+      services: [
+        {
+          id: 'piccadilly',
           access: 'train',
+          naptanId: '940GZZLUHWT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GHOXTON', // Hoxton
+      services: [
+        {
+          id: 'london-overground',
+          access: 'train',
+          naptanId: '910GHOXTON',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUICK', // Ickenham
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'platform',
+          naptanId: '940GZZLUICK',
         },
         {
-          id: '940GZZCRTPA', // Therapia Lane
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUICK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GILFORD', // Ilford
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GILFORD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBIMP', // Imperial Wharf
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GCSEAH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLISL', // Island Gardens
+      services: [
+        {
+          id: 'dlr',
           access: 'train',
+          naptanId: '940GZZDLISL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GIVER', // Iver
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GIVER',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GKENR', // Kensal Rise
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GKENR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBKPA', // Kensington (Olympia)
+      services: [
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUKOY',
         },
         {
-          id: '940GZZCRWAD', // Waddon Marsh
-          access: 'train',
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GKENOLYM',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBKWG', // Kew Gardens
+      services: [
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUKWG',
         },
         {
-          id: '940GZZCRWAN', // Wandle Park
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GKEWGRDN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUKBN', // Kilburn
+      services: [
+        {
+          id: 'jubilee',
+          access: 'platform',
+          naptanId: '940GZZLUKBN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLKGV', // King George V
+      services: [
+        {
+          id: 'dlr',
           access: 'train',
+          naptanId: '940GZZDLKGV',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRKGH', // King Henry's Drive
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRKGH',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBKGX', // King's Cross and St Pancras International
+      services: [
+        {
+          id: 'circle',
+          access: 'train',
+          naptanId: '940GZZLUKSX',
         },
         {
-          id: '940GZZCRWEL', // Wellesley Road
+          id: 'hammersmith-city',
           access: 'train',
+          naptanId: '940GZZLUKSX',
         },
         {
-          id: '940GZZCRWCR', // West Croydon
+          id: 'metropolitan',
           access: 'train',
+          naptanId: '940GZZLUKSX',
         },
         {
-          id: '940GZZCRWMB', // Wimbledon
+          id: 'northern',
           access: 'train',
+          naptanId: '940GZZLUKSX',
         },
         {
-          id: '940GZZCRWOD', // Woodside
+          id: 'piccadilly',
           access: 'train',
+          naptanId: '940GZZLUKSX',
+        },
+        {
+          id: 'victoria',
+          access: 'train',
+          naptanId: '940GZZLUKSX',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUKBY', // Kingsbury
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUKBY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLLDP', // Langdon Park
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLLDP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GLANGLEY', // Langley
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GLANGLEY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRLEB', // Lebanon Road
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRLEB',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBLEW', // Lewisham
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLLEW',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBLHS', // Limehouse
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLLIM',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBLST', // Liverpool Street
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GLIVST',
+        },
+        {
+          id: 'elizabeth',
+          access: 'train',
+          naptanId: '910GLIVSTLL', // Deep Level
+        },
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GLIVST', // National Rail
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRLOY', // Lloyd Park
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRLOY',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBLBG', // London Bridge
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLULNB',
+        },
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLULNB',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBLCY', // London City Airport
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLLCA',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GMDNHEAD', // Maidenhead
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GMDNHEAD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GMANRPK', // Manor Park
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GMANRPK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GMRYLAND', // Maryland
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GMRYLAND',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRMTP', // Merton Park
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRMTP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUMHL', // Mill Hill East
+      services: [
+        {
+          id: 'northern',
+          access: 'platform',
+          naptanId: '940GZZLUMHL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRMCH', // Mitcham
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRMCH',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBMJT', // Mitcham Junction
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRMJT',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBZMG', // Moorgate
+      services: [
+        {
+          id: 'circle',
+          access: 'train',
+          naptanId: '940GZZLUMGT',
+        },
+        {
+          id: 'hammersmith-city',
+          access: 'train',
+          naptanId: '940GZZLUMGT',
+        },
+        {
+          id: 'metropolitan',
+          access: 'train',
+          naptanId: '940GZZLUMGT',
+        },
+        {
+          id: 'northern',
+          access: 'platform',
+          naptanId: '940GZZLUMGT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUMDN', // Morden
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUMDN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRMDN', // Morden Road
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRMDN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLMUD', // Mudchute
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLMUD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRNWA', // New Addington
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRNWA',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBNWX', // New Cross
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GNWCRELL',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBNXG', // New Cross Gate
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GNEWXGTE',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUNBP', // Newbury Park
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUNBP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZNEUGST', // Nine Elms
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZNEUGST',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBNGW', // North Greenwich
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUNGW',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUOAK', // Oakwood
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'train',
+          naptanId: '940GZZLUOAK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUOSY', // Osterley
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUOSY',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBPAD', // Paddington
+      services: [
+        {
+          id: 'bakerloo',
+          access: 'platform',
+          naptanId: '940GZZLUPAC',
+        },
+        {
+          id: 'circle',
+          access: 'platform',
+          naptanId: '940GZZLUPAH',
+        },
+        {
+          id: 'hammersmith-city',
+          access: 'platform',
+          naptanId: '940GZZLUPAH',
+        },
+        {
+          id: 'elizabeth',
+          access: 'train',
+          naptanId: '910GPADTLL', // Deep level station
+        },
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GPADTON', // National Rail station
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRPHI', // Phipps Bridge
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRPHI',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUPNR', // Pinner
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'train',
+          naptanId: '940GZZLUPNR',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLPDK', // Pontoon Dock
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLPDK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLPOP', // Poplar
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLPOP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLPRE', // Prince Regent
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLPRE',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLPUD', // Pudding Mill Lane
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLPUD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GPCKHMQD', // Queens Road Peckham
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GPCKHMQD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GRDNGSTN', // Reading
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GRDNGSTN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRRVC', // Reeves Corner
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRRVC',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBRMD', // Richmond
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLURMD',
+        },
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GRICHMND',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLURVY', // Roding Valley
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLURVY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GROMFORD', // Romford
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GROMFORD',
+        },
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GROMFORD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLRAL', // Royal Albert
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLRAL',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBRVC', // Royal Victoria
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLRVC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRSAN', // Sandilands
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRSAN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSVNKNGS', // Seven Kings
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GSVNKNGS',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBSDE', // Shadwell
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLSHA',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSHENFLD', // Shenfield
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GSHENFLD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBSPB', // Shepherd's Bush
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GSHPDSB',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSHRDHST', // Shoreditch High Street
+      services: [
+        {
+          id: 'london-overground',
+          access: 'train',
+          naptanId: '910GSHRDHST',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSLOUGH', // Slough
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GSLOUGH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSACTON', // South Acton
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GSACTON',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLSOQ', // South Quay
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLSOQ',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSTOTNHM', // South Tottenham
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GSTOTNHM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUSWF', // South Woodford
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUSWF',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GSTHALL', // Southall
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GSTHALL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUSFS', // Southfields
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUSFS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUSWK', // Southwark
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUSWK',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUSTM', // Stanmore
+      services: [
+        {
+          id: 'jubilee',
+          access: 'platform',
+          naptanId: '940GZZLUSTM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLSTL', // Star Lane
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLSTL',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBSRA', // Stratford
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUSTD',
+        },
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUSTD',
+        },
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GSTFD',
+        },
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GSTFD',
+        },
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLSTD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLSHS', // Stratford High Street
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLSHS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLSIT', // Stratford International
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLSIT',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUSUH', // Sudbury Hill
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUSUH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUSUT', // Sudbury Town
+      services: [
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUSUT',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBSYD', // Sydenham
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GSYDENHM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GTAPLOW', // Taplow
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GTAPLOW',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRTPA', // Therapia Lane
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRTPA',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBTCR', // Tottenham Court Road
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUTCR',
+        },
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUTCR',
+        },
+        {
+          id: 'elizabeth',
+          access: 'train',
+          naptanId: '910GTOTCTRD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBTOM', // Tottenham Hale
+      services: [
+        {
+          id: 'victoria',
+          access: 'train',
+          naptanId: '940GZZLUTMH',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBTOG', // Tower Gateway
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLTWG',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUTWH', // Tower Hill
+      services: [
+        {
+          id: 'circle',
+          access: 'platform',
+          naptanId: '940GZZLUTWH',
+        },
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUTWH',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GTWYFORD', // Twyford
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GTWYFORD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBUPM', // Upminster
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUUPM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUUPY', // Upney
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUUPY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GUPRHLWY', // Upper Holloway
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GUPRHLWY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUUXB', // Uxbridge
+      services: [
+        {
+          id: 'metropolitan',
+          access: 'platform',
+          naptanId: '940GZZLUUXB',
+        },
+        {
+          id: 'piccadilly',
+          access: 'platform',
+          naptanId: '940GZZLUUXB',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBVXH', // Vauxhall
+      services: [
+        {
+          id: 'victoria',
+          access: 'train',
+          naptanId: '940GZZLUVXL',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBVIC', // Victoria
+      services: [
+        {
+          id: 'circle',
+          access: 'platform',
+          naptanId: '940GZZLUVIC',
+        },
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUVIC',
+        },
+        {
+          id: 'victoria',
+          access: 'train',
+          naptanId: '940GZZLUVIC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRWAD', // Waddon Marsh
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRWAD',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWHC', // Walthamstow Central
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWLTWCEN',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GWLTHQRD', // Walthamstow Queen's Road
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWLTHQRD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRWAN', // Wandle Park
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRWAN',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWAT', // Waterloo
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUWLO',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWFJ', // Watford Junction
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWATFJDC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRWEL', // Wellesley Road
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRWEL',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWMB', // Wembley Central
+      services: [
+        {
+          id: 'bakerloo',
+          access: 'platform',
+          naptanId: '940GZZLUWYC',
+        },
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWMBY',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUWYP', // Wembley Park
+      services: [
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUWYP',
+        },
+        {
+          id: 'metropolitan',
+          access: 'train',
+          naptanId: '940GZZLUWYP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUWFN', // West Finchley
+      services: [
+        {
+          id: 'northern',
+          access: 'platform',
+          naptanId: '940GZZLUWFN',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWBP', // West Brompton
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWBRMPTN',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWCY', // West Croydon
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWCROYDN',
+        },
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRWCR',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GWDRYTON', // West Drayton
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GWDRYTON',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GWEALING', // West Ealing
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'platform',
+          naptanId: '910GWEALING',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWEH', // West Ham
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUWHM',
+        },
+        {
+          id: 'hammersmith-city',
+          access: 'train',
+          naptanId: '940GZZLUWHM',
+        },
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUWHM',
+        },
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLWHM',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWHD', // West Hampstead
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWHMDSTD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLWIQ', // West India Quay
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLWIQ',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLWSV', // West Silvertown
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLWSV',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZDLWFE', // Westferry
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLWFE',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWSM', // Westminster
+      services: [
+        {
+          id: 'circle',
+          access: 'platform',
+          naptanId: '940GZZLUWSM',
+        },
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUWSM',
+        },
+        {
+          id: 'jubilee',
+          access: 'train',
+          naptanId: '940GZZLUWSM',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GWHHRTLA', // White Hart Lane
+      services: [
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWHHRTLA',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBZWL', // Whitechapel
+      services: [
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUWPL',
+        },
+        {
+          id: 'hammersmith-city',
+          access: 'platform',
+          naptanId: '940GZZLUWPL',
+        },
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWCHAPEL',
+        },
+        {
+          id: 'elizabeth',
+          access: 'train',
+          naptanId: '910GWCHAPXR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWIJ', // Willesden Junction
+      services: [
+        {
+          id: 'bakerloo',
+          access: 'platform',
+          naptanId: '940GZZLUWJN',
+        },
+        {
+          id: 'london-overground',
+          access: 'platform',
+          naptanId: '910GWLSDJHL',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWIM', // Wimbledon
+      services: [
+        {
+          id: 'district',
+          access: 'train',
+          naptanId: '940GZZLUWIM',
+        },
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRWMB',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUWIP', // Wimbledon Park
+      services: [
+        {
+          id: 'district',
+          access: 'platform',
+          naptanId: '940GZZLUWIP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUWLA', // Wood Lane
+      services: [
+        {
+          id: 'circle',
+          access: 'platform',
+          naptanId: '940GZZLUWLA',
+        },
+        {
+          id: 'hammersmith-city',
+          access: 'platform',
+          naptanId: '940GZZLUWLA',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUWOF', // Woodford
+      services: [
+        {
+          id: 'central',
+          access: 'platform',
+          naptanId: '940GZZLUWOF',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZCRWOD', // Woodside
+      services: [
+        {
+          id: 'tram',
+          access: 'train',
+          naptanId: '940GZZCRWOD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '940GZZLUWOP', // Woodside Park
+      services: [
+        {
+          id: 'northern',
+          access: 'train',
+          naptanId: '940GZZLUWOP',
+        },
+      ],
+    },
+    {
+      topMostParentId: '910GWOLWXR', // Woolwich
+      services: [
+        {
+          id: 'elizabeth',
+          access: 'train',
+          naptanId: '910GWOLWXR',
+        },
+      ],
+    },
+    {
+      topMostParentId: 'HUBWWA', // Woolwich Arsenal
+      services: [
+        {
+          id: 'dlr',
+          access: 'train',
+          naptanId: '940GZZDLWLA',
         },
       ],
     },
