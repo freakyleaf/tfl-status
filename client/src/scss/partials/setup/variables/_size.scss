@@ -60,11 +60,19 @@ $size-settings-theme-list-item-height: 3rem;
 $size-settings-theme-list-item-border-radius: math.div($size-settings-theme-list-item-height, 2);
 $size-settings-theme-list-border-radius: calc($size-settings-theme-list-item-border-radius + ($size-settings-theme-list-border-width * 2));
 
-$size-station-item-padding-y: $spacer-3;
-
 $size-spacer-map-settings: $spacer-4;
 $size-spacer-reason: $spacer-4;
 $size-spacer-status: $spacer-4;
+
+$size-station-item-padding-y: $spacer-3;
+
+$size-station-icon-station-header: $spacer-6;
+$size-station-icon-station-header--tablet: $spacer-7;
+
+$size-interchange-link-view-service-padding-x: $spacer-2;
+$size-interchange-link-view-service-padding-y: $size-station-item-padding-y;
+$size-interchange-link-view-station-padding: $spacer-3;
+$size-interchange-link-view-station-min-height: $size-map-marker--accessibility + ($size-interchange-link-view-station-padding * 2);
 
 $size-table-padding-x: $spacer-5;
 $size-table-padding-y: $spacer-3;

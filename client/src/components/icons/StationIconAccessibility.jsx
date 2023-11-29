@@ -1,9 +1,9 @@
 import React from 'react';
 
-function MapIconAccessibility() {
+function StationIconAccessibility() {
   return (
     <svg
-      className="map__icon map__icon--accessibility"
+      className="station-icon station-icon--accessibility"
       height="16"
       viewBox="0 0 16 16"
       width="16"
@@ -21,4 +21,4 @@ function MapIconAccessibility() {
   );
 }
 
-export default MapIconAccessibility;
+export default StationIconAccessibility;

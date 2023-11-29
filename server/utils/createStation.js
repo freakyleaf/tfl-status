@@ -2,6 +2,8 @@ import cleanName from './cleanName.js';
 import getDisruptionsStopPoint from './getDisruptionsStopPoint.js';
 import getInterchanges from './getInterchanges.js';
 import getModesById from './getModesById.js';
+import getStationAccessibility from './getStationAccessibility.js';
+import getStationEmbellishments from './getStationEmbellishments.js';
 import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
@@ -52,18 +54,25 @@ const getMeta = ({ facilities, naptanId }) => {
 };
 
 const createStation = async({ data, id }) => {
+  const {
+    additionalProperties,
+    commonName,
+    lines,
+    naptanId,
+  } = data;
   const modesById = await getModesById();
 
   return {
+    accessibility: getStationAccessibility({ topMostParentId: naptanId }),
     disruptions: await getDisruptions(id),
-    interchanges: getInterchanges({ lines: data.lines, modesById }),
+    embellishments: getStationEmbellishments({ topMostParentId: naptanId }),
+    interchanges: getInterchanges({ lines, modesById }),
     meta: getMeta({
-      facilities: data.additionalProperties,
-      naptanId: data.naptanId,
+      facilities: additionalProperties,
+      naptanId,
     }),
-    name: cleanName(data.commonName),
-    naptanId: data.naptanId,
-    data,
+    name: cleanName(commonName),
+    naptanId,
   };
 };
 

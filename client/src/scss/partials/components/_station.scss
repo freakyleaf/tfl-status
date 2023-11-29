@@ -1,3 +1,13 @@
+.station__header {
+  display: flex; // Align `.station-icons` to the right of `.station__heading`
+  align-items: center;
+  margin-bottom: $spacer-global;
+}
+
+.station__heading {
+  margin-bottom: 0;
+}
+
 .station__contact,
 .station__disruptions,
 .station__facilities,

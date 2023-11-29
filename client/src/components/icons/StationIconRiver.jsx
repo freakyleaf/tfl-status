@@ -1,9 +1,9 @@
 import React from 'react';
 
-function MapIconRiver() {
+function StationIconRiver() {
   return (
     <svg
-      className="map__icon map__icon--river"
+      className="station-icon station-icon--river"
       height="16"
       viewBox="0 0 16 16"
       width="16"
@@ -17,4 +17,4 @@ function MapIconRiver() {
   );
 }
 
-export default MapIconRiver;
+export default StationIconRiver;

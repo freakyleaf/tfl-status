@@ -1,9 +1,9 @@
 import React from 'react';
 
-function MapIconAirport() {
+function StationIconAirport() {
   return (
     <svg
-      className="map__icon map__icon--airport"
+      className="station-icon station-icon--airport"
       height="14"
       viewBox="0 0 14 14"
       width="14"
@@ -17,4 +17,4 @@ function MapIconAirport() {
   );
 }
 
-export default MapIconAirport;
+export default StationIconAirport;

@@ -13,6 +13,8 @@ import {
 
 import getPretty from '@utils/getPretty';
 
+import StationIconAccessibility from '@components/icons/StationIconAccessibility';
+
 Interchanges.propTypes = {
   station: PropTypes.object.isRequired,
   stationInterchange: PropTypes.object.isRequired,
@@ -23,6 +25,19 @@ function Interchanges(props) {
     station,
     stationInterchange,
   } = props;
+
+  const lineHasAccessibilityInterchanges = (lineId) => {
+    if (!station.accessibility) return false;
+    // String (used for maps)
+    if (typeof station.accessibility === 'string') return false; // We don't show step-free access for map interchanges
+    // Array of services (used for individual stations)
+    return station.accessibility.some((service) => service.id === lineId);
+  };
+
+  const lineAccessibilityInterchanges = (lineId) => {
+    const services = station.accessibility.filter((service) => service.id === lineId); // We need to `filter()` instead of `find()` as some stations include both 'platform' and 'train' for the same service (such as Elizabeth Line at Liverpool Street and Paddington)
+    return services.map((service) => service.access);
+  };
 
   return (
     <div className="interchange">
@@ -41,21 +56,41 @@ function Interchanges(props) {
                   className="interchange__link"
                   to={`${stationInterchange.path}/${PATH_SERVICE}/${line.id}`}
                 >
-                  <span className="visually-hidden">
-                    View the
-                  </span>
-                  <span className="interchange__text high-contrast-mode-text">
-                    {line.name}
-                  </span>
-                  <span className="visually-hidden">
-                    {
-                      line.mode === VIEW_MODE_TUBE && (<> line </>)
-                    }
-                    {
-                      line.mode === VIEW_MODE_BUS && (<> bus </>)
-                    }
-                    service page
-                  </span>
+                  <div className="interchange__text">
+                    <span className="visually-hidden">
+                      View the
+                    </span>
+                    <span className="interchange__text high-contrast-mode-text">
+                      {line.name}
+                    </span>
+                    <span className="visually-hidden">
+                      {
+                        line.mode === VIEW_MODE_TUBE && (<> line </>)
+                      }
+                      {
+                        line.mode === VIEW_MODE_BUS && (<> bus </>)
+                      }
+                      service page
+                    </span>
+                  </div>
+                  {
+                    lineHasAccessibilityInterchanges(line.id) && (
+                      <ul className="interchange__accessibility-list">
+                        {
+                          lineAccessibilityInterchanges(line.id).map((accessibilityInterchange) => (
+                            <li
+                              className="interchange__accessibility-list-item"
+                              key={accessibilityInterchange}
+                            >
+                              <div className={`interchange__accessibility-icon interchange__accessibility-icon--${accessibilityInterchange}`}>
+                                <StationIconAccessibility />
+                              </div>
+                            </li>
+                          ))
+                        }
+                      </ul>
+                    )
+                  }
                 </Link>
               </div>
             </li>

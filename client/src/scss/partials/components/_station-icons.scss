@@ -1,0 +1,38 @@
+.station-icons {
+  .view--station & {
+    color: var(--color-station-icons-view-station)
+  }
+}
+
+.station-icons__list,
+.station-icons__list-item {
+  display: flex;
+  align-items: center;
+}
+
+.station-icons__list {
+  @extend %list-unstyled;
+}
+
+.station-icons__list-item {
+  flex-shrink: 0;
+
+  .view--service & {
+    margin-left: $spacer-3;
+  }
+
+  .view--station & {
+    margin-left: $spacer-4;
+  }
+}
+
+.station-icon {
+  .station__header & {
+    width: $size-station-icon-station-header;
+    height: auto;
+
+    @include device-min(tablet) {
+      width: $size-station-icon-station-header--tablet;
+    }
+  }
+}

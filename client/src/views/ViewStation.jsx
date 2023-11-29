@@ -22,6 +22,7 @@ import setView from '@utils/setView';
 import Box from '@components/Box';
 import Interchanges from '@components/Interchanges';
 import PageMain from '@components/PageMain';
+import StationIcons from '@components/StationIcons';
 
 ViewStation.propTypes = {
   viewMode: PropTypes.string.isRequired,
@@ -75,9 +76,14 @@ function ViewStation(props) {
           {
             station && (
               <div className="station">
-                <h1 className="station__heading">
-                  {station.name}
-                </h1>
+                <header className="station__header">
+                  <h1 className="station__heading">
+                    {station.name}
+                  </h1>
+                  <StationIcons
+                    station={station}
+                  />
+                </header>
                 {
                   hasZone && (
                     <div className="station__zone">

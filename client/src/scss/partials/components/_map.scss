@@ -291,21 +291,6 @@
   }
 }
 
-.map__station-icon-list,
-.map__station-icon-list-item {
-  display: flex;
-  align-items: center;
-}
-
-.map__station-icon-list {
-  @extend %list-unstyled;
-}
-
-.map__station-icon-list-item {
-  margin-left: $spacer-3;
-  flex-shrink: 0;
-}
-
 .map__marker {
   z-index: 1; // Position above first and last station mask
   position: absolute;
@@ -325,7 +310,7 @@
     border-width: $size-map-marker-accessibility-border-width;
     transform: translate(-50%, -50%);
 
-    .map__icon {
+    .station-icon {
       width: $size-map-marker-accessibility-icon;
       height: $size-map-marker-accessibility-icon;
     }

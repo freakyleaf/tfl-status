@@ -167,6 +167,11 @@ $color-light: $color-gray-200;
   --color-station-zone-text: #{$color-white};
 }
 
+// Station Icons
+:root {
+  --color-station-icons-view-station: var(--color-primary);
+}
+
 // Status
 :root {
   --color-view-service-status-negative-background: #{$color-state-error};

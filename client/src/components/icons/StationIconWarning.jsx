@@ -1,9 +1,9 @@
 import React from 'react';
 
-function MapIconWarning() {
+function StationIconWarning() {
   return (
     <svg
-      className="map__icon map__icon--warning"
+      className="station-icon station-icon--warning"
       height="15"
       viewBox="0 0 15 15"
       width="15"
@@ -16,4 +16,4 @@ function MapIconWarning() {
   );
 }
 
-export default MapIconWarning;
+export default StationIconWarning;

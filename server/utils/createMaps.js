@@ -40,7 +40,7 @@ const createMaps = async({ data, id }) => {
           interchanges: getInterchanges({ id, lines: station.lines, modesById }),
           name: stationName,
           naptanId,
-          topMostParentId: topMostParentId,
+          topMostParentId,
           zone: getZone({
             id,
             mode,

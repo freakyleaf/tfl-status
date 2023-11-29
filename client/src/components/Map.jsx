@@ -13,19 +13,8 @@ import {
 } from '@constants/accessibility';
 
 import {
-  EMBELLISHMENT_AIRPORT,
-  EMBELLISHMENT_COACH,
-  EMBELLISHMENT_EUROSTAR,
-  EMBELLISHMENT_RIVER,
-} from '@constants/embellishments';
-
-import {
   PATH_STATION,
 } from '@constants/paths';
-
-import {
-  SERVICE_GROUP_NATIONAL_RAIL,
-} from '@constants/serviceGroups';
 
 import {
   STATUS_DESCRIPTION_CLOSED,
@@ -54,6 +43,11 @@ import {
   setCurrentMapRoute,
 } from '@stores/storeSliceSettings';
 
+import {
+  stationHasEmbellishmentEurostar,
+  stationHasNationalRailInterchange,
+  stationIsAccessible,
+} from '@utils/getStationProperties';
 import serviceStatusIncludes from '@utils/serviceStatusIncludes';
 import stringToKebabCase from '@utils/stringToKebabCase';
 
@@ -63,15 +57,10 @@ import Collapsible from '@components/Collapsible';
 import Error from '@components/Error';
 import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
-import MapIconAccessibility from '@components/icons/MapIconAccessibility';
-import MapIconAirport from '@components/icons/MapIconAirport';
-import MapIconCoach from '@components/icons/MapIconCoach';
-import MapIconEurostar from '@components/icons/MapIconEurostar';
-import MapIconNationalRail from '@components/icons/MapIconNationalRail';
-import MapIconRiver from '@components/icons/MapIconRiver';
-import MapIconWarning from '@components/icons/MapIconWarning';
+import StationIconAccessibility from '@components/icons/StationIconAccessibility';
 import MapSettings from '@components/MapSettings';
 import Select from '@components/Select';
+import StationIcons from '@components/StationIcons';
 
 Map.propTypes = {
   service: PropTypes.object,
@@ -121,6 +110,10 @@ function Map(props) {
       return maps.find((route) => route.name === currentMapRoutes[service.id]);
     }
     return maps[0];
+  };
+
+  const stationInterchanges = (station) => {
+    return station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
   };
 
   useEffect(() => {
@@ -176,37 +169,6 @@ function Map(props) {
     return classes.join(' ');
   };
 
-  const stationHasEmbellishmentAirport = (station) => {
-    return station.embellishments?.includes(EMBELLISHMENT_AIRPORT);
-  };
-
-  const stationHasEmbellishmentCoach = (station) => {
-    return station.embellishments?.includes(EMBELLISHMENT_COACH);
-  };
-
-  const stationHasEmbellishmentEurostar = (station) => {
-    return station.embellishments?.includes(EMBELLISHMENT_EUROSTAR);
-  };
-
-  const stationHasEmbellishmentRiver = (station) => {
-    return station.embellishments?.includes(EMBELLISHMENT_RIVER);
-  };
-
-  const stationHasIcons = (station) => {
-    return !!stationIcons(station).length;
-  };
-
-  const stationIcons = (station) => {
-    const icons = [];
-    if (station.hasDisruptions) icons.push(<MapIconWarning />);
-    if (stationHasNationalRailInterchange(station)) icons.push(<MapIconNationalRail />);
-    if (stationHasEmbellishmentAirport(station)) icons.push(<MapIconAirport />);
-    if (stationHasEmbellishmentCoach(station)) icons.push(<MapIconCoach />);
-    if (stationHasEmbellishmentEurostar(station)) icons.push(<MapIconEurostar />);
-    if (stationHasEmbellishmentRiver(station)) icons.push(<MapIconRiver />);
-    return icons;
-  };
-
   const stationIsSuspendedFull = (station) => {
     return station.currentStationSuspendedFull || station.nextStationSuspendedFull || station.previousStationSuspendedFull;
   };
@@ -217,26 +179,6 @@ function Map(props) {
 
   const stationIsSuspended = (station) => {
     return stationIsSuspendedFull(station) || stationIsSuspendedHalf(station);
-  };
-
-  const stationInterchanges = (station) => {
-    return station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
-  };
-
-  const stationHasNationalRailInterchange = (station) => {
-    return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_NATIONAL_RAIL);
-  };
-
-  const stationIsAccessiblePlatform = (station) => {
-    return station.accessibility === ACCESSIBLE_PLATFORM;
-  };
-
-  const stationIsAccessibleTrain = (station) => {
-    return station.accessibility === ACCESSIBLE_TRAIN;
-  };
-
-  const stationIsAccessible = (station) => {
-    return stationIsAccessiblePlatform(station) || stationIsAccessibleTrain(station);
   };
 
   // The `setTimeout()` isn't required but makes for better UX as when changing routes it can seem as if nothing has happened if the routes begin with the same stations
@@ -276,9 +218,7 @@ function Map(props) {
                 onClick={() => setMapSettingsVisibility(!mapSettingsVisibility)}
               />
               {
-                mapSettingsVisibility && (
-                  <MapSettings />
-                )
+                mapSettingsVisibility && (<MapSettings />)
               }
             </div>
             {
@@ -363,9 +303,7 @@ function Map(props) {
                                         </div>
                                         <div className={mapMarkerClasses(station)}>
                                           {
-                                            (mapVisibilityStepFreeAccess && stationIsAccessible(station)) && (
-                                              <MapIconAccessibility />
-                                            )
+                                            (mapVisibilityStepFreeAccess && stationIsAccessible(station)) && (<StationIconAccessibility />)
                                           }
                                         </div>
                                       </div>
@@ -381,7 +319,7 @@ function Map(props) {
                                             . This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {zone.zone.zones}
                                             {
                                               stationIsAccessible(station) && (
-                                                <> and has step-free access from {stationIsAccessiblePlatform(station) ? 'platform' : 'street' } to train</>
+                                                <> and has step-free access from street to {station.accessibility}</>
                                               )
                                             }
                                           .</span>
@@ -405,20 +343,9 @@ function Map(props) {
                                             )
                                           }
                                         </Link>
-                                        {
-                                          stationHasIcons(station) && (
-                                            <ul className="map__station-icon-list">
-                                              {stationIcons(station).map((icon, iconIndex) => (
-                                                <li
-                                                  className="map__station-icon-list-item"
-                                                  key={iconIndex}
-                                                >
-                                                  {icon}
-                                                </li>
-                                              ))}
-                                            </ul>
-                                          )
-                                        }
+                                        <StationIcons
+                                          station={station}
+                                        />
                                       </div>
                                       <div className="map__interchanges">
                                         {
