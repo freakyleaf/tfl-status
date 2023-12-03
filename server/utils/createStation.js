@@ -62,11 +62,17 @@ const createStation = async({ data, id }) => {
   } = data;
   const modesById = await getModesById();
 
+  const stationEmbellishments = getStationEmbellishments({ topMostParentId: naptanId });
+
   return {
     accessibility: getStationAccessibility({ topMostParentId: naptanId }),
     disruptions: await getDisruptions(id),
-    embellishments: getStationEmbellishments({ topMostParentId: naptanId }),
-    interchanges: getInterchanges({ lines, modesById }),
+    embellishments: stationEmbellishments,
+    interchanges: getInterchanges({
+      embellishments: stationEmbellishments?.interchanges || null,
+      lines,
+      modesById,
+    }),
     meta: getMeta({
       facilities: additionalProperties,
       naptanId,

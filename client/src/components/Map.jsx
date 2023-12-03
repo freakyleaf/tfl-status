@@ -17,6 +17,10 @@ import {
 } from '@constants/paths';
 
 import {
+  SERVICE_MODE_EUROSTAR,
+} from '@constants/serviceModes';
+
+import {
   STATUS_DESCRIPTION_CLOSED,
   STATUS_DESCRIPTION_PART_CLOSURE,
   STATUS_DESCRIPTION_PART_SUSPENDED,
@@ -44,7 +48,7 @@ import {
 } from '@stores/storeSliceSettings';
 
 import {
-  stationHasEmbellishmentEurostar,
+  stationHasEmbellishmentInterchange,
   stationHasNationalRailInterchange,
   stationIsAccessible,
 } from '@utils/getStationProperties';
@@ -147,7 +151,7 @@ function Map(props) {
     else if (mapVisibilityStepFreeAccess && station.accessibility === ACCESSIBLE_TRAIN) {
       classes.push('map__marker--accessibility map__marker--accessibility-train');
     }
-    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasEmbellishmentEurostar(station)) {
+    else if (stationInterchanges(station).length || stationHasNationalRailInterchange(station) || stationHasEmbellishmentInterchange(station, SERVICE_MODE_EUROSTAR)) {
       classes.push('map__marker--interchange');
     }
     else {
@@ -310,11 +314,10 @@ function Map(props) {
                                       <div className="map__station">
                                         <Link
                                           className="map__station-link"
-                                          id={`station-${station.id}`}
                                           to={`/${PATH_STATION}/${station.topMostParentId}`}
                                         >
                                           <span className="visually-hidden">{getStationNumber(station.name)}</span>
-                                          {station.name}
+                                          <span id={`station-${station.id}`}>{station.name}</span>
                                           <span className="visually-hidden">
                                             . This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {zone.zone.zones}
                                             {

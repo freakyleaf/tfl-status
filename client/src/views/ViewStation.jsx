@@ -8,6 +8,10 @@ import {
 } from '@api/stationsApi';
 
 import {
+  SERVICE_GROUP_EXTRA,
+} from '@constants/serviceGroups';
+
+import {
   contentHavingTroubleFetchingData,
   contentNoInformationAvailable,
 } from '@constants/text';
@@ -69,6 +73,10 @@ function ViewStation(props) {
   const hasZone = station && !!Object.keys(station.meta.zone).length;
   const nothingToDisplay = !hasContact && !hasFacilities && !hasZone;
 
+  const stationInterchanges = (station) => {
+    return station.interchanges.filter((interchange) => interchange.group !== SERVICE_GROUP_EXTRA);
+  };
+
   return (
     <div className="view view--station">
       <PageMain>
@@ -126,7 +134,7 @@ function ViewStation(props) {
                         !!station.interchanges.length && (
                           <Interchanges
                             station={station}
-                            stationInterchanges={station.interchanges}
+                            stationInterchanges={stationInterchanges(station)}
                           />
                         )
                       }

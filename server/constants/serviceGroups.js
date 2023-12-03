@@ -4,6 +4,7 @@ import {
   SERVICE_MODE_ELIZABETH_LINE,
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_OVERGROUND,
+  SERVICE_MODE_RIVER_BUS,
   SERVICE_MODE_TRAM,
   SERVICE_MODE_TUBE,
 } from './serviceModes.js';
@@ -11,9 +12,11 @@ import {
 const SERVICE_GROUP_ALL = 'all';
 const SERVICE_GROUP_BUS = 'bus';
 const SERVICE_GROUP_CORE = 'core';
+const SERVICE_GROUP_EXTRA = 'extra';
 const SERVICE_GROUP_NATIONAL_RAIL = 'national-rail';
+const SERVICE_GROUP_RIVER_BUS = 'river-bus';
 
-// Ordered as they need to appear (core, bus, national rail)
+// Ordered as they need to appear (core, bus, national rail, river bus)
 const serviceGroups = [
   {
     group: SERVICE_GROUP_CORE,
@@ -37,6 +40,12 @@ const serviceGroups = [
       SERVICE_MODE_NATIONAL_RAIL,
     ],
   },
+  {
+    group: SERVICE_GROUP_RIVER_BUS,
+    modes: [
+      SERVICE_MODE_RIVER_BUS,
+    ],
+  },
 ];
 
 export default serviceGroups;
@@ -45,5 +54,7 @@ export {
   SERVICE_GROUP_ALL,
   SERVICE_GROUP_BUS,
   SERVICE_GROUP_CORE,
+  SERVICE_GROUP_EXTRA,
   SERVICE_GROUP_NATIONAL_RAIL,
+  SERVICE_GROUP_RIVER_BUS,
 };

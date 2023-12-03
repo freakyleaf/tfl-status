@@ -19,7 +19,7 @@ function Interchanges(props) {
   const stationInterchanges = stationInterchangesRaw?.map((stationInterchangeRaw) => {
     return {
       ...stationInterchangeRaw,
-      path: serviceGroups.find((serviceGroup) => serviceGroup.group === stationInterchangeRaw.group).path,
+      path: serviceGroups.find((serviceGroup) => serviceGroup.group === stationInterchangeRaw.group)?.path,
     };
   });
 
@@ -32,7 +32,7 @@ function Interchanges(props) {
         {
           stationInterchanges.map((stationInterchange) => (
             <li
-              className="interchanges__list-item"
+              className={`interchanges__list-item interchanges__list-item--${stationInterchange.group}`}
               key={stationInterchange.group}
             >
               <Interchange

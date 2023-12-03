@@ -33,6 +33,7 @@
   display: flex;
   align-items: center; // Required for pinned icon
   justify-content: space-between; // Required for pinned icon
+  position: relative; // Required for `hover-highlight()`
   padding: $size-services-table-padding-y $size-services-table-padding-x;
   text-decoration: none;
   color: inherit;
@@ -40,6 +41,8 @@
   &:active,
   &:focus,
   &:hover {
+    @include hover-highlight();
+
     color: inherit;
   }
 

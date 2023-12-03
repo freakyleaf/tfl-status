@@ -25,66 +25,82 @@ $color-tfl-dlr: rgb(0 175 170);
 $color-tfl-elizabeth: rgb(119 61 189);
 $color-tfl-overground: rgb(238 118 35);
 $color-tfl-tram: rgb(118 188 33);
+$color-tfl-river-bus: rgb(0 160 223);
 
 $brands: (
   'bakerloo': (
-    colorBrand: $color-tfl-bakerloo,
+    colorBackground: $color-tfl-bakerloo,
+    colorBorder: $color-tfl-bakerloo,
     colorText: $color-tfl-white,
   ),
   'central': (
-    colorBrand: $color-tfl-central,
+    colorBackground: $color-tfl-central,
+    colorBorder: $color-tfl-central,
     colorText: $color-tfl-white,
   ),
   'circle': (
-    colorBrand: $color-tfl-circle,
+    colorBackground: $color-tfl-circle,
+    colorBorder: $color-tfl-circle,
     colorText: $color-tfl-black,
   ),
   'district': (
-    colorBrand: $color-tfl-district,
+    colorBackground: $color-tfl-district,
+    colorBorder: $color-tfl-district,
     colorText: $color-tfl-white,
   ),
   'hammersmith-city': (
-    colorBrand: $color-tfl-hammersmith-city,
+    colorBackground: $color-tfl-hammersmith-city,
+    colorBorder: $color-tfl-hammersmith-city,
     colorText: $color-tfl-black,
   ),
   'jubilee': (
-    colorBrand: $color-tfl-jubilee,
+    colorBackground: $color-tfl-jubilee,
+    colorBorder: $color-tfl-jubilee,
     colorText: $color-tfl-white,
   ),
   'metropolitan': (
-    colorBrand: $color-tfl-metropolitan,
+    colorBackground: $color-tfl-metropolitan,
+    colorBorder: $color-tfl-metropolitan,
     colorText: $color-tfl-white,
   ),
   'northern': (
-    colorBrand: $color-tfl-northern,
+    colorBackground: $color-tfl-northern,
+    colorBorder: $color-tfl-northern,
     colorText: $color-tfl-white,
   ),
   'piccadilly': (
-    colorBrand: $color-tfl-piccadilly,
+    colorBackground: $color-tfl-piccadilly,
+    colorBorder: $color-tfl-piccadilly,
     colorText: $color-tfl-white,
   ),
   'victoria': (
-    colorBrand: $color-tfl-victoria,
+    colorBackground: $color-tfl-victoria,
+    colorBorder: $color-tfl-victoria,
     colorText: $color-tfl-white,
   ),
   'waterloo-city': (
-    colorBrand: $color-tfl-waterloo-city,
+    colorBackground: $color-tfl-waterloo-city,
+    colorBorder: $color-tfl-waterloo-city,
     colorText: $color-tfl-black,
   ),
   'dlr': (
-    colorBrand: $color-tfl-dlr,
+    colorBackground: $color-tfl-dlr,
+    colorBorder: $color-tfl-dlr,
     colorText: $color-tfl-white,
   ),
   'elizabeth': (
-    colorBrand: $color-tfl-elizabeth,
+    colorBackground: $color-tfl-elizabeth,
+    colorBorder: $color-tfl-elizabeth,
     colorText: $color-tfl-white,
   ),
   'london-overground': (
-    colorBrand: $color-tfl-overground,
+    colorBackground: $color-tfl-overground,
+    colorBorder: $color-tfl-overground,
     colorText: $color-tfl-white,
   ),
   'tram': (
-    colorBrand: $color-tfl-tram,
+    colorBackground: $color-tfl-tram,
+    colorBorder: $color-tfl-tram,
     colorText: $color-tfl-white,
   ),
 );
@@ -92,16 +108,25 @@ $brands: (
 @each $key, $value in $brands {
   .brand-background--id-#{$key} {
     color: map.get($value, colorText);
-    background-color: map.get($value, colorBrand);
+    background-color: map.get($value, colorBackground);
+    border-color: map.get($value, colorBorder);
   }
 }
 
 .brand-background--mode-bus {
   color: $color-tfl-white;
   background-color: $color-tfl-red;
+  border-color: $color-tfl-red;
 }
 
 .brand-background--mode-national-rail {
   color: $color-tfl-white;
   background-color: $color-tfl-blue;
+  border-color: $color-tfl-blue;
+}
+
+.brand-background--mode-river-bus {
+  color: $color-tfl-white;
+  background-color: $color-tfl-river-bus;
+  border-color: $color-tfl-river-bus;
 }

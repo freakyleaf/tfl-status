@@ -10,6 +10,7 @@ import {
   PATH_CORE,
   PATH_NATIONAL_RAIL,
   PATH_PINNED,
+  PATH_RIVER_BUS,
   PATH_SERVICE,
   PATH_STATION,
 } from '@constants/paths';
@@ -18,18 +19,21 @@ import {
   SERVICE_GROUP_BUS,
   SERVICE_GROUP_CORE,
   SERVICE_GROUP_NATIONAL_RAIL,
+  SERVICE_GROUP_RIVER_BUS,
 } from '@constants/serviceGroups';
 
 import {
   SERVICE_NAME_BUS,
   SERVICE_NAME_CORE,
   SERVICE_NAME_NATIONAL_RAIL,
+  SERVICE_NAME_RIVER_BUS,
 } from '@constants/serviceNames';
 
 import {
   contentBackToBus,
   contentBackToCore,
   contentBackToNationalRail,
+  contentBackToRiverBus,
 } from '@constants/text';
 
 import {
@@ -37,6 +41,7 @@ import {
   VIEW_MODE_BUS,
   VIEW_MODE_CORE,
   VIEW_MODE_NATIONAL_RAIL,
+  VIEW_MODE_RIVER_BUS,
 } from '@constants/viewModes';
 
 import {
@@ -199,6 +204,52 @@ const router = createBrowserRouter(
           />
         }
         path={`${PATH_NATIONAL_RAIL}/${PATH_PINNED}`}
+      />
+      <Route
+        element={
+          <ViewServices
+            serviceGroup={SERVICE_GROUP_RIVER_BUS}
+            serviceName={SERVICE_NAME_RIVER_BUS}
+            viewMode={VIEW_MODE_RIVER_BUS}
+            viewType={VIEW_TYPE_SERVICES}
+          />}
+        path={PATH_RIVER_BUS}
+      />
+      <Route
+        element={
+          <ViewService
+            backTo={{
+              path: `/${PATH_RIVER_BUS}`,
+              text: contentBackToRiverBus,
+            }}
+            serviceGroup={SERVICE_GROUP_RIVER_BUS}
+            serviceGroupPath={`/${PATH_RIVER_BUS}`}
+            viewMode={VIEW_MODE_RIVER_BUS}
+            viewType={VIEW_TYPE_SERVICE}
+          />
+        }
+        errorElement={
+          <ViewErrorService
+            serviceGroup={SERVICE_GROUP_RIVER_BUS}
+            viewMode={VIEW_MODE_RIVER_BUS}
+            viewType={VIEW_TYPE_ERROR}
+          />
+        }
+        path={`${PATH_RIVER_BUS}/${PATH_SERVICE}/:id`}
+      />
+      <Route
+        element={
+          <ViewPinned
+            backTo={{
+              path: `/${PATH_RIVER_BUS}`,
+              text: contentBackToRiverBus,
+            }}
+            serviceGroup={SERVICE_GROUP_RIVER_BUS}
+            viewMode={VIEW_MODE_RIVER_BUS}
+            viewType={VIEW_TYPE_PINNED}
+          />
+        }
+        path={`${PATH_RIVER_BUS}/${PATH_PINNED}`}
       />
       <Route
         element={

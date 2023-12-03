@@ -30,9 +30,5 @@
   .station__header & {
     width: $size-station-icon-station-header;
     height: auto;
-
-    @include device-min(tablet) {
-      width: $size-station-icon-station-header--tablet;
-    }
   }
 }

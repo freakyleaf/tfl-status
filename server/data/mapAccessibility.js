@@ -151,6 +151,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GSWK', // Bankside Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GSWK',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GSWK',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GSWK',
+        },
+      ],
+    },
+    {
       topMostParentId: 'HUBBKG', // Barking
       services: [
         {
@@ -181,12 +201,52 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GBRVS', // Barking Riverside Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GBRVS',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GBRVS',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GBRVS',
+        },
+      ],
+    },
+    {
       topMostParentId: '940GZZBPSUST', // Battersea Power Station
       services: [
         {
           id: 'northern',
           access: 'train',
           naptanId: '940GZZBPSUST',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GBSP', // Battersea Power Station Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GBSP',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GBSP',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GBSP',
         },
       ],
     },
@@ -282,6 +342,21 @@ const mapAccessibility = {
           id: 'district',
           access: 'train',
           naptanId: '940GZZLUBKF',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GBFR', // Blackfriars Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GBFR',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GBFR',
         },
       ],
     },
@@ -421,6 +496,16 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GBSE', // Cadogan Pier
+      services: [
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GBSE',
+        },
+      ],
+    },
+    {
       topMostParentId: '940GZZLUCAR', // Caledonian Road
       services: [
         {
@@ -486,6 +571,31 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GCAW', // Canary Wharf Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GCAW',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GCAW',
+        },
+        {
+          id: 'rb4',
+          access: 'platform',
+          naptanId: '930GCAW',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GCAW',
+        },
+      ],
+    },
+    {
       topMostParentId: 'HUBCAN', // Canning Town
       services: [
         {
@@ -547,6 +657,21 @@ const mapAccessibility = {
           id: 'metropolitan',
           access: 'train',
           naptanId: '940GZZLUCAL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GCHP', // Chelsea Harbour Pier
+      services: [
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GCHP',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GCHP',
         },
       ],
     },
@@ -866,6 +991,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GEMB', // Embankment Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GEMB',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GEMB',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GEMB',
+        },
+      ],
+    },
+    {
       topMostParentId: '910GEMRSPKH', // Emerson Park
       services: [
         {
@@ -1086,12 +1231,52 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GGLP', // Greenland Surry Quays Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GGLP',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GGLP',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GGLP',
+        },
+      ],
+    },
+    {
       topMostParentId: 'HUBGNW', // Greenwich
       services: [
         {
           id: 'dlr',
           access: 'train',
           naptanId: '940GZZDLGRE',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GGNW', // Greenwich Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GGNW',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GGNW',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GGNW',
         },
       ],
     },
@@ -1671,6 +1856,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GLBR', // London Bridge City Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GLBR',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GLBR',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GLBR',
+        },
+      ],
+    },
+    {
       topMostParentId: 'HUBLCY', // London City Airport
       services: [
         {
@@ -1711,6 +1916,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GMHT', // Masthouse Terrace Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GMHT',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GMHT',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GMHT',
+        },
+      ],
+    },
+    {
       topMostParentId: '940GZZCRMTP', // Merton Park
       services: [
         {
@@ -1727,6 +1952,26 @@ const mapAccessibility = {
           id: 'northern',
           access: 'platform',
           naptanId: '940GZZLUMHL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GMBK', // Millbank Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GMBK',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GMBK',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GMBK',
         },
       ],
     },
@@ -1866,6 +2111,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GMIL', // North Greenwich Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GMIL',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GMIL',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GMIL',
+        },
+      ],
+    },
+    {
       topMostParentId: '940GZZLUOAK', // Oakwood
       services: [
         {
@@ -1936,6 +2201,16 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GPLW', // Plantation Wharf Pier
+      services: [
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GPLW',
+        },
+      ],
+    },
+    {
       topMostParentId: '940GZZDLPDK', // Pontoon Dock
       services: [
         {
@@ -1972,6 +2247,21 @@ const mapAccessibility = {
           id: 'dlr',
           access: 'train',
           naptanId: '940GZZDLPUD',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GPUT', // Putney Pier
+      services: [
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GPUT',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GPUT',
         },
       ],
     },
@@ -2062,6 +2352,26 @@ const mapAccessibility = {
           id: 'dlr',
           access: 'train',
           naptanId: '940GZZDLRVC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GWRF', // Royal Wharf Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GWRF',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GWRF',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GWRF',
         },
       ],
     },
@@ -2381,6 +2691,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GTMP', // Tower Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GTMP',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GTMP',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GTMP',
+        },
+      ],
+    },
+    {
       topMostParentId: '910GTWYFORD', // Twyford
       services: [
         {
@@ -2442,6 +2772,26 @@ const mapAccessibility = {
           id: 'victoria',
           access: 'train',
           naptanId: '940GZZLUVXL',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GSGW', // Vauxhall St George Wharf Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GSGW',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GSGW',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GSGW',
         },
       ],
     },
@@ -2706,6 +3056,26 @@ const mapAccessibility = {
       ],
     },
     {
+      topMostParentId: '930GWMR', // Westminster Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GWMR',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GWMR',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GWMR',
+        },
+      ],
+    },
+    {
       topMostParentId: '910GWHHRTLA', // White Hart Lane
       services: [
         {
@@ -2842,6 +3212,46 @@ const mapAccessibility = {
           id: 'dlr',
           access: 'train',
           naptanId: '940GZZDLWLA',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GWAS', // Woolwich Arsenal Pier
+      services: [
+        {
+          id: 'rb1',
+          access: 'platform',
+          naptanId: '930GWAS',
+        },
+        {
+          id: 'rb2',
+          access: 'platform',
+          naptanId: '930GWAS',
+        },
+        {
+          id: 'rb6',
+          access: 'platform',
+          naptanId: '930GWAS',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GWWC', // Woolwich Ferry North Pier
+      services: [
+        {
+          id: 'woolwich-ferry',
+          access: 'platform',
+          naptanId: '930GWWC',
+        },
+      ],
+    },
+    {
+      topMostParentId: '930GWWS', // Woolwich Ferry South Pier
+      services: [
+        {
+          id: 'woolwich-ferry',
+          access: 'platform',
+          naptanId: '930GWWS',
         },
       ],
     },

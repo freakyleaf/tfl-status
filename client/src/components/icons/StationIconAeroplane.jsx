@@ -1,6 +1,6 @@
 import React from 'react';
 
-function StationIconAirport() {
+function StationIconAeroplane() {
   return (
     <svg
       className="station-icon station-icon--airport"
@@ -17,4 +17,4 @@ function StationIconAirport() {
   );
 }
 
-export default StationIconAirport;
+export default StationIconAeroplane;

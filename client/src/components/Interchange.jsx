@@ -51,7 +51,7 @@ function Interchanges(props) {
               className="interchange__lines-list-item"
               key={line.id}
             >
-              <div className={`interchange__line brand-background--id-${line.id} brand-background--mode-${line.mode}`}>
+              <div className={`interchange__line brand-background--id-${line.id} brand-background--mode-${line.mode} brand-border--id-${line.id} brand-border--mode-${line.mode}`}>
                 <Link
                   className="interchange__link"
                   to={`${stationInterchange.path}/${PATH_SERVICE}/${line.id}`}
@@ -72,6 +72,16 @@ function Interchanges(props) {
                       }
                       service page
                     </span>
+                    {
+                      line.labels && line.labels.map((label) => (
+                        <span
+                          className="interchange__label"
+                          key={label}
+                        >
+                          {label}
+                        </span>
+                      ))
+                    }
                   </div>
                   {
                     lineHasAccessibilityInterchanges(line.id) && (

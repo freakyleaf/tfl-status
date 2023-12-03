@@ -38,6 +38,13 @@ const serviceGroups = {
     pathService: '/national-rail/service',
     pathServices: '/national-rail',
   },
+  ['river-bus']: {
+    modes: [
+      'river-bus',
+    ],
+    pathService: '/river-bus/service',
+    pathServices: '/river-bus',
+  },
 };
 
 function formatServiceGroups(services) {

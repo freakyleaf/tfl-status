@@ -70,9 +70,7 @@ function ViewPinned(props) {
                   {contentPinnedItemsAppearStart} {getPretty(serviceGroup)} {contentPinnedItemsAppearEnd}
                 </Box>
                 {
-                  isFetching && (
-                    <Loading />
-                  )
+                  isFetching && (<Loading />)
                 }
                 {
                   services && (

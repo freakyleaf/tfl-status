@@ -1,11 +1,11 @@
 import {
-  coreServices,
-} from '../constants/services.js';
+  coreServiceIds,
+} from '../constants/serviceIds.js';
 
 const sortLinesCore = (lines) => {
   return lines.sort((a, b) => {
-    const indexA = coreServices.findIndex((coreService) => a.id === coreService);
-    const indexB = coreServices.findIndex((coreService) => b.id === coreService);
+    const indexA = coreServiceIds.findIndex((coreServiceId) => a.id === coreServiceId);
+    const indexB = coreServiceIds.findIndex((coreServiceId) => b.id === coreServiceId);
     return indexA - indexB;
   });
 };

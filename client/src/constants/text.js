@@ -2,11 +2,13 @@ import {
   SERVICE_NAME_BUS,
   SERVICE_NAME_CORE,
   SERVICE_NAME_NATIONAL_RAIL,
+  SERVICE_NAME_RIVER_BUS,
 } from '@constants/serviceNames';
 
 export const contentBackToBus = `all ${SERVICE_NAME_BUS} services`;
 export const contentBackToCore = `all ${SERVICE_NAME_CORE} services`;
 export const contentBackToNationalRail = `all ${SERVICE_NAME_NATIONAL_RAIL} services`;
+export const contentBackToRiverBus = `all ${SERVICE_NAME_RIVER_BUS} services`;
 
 export const contentHavingTroubleFetchingData = 'We\'re having trouble fetching service data from the TfL API. Please try again later.';
 export const contentMapServiceClosedFull = 'This service is currently closed.';

@@ -4,30 +4,18 @@ import {
 } from '@constants/accessibility';
 
 import {
-  EMBELLISHMENT_AIRPORT,
-  EMBELLISHMENT_COACH,
-  EMBELLISHMENT_EUROSTAR,
-  EMBELLISHMENT_RIVER,
-} from '@constants/embellishments';
-
-import {
+  SERVICE_GROUP_EXTRA,
   SERVICE_GROUP_NATIONAL_RAIL,
+  SERVICE_GROUP_RIVER_BUS,
 } from '@constants/serviceGroups';
 
-const stationHasEmbellishmentAirport = (station) => {
-  return station.embellishments?.includes(EMBELLISHMENT_AIRPORT);
-};
-
-const stationHasEmbellishmentCoach = (station) => {
-  return station.embellishments?.includes(EMBELLISHMENT_COACH);
-};
-
-const stationHasEmbellishmentEurostar = (station) => {
-  return station.embellishments?.includes(EMBELLISHMENT_EUROSTAR);
-};
-
-const stationHasEmbellishmentRiver = (station) => {
-  return station.embellishments?.includes(EMBELLISHMENT_RIVER);
+const stationHasEmbellishmentInterchange = (station, serviceMode) => {
+  if (serviceMode === SERVICE_GROUP_RIVER_BUS) {
+    return station.embellishments?.interchanges?.some((interchange) => interchange.group === SERVICE_GROUP_RIVER_BUS);
+  }
+  const serviceGroupExtra = station.embellishments?.interchanges?.find((interchange) => interchange.group === SERVICE_GROUP_EXTRA);
+  if (!serviceGroupExtra) return false;
+  return serviceGroupExtra.lines.some((line) => line.mode === serviceMode);
 };
 
 const stationHasNationalRailInterchange = (station) => {
@@ -47,10 +35,7 @@ const stationIsAccessibleTrain = (station) => {
 };
 
 export {
-  stationHasEmbellishmentAirport,
-  stationHasEmbellishmentCoach,
-  stationHasEmbellishmentEurostar,
-  stationHasEmbellishmentRiver,
+  stationHasEmbellishmentInterchange,
   stationHasNationalRailInterchange,
   stationIsAccessible,
 };

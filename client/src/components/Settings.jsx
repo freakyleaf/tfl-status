@@ -8,6 +8,7 @@ import {
   SERVICE_GROUP_BUS,
   SERVICE_GROUP_CORE,
   SERVICE_GROUP_NATIONAL_RAIL,
+  SERVICE_GROUP_RIVER_BUS,
 } from '@constants/serviceGroups';
 
 import {
@@ -44,16 +45,23 @@ function Settings() {
     isFetching: isFetchingNationalRail,
   } = useFetchServicesQuery(SERVICE_GROUP_NATIONAL_RAIL);
 
-  if (errorBus || errorCore || errorNationalRail) {
+  const {
+    data: servicesRiverBus,
+    error: errorRiverBus,
+    isFetching: isFetchingRiverBus,
+  } = useFetchServicesQuery(SERVICE_GROUP_RIVER_BUS);
+
+  if (errorBus || errorCore || errorNationalRail || errorRiverBus) {
     throw new Error(contentHavingTroubleFetchingData);
   }
 
-  const isLoading = isFetchingBus || isFetchingCore || isFetchingNationalRail;
+  const isLoading = isFetchingBus || isFetchingCore || isFetchingNationalRail || isFetchingRiverBus;
 
   const services = {
     [SERVICE_GROUP_BUS]: servicesBus,
     [SERVICE_GROUP_CORE]: servicesCore,
     [SERVICE_GROUP_NATIONAL_RAIL]: servicesNationalRail,
+    [SERVICE_GROUP_RIVER_BUS]: servicesRiverBus,
   };
 
   return (

@@ -30,14 +30,20 @@ const createMaps = async({ data, id }) => {
 
         if (!station) console.error(`Station not found: ${stationId}`);
 
+        const stationEmbellishments = getStationEmbellishments({ topMostParentId });
         const stationName = cleanName(station.name);
 
         return {
           accessibility: getStationAccessibility({ id, naptanId, topMostParentId }),
-          embellishments: getStationEmbellishments({ topMostParentId }),
+          embellishments: stationEmbellishments,
           hasDisruptions: !!stopPointSequencesStation.hasDisruption,
           id: stringToKebabCase(stationName),
-          interchanges: getInterchanges({ id, lines: station.lines, modesById }),
+          interchanges: getInterchanges({
+            embellishments: stationEmbellishments?.interchanges || null,
+            id,
+            lines: station.lines,
+            modesById,
+          }),
           name: stationName,
           naptanId,
           topMostParentId,

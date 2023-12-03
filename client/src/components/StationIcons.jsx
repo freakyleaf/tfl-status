@@ -2,14 +2,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import {
-  stationHasEmbellishmentAirport,
-  stationHasEmbellishmentCoach,
-  stationHasEmbellishmentEurostar,
-  stationHasEmbellishmentRiver,
+  SERVICE_MODE_AEROPLANE,
+  SERVICE_MODE_COACH,
+  SERVICE_MODE_EUROSTAR,
+  SERVICE_MODE_RIVER_BUS,
+} from '@constants/serviceModes';
+
+import {
+  stationHasEmbellishmentInterchange,
   stationHasNationalRailInterchange,
 } from '@utils/getStationProperties';
 
-import StationIconAirport from '@components/icons/StationIconAirport';
+import StationIconAeroplane from '@components/icons/StationIconAeroplane';
 import StationIconCoach from '@components/icons/StationIconCoach';
 import StationIconEurostar from '@components/icons/StationIconEurostar';
 import StationIconNationalRail from '@components/icons/StationIconNationalRail';
@@ -33,10 +37,12 @@ function StationIcons(props) {
     const icons = [];
     if (station.hasDisruptions) icons.push(<StationIconWarning />);
     if (stationHasNationalRailInterchange(station)) icons.push(<StationIconNationalRail />);
-    if (stationHasEmbellishmentAirport(station)) icons.push(<StationIconAirport />);
-    if (stationHasEmbellishmentCoach(station)) icons.push(<StationIconCoach />);
-    if (stationHasEmbellishmentEurostar(station)) icons.push(<StationIconEurostar />);
-    if (stationHasEmbellishmentRiver(station)) icons.push(<StationIconRiver />);
+    if (station.embellishments?.interchanges) {
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_AEROPLANE)) icons.push(<StationIconAeroplane />);
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_COACH)) icons.push(<StationIconCoach />);
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_EUROSTAR)) icons.push(<StationIconEurostar />);
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_RIVER_BUS)) icons.push(<StationIconRiver />);
+    }
     return icons;
   };
 
