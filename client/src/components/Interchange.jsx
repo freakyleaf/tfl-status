@@ -8,6 +8,7 @@ import {
 
 import {
   VIEW_MODE_BUS,
+  VIEW_MODE_RIVER_BUS,
   VIEW_MODE_TUBE,
 } from '@constants/viewModes';
 
@@ -56,21 +57,25 @@ function Interchanges(props) {
                   className="interchange__link"
                   to={`${stationInterchange.path}/${PATH_SERVICE}/${line.id}`}
                 >
-                  <div className="interchange__text">
+                  <div className="interchange__text high-contrast-mode-text">
                     <span className="visually-hidden">
-                      View the
+                      Station interchange:
                     </span>
-                    <span className="interchange__text high-contrast-mode-text">
+                    <span className="interchange__text ">
                       {line.name}
                     </span>
                     <span className="visually-hidden">
+                      . View the {line.name}
                       {
                         line.mode === VIEW_MODE_TUBE && (<> line </>)
                       }
                       {
                         line.mode === VIEW_MODE_BUS && (<> bus </>)
                       }
-                      service page
+                      {
+                        line.mode === VIEW_MODE_RIVER_BUS && (<> river bus </>)
+                      }
+                      service page.
                     </span>
                     {
                       line.labels && line.labels.map((label) => (
@@ -78,6 +83,9 @@ function Interchanges(props) {
                           className="interchange__label"
                           key={label}
                         >
+                          <span className="visually-hidden">
+                            Interchange station name:
+                          </span>
                           {label}
                         </span>
                       ))
