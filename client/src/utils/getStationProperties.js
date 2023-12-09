@@ -4,10 +4,15 @@ import {
 } from '@constants/accessibility';
 
 import {
+  SERVICE_GROUP_BUS,
   SERVICE_GROUP_EXTRA,
   SERVICE_GROUP_NATIONAL_RAIL,
   SERVICE_GROUP_RIVER_BUS,
 } from '@constants/serviceGroups';
+
+const stationHasBusInterchange = (station) => {
+  return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_BUS);
+};
 
 const stationHasEmbellishmentInterchange = (station, serviceMode) => {
   if (serviceMode === SERVICE_GROUP_RIVER_BUS) {
@@ -35,6 +40,7 @@ const stationIsAccessibleTrain = (station) => {
 };
 
 export {
+  stationHasBusInterchange,
   stationHasEmbellishmentInterchange,
   stationHasNationalRailInterchange,
   stationIsAccessible,

@@ -9,15 +9,28 @@ import {
 } from '@constants/serviceModes';
 
 import {
+  SERVICE_NAME_AEROPLANE,
+  SERVICE_NAME_BUS,
+  SERVICE_NAME_COACH,
+  SERVICE_NAME_EUROSTAR,
+  SERVICE_NAME_NATIONAL_RAIL,
+  SERVICE_NAME_RIVER_BUS,
+} from '@constants/serviceNames';
+
+import getScreenReaderSpokenArray from '@utils/getScreenReaderSpokenArray';
+
+import {
+  stationHasBusInterchange,
   stationHasEmbellishmentInterchange,
   stationHasNationalRailInterchange,
 } from '@utils/getStationProperties';
 
 import StationIconAeroplane from '@components/icons/StationIconAeroplane';
+import StationIconBus from '@components/icons/StationIconBus';
 import StationIconCoach from '@components/icons/StationIconCoach';
 import StationIconEurostar from '@components/icons/StationIconEurostar';
 import StationIconNationalRail from '@components/icons/StationIconNationalRail';
-import StationIconRiver from '@components/icons/StationIconRiver';
+import StationIconBoat from '@components/icons/StationIconBoat';
 import StationIconWarning from '@components/icons/StationIconWarning';
 
 StationIcons.propTypes = {
@@ -30,20 +43,44 @@ function StationIcons(props) {
   } = props;
 
   const stationHasIcons = (station) => {
-    return !!stationIcons(station).length;
+    return !!stationIconInterchanges(station).icons.length;
   };
 
-  const stationIcons = (station) => {
+  const stationIconInterchanges = (station) => {
     const icons = [];
+    const text = [];
+
     if (station.hasDisruptions) icons.push(<StationIconWarning />);
-    if (stationHasNationalRailInterchange(station)) icons.push(<StationIconNationalRail />);
-    if (station.embellishments?.interchanges) {
-      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_AEROPLANE)) icons.push(<StationIconAeroplane />);
-      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_COACH)) icons.push(<StationIconCoach />);
-      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_EUROSTAR)) icons.push(<StationIconEurostar />);
-      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_RIVER_BUS)) icons.push(<StationIconRiver />);
+    if (stationHasNationalRailInterchange(station)) {
+      icons.push(<StationIconNationalRail />);
+      text.push(SERVICE_NAME_NATIONAL_RAIL);
     }
-    return icons;
+    if (stationHasBusInterchange(station)) {
+      icons.push(<StationIconBus />);
+      text.push(SERVICE_NAME_BUS);
+    }
+    if (station.embellishments?.interchanges) {
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_AEROPLANE)) {
+        icons.push(<StationIconAeroplane />);
+        text.push(SERVICE_NAME_AEROPLANE);
+      }
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_COACH)) {
+        icons.push(<StationIconCoach />);
+        text.push(SERVICE_NAME_COACH);
+      }
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_EUROSTAR)) {
+        icons.push(<StationIconEurostar />);
+        text.push(SERVICE_NAME_EUROSTAR);
+      }
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_RIVER_BUS)) {
+        icons.push(<StationIconBoat />);
+        text.push(SERVICE_NAME_RIVER_BUS);
+      }
+    }
+    return {
+      icons,
+      text,
+    };
   };
 
   return (
@@ -52,7 +89,7 @@ function StationIcons(props) {
         stationHasIcons(station) && (
           <div className="station-icons">
             <ul className="station-icons__list">
-              {stationIcons(station).map((icon, iconIndex) => (
+              {stationIconInterchanges(station).icons.map((icon, iconIndex) => (
                 <li
                   className="station-icons__list-item"
                   key={iconIndex}
@@ -61,6 +98,9 @@ function StationIcons(props) {
                 </li>
               ))}
             </ul>
+            <span className="visually-hidden">
+              This station has {getScreenReaderSpokenArray(stationIconInterchanges(station).text)} interchanges.
+            </span>
           </div>
         )
       }

@@ -272,6 +272,8 @@
 }
 
 .map__station-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
 
   &:active,

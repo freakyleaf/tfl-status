@@ -47,6 +47,7 @@ import {
   setCurrentMapRoute,
 } from '@stores/storeSliceSettings';
 
+import getScreenReaderLineName from '@utils/getScreenReaderLineName';
 import {
   stationHasEmbellishmentInterchange,
   stationHasNationalRailInterchange,
@@ -326,7 +327,12 @@ function Map(props) {
                                             . This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {screenReaderFriendlyZone(zone.zone.zones)}
                                             {
                                               stationIsAccessible(station) && (
-                                                <> and has step-free access from street to {station.accessibility}</>
+                                                <>. The {getScreenReaderLineName({ mode: service.mode, name: service.name })} has step-free access from street to {station.accessibility} at this station.</>
+                                              )
+                                            }
+                                            {
+                                              !stationIsAccessible(station) && (
+                                                <>. The {getScreenReaderLineName({ mode: service.mode, name: service.name })} does not have step-free access at this station.</>
                                               )
                                             }
                                           .</span>
@@ -342,6 +348,9 @@ function Map(props) {
                                               </span>
                                             )
                                           }
+                                          <StationIcons
+                                            station={station}
+                                          />
                                           {
                                             station.hasDisruptions && (
                                               <span className="visually-hidden">
@@ -350,9 +359,6 @@ function Map(props) {
                                             )
                                           }
                                         </Link>
-                                        <StationIcons
-                                          station={station}
-                                        />
                                       </div>
                                       <div className="map__interchanges">
                                         {

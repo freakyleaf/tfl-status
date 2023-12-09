@@ -1,9 +1,9 @@
 import React from 'react';
 
-function StationIconRiver() {
+function StationIconBoat() {
   return (
     <svg
-      className="station-icon station-icon--river"
+      className="station-icon station-icon--boat"
       height="16"
       viewBox="0 0 16 16"
       width="16"
@@ -17,4 +17,4 @@ function StationIconRiver() {
   );
 }
 
-export default StationIconRiver;
+export default StationIconBoat;

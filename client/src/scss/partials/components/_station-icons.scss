@@ -30,5 +30,10 @@
   .station__header & {
     width: $size-station-icon-station-header;
     height: auto;
+
+    &--bus {
+      width: auto;
+      height: $size-station-icon-station-header--bus;
+    }
   }
 }

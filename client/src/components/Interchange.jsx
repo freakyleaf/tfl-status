@@ -7,12 +7,11 @@ import {
 } from '@constants/paths';
 
 import {
-  VIEW_MODE_BUS,
-  VIEW_MODE_RIVER_BUS,
-  VIEW_MODE_TUBE,
-} from '@constants/viewModes';
+  SERVICE_GROUP_CORE,
+} from '@constants/serviceGroups';
 
 import getPretty from '@utils/getPretty';
+import getScreenReaderLineName from '@utils/getScreenReaderLineName';
 
 import StationIconAccessibility from '@components/icons/StationIconAccessibility';
 
@@ -27,10 +26,14 @@ function Interchanges(props) {
     stationInterchange,
   } = props;
 
+  const isMapInterchange = () => {
+    return typeof station.accessibility === 'string';
+  };
+
   const lineHasAccessibilityInterchanges = (lineId) => {
     if (!station.accessibility) return false;
     // String (used for maps)
-    if (typeof station.accessibility === 'string') return false; // We don't show step-free access for map interchanges
+    if (isMapInterchange()) return false; // We don't show step-free access for map interchanges
     // Array of services (used for individual stations)
     return station.accessibility.some((service) => service.id === lineId);
   };
@@ -65,17 +68,7 @@ function Interchanges(props) {
                       {line.name}
                     </span>
                     <span className="visually-hidden">
-                      . View the {line.name}
-                      {
-                        line.mode === VIEW_MODE_TUBE && (<> line </>)
-                      }
-                      {
-                        line.mode === VIEW_MODE_BUS && (<> bus </>)
-                      }
-                      {
-                        line.mode === VIEW_MODE_RIVER_BUS && (<> river bus </>)
-                      }
-                      service page.
+                      . View the {getScreenReaderLineName({ mode: line.mode, name: line.name })} service page.
                     </span>
                     {
                       line.labels && line.labels.map((label) => (
@@ -103,10 +96,20 @@ function Interchanges(props) {
                               <div className={`interchange__accessibility-icon interchange__accessibility-icon--${accessibilityInterchange}`}>
                                 <StationIconAccessibility />
                               </div>
+                              <span className="visually-hidden">
+                                The {getScreenReaderLineName({ mode: line.mode, name: line.name })} at {station.name} has step-free access from street to {accessibilityInterchange}.
+                              </span>
                             </li>
                           ))
                         }
                       </ul>
+                    )
+                  }
+                  {
+                    !lineHasAccessibilityInterchanges(line.id) && !isMapInterchange() && stationInterchange.group === SERVICE_GROUP_CORE && (
+                      <span className="visually-hidden">
+                        The {getScreenReaderLineName({ mode: line.mode, name: line.name })} at {station.name} does not have step-free access.
+                      </span>
                     )
                   }
                 </Link>
