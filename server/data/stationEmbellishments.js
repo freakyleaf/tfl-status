@@ -8,6 +8,7 @@ import {
 import {
   SERVICE_ID_AVANTI_WEST_COAST,
   SERVICE_ID_BAKERLOO,
+  SERVICE_ID_CENTRAL,
   SERVICE_ID_CIRCLE,
   SERVICE_ID_DISTRICT,
   SERVICE_ID_DLR,
@@ -33,6 +34,7 @@ import {
 import {
   SERVICE_MODE_AEROPLANE,
   SERVICE_MODE_COACH,
+  SERVICE_MODE_DLR,
   SERVICE_MODE_EUROSTAR,
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_OVERGROUND,
@@ -43,6 +45,7 @@ import {
 import {
   SERVICE_NAME_AVANTI_WEST_COAST,
   SERVICE_NAME_BAKERLOO,
+  SERVICE_NAME_CENTRAL,
   SERVICE_NAME_CIRCLE,
   SERVICE_NAME_DISTRICT,
   SERVICE_NAME_DLR,
@@ -64,6 +67,15 @@ import {
   SERVICE_NAME_WEST_MIDLANDS_TRAINS,
   SERVICE_NAME_WOOLWICH_FERRY,
 } from '../constants/serviceNames.js';
+
+import {
+  OSI_DISTANCE_BOW_CHURCH_DLR_BOW_ROAD_TUBE,
+  OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
+  OSI_DISTANCE_EUSTON_NATIONAL_RAIL_EUSTON_SQUARE_TUBE,
+  OSI_DISTANCE_EUSTON_LONDON_OVERGROUND_EUSTON_SQUARE_TUBE,
+  OSI_DISTANCE_TOWER_GATEWAY_DLR_TOWER_HILL_TUBE,
+  OSI_DISTANCE_WHITE_CITY_TUBE_WOOD_LANE_TUBE,
+} from './osiDistances.js';
 
 const stationEmbellishments = {
   stations: [
@@ -258,6 +270,63 @@ const stationEmbellishments = {
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_THAMESLINK,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      topMostParentId: '940GZZDLBOW', // Bow Church
+      embellishments: {
+        interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_DISTRICT,
+                labels: [
+                  {
+                    text: 'Bow Road',
+                    distance: OSI_DISTANCE_BOW_CHURCH_DLR_BOW_ROAD_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_DISTRICT,
+              },
+              {
+                id: SERVICE_ID_HAMMERSMITH_CITY,
+                labels: [
+                  {
+                    text: 'Bow Road',
+                    distance: OSI_DISTANCE_BOW_CHURCH_DLR_BOW_ROAD_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_HAMMERSMITH_CITY,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      topMostParentId: '940GZZLUBWR', // Bow Road
+      embellishments: {
+        interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_DLR,
+                labels: [
+                  {
+                    text: 'Bow Church',
+                    distance: OSI_DISTANCE_BOW_CHURCH_DLR_BOW_ROAD_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_DLR,
+                name: SERVICE_NAME_DLR,
               },
             ],
           },
@@ -528,7 +597,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston Square',
-                    distance: 320,
+                    distance: OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_TUBE,
@@ -539,7 +608,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston Square',
-                    distance: 320,
+                    distance: OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_TUBE,
@@ -550,7 +619,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston Square',
-                    distance: 320,
+                    distance: OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_TUBE,
@@ -573,7 +642,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston',
-                    distance: 320,
+                    distance: OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_TUBE,
@@ -584,7 +653,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston',
-                    distance: 320,
+                    distance: OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_TUBE,
@@ -595,7 +664,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston',
-                    distance: 350,
+                    distance: OSI_DISTANCE_EUSTON_LONDON_OVERGROUND_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_OVERGROUND,
@@ -611,7 +680,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston',
-                    distance: 350,
+                    distance: OSI_DISTANCE_EUSTON_NATIONAL_RAIL_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
@@ -622,7 +691,7 @@ const stationEmbellishments = {
                 labels: [
                   {
                     text: 'Euston',
-                    distance: 350,
+                    distance: OSI_DISTANCE_EUSTON_NATIONAL_RAIL_EUSTON_SQUARE_TUBE,
                   },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
@@ -1223,6 +1292,33 @@ const stationEmbellishments = {
       embellishments: {
         interchanges: [
           {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_CIRCLE,
+                labels: [
+                  {
+                    text: 'Tower Hill',
+                    distance: OSI_DISTANCE_TOWER_GATEWAY_DLR_TOWER_HILL_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_CIRCLE,
+              },
+              {
+                id: SERVICE_ID_DISTRICT,
+                labels: [
+                  {
+                    text: 'Tower Hill',
+                    distance: OSI_DISTANCE_TOWER_GATEWAY_DLR_TOWER_HILL_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_DISTRICT,
+              },
+            ],
+          },
+          {
             group: SERVICE_GROUP_RIVER_BUS,
             lines: [
               {
@@ -1264,6 +1360,22 @@ const stationEmbellishments = {
       topMostParentId: '940GZZLUTWH', // Tower Hill
       embellishments: {
         interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_DLR,
+                labels: [
+                  {
+                    text: 'Tower Gateway',
+                    distance: OSI_DISTANCE_TOWER_GATEWAY_DLR_TOWER_HILL_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_DLR,
+                name: SERVICE_NAME_DLR,
+              },
+            ],
+          },
           {
             group: SERVICE_GROUP_RIVER_BUS,
             lines: [
@@ -1580,6 +1692,63 @@ const stationEmbellishments = {
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_JUBILEE,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      topMostParentId: '940GZZLUWCY', // White City
+      embellishments: {
+        interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_CIRCLE,
+                labels: [
+                  {
+                    text: 'Wood Lane',
+                    distance: OSI_DISTANCE_WHITE_CITY_TUBE_WOOD_LANE_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_CIRCLE,
+              },
+              {
+                id: SERVICE_ID_HAMMERSMITH_CITY,
+                labels: [
+                  {
+                    text: 'Wood Lane',
+                    distance: OSI_DISTANCE_WHITE_CITY_TUBE_WOOD_LANE_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_HAMMERSMITH_CITY,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      topMostParentId: '940GZZLUWLA', // Wood Lane
+      embellishments: {
+        interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_CENTRAL,
+                labels: [
+                  {
+                    text: 'White City',
+                    distance: OSI_DISTANCE_WHITE_CITY_TUBE_WOOD_LANE_TUBE,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_CENTRAL,
               },
             ],
           },

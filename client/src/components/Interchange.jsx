@@ -87,7 +87,7 @@ function Interchanges(props) {
                           {
                             label.distance && (
                               <>
-                                <span className="visually-hidden">, </span>
+                                <span className="visually-hidden">, about </span>
                                 {` ${label.distance.toString()}`}
                                 <span aria-hidden="true">m</span>
                                 <span className="visually-hidden"> metres away.</span>
