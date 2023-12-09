@@ -173,6 +173,10 @@ function Map(props) {
     return classes.join(' ');
   };
 
+  const screenReaderFriendlyZone = (zone) => {
+    return zone.replace('/', ' slash ');
+  };
+
   const stationIsSuspendedFull = (station) => {
     return station.currentStationSuspendedFull || station.nextStationSuspendedFull || station.previousStationSuspendedFull;
   };
@@ -319,7 +323,7 @@ function Map(props) {
                                           <span className="visually-hidden">{getStationNumber(station.name)}</span>
                                           <span id={`station-${station.id}`}>{station.name}</span>
                                           <span className="visually-hidden">
-                                            . This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {zone.zone.zones}
+                                            . This station is in fare {zone.zone.multiple ? 'zones' : 'zone'} {screenReaderFriendlyZone(zone.zone.zones)}
                                             {
                                               stationIsAccessible(station) && (
                                                 <> and has step-free access from street to {station.accessibility}</>
