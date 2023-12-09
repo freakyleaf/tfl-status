@@ -27,14 +27,18 @@ function Interchanges(props) {
   } = props;
 
   const isMapInterchange = () => {
+    // Maps use a string
     return typeof station.accessibility === 'string';
+  };
+
+  const lineDoesNotHaveAccessibilityInterchanges = ({ line, stationInterchange }) => {
+    return !lineHasAccessibilityInterchanges(line.id) && !isMapInterchange() && !stationInterchange.isEmbellishment && stationInterchange.group === SERVICE_GROUP_CORE;
   };
 
   const lineHasAccessibilityInterchanges = (lineId) => {
     if (!station.accessibility) return false;
-    // String (used for maps)
     if (isMapInterchange()) return false; // We don't show step-free access for map interchanges
-    // Array of services (used for individual stations)
+    // Individual services use an array
     return station.accessibility.some((service) => service.id === lineId);
   };
 
@@ -74,12 +78,22 @@ function Interchanges(props) {
                       line.labels && line.labels.map((label) => (
                         <span
                           className="interchange__label"
-                          key={label}
+                          key={label.text}
                         >
                           <span className="visually-hidden">
                             Interchange station name:
                           </span>
-                          {label}
+                          {label.text}
+                          {
+                            label.distance && (
+                              <>
+                                <span className="visually-hidden">, </span>
+                                {` ${label.distance.toString()}`}
+                                <span aria-hidden="true">m</span>
+                                <span className="visually-hidden"> metres away.</span>
+                              </>
+                            )
+                          }
                         </span>
                       ))
                     }
@@ -106,7 +120,7 @@ function Interchanges(props) {
                     )
                   }
                   {
-                    !lineHasAccessibilityInterchanges(line.id) && !isMapInterchange() && stationInterchange.group === SERVICE_GROUP_CORE && (
+                    lineDoesNotHaveAccessibilityInterchanges({ line, stationInterchange }) && (
                       <span className="visually-hidden">
                         The {getScreenReaderLineName({ mode: line.mode, name: line.name })} at {station.name} does not have step-free access.
                       </span>

@@ -24,7 +24,8 @@ const stationHasEmbellishmentInterchange = (station, serviceMode) => {
 };
 
 const stationHasNationalRailInterchange = (station) => {
-  return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_NATIONAL_RAIL);
+  // `!interchange.isEmbellishment` prevents stations from incorrectly showing a National Rail interchange
+  return station.interchanges.some((interchange) => interchange.group === SERVICE_GROUP_NATIONAL_RAIL && !interchange.isEmbellishment);
 };
 
 const stationIsAccessible = (station) => {

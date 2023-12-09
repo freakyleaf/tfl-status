@@ -30,10 +30,10 @@ function Interchanges(props) {
         className="interchanges__list"
       >
         {
-          stationInterchanges.map((stationInterchange) => (
+          stationInterchanges.map((stationInterchange, index) => (
             <li
               className={`interchanges__list-item interchanges__list-item--${stationInterchange.group}`}
-              key={stationInterchange.group}
+              key={`${stationInterchange.group}-${index}`}
             >
               <Interchange
                 station={station}

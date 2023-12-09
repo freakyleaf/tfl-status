@@ -1,3 +1,4 @@
+export const SERVICE_NAME_AVANTI_WEST_COAST = 'Avanti West Coast';
 export const SERVICE_NAME_BAKERLOO = 'Bakerloo';
 export const SERVICE_NAME_BUS = 'Bus';
 export const SERVICE_NAME_CENTRAL = 'Central';
@@ -23,4 +24,5 @@ export const SERVICE_NAME_THAMESLINK = 'Thameslink';
 export const SERVICE_NAME_TRAM = 'Tram';
 export const SERVICE_NAME_VICTORIA = 'Victoria';
 export const SERVICE_NAME_WATERLOO_CITY = 'Waterloo & City';
+export const SERVICE_NAME_WEST_MIDLANDS_TRAINS = 'West Midlands Trains';
 export const SERVICE_NAME_WOOLWICH_FERRY = 'Woolwich Ferry';

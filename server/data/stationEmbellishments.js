@@ -6,13 +6,16 @@ import {
 } from '../constants/serviceGroups.js';
 
 import {
+  SERVICE_ID_AVANTI_WEST_COAST,
   SERVICE_ID_BAKERLOO,
   SERVICE_ID_CIRCLE,
   SERVICE_ID_DISTRICT,
   SERVICE_ID_DLR,
   SERVICE_ID_ELIZABETH,
+  SERVICE_ID_HAMMERSMITH_CITY,
   SERVICE_ID_JUBILEE,
   SERVICE_ID_LONDON_OVERGROUND,
+  SERVICE_ID_METROPOLITAN,
   SERVICE_ID_NORTHERN,
   SERVICE_ID_RIVER_BUS_1,
   SERVICE_ID_RIVER_BUS_2,
@@ -23,6 +26,7 @@ import {
   SERVICE_ID_SOUTHERN,
   SERVICE_ID_THAMESLINK,
   SERVICE_ID_VICTORIA,
+  SERVICE_ID_WEST_MIDLANDS_TRAINS,
   SERVICE_ID_WOOLWICH_FERRY,
 } from '../constants/serviceIds.js';
 
@@ -37,13 +41,16 @@ import {
 } from '../constants/serviceModes.js';
 
 import {
+  SERVICE_NAME_AVANTI_WEST_COAST,
   SERVICE_NAME_BAKERLOO,
   SERVICE_NAME_CIRCLE,
   SERVICE_NAME_DISTRICT,
   SERVICE_NAME_DLR,
   SERVICE_NAME_ELIZABETH,
+  SERVICE_NAME_HAMMERSMITH_CITY,
   SERVICE_NAME_JUBILEE,
   SERVICE_NAME_LONDON_OVERGROUND,
+  SERVICE_NAME_METROPOLITAN,
   SERVICE_NAME_NORTHERN,
   SERVICE_NAME_RIVER_BUS_1,
   SERVICE_NAME_RIVER_BUS_2,
@@ -54,6 +61,7 @@ import {
   SERVICE_NAME_SOUTHERN,
   SERVICE_NAME_THAMESLINK,
   SERVICE_NAME_VICTORIA,
+  SERVICE_NAME_WEST_MIDLANDS_TRAINS,
   SERVICE_NAME_WOOLWICH_FERRY,
 } from '../constants/serviceNames.js';
 
@@ -69,7 +77,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Barking Riverside Pier',
+                  {
+                    text: 'Barking Riverside Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -89,7 +99,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_LONDON_OVERGROUND,
                 labels: [
-                  'Barking Riverside',
+                  {
+                    text: 'Barking Riverside',
+                  },
                 ],
                 mode: SERVICE_MODE_OVERGROUND,
                 name: SERVICE_NAME_LONDON_OVERGROUND,
@@ -109,7 +121,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Battersea Power Station Pier',
+                  {
+                    text: 'Battersea Power Station Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -117,7 +131,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Battersea Power Station Pier',
+                  {
+                    text: 'Battersea Power Station Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -125,7 +141,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Battersea Power Station Pier',
+                  {
+                    text: 'Battersea Power Station Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -145,7 +163,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_NORTHERN,
                 labels: [
-                  'Battersea Power Station',
+                  {
+                    text: 'Battersea Power Station',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_NORTHERN,
@@ -165,7 +185,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Blackfriars Pier',
+                  {
+                    text: 'Blackfriars Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -173,7 +195,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Blackfriars Pier',
+                  {
+                    text: 'Blackfriars Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -193,7 +217,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_CIRCLE,
                 labels: [
-                  'Blackfriars',
+                  {
+                    text: 'Blackfriars',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_CIRCLE,
@@ -201,7 +227,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DISTRICT,
                 labels: [
-                  'Blackfriars',
+                  {
+                    text: 'Blackfriars',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DISTRICT,
@@ -214,7 +242,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_SOUTHEASTERN,
                 labels: [
-                  'Blackfriars',
+                  {
+                    text: 'Blackfriars',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_SOUTHEASTERN,
@@ -222,7 +252,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_THAMESLINK,
                 labels: [
-                  'Blackfriars',
+                  {
+                    text: 'Blackfriars',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_THAMESLINK,
@@ -242,7 +274,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Canary Wharf Pier',
+                  {
+                    text: 'Canary Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -250,7 +284,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Canary Wharf Pier',
+                  {
+                    text: 'Canary Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -258,7 +294,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_4,
                 labels: [
-                  'Canary Wharf Pier',
+                  {
+                    text: 'Canary Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_4,
@@ -266,7 +304,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Canary Wharf Pier',
+                  {
+                    text: 'Canary Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -286,7 +326,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_JUBILEE,
                 labels: [
-                  'Canary Wharf',
+                  {
+                    text: 'Canary Wharf',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_JUBILEE,
@@ -294,7 +336,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_ELIZABETH,
                 labels: [
-                  'Canary Wharf',
+                  {
+                    text: 'Canary Wharf',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_ELIZABETH,
@@ -302,7 +346,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'Canary Wharf',
+                  {
+                    text: 'Canary Wharf',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,
@@ -322,7 +368,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_LONDON_OVERGROUND,
                 labels: [
-                  'Imperial Wharf',
+                  {
+                    text: 'Imperial Wharf',
+                  },
                 ],
                 mode: SERVICE_MODE_OVERGROUND,
                 name: SERVICE_NAME_LONDON_OVERGROUND,
@@ -342,7 +390,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Greenwich Pier',
+                  {
+                    text: 'Greenwich Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -350,7 +400,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Greenwich Pier',
+                  {
+                    text: 'Greenwich Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -358,7 +410,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Greenwich Pier',
+                  {
+                    text: 'Greenwich Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -378,7 +432,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Embankment Pier',
+                  {
+                    text: 'Embankment Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -386,7 +442,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Embankment Pier',
+                  {
+                    text: 'Embankment Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -394,7 +452,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Embankment Pier',
+                  {
+                    text: 'Embankment Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -414,7 +474,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_BAKERLOO,
                 labels: [
-                  'Embankment',
+                  {
+                    text: 'Embankment',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_BAKERLOO,
@@ -422,7 +484,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_CIRCLE,
                 labels: [
-                  'Embankment',
+                  {
+                    text: 'Embankment',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_CIRCLE,
@@ -430,7 +494,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DISTRICT,
                 labels: [
-                  'Embankment',
+                  {
+                    text: 'Embankment',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DISTRICT,
@@ -438,10 +504,129 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_NORTHERN,
                 labels: [
-                  'Embankment',
+                  {
+                    text: 'Embankment',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_NORTHERN,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      topMostParentId: 'HUBEUS', // Euston
+      embellishments: {
+        interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_CIRCLE,
+                labels: [
+                  {
+                    text: 'Euston Square',
+                    distance: 320,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_CIRCLE,
+              },
+              {
+                id: SERVICE_ID_HAMMERSMITH_CITY,
+                labels: [
+                  {
+                    text: 'Euston Square',
+                    distance: 320,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_HAMMERSMITH_CITY,
+              },
+              {
+                id: SERVICE_ID_METROPOLITAN,
+                labels: [
+                  {
+                    text: 'Euston Square',
+                    distance: 320,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_METROPOLITAN,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      topMostParentId: '940GZZLUESQ', // Euston Square
+      embellishments: {
+        interchanges: [
+          {
+            group: SERVICE_GROUP_CORE,
+            lines: [
+              {
+                id: SERVICE_ID_NORTHERN,
+                labels: [
+                  {
+                    text: 'Euston',
+                    distance: 320,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_NORTHERN,
+              },
+              {
+                id: SERVICE_ID_VICTORIA,
+                labels: [
+                  {
+                    text: 'Euston',
+                    distance: 320,
+                  },
+                ],
+                mode: SERVICE_MODE_TUBE,
+                name: SERVICE_NAME_VICTORIA,
+              },
+              {
+                id: SERVICE_ID_LONDON_OVERGROUND,
+                labels: [
+                  {
+                    text: 'Euston',
+                    distance: 350,
+                  },
+                ],
+                mode: SERVICE_MODE_OVERGROUND,
+                name: SERVICE_NAME_LONDON_OVERGROUND,
+              },
+            ],
+          },
+          {
+            group: SERVICE_GROUP_NATIONAL_RAIL,
+            lines: [
+              {
+                id: SERVICE_ID_AVANTI_WEST_COAST,
+                labels: [
+                  {
+                    text: 'Euston',
+                    distance: 350,
+                  },
+                ],
+                mode: SERVICE_MODE_NATIONAL_RAIL,
+                name: SERVICE_NAME_AVANTI_WEST_COAST,
+              },
+              {
+                id: SERVICE_ID_WEST_MIDLANDS_TRAINS,
+                labels: [
+                  {
+                    text: 'Euston',
+                    distance: 350,
+                  },
+                ],
+                mode: SERVICE_MODE_NATIONAL_RAIL,
+                name: SERVICE_NAME_WEST_MIDLANDS_TRAINS,
               },
             ],
           },
@@ -458,7 +643,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'Cutty Sark',
+                  {
+                    text: 'Cutty Sark',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,
@@ -523,7 +710,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Chelsea Harbour Pier',
+                  {
+                    text: 'Chelsea Harbour Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -531,7 +720,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Chelsea Harbour Pier',
+                  {
+                    text: 'Chelsea Harbour Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -551,7 +742,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_WOOLWICH_FERRY,
                 labels: [
-                  'Woolwich Ferry North Pier',
+                  {
+                    text: 'Woolwich Ferry North Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_WOOLWICH_FERRY,
@@ -586,7 +779,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'London Bridge City Pier',
+                  {
+                    text: 'London Bridge City Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -594,7 +789,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'London Bridge City Pier',
+                  {
+                    text: 'London Bridge City Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -602,7 +799,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'London Bridge City Pier',
+                  {
+                    text: 'London Bridge City Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -622,7 +821,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_JUBILEE,
                 labels: [
-                  'London Bridge',
+                  {
+                    text: 'London Bridge',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_JUBILEE,
@@ -630,7 +831,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_NORTHERN,
                 labels: [
-                  'London Bridge',
+                  {
+                    text: 'London Bridge',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_NORTHERN,
@@ -643,7 +846,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_SOUTHEASTERN,
                 labels: [
-                  'London Bridge',
+                  {
+                    text: 'London Bridge',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_SOUTHEASTERN,
@@ -651,7 +856,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_SOUTHERN,
                 labels: [
-                  'London Bridge',
+                  {
+                    text: 'London Bridge',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_SOUTHERN,
@@ -659,7 +866,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_THAMESLINK,
                 labels: [
-                  'London Bridge',
+                  {
+                    text: 'London Bridge',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_THAMESLINK,
@@ -694,7 +903,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'Mudchute',
+                  {
+                    text: 'Mudchute',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,
@@ -714,7 +925,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_VICTORIA,
                 labels: [
-                  'Pimlico',
+                  {
+                    text: 'Pimlico',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_VICTORIA,
@@ -734,7 +947,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Masthouse Terrace Pier',
+                  {
+                    text: 'Masthouse Terrace Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -742,7 +957,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Masthouse Terrace Pier',
+                  {
+                    text: 'Masthouse Terrace Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -750,7 +967,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Masthouse Terrace Pier',
+                  {
+                    text: 'Masthouse Terrace Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -770,7 +989,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'North Greenwich Pier',
+                  {
+                    text: 'North Greenwich Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -778,7 +999,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'North Greenwich Pier',
+                  {
+                    text: 'North Greenwich Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -786,7 +1009,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'North Greenwich Pier',
+                  {
+                    text: 'North Greenwich Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -806,7 +1031,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_JUBILEE,
                 labels: [
-                  'North Greenwich',
+                  {
+                    text: 'North Greenwich',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_JUBILEE,
@@ -826,7 +1053,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Millbank Pier',
+                  {
+                    text: 'Millbank Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -834,7 +1063,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Millbank Pier',
+                  {
+                    text: 'Millbank Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -842,7 +1073,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Millbank Pier',
+                  {
+                    text: 'Millbank Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -862,7 +1095,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Royal Wharf Pier',
+                  {
+                    text: 'Royal Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -870,7 +1105,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Royal Wharf Pier',
+                  {
+                    text: 'Royal Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -878,7 +1115,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Royal Wharf Pier',
+                  {
+                    text: 'Royal Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -898,7 +1137,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Putney Pier',
+                  {
+                    text: 'Putney Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -906,7 +1147,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Putney Pier',
+                  {
+                    text: 'Putney Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -926,7 +1169,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DISTRICT,
                 labels: [
-                  'Putney Bridge',
+                  {
+                    text: 'Putney Bridge',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DISTRICT,
@@ -946,7 +1191,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'Pontoon Dock',
+                  {
+                    text: 'Pontoon Dock',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,
@@ -981,7 +1228,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Tower Pier',
+                  {
+                    text: 'Tower Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -989,7 +1238,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Tower Pier',
+                  {
+                    text: 'Tower Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -997,7 +1248,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Tower Pier',
+                  {
+                    text: 'Tower Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -1017,7 +1270,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Tower Pier',
+                  {
+                    text: 'Tower Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -1025,7 +1280,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Tower Pier',
+                  {
+                    text: 'Tower Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -1033,7 +1290,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Tower Pier',
+                  {
+                    text: 'Tower Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -1053,7 +1312,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_CIRCLE,
                 labels: [
-                  'Tower Hill',
+                  {
+                    text: 'Tower Hill',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_CIRCLE,
@@ -1061,7 +1322,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DISTRICT,
                 labels: [
-                  'Tower Hill',
+                  {
+                    text: 'Tower Hill',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DISTRICT,
@@ -1069,7 +1332,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'Tower Gateway',
+                  {
+                    text: 'Tower Gateway',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,
@@ -1089,7 +1354,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Vauxhall St George Wharf Pier',
+                  {
+                    text: 'Vauxhall St George Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -1097,7 +1364,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Vauxhall St George Wharf Pier',
+                  {
+                    text: 'Vauxhall St George Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -1105,7 +1374,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Vauxhall St George Wharf Pier',
+                  {
+                    text: 'Vauxhall St George Wharf Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -1125,7 +1396,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_VICTORIA,
                 labels: [
-                  'Vauxhall',
+                  {
+                    text: 'Vauxhall',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_VICTORIA,
@@ -1160,7 +1433,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'London Eye Waterloo Pier',
+                  {
+                    text: 'London Eye Waterloo Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -1180,7 +1455,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_BAKERLOO,
                 labels: [
-                  'Waterloo',
+                  {
+                    text: 'Waterloo',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_BAKERLOO,
@@ -1188,7 +1465,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_NORTHERN,
                 labels: [
-                  'Waterloo',
+                  {
+                    text: 'Waterloo',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_NORTHERN,
@@ -1196,7 +1475,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_JUBILEE,
                 labels: [
-                  'Waterloo',
+                  {
+                    text: 'Waterloo',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_JUBILEE,
@@ -1209,7 +1490,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_SOUTH_WESTERN_RAILWAY,
                 labels: [
-                  'Waterloo',
+                  {
+                    text: 'Waterloo',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_SOUTH_WESTERN_RAILWAY,
@@ -1229,7 +1512,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Westminster Pier',
+                  {
+                    text: 'Westminster Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -1237,7 +1522,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Westminster Pier',
+                  {
+                    text: 'Westminster Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -1245,7 +1532,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Westminster Pier',
+                  {
+                    text: 'Westminster Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -1265,7 +1554,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_CIRCLE,
                 labels: [
-                  'Westminster',
+                  {
+                    text: 'Westminster',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_CIRCLE,
@@ -1273,7 +1564,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DISTRICT,
                 labels: [
-                  'Westminster',
+                  {
+                    text: 'Westminster',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DISTRICT,
@@ -1281,7 +1574,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_JUBILEE,
                 labels: [
-                  'Westminster',
+                  {
+                    text: 'Westminster',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_JUBILEE,
@@ -1301,7 +1596,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_1,
                 labels: [
-                  'Woolwich Arsenal Pier',
+                  {
+                    text: 'Woolwich Arsenal Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_1,
@@ -1309,7 +1606,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_2,
                 labels: [
-                  'Woolwich Arsenal Pier',
+                  {
+                    text: 'Woolwich Arsenal Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_2,
@@ -1317,7 +1616,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_RIVER_BUS_6,
                 labels: [
-                  'Woolwich Arsenal Pier',
+                  {
+                    text: 'Woolwich Arsenal Pier',
+                  },
                 ],
                 mode: SERVICE_MODE_RIVER_BUS,
                 name: SERVICE_NAME_RIVER_BUS_6,
@@ -1337,7 +1638,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'Woolwich Arsenal',
+                  {
+                    text: 'Woolwich Arsenal',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,
@@ -1350,7 +1653,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_SOUTHEASTERN,
                 labels: [
-                  'Woolwich Arsenal',
+                  {
+                    text: 'Woolwich Arsenal',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_SOUTHEASTERN,
@@ -1358,7 +1663,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_THAMESLINK,
                 labels: [
-                  'Woolwich Arsenal',
+                  {
+                    text: 'Woolwich Arsenal',
+                  },
                 ],
                 mode: SERVICE_MODE_NATIONAL_RAIL,
                 name: SERVICE_NAME_THAMESLINK,
@@ -1378,7 +1685,9 @@ const stationEmbellishments = {
               {
                 id: SERVICE_ID_DLR,
                 labels: [
-                  'King George V',
+                  {
+                    text: 'King George V',
+                  },
                 ],
                 mode: SERVICE_MODE_TUBE,
                 name: SERVICE_NAME_DLR,

@@ -1,3 +1,4 @@
+export const SERVICE_ID_AVANTI_WEST_COAST = 'avanti-west-coast';
 export const SERVICE_ID_BAKERLOO = 'bakerloo';
 export const SERVICE_ID_BUS = 'bus';
 export const SERVICE_ID_CABLE_CAR = 'london-cable-car';
@@ -25,6 +26,7 @@ export const SERVICE_ID_THAMESLINK = 'thameslink';
 export const SERVICE_ID_TRAM = 'tram';
 export const SERVICE_ID_VICTORIA = 'victoria';
 export const SERVICE_ID_WATERLOO_CITY = 'waterloo-city';
+export const SERVICE_ID_WEST_MIDLANDS_TRAINS = 'west-midlands-trains';
 export const SERVICE_ID_WOOLWICH_FERRY = 'woolwich-ferry';
 
 export const busServiceIds = [

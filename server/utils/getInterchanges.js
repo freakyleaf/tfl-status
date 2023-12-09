@@ -49,6 +49,7 @@ const getInterchanges = ({
 
   if (embellishments) {
     embellishments.forEach((embellishment) => {
+      embellishment.isEmbellishment = true;
       output.push(embellishment);
     });
   }
