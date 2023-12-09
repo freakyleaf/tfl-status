@@ -1,6 +1,6 @@
 const { PUBLIC_ENV } = import.meta.env;
 
-import { configureStore } from '@reduxjs/toolkit/';
+import { configureStore } from '@reduxjs/toolkit';
 
 import { mapsApi } from '@api/mapsApi';
 import { servicesApi } from '@api/servicesApi';
