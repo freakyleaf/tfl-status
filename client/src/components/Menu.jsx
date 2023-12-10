@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 
+import { PATH_ABOUT } from '@constants/paths';
 import serviceGroups from '@constants/serviceGroups';
 
 function Menu() {
@@ -25,6 +26,19 @@ function Menu() {
             </li>
           ))
         }
+      </ul>
+      <h2 className="menu__heading mt-global">
+        Other
+      </h2>
+      <ul className="menu__list">
+        <li className="menu__list-item">
+          <NavLink
+            className="menu__link"
+            to={PATH_ABOUT}
+          >
+            About
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

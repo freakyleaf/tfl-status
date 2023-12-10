@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import {
+  PATH_ABOUT,
   PATH_BUS,
   PATH_CORE,
   PATH_NATIONAL_RAIL,
@@ -54,6 +55,7 @@ import {
 
 import Layout from '@layouts/Layout';
 
+import ViewAbout from '@views/ViewAbout';
 import ViewErrorPageNotFound from '@views/ViewErrorPageNotFound';
 import ViewErrorService from '@views/ViewErrorService';
 import ViewPinned from '@views/ViewPinned';
@@ -259,6 +261,12 @@ const router = createBrowserRouter(
           />
         }
         path={`/${PATH_STATION}/:id`}
+      />
+      <Route
+        element={
+          <ViewAbout />
+        }
+        path={`/${PATH_ABOUT}`}
       />
       <Route
         path='*'
