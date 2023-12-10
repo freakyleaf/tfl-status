@@ -1,12 +1,15 @@
 export const SERVICE_ID_AVANTI_WEST_COAST = 'avanti-west-coast';
 export const SERVICE_ID_BAKERLOO = 'bakerloo';
 export const SERVICE_ID_BUS = 'bus';
+export const SERVICE_ID_C2C = 'c2c';
 export const SERVICE_ID_CABLE_CAR = 'london-cable-car';
 export const SERVICE_ID_CENTRAL = 'central';
+export const SERVICE_ID_CHILTERN_RAILWAYS = 'chiltern-railways';
 export const SERVICE_ID_CIRCLE = 'circle';
 export const SERVICE_ID_DISTRICT = 'district';
 export const SERVICE_ID_DLR = 'dlr';
 export const SERVICE_ID_ELIZABETH = 'elizabeth';
+export const SERVICE_ID_GREAT_NORTHERN = 'great-northern';
 export const SERVICE_ID_HAMMERSMITH_CITY = 'hammersmith-city';
 export const SERVICE_ID_JUBILEE = 'jubilee';
 export const SERVICE_ID_LONDON_OVERGROUND = 'london-overground';

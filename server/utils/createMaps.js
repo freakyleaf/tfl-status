@@ -6,6 +6,16 @@ import getStationEmbellishments from './getStationEmbellishments.js';
 import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
+const interchangesEmbellishments = ({ id, stationEmbellishments }) => {
+  if (!stationEmbellishments?.interchanges) return null;
+  return stationEmbellishments.interchanges.map((interchange) => {
+    return {
+      group: interchange.group,
+      lines: interchange.lines.filter((line) => !line.ignoreLineIds?.includes(id)),
+    };
+  });
+};
+
 const createMaps = async({ data, id }) => {
   const {
     mode,
@@ -39,7 +49,7 @@ const createMaps = async({ data, id }) => {
           hasDisruptions: !!stopPointSequencesStation.hasDisruption,
           id: stringToKebabCase(stationName),
           interchanges: getInterchanges({
-            embellishments: stationEmbellishments?.interchanges || null,
+            embellishments: interchangesEmbellishments({ id, stationEmbellishments }),
             id,
             lines: station.lines,
             modesById,
