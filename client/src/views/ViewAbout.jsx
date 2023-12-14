@@ -49,6 +49,14 @@ function ViewAbout() {
             </a> - helped make sense of inconsistent and incorrect TfL River Bus data.
           </li>
         </ul>
+        <h2 className="mt-global">Source Code</h2>
+        <p>The source code for this application is freely available at <a
+          href="https://github.com/freakyleaf/tfl-status"
+          rel="noreferrer"
+          target="_blank"
+        >
+          https://github.com/freakyleaf/tfl-status
+        </a>. Any ideas for useful additions or improvements gratefully received.</p>
       </PageMain>
     </div>
   );
