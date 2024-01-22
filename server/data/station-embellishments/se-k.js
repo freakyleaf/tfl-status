@@ -10,6 +10,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_EUROSTAR,
   SERVICE_MODE_RIVER_BUS,
   SERVICE_MODE_TUBE,
@@ -77,6 +78,17 @@ const stationEmbellishments = [
         {
           group: SERVICE_GROUP_EXTRA,
           lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+                {
+                  text: 'Trains to Luton Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
             {
               mode: SERVICE_MODE_EUROSTAR,
             },

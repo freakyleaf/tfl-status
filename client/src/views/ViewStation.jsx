@@ -12,6 +12,10 @@ import {
 } from '@constants/serviceGroups';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
+} from '@constants/serviceModes';
+
+import {
   contentHavingTroubleFetchingData,
   contentNoInformationAvailable,
 } from '@constants/text';
@@ -74,7 +78,19 @@ function ViewStation(props) {
   const nothingToDisplay = !hasContact && !hasFacilities && !hasZone;
 
   const stationInterchanges = (station) => {
-    return station.interchanges.filter((interchange) => interchange.group !== SERVICE_GROUP_EXTRA);
+    return station.interchanges.map((interchange) => {
+      // We only want to return `SERVICE_MODE_AIRPORT_CONNECTION` in `SERVICE_GROUP_EXTRA` if it exists
+      if (interchange.group === SERVICE_GROUP_EXTRA) {
+        const airportConnection = interchange.lines.find((line) => line.mode === SERVICE_MODE_AIRPORT_CONNECTION);
+        if (airportConnection) {
+          return {
+            ...interchange,
+            lines: [ airportConnection ],
+          };
+        }
+      }
+      return interchange;
+    });
   };
 
   return (

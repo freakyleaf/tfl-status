@@ -12,6 +12,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_COACH,
   SERVICE_MODE_RIVER_BUS,
   SERVICE_MODE_TUBE,
@@ -93,6 +94,19 @@ const stationEmbellishments = [
     topMostParentId: 'HUBVIC', // Victoria
     embellishments: {
       interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
         {
           group: SERVICE_GROUP_EXTRA,
           lines: [

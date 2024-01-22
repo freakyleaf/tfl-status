@@ -1,6 +1,7 @@
 import a from './station-embellishments/se-a.js';
 import b from './station-embellishments/se-b.js';
 import c from './station-embellishments/se-c.js';
+import d from './station-embellishments/se-d.js';
 import e from './station-embellishments/se-e.js';
 import f from './station-embellishments/se-f.js';
 import g from './station-embellishments/se-g.js';
@@ -24,6 +25,7 @@ const stationEmbellishments = {
     ...a,
     ...b,
     ...c,
+    ...d,
     ...e,
     ...f,
     ...g,

@@ -18,6 +18,7 @@ import {
 
 import {
   SERVICE_MODE_AEROPLANE,
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_RIVER_BUS,
   SERVICE_MODE_TUBE,
@@ -36,9 +37,45 @@ import {
 
 const stationEmbellishments = [
   {
+    topMostParentId: 'HUBLST', // Liverpool Street
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Southend Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     topMostParentId: 'HUBLBG', // London Bridge
     embellishments: {
       interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+                {
+                  text: 'Trains to Luton Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
         {
           group: SERVICE_GROUP_RIVER_BUS,
           lines: [

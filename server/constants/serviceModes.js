@@ -1,4 +1,5 @@
 export const SERVICE_MODE_AEROPLANE = 'aeroplane';
+export const SERVICE_MODE_AIRPORT_CONNECTION = 'airport-connection';
 export const SERVICE_MODE_BUS = 'bus';
 export const SERVICE_MODE_CABLE_CAR = 'london-cable-car';
 export const SERVICE_MODE_COACH = 'coach';
@@ -13,6 +14,7 @@ export const SERVICE_MODE_TUBE = 'tube';
 
 const serviceModes = [
   SERVICE_MODE_AEROPLANE,
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_BUS,
   SERVICE_MODE_COACH,
   SERVICE_MODE_DLR,

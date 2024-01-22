@@ -10,6 +10,7 @@ export const SERVICE_ID_DISTRICT = 'district';
 export const SERVICE_ID_DLR = 'dlr';
 export const SERVICE_ID_ELIZABETH = 'elizabeth';
 export const SERVICE_ID_GREAT_NORTHERN = 'great-northern';
+export const SERVICE_ID_GREATER_ANGLIA = 'greater-anglia';
 export const SERVICE_ID_HAMMERSMITH_CITY = 'hammersmith-city';
 export const SERVICE_ID_JUBILEE = 'jubilee';
 export const SERVICE_ID_LONDON_OVERGROUND = 'london-overground';

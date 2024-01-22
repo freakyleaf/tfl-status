@@ -1,5 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
+  SERVICE_GROUP_EXTRA,
 } from '../../constants/serviceGroups.js';
 
 import {
@@ -10,6 +11,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_DLR,
   SERVICE_MODE_OVERGROUND,
   SERVICE_MODE_TUBE,
@@ -29,6 +31,29 @@ import {
 } from '../osiDistances.js';
 
 const stationEmbellishments = [
+  {
+    topMostParentId: 'HUBZFD', // Farringdon
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+                {
+                  text: 'Trains to Luton Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     topMostParentId: '910GFENCHRS', // Fenchurch Street
     embellishments: {
@@ -68,6 +93,26 @@ const stationEmbellishments = [
               ],
               mode: SERVICE_MODE_DLR,
               name: SERVICE_NAME_DLR,
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    topMostParentId: 'HUBFPK', // Finsbury Park
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
             },
           ],
         },

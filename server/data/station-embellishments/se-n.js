@@ -1,5 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
+  SERVICE_GROUP_EXTRA,
   SERVICE_GROUP_RIVER_BUS,
 } from '../../constants/serviceGroups.js';
 
@@ -12,6 +13,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_RIVER_BUS,
   SERVICE_MODE_TUBE,
 } from '../../constants/serviceModes.js';
@@ -110,6 +112,29 @@ const stationEmbellishments = [
               ],
               mode: SERVICE_MODE_TUBE,
               name: SERVICE_NAME_BAKERLOO,
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    topMostParentId: 'HUBNWD', // Norwood Junction
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+                {
+                  text: 'Trains to Luton Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
             },
           ],
         },

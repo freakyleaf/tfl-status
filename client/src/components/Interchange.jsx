@@ -68,9 +68,7 @@ function Interchanges(props) {
                     <span className="visually-hidden">
                       Station interchange:
                     </span>
-                    <span className="interchange__text ">
-                      {line.name}
-                    </span>
+                    {line.name}
                     <span className="visually-hidden">
                       . View the {getScreenReaderLineName({ mode: line.mode, name: line.name })} service page.
                     </span>

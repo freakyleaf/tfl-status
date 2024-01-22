@@ -3,8 +3,8 @@
   border-style: $border-style-generic;
   border-width: $border-width-generic;
 
-  .interchanges__list-item--river .interchange__lines-list-item:not(:last-child) & {
-    border-bottom-width: 0; // Collapse borders when there are multiple river piers attributed to a station
+  .interchanges__list-item--extra .interchange__lines-list-item:not(:last-child) &{
+    border-bottom-width: 0; // Collapse borders when there are multiple items attributed to a station
   }
 }
 
@@ -69,6 +69,11 @@
     margin-left: $spacer-global;
     margin-right: $spacer-global;
   }
+}
+
+.interchange__icon { // Used for airport connections
+  color: var(--color-map-interchange-icon);
+  margin-right: $spacer-3;
 }
 
 .interchange__label {

@@ -10,6 +10,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_EUROSTAR,
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_TRAM,
@@ -25,6 +26,26 @@ import {
 } from '../osiDistances.js';
 
 const stationEmbellishments = [
+  {
+    topMostParentId: '910GSHENFLD', // Shenfield
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Southend Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     topMostParentId: '940GZZLUSWN', // South Wimbledon
     embellishments: {
@@ -64,6 +85,26 @@ const stationEmbellishments = [
               ],
               mode: SERVICE_MODE_NATIONAL_RAIL,
               name: SERVICE_NAME_SOUTHEASTERN,
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    topMostParentId: 'HUBSRA', // Stratford
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Southend Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
             },
           ],
         },
