@@ -46,6 +46,9 @@ const stationEmbellishments = [
             {
               labels: [
                 {
+                  text: 'Trains to Gatwick Airport',
+                },
+                {
                   text: 'Trains to Southend Airport',
                 },
               ],

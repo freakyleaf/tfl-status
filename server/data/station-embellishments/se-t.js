@@ -1,5 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
+  SERVICE_GROUP_EXTRA,
   SERVICE_GROUP_NATIONAL_RAIL,
   SERVICE_GROUP_RIVER_BUS,
 } from '../../constants/serviceGroups.js';
@@ -15,6 +16,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_DLR,
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_RIVER_BUS,
@@ -38,6 +40,26 @@ import {
 } from '../osiDistances.js';
 
 const stationEmbellishments = [
+  {
+    topMostParentId: 'HUBTOM', // Tottenham Hale
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              labels: [
+                {
+                  text: 'Trains to Gatwick Airport',
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     topMostParentId: 'HUBTOG', // Tower Gateway
     embellishments: {
