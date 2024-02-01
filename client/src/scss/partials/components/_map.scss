@@ -405,12 +405,4 @@
   @include device-min(mobile) {
     padding-right: $size-map-spacing-mobile;
   }
-
-  .map__zone-list-item:first-of-type .map__station-list-item:first-of-type & {
-    margin-top: 0;
-  }
-
-  .map__zone-list-item:last-of-type .map__station-list-item:last-of-type & {
-    margin-bottom: 0;
-  }
 }
