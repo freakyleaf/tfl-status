@@ -21,6 +21,10 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  INFO_TRAINS_TO_STANSTED_AIRPORT,
+} from '../../constants/serviceInfo.js';
+
+import {
   SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_OVERGROUND,
   SERVICE_MODE_RIVER_BUS,
@@ -310,7 +314,7 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: 'Trains to Stansted Airport',
+                  text: INFO_TRAINS_TO_STANSTED_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,

@@ -24,6 +24,11 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  INFO_TRAINS_TO_GATWICK_AIRPORT,
+  INFO_TRAINS_TO_LUTON_AIRPORT,
+} from '../../constants/serviceInfo.js';
+
+import {
   SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_DLR,
   SERVICE_MODE_NATIONAL_RAIL,
@@ -235,10 +240,10 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: 'Trains to Gatwick Airport',
+                  text: INFO_TRAINS_TO_GATWICK_AIRPORT,
                 },
                 {
-                  text: 'Trains to Luton Airport',
+                  text: INFO_TRAINS_TO_LUTON_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,

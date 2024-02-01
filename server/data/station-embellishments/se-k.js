@@ -1,5 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
+  SERVICE_GROUP_EXTRA,
   SERVICE_GROUP_INFO,
   SERVICE_GROUP_RIVER_BUS,
 } from '../../constants/serviceGroups.js';
@@ -8,6 +9,11 @@ import {
   SERVICE_ID_METROPOLITAN,
   SERVICE_ID_WOOLWICH_FERRY,
 } from '../../constants/serviceIds.js';
+
+import {
+  INFO_TRAINS_TO_GATWICK_AIRPORT,
+  INFO_TRAINS_TO_LUTON_AIRPORT,
+} from '../../constants/serviceInfo.js';
 
 import {
   SERVICE_MODE_AIRPORT_CONNECTION,
@@ -76,21 +82,26 @@ const stationEmbellishments = [
     embellishments: {
       interchanges: [
         {
+          group: SERVICE_GROUP_EXTRA,
+          lines: [
+            {
+              mode: SERVICE_MODE_EUROSTAR,
+            },
+          ],
+        },
+        {
           group: SERVICE_GROUP_INFO,
           lines: [
             {
               labels: [
                 {
-                  text: 'Trains to Gatwick Airport',
+                  text: INFO_TRAINS_TO_GATWICK_AIRPORT,
                 },
                 {
-                  text: 'Trains to Luton Airport',
+                  text: INFO_TRAINS_TO_LUTON_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,
-            },
-            {
-              mode: SERVICE_MODE_EUROSTAR,
             },
           ],
         },

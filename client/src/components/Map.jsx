@@ -17,6 +17,10 @@ import {
 } from '@constants/paths';
 
 import {
+  SERVICE_GROUP_INFO,
+} from '@constants/serviceGroups';
+
+import {
   SERVICE_MODE_EUROSTAR,
 } from '@constants/serviceModes';
 
@@ -118,7 +122,10 @@ function Map(props) {
   };
 
   const stationInterchanges = (station) => {
-    return station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
+    const interchanges = station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
+    const interchangesInfo = station.embellishments?.interchanges.find((interchange) => interchange.group === SERVICE_GROUP_INFO);
+    if (interchangesInfo) interchanges.push(interchangesInfo);
+    return interchanges;
   };
 
   useEffect(() => {

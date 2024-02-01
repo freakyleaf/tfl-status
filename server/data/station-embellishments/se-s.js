@@ -11,6 +11,10 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  INFO_TRAINS_TO_SOUTHEND_AIRPORT,
+} from '../../constants/serviceInfo.js';
+
+import {
   SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_EUROSTAR,
   SERVICE_MODE_NATIONAL_RAIL,
@@ -37,7 +41,7 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: 'Trains to Southend Airport',
+                  text: INFO_TRAINS_TO_SOUTHEND_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,
@@ -102,7 +106,7 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: 'Trains to Southend Airport',
+                  text: INFO_TRAINS_TO_SOUTHEND_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,

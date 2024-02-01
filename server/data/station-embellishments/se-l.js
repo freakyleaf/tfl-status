@@ -18,6 +18,13 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  INFO_TRAINS_TO_GATWICK_AIRPORT,
+  INFO_TRAINS_TO_LUTON_AIRPORT,
+  INFO_TRAINS_TO_SOUTHEND_AIRPORT,
+  INFO_TRAINS_TO_STANSTED_AIRPORT,
+} from '../../constants/serviceInfo.js';
+
+import {
   SERVICE_MODE_AEROPLANE,
   SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_NATIONAL_RAIL,
@@ -47,10 +54,10 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: 'Trains to Southend Airport',
+                  text: INFO_TRAINS_TO_SOUTHEND_AIRPORT,
                 },
                 {
-                  text: 'Trains to Stansted Airport',
+                  text: INFO_TRAINS_TO_STANSTED_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,
@@ -70,10 +77,10 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: 'Trains to Gatwick Airport',
+                  text: INFO_TRAINS_TO_GATWICK_AIRPORT,
                 },
                 {
-                  text: 'Trains to Luton Airport',
+                  text: INFO_TRAINS_TO_LUTON_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,

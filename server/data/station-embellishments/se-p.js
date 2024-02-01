@@ -1,5 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
+  SERVICE_GROUP_INFO,
   SERVICE_GROUP_RIVER_BUS,
 } from '../../constants/serviceGroups.js';
 
@@ -12,6 +13,11 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  INFO_TRAINS_TO_HEATHROW_AIRPORT,
+} from '../../constants/serviceInfo.js';
+
+import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_RIVER_BUS,
   SERVICE_MODE_TUBE,
 } from '../../constants/serviceModes.js';
@@ -29,6 +35,26 @@ import {
 } from '../osiDistances.js';
 
 const stationEmbellishments = [
+  {
+    topMostParentId: 'HUBPAD', // Paddington
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_INFO,
+          lines: [
+            {
+              labels: [
+                {
+                  text: INFO_TRAINS_TO_HEATHROW_AIRPORT,
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     topMostParentId: '940GZZLUPKR', // Park Royal
     embellishments: {
