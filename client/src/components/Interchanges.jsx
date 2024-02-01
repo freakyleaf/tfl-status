@@ -47,7 +47,7 @@ function Interchanges(props) {
           ))
         }
         {
-          stationInterchangesInfo.lines.map((line, index) => (
+          stationInterchangesInfo?.lines.map((line, index) => (
             <li
               className="interchanges__list-item interchanges__list-item--info"
               key={index}
