@@ -73,7 +73,21 @@
 
 .interchange__icon { // Used for airport connections
   color: var(--color-map-interchange-icon);
-  margin-right: $spacer-3;
+
+  @include device-max(mobile) {
+    margin-right: $spacer-2;
+
+    .map__interchanges & {
+      .station-icon--airport {
+        width: $size-map-interchange-icon-airport;
+        height: $size-map-interchange-icon-airport;
+      }
+    }
+  }
+
+  @include device-min(tablet) {
+    margin-right: $spacer-3;
+  }
 }
 
 .interchange__label {
