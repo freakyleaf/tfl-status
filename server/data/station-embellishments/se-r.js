@@ -1,6 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
-  SERVICE_GROUP_EXTRA,
+  SERVICE_GROUP_INFO,
 } from '../../constants/serviceGroups.js';
 
 import {
@@ -22,7 +22,7 @@ const stationEmbellishments = [
     embellishments: {
       interchanges: [
         {
-          group: SERVICE_GROUP_EXTRA,
+          group: SERVICE_GROUP_INFO,
           lines: [
             {
               labels: [

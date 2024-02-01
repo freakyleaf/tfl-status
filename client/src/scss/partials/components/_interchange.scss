@@ -3,7 +3,7 @@
   border-style: $border-style-generic;
   border-width: $border-width-generic;
 
-  .interchanges__list-item--extra .interchange__lines-list-item:not(:last-child) & {
+  .interchanges__list-item--info .interchange__lines-list-item:not(:last-child) & {
     border-bottom-width: 0; // Collapse borders when there are multiple items attributed to a station
   }
 }

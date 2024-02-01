@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import serviceGroups, { SERVICE_GROUP_EXTRA } from '@constants/serviceGroups';
+import serviceGroups, { SERVICE_GROUP_EXTRA, SERVICE_GROUP_INFO } from '@constants/serviceGroups';
 import { SERVICE_MODE_AIRPORT_CONNECTION } from '@constants/serviceModes';
 
 import Interchange from '@components/Interchange';
@@ -25,7 +25,7 @@ function Interchanges(props) {
     };
   });
 
-  const stationInterchangesAirportConnection = stationInterchanges?.filter((stationInterchange) => stationInterchange.group === SERVICE_GROUP_EXTRA).find((stationInterchange) => stationInterchange.lines.find((line) => line.mode === SERVICE_MODE_AIRPORT_CONNECTION))?.lines[0];
+  const stationInterchangesInfo = stationInterchanges?.find((stationInterchange) => stationInterchange.group === SERVICE_GROUP_INFO);
 
   return (
     <div className="interchanges">
@@ -34,7 +34,7 @@ function Interchanges(props) {
         className="interchanges__list"
       >
         {
-          stationInterchanges.filter((stationInterchange) => stationInterchange.group !== SERVICE_GROUP_EXTRA).map((stationInterchange, index) => (
+          stationInterchanges.filter((stationInterchange) => ![ SERVICE_GROUP_EXTRA, SERVICE_GROUP_INFO ].includes(stationInterchange.group)).map((stationInterchange, index) => (
             <li
               className={`interchanges__list-item interchanges__list-item--${stationInterchange.group}`}
               key={`${stationInterchange.group}-${index}`}
@@ -47,11 +47,14 @@ function Interchanges(props) {
           ))
         }
         {
-          stationInterchangesAirportConnection && (
-            <li className="interchanges__list-item interchanges__list-item--extra">
+          stationInterchangesInfo.lines.map((line, index) => (
+            <li
+              className="interchanges__list-item interchanges__list-item--info"
+              key={index}
+            >
               <ul className="interchange__lines-list">
                 {
-                  stationInterchangesAirportConnection.labels.map((label) => (
+                  line.labels.map((label) => (
                     <li
                       className="interchange__lines-list-item"
                       key={label.text}
@@ -60,9 +63,13 @@ function Interchanges(props) {
                         <div className="interchange__link">
                           <div className="interchange__text high-contrast-mode-text">
                             <span>
-                              <span className="interchange__icon">
-                                <StationIconAeroplane />
-                              </span>
+                              {
+                                line.mode === SERVICE_MODE_AIRPORT_CONNECTION && (
+                                  <span className="interchange__icon">
+                                    <StationIconAeroplane />
+                                  </span>
+                                )
+                              }
                               {label.text}
                             </span>
                           </div>
@@ -73,7 +80,7 @@ function Interchanges(props) {
                 }
               </ul>
             </li>
-          )
+          ))
         }
       </ul>
     </div>

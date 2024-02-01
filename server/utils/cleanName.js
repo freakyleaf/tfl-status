@@ -17,6 +17,7 @@ const cleanName = (name) => {
     .replace('London Liverpool Street', 'Liverpool Street')
     .replace('London Paddington', 'Paddington')
     .replace('London Southend', 'Southend')
+    .replace('London Stansted', 'Stansted')
     // .replace('Station', '') // Specifically for 'Brent Cross West Station'
     .replace('Stn', 'Station')
     .replaceAll(' (London)', '')

@@ -1,6 +1,6 @@
 import {
   SERVICE_GROUP_CORE,
-  SERVICE_GROUP_EXTRA,
+  SERVICE_GROUP_INFO,
   SERVICE_GROUP_NATIONAL_RAIL,
   SERVICE_GROUP_RIVER_BUS,
 } from '../../constants/serviceGroups.js';
@@ -45,12 +45,12 @@ const stationEmbellishments = [
     embellishments: {
       interchanges: [
         {
-          group: SERVICE_GROUP_EXTRA,
+          group: SERVICE_GROUP_INFO,
           lines: [
             {
               labels: [
                 {
-                  text: 'Trains to Gatwick Airport',
+                  text: 'Trains to Stansted Airport',
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,

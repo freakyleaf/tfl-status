@@ -1,6 +1,7 @@
 import {
   SERVICE_GROUP_CORE,
   SERVICE_GROUP_EXTRA,
+  SERVICE_GROUP_INFO,
   SERVICE_GROUP_RIVER_BUS,
 } from '../../constants/serviceGroups.js';
 
@@ -98,20 +99,20 @@ const stationEmbellishments = [
           group: SERVICE_GROUP_EXTRA,
           lines: [
             {
+              mode: SERVICE_MODE_COACH,
+            },
+          ],
+        },
+        {
+          group: SERVICE_GROUP_INFO,
+          lines: [
+            {
               labels: [
                 {
                   text: 'Trains to Gatwick Airport',
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,
-            },
-          ],
-        },
-        {
-          group: SERVICE_GROUP_EXTRA,
-          lines: [
-            {
-              mode: SERVICE_MODE_COACH,
             },
           ],
         },
