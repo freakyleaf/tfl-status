@@ -26,6 +26,7 @@ function Interchanges(props) {
   });
 
   const stationInterchangesInfo = stationInterchanges?.find((stationInterchange) => stationInterchange.group === SERVICE_GROUP_INFO);
+  const stationInterchangesLines = stationInterchanges.filter((stationInterchange) => ![ SERVICE_GROUP_EXTRA, SERVICE_GROUP_INFO ].includes(stationInterchange.group));
 
   return (
     <div className="interchanges">
@@ -34,7 +35,7 @@ function Interchanges(props) {
         className="interchanges__list"
       >
         {
-          stationInterchanges.filter((stationInterchange) => ![ SERVICE_GROUP_EXTRA, SERVICE_GROUP_INFO ].includes(stationInterchange.group)).map((stationInterchange, index) => (
+          stationInterchangesLines.map((stationInterchange, index) => (
             <li
               className={`interchanges__list-item interchanges__list-item--${stationInterchange.group}`}
               key={`${stationInterchange.group}-${index}`}
@@ -65,12 +66,21 @@ function Interchanges(props) {
                             <span>
                               {
                                 line.mode === SERVICE_MODE_AIRPORT_CONNECTION && (
-                                  <span className="interchange__icon">
-                                    <StationIconAeroplane />
-                                  </span>
+                                  <>
+                                    <span className="interchange__icon">
+                                      <StationIconAeroplane />
+                                    </span>
+                                    Trains to {label.text}
+                                  </>
                                 )
                               }
-                              {label.text}
+                              {
+                                line.mode !== SERVICE_MODE_AIRPORT_CONNECTION && (
+                                  <>
+                                    {label.text}
+                                  </>
+                                )
+                              }
                             </span>
                           </div>
                         </div>

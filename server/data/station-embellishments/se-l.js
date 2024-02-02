@@ -18,10 +18,10 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
-  INFO_TRAINS_TO_GATWICK_AIRPORT,
-  INFO_TRAINS_TO_LUTON_AIRPORT,
-  INFO_TRAINS_TO_SOUTHEND_AIRPORT,
-  INFO_TRAINS_TO_STANSTED_AIRPORT,
+  SERVICE_INFO_GATWICK_AIRPORT,
+  SERVICE_INFO_LUTON_AIRPORT,
+  SERVICE_INFO_SOUTHEND_AIRPORT,
+  SERVICE_INFO_STANSTED_AIRPORT,
 } from '../../constants/serviceInfo.js';
 
 import {
@@ -54,10 +54,10 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: INFO_TRAINS_TO_SOUTHEND_AIRPORT,
+                  text: SERVICE_INFO_SOUTHEND_AIRPORT,
                 },
                 {
-                  text: INFO_TRAINS_TO_STANSTED_AIRPORT,
+                  text: SERVICE_INFO_STANSTED_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,
@@ -77,10 +77,10 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: INFO_TRAINS_TO_GATWICK_AIRPORT,
+                  text: SERVICE_INFO_GATWICK_AIRPORT,
                 },
                 {
-                  text: INFO_TRAINS_TO_LUTON_AIRPORT,
+                  text: SERVICE_INFO_LUTON_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,

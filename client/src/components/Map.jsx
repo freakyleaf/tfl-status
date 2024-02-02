@@ -21,6 +21,7 @@ import {
 } from '@constants/serviceGroups';
 
 import {
+  SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_EUROSTAR,
 } from '@constants/serviceModes';
 
@@ -126,6 +127,11 @@ function Map(props) {
     const interchangesInfo = station.embellishments?.interchanges.find((interchange) => interchange.group === SERVICE_GROUP_INFO);
     if (interchangesInfo) interchanges.push(interchangesInfo);
     return interchanges;
+  };
+
+  const stationHasAirportConnection = (station) => {
+    const serviceGroupInfo = stationInterchanges(station).find((interchange) => interchange.group === SERVICE_GROUP_INFO);
+    return serviceGroupInfo ? serviceGroupInfo.lines.find((line) => line.mode === SERVICE_MODE_AIRPORT_CONNECTION) : null;
   };
 
   useEffect(() => {
@@ -358,6 +364,16 @@ function Map(props) {
                                           <StationIcons
                                             station={station}
                                           />
+                                          {
+                                            stationHasAirportConnection(station) && (
+                                              <span className="visually-hidden">
+                                                This station is served by trains to
+                                                {
+                                                  stationHasAirportConnection(station).labels.map((label) => label.text).join(' and ')
+                                                }.
+                                              </span>
+                                            )
+                                          }
                                           {
                                             station.hasDisruptions && (
                                               <span className="visually-hidden">

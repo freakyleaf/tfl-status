@@ -21,7 +21,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
-  INFO_TRAINS_TO_STANSTED_AIRPORT,
+  SERVICE_INFO_STANSTED_AIRPORT,
 } from '../../constants/serviceInfo.js';
 
 import {
@@ -314,7 +314,7 @@ const stationEmbellishments = [
             {
               labels: [
                 {
-                  text: INFO_TRAINS_TO_STANSTED_AIRPORT,
+                  text: SERVICE_INFO_STANSTED_AIRPORT,
                 },
               ],
               mode: SERVICE_MODE_AIRPORT_CONNECTION,
