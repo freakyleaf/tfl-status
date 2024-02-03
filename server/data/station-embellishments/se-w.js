@@ -24,6 +24,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_INFO_BIRMINGHAM_AIRPORT,
   SERVICE_INFO_GATWICK_AIRPORT,
   SERVICE_INFO_LUTON_AIRPORT,
 } from '../../constants/serviceInfo.js';
@@ -78,6 +79,26 @@ const stationEmbellishments = [
               ],
               mode: SERVICE_MODE_ELIZABETH_LINE,
               name: SERVICE_NAME_ELIZABETH,
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    topMostParentId: 'HUBWFJ', // Watford Junction
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_INFO,
+          lines: [
+            {
+              labels: [
+                {
+                  text: SERVICE_INFO_BIRMINGHAM_AIRPORT,
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
             },
           ],
         },
