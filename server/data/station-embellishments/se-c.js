@@ -21,6 +21,7 @@ import {
 } from '../../constants/serviceIds.js';
 
 import {
+  SERVICE_INFO_SOUTHAMPTON_AIRPORT,
   SERVICE_INFO_STANSTED_AIRPORT,
 } from '../../constants/serviceInfo.js';
 
@@ -341,6 +342,26 @@ const stationEmbellishments = [
               ],
               mode: SERVICE_MODE_TUBE,
               name: SERVICE_NAME_NORTHERN,
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    topMostParentId: 'HUBCLJ', // Clapham Junction
+    embellishments: {
+      interchanges: [
+        {
+          group: SERVICE_GROUP_INFO,
+          lines: [
+            {
+              labels: [
+                {
+                  text: SERVICE_INFO_SOUTHAMPTON_AIRPORT,
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
             },
           ],
         },

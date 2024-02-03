@@ -27,6 +27,7 @@ import {
   SERVICE_INFO_BIRMINGHAM_AIRPORT,
   SERVICE_INFO_GATWICK_AIRPORT,
   SERVICE_INFO_LUTON_AIRPORT,
+  SERVICE_INFO_SOUTHAMPTON_AIRPORT,
 } from '../../constants/serviceInfo.js';
 
 import {
@@ -121,6 +122,19 @@ const stationEmbellishments = [
               ],
               mode: SERVICE_MODE_RIVER_BUS,
               name: SERVICE_NAME_RIVER_BUS_1,
+            },
+          ],
+        },
+        {
+          group: SERVICE_GROUP_INFO,
+          lines: [
+            {
+              labels: [
+                {
+                  text: SERVICE_INFO_SOUTHAMPTON_AIRPORT,
+                },
+              ],
+              mode: SERVICE_MODE_AIRPORT_CONNECTION,
             },
           ],
         },
