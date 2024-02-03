@@ -6,6 +6,8 @@ import getStationEmbellishments from './getStationEmbellishments.js';
 import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
+import fixOrderedLineRoutes from './fixOrderedLineRoutes.js';
+
 const interchangesEmbellishments = ({ id, stationEmbellishments }) => {
   if (!stationEmbellishments?.interchanges) return null;
   return stationEmbellishments.interchanges.map((interchange) => {
@@ -19,11 +21,12 @@ const interchangesEmbellishments = ({ id, stationEmbellishments }) => {
 const createMaps = async({ data, id }) => {
   const {
     mode,
-    orderedLineRoutes,
+    orderedLineRoutes: orderedLineRoutesRaw,
     stations,
     stopPointSequences,
   } = data;
   const modesById = await getModesById();
+  const orderedLineRoutes = fixOrderedLineRoutes({ id, orderedLineRoutesRaw });
 
   return orderedLineRoutes.map((orderedLineRoute) => {
     const name = cleanName(orderedLineRoute.name);
