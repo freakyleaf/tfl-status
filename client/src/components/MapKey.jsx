@@ -24,7 +24,7 @@ function MapKey(props) {
   return (
     <div className="map-key">
       <table className="map-key__table table">
-        <thead>
+        <thead className="visually-hidden">
           <tr>
             <th>Item</th>
             <th className="w-100">Description</th>
