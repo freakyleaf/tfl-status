@@ -67,9 +67,10 @@ import Collapsible from '@components/Collapsible';
 import Error from '@components/Error';
 import Interchanges from '@components/Interchanges';
 import Loading from '@components/Loading';
-import StationIconAccessibility from '@components/icons/StationIconAccessibility';
+import MapKey from '@components/MapKey';
 import MapSettings from '@components/MapSettings';
 import Select from '@components/Select';
+import StationIconAccessibility from '@components/icons/StationIconAccessibility';
 import StationIcons from '@components/StationIcons';
 
 Map.propTypes = {
@@ -90,6 +91,7 @@ function Map(props) {
   const dispatch = useDispatch();
   const [ currentRoute, setCurrentRoute ] = useState();
   const [ mapLoading, setMapLoading ] = useState();
+  const [ mapKeyVisibility, setMapKeyVisibility ] = useState(false);
   const [ mapSettingsVisibility, setMapSettingsVisibility ] = useState(false);
   const {
     currentMapRoutes,
@@ -232,6 +234,22 @@ function Map(props) {
       {
         !error && (
           <>
+            <div className="map__key">
+              <Collapsible
+                a11yHelperText="map key"
+                collapsed={!mapKeyVisibility}
+                heading="Map Key"
+                onClick={() => setMapKeyVisibility(!mapKeyVisibility)}
+              />
+              {
+                mapKeyVisibility && (
+                  <MapKey
+                    id={service.id}
+                    mode={service.mode}
+                  />
+                )
+              }
+            </div>
             <div className="map__settings">
               <Collapsible
                 a11yHelperText="map settings"

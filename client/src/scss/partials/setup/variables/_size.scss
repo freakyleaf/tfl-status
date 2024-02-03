@@ -34,7 +34,10 @@ $size-map-marker-accessibility-border-width: math.div($size-map-marker-interchan
 $size-map-marker-accessibility-icon: 1.25rem;
 $size-map-marker--accessibility: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
 $size-map-marker--interchange: 2.2rem; // Somewhere between $spacer-6 and $spacer-7
-$size-map-marker-width--regular: $spacer-4;
+$size-map-marker-width--regular: $size-map-line-width;
+$size-map-ornaments-width: $size-map-marker--interchange;
+$size-map-key-icon-size: $spacer-6;
+$size-map-key-icon-margin-left: math.div($size-map-ornaments-width - $size-map-key-icon-size, 2);
 $size-map-spacing: math.div($size-map-marker--interchange, 4) * 3;
 $size-map-spacing-mobile: $size-map-marker--interchange;
 $size-map-zone-padding-x-mobile: $spacer-4;

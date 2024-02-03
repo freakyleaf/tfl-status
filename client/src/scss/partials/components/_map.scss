@@ -4,6 +4,7 @@
   margin-top: $spacer-global;
 }
 
+.map__key,
 .map__settings {
   margin-bottom: $spacer-global;
 }
@@ -118,19 +119,33 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 100%;
-  min-height: $size-map-list-item-min-height;
+
+  .map__diagram & {
+    justify-content: center;
+    min-height: $size-map-list-item-min-height;
+  }
+
+  .map__key & {
+    justify-content: flex-start;
+    height: $spacer-8;
+  }
 
   &:only-of-type {
-    min-height: $size-map-list-item-only-of-type-min-height; // Allow for horizontally-aligned zone text
+    .map__diagram & {
+      min-height: $size-map-list-item-only-of-type-min-height; // Allow for horizontally-aligned zone text
+    }
   }
 
   @include device-min(tablet) {
-    min-height: $size-map-list-item-min-height--desktop;
+    .map__diagram & {
+      min-height: $size-map-list-item-min-height--desktop;
+    }
 
     &:only-of-type {
-      min-height: $size-map-list-item-only-of-type-min-height--desktop; // Allow for vertically-aligned zone text
+      .map__diagram & {
+        min-height: $size-map-list-item-only-of-type-min-height--desktop; // Allow for vertically-aligned zone text
+      }
     }
   }
 }
@@ -139,7 +154,7 @@
   order: 2;
   position: absolute;
   top: 0;
-  width: $size-map-marker--interchange;
+  width: $size-map-ornaments-width;
   height: 100%;
 }
 
@@ -259,15 +274,34 @@
 .map__station {
   position: relative; // Required to increase clickable area of `.map__station-link`
   order: 3;
-  padding-left: $size-map-spacing; // Very small phones only
   color: var(--color-map-station-text);
 
+  .map__diagram & {
+    padding-left: $size-map-spacing; // Very small phones only
+  }
+
+  .map__key & {
+    padding-left: math.div($size-map-marker--interchange, 2) + $size-map-spacing;
+  }
+
   @include device-min(mobile) {
-    padding-left: $size-map-spacing-mobile;
+    .map__diagram & {
+      padding-left: $size-map-spacing-mobile;
+    }
+
+    .map__key & {
+      padding-left: math.div($size-map-marker--interchange, 2) + $size-map-spacing-mobile;
+    }
   }
 
   @include device-min(tablet) {
-    padding-right: $size-map-diagram-padding + $size-map-zone-size-tablet;
+    .map__diagram & {
+      padding-right: $size-map-diagram-padding + $size-map-zone-size-tablet;
+    }
+
+    .map__key & {
+      padding-left: math.div($size-map-marker--interchange, 2) + $size-map-zone-size-tablet;
+    }
   }
 }
 

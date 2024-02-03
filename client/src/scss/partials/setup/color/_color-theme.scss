@@ -184,6 +184,7 @@ $color-light: $color-gray-200;
 
 // Table
 :root {
+  --color-table-thead-background: #{$color-gray-100};
   --color-table-tr-even-background: #{$color-gray-100};
 }
 
@@ -281,6 +282,7 @@ $color-light: $color-gray-200;
   --color-view-services-status-positive-text: #{$color-light};
 
   // Table
+  --color-table-thead-background: #{$color-gray-800};
   --color-table-tr-even-background: #{$color-gray-800};
 
   // Toggle Switch

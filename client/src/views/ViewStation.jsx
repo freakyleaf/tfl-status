@@ -163,7 +163,7 @@ function ViewStation(props) {
                       <h2>
                         Station Facilities
                       </h2>
-                      <table className="table">
+                      <table className="table table--striped">
                         <tbody>
                           {
                             station.meta.facilities.carPark && (

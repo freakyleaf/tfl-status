@@ -1,0 +1,17 @@
+.map-key {
+  margin-top: $size-spacer-map-settings;
+}
+
+.map-key__icon {
+  color: var(--color-link);
+  margin-left: $size-map-key-icon-margin-left;
+
+  .station-icon {
+    width: $size-map-key-icon-size;
+    height: $size-map-key-icon-size;
+  }
+}
+
+.map-key__table-row {
+  height: $spacer-8;
+}
