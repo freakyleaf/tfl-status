@@ -222,7 +222,7 @@ function Layout() {
   useEffect(() => {
     dispatch(setMenuOpen(false));
     dispatch(setSettingsOpen(false));
-    refPageMain.current.scrollTo(0, 0); // Scroll to top of `.page__main` on every view change
+    if (refPageMain.current) refPageMain.current.scrollTo(0, 0); // Scroll to top of `.page__main` on every view change
   }, [ location ]);
 
   const handlePullToRefresh = () => {
