@@ -39,9 +39,10 @@ function ServicesTable(props) {
   const path = serviceGroups.find((group) => group.group === serviceGroup).path;
 
   const {
+    pageHeaderHeight,
     pageMainHeight,
     pageMainScrollTop,
-  } = useSelector((state) => state.settings);
+  } = useSelector((state) => state.state);
 
   const refServices = useRef(servicesModes.map(() => createRef()));
   const [ activeService, setActiveService ] = useState(null);
@@ -54,15 +55,15 @@ function ServicesTable(props) {
     const activeServiceTop = refServices.current[activeService].current.offsetTop;
     const activeServiceBottom = activeServiceHeight + activeServiceTop;
 
-    if (activeServiceHeight <= pageMainHeight) { // The active service fits on the page
-      if (activeServiceTop <= pageMainScrollTop) { // The top of the active service is above the top of the page
-        scrollTo(activeServiceTop);
+    if (activeServiceHeight <= (pageMainHeight - pageMainScrollTop)) { // The active service fits on the page
+      if (activeServiceTop <= (pageMainScrollTop + pageHeaderHeight)) { // The top of the active service is above the top of the page
+        scrollTo(activeServiceTop - pageHeaderHeight);
       }
       else if (activeServiceBottom > (pageMainHeight + pageMainScrollTop)) { // The bottom of the active service is below the bottom of the page
         scrollTo(activeServiceBottom - pageMainHeight);
       }
     } else { // The active service doesn't fit on the page so we should show as much as possible
-      scrollTo(activeServiceTop);
+      scrollTo(activeServiceTop - pageHeaderHeight);
     }
   }, [ activeService ]);
 

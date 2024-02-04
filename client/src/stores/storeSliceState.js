@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   globalLoading: false,
   menuOpen: false,
+  pageHeaderHeight: 0,
   pageMainHeight: 0,
   pageMainScrollTop: 0,
   settingsOpen: false,
@@ -21,6 +22,10 @@ export const storeSliceState = createSlice({
     setMenuOpen: (state, action) => {
       const { payload } = action;
       state.menuOpen = payload;
+    },
+    setPageHeaderHeight: (state, action) => {
+      const { payload } = action;
+      state.pageHeaderHeight = payload;
     },
     setPageMainHeight: (state, action) => {
       const { payload } = action;
@@ -48,6 +53,7 @@ export const storeSliceState = createSlice({
 export const {
   setGlobalLoading,
   setMenuOpen,
+  setPageHeaderHeight,
   setPageMainHeight,
   setPageMainScrollTop,
   setSettingsOpen,

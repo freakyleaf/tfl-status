@@ -40,6 +40,7 @@ import {
 
 import {
   setMenuOpen,
+  setPageHeaderHeight,
   setPageMainHeight,
   setPageMainScrollTop,
   setSettingsOpen,
@@ -60,6 +61,7 @@ function Layout() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const location = useLocation();
+  const refPageHeader = useRef();
   const refPageMain = useRef();
 
   const {
@@ -89,6 +91,11 @@ function Layout() {
     });
   };
 
+  const setRefPageHeaderHeight = () => {
+    const refPageHeaderHeight = refPageHeader.current?.clientHeight;
+    dispatch(setPageHeaderHeight(refPageHeaderHeight));
+  };
+
   const setRefPageMainHeight = () => {
     const refPageMainHeight = refPageMain.current?.clientHeight;
     dispatch(setPageMainHeight(refPageMainHeight));
@@ -100,6 +107,7 @@ function Layout() {
   };
 
   const setRefPageMeasurements = () => {
+    setRefPageHeaderHeight();
     setRefPageMainHeight();
     setRefPageMainScrollTop();
   };
@@ -251,7 +259,10 @@ function Layout() {
             refreshingContent={<LoadingSpinner />}
           >
             <div className={pageClasses()}>
-              <header className="page__header">
+              <header
+                className="page__header"
+                ref={refPageHeader}
+              >
                 <div className="container container--px">
                   <PageHeader />
                 </div>
