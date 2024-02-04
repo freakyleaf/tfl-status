@@ -96,7 +96,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              Station with a National Rail interchange
+              Station with National Rail interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -106,7 +106,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              Station with a TfL bus service interchange
+              Station with TfL bus service interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -116,7 +116,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              Station with an airport interchange
+              Station with airport interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -126,7 +126,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              Station with a coach station interchange
+              Station with coach station interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -136,7 +136,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              Station with a Eurostar service interchange
+              Station with Eurostar service interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -146,7 +146,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              Station with a river bus interchange
+              Station with River Bus interchanges
             </td>
           </tr>
         </tbody>

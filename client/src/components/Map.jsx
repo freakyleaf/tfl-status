@@ -46,6 +46,7 @@ import {
 
 import {
   TIMING_CONSTANT,
+  TIMING_CONSTANT_TIMEOUT,
 } from '@constants/time';
 
 import {
@@ -86,12 +87,14 @@ function Map(props) {
     data: maps,
     error,
     isFetching,
+    refetch,
   } = useFetchMapsQuery(service);
 
   const dispatch = useDispatch();
   const [ currentRoute, setCurrentRoute ] = useState();
   const [ mapLoading, setMapLoading ] = useState();
   const [ mapKeyVisibility, setMapKeyVisibility ] = useState(false);
+  const [ mapReloadVisible, setMapReloadVisible ] = useState(false);
   const [ mapSettingsVisibility, setMapSettingsVisibility ] = useState(false);
   const {
     currentMapRoutes,
@@ -124,6 +127,18 @@ function Map(props) {
     return maps[0];
   };
 
+  const handleReloadMapData = () => {
+    refetch();
+    setMapReloadVisible(false);
+    startMapReloadTimeout();
+  };
+
+  const startMapReloadTimeout = () => {
+    setTimeout(() => {
+      setMapReloadVisible(true);
+    }, TIMING_CONSTANT_TIMEOUT);
+  };
+
   const stationInterchanges = (station) => {
     const interchanges = station.interchanges.filter((interchange) => mapVisibilityInterchanges[interchange.group]);
     const interchangesInfo = station.embellishments?.interchanges.find((interchange) => interchange.group === SERVICE_GROUP_INFO);
@@ -138,6 +153,8 @@ function Map(props) {
 
   useEffect(() => {
     setMapLoading(true);
+    setMapReloadVisible(false);
+    startMapReloadTimeout();
   }, [ service ]);
 
   useEffect(() => {
@@ -281,7 +298,27 @@ function Map(props) {
 
             <div className={serviceDisabled ? 'map__diagram map__diagram--service-disabled' : 'map__diagram'}>
               {
-                isLoading && (<Loading />)
+                isLoading && (
+                  <>
+                    <Loading />
+                    {
+                      mapReloadVisible && (
+                        <div className="map__reload">
+                          <div className="map__reload-text">
+                            Map data is taking longer than expected to load.<br />
+                            Please wait or try reloading the data by clicking the button below.
+                          </div>
+                          <button
+                            className="button button--standard"
+                            onClick={() => handleReloadMapData()}
+                          >
+                            Reload map data
+                          </button>
+                        </div>
+                      )
+                    }
+                  </>
+                )
               }
               {
                 !isLoading && (

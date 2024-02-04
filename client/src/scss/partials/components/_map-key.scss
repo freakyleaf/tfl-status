@@ -3,8 +3,11 @@
 }
 
 .map-key__icon {
+  display: block;
   color: var(--color-link);
   margin-left: $size-map-key-icon-margin-left;
+  width: $size-map-key-icon-size;
+  height: $size-map-key-icon-size;
 
   .station-icon {
     width: $size-map-key-icon-size;

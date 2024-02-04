@@ -24,6 +24,23 @@
     margin-left: auto;
   }
 
+  &--standard {
+    font-size: $font-size-small;
+    color: var(--color-button-standard-text);
+    white-space: nowrap;
+    padding: $spacer-3 $spacer-4;
+    background-color: var(--color-button-standard-background);
+    border-color: var(--color-button-standard-border);
+    border-style: $border-style-generic;
+    border-width: $border-width-generic;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border-color: var(--color-button-standard-border-hover);
+    }
+  }
+
   &--utility {
     font-size: $font-size-small;
     color: var(--color-button-menu-text);

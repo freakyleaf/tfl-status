@@ -62,6 +62,10 @@ $color-light: $color-gray-200;
   --color-button-menu-border-hover: #{$color-white};
   --color-button-menu-text: #{$color-light};
   --color-button-menu-text-hover: #{$color-white};
+  --color-button-standard-text: #{$color-black};
+  --color-button-standard-background: #{$color-white};
+  --color-button-standard-border: var(--color-border);
+  --color-button-standard-border-hover: #{$color-gray-500};
 }
 
 // Collapsible
@@ -232,6 +236,10 @@ $color-light: $color-gray-200;
   --color-box-background: #{$color-gray-800};
   --color-box-icon-background: #{$color-gray-700};
   --color-box-text: #{$color-light};
+
+  // Button
+  --color-button-standard-text: #{$color-light};
+  --color-button-standard-background: #{$color-dark};
 
   // Collapsible
   --color-collapsible-background: #{$color-gray-800};
