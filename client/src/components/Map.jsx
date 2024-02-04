@@ -113,6 +113,8 @@ function Map(props) {
   const serviceDisabled = serviceStatusClosed || serviceStatusPlannedClosure || serviceStatusSuspended;
   const serviceInterrupted = serviceDisabled || serviceStatusPartClosure || serviceStatusPartSuspended;
 
+  let mapReloadTimer;
+
   const contentServiceInterrupted = () => {
     if (serviceStatusClosed || serviceStatusPlannedClosure) return contentMapServiceClosedFull;
     if (serviceStatusPartClosure) return contentMapServiceClosedHalf;
@@ -134,7 +136,9 @@ function Map(props) {
   };
 
   const startMapReloadTimeout = () => {
-    setTimeout(() => {
+    clearTimeout(mapReloadTimer);
+
+    mapReloadTimer = setTimeout(() => {
       setMapReloadVisible(true);
     }, TIMING_CONSTANT_TIMEOUT);
   };
