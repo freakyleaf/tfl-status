@@ -60,21 +60,21 @@ function StationIcons(props) {
       text.push(SERVICE_NAME_BUS);
     }
     if (station.embellishments?.interchanges) {
-      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_AEROPLANE)) {
-        icons.push(<StationIconAeroplane />);
-        text.push(SERVICE_NAME_AEROPLANE);
-      }
       if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_COACH)) {
         icons.push(<StationIconCoach />);
         text.push(SERVICE_NAME_COACH);
       }
-      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_EUROSTAR)) {
-        icons.push(<StationIconEurostar />);
-        text.push(SERVICE_NAME_EUROSTAR);
-      }
       if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_RIVER_BUS)) {
         icons.push(<StationIconBoat />);
         text.push(SERVICE_NAME_RIVER_BUS);
+      }
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_AEROPLANE)) {
+        icons.push(<StationIconAeroplane />);
+        text.push(SERVICE_NAME_AEROPLANE);
+      }
+      if (stationHasEmbellishmentInterchange(station, SERVICE_MODE_EUROSTAR)) {
+        icons.push(<StationIconEurostar />);
+        text.push(SERVICE_NAME_EUROSTAR);
       }
     }
     return {
