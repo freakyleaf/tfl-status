@@ -54,7 +54,7 @@ const stationEmbellishments = [
     },
   },
   {
-    topMostParentId: '910GGTWK', // Gatwick Airport
+    topMostParentId: '920GLGW0', // Gatwick Airport
     embellishments: {
       interchanges: [
         {
