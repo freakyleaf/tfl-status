@@ -22,7 +22,7 @@ const createMaps = async({ data, id }) => {
   const {
     mode,
     orderedLineRoutes: orderedLineRoutesRaw,
-    stations,
+    stations: stationsRaw,
     stopPointSequences,
   } = data;
   const modesById = await getModesById();
@@ -30,23 +30,23 @@ const createMaps = async({ data, id }) => {
 
   return orderedLineRoutes.map((orderedLineRoute) => {
     const name = cleanName(orderedLineRoute.name);
+    const stations = [];
+    const stationIds = []; // Array used to track unique values as we don't want duplicate stations
 
-    return {
-      id: stringToKebabCase(name),
-      name,
-      stations: orderedLineRoute.naptanIds.map((naptanId) => {
-        // The `stationId` value in `data.stations` could either be the `naptanId` or the `topMostParentId` value in `data.stopPointSequences`
-        const stopPointSequencesStation = stopPointSequences.flatMap((stopPointSequence) => stopPointSequence.stopPoint).find((stopPoint) => stopPoint.id === naptanId);
-        const topMostParentId = stopPointSequencesStation.topMostParentId;
-        const stationId = topMostParentId || naptanId;
-        const station = stations.find((station) => station.id === stationId);
+    orderedLineRoute.naptanIds.forEach((naptanId) => {
+      // The `stationId` value in `data.stations` could either be the `naptanId` or the `topMostParentId` value in `data.stopPointSequences`
+      const stopPointSequencesStation = stopPointSequences.flatMap((stopPointSequence) => stopPointSequence.stopPoint).find((stopPoint) => stopPoint.id === naptanId);
+      const topMostParentId = stopPointSequencesStation.topMostParentId;
+      const stationId = topMostParentId || naptanId;
+      const station = stationsRaw.find((station) => station.id === stationId);
 
-        if (!station) console.error(`Station not found: ${stationId}`);
+      if (!station) console.error(`Station not found: ${stationId}`);
 
-        const stationEmbellishments = getStationEmbellishments({ topMostParentId });
-        const stationName = cleanName(station.name);
+      const stationEmbellishments = getStationEmbellishments({ topMostParentId });
+      const stationName = cleanName(station.name);
 
-        return {
+      if (!stationIds.includes(stationId)) {
+        stations.push({
           accessibility: getStationAccessibility({ id, naptanId, topMostParentId }),
           embellishments: stationEmbellishments,
           hasDisruptions: !!stopPointSequencesStation.hasDisruption,
@@ -66,8 +66,15 @@ const createMaps = async({ data, id }) => {
             naptanId,
             zone: station.zone,
           }),
-        };
-      }),
+        });
+      }
+      stationIds.push(stationId);
+    });
+
+    return {
+      id: stringToKebabCase(name),
+      name,
+      stations,
     };
   });
 };
