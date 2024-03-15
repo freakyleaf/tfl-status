@@ -3,6 +3,7 @@ import React from 'react';
 
 import {
   SERVICE_MODE_BUS,
+  SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_RIVER_BUS,
 } from '@constants/serviceModes';
 
@@ -26,10 +27,25 @@ function MapKey(props) {
     mode,
   } = props;
 
-  const station = () => {
+  const platform = () => {
+    if (mode === SERVICE_MODE_RIVER_BUS) return 'pier';
+    return 'platform';
+  };
+
+  const showAccessibilityInterchanges = () => {
+    // We don't have accessibility data for all modes
+    return ![ SERVICE_MODE_BUS, SERVICE_MODE_NATIONAL_RAIL ].includes(mode);
+  };
+
+  const stop = () => {
     if (mode === SERVICE_MODE_BUS) return 'Bus stop';
-    if (mode === SERVICE_MODE_RIVER_BUS) return 'River Bus pier';
+    if (mode === SERVICE_MODE_RIVER_BUS) return 'Pier';
     return 'Station';
+  };
+
+  const vehicle = () => {
+    if (mode === SERVICE_MODE_RIVER_BUS) return 'River Bus';
+    return 'train';
   };
 
   return (
@@ -51,7 +67,7 @@ function MapKey(props) {
               />
             </td>
             <td>
-              {station()} without interchanges
+              {stop()} without interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -63,11 +79,11 @@ function MapKey(props) {
               />
             </td>
             <td>
-              {station()} with interchanges
+              {stop()} with interchanges
             </td>
           </tr>
           {
-            mode !== SERVICE_MODE_BUS && (
+            showAccessibilityInterchanges() && (
               <>
                 <tr className="map-key__table-row">
                   <td>
@@ -78,7 +94,7 @@ function MapKey(props) {
                     />
                   </td>
                   <td>
-                    {station()} with step-free access from street to platform
+                    {stop()} with partial accessibility (step-free access from street to {platform()})
                   </td>
                 </tr>
                 <tr className="map-key__table-row">
@@ -90,7 +106,7 @@ function MapKey(props) {
                     />
                   </td>
                   <td>
-                    {station()} with step-free access from street to train
+                    {stop()} with full accessibility (step-free access from street to {vehicle()})
                   </td>
                 </tr>
               </>
@@ -103,7 +119,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with disruptions
+              {stop()} with disruptions
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -113,7 +129,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with National Rail interchanges
+              {stop()} with National Rail interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -123,7 +139,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with TfL bus service interchanges
+              {stop()} with TfL bus service interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -133,7 +149,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with coach station interchanges
+              {stop()} with coach station interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -143,7 +159,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with River Bus interchanges
+              {stop()} with River Bus interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -153,7 +169,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with airport interchanges
+              {stop()} with airport interchanges
             </td>
           </tr>
           <tr className="map-key__table-row">
@@ -163,7 +179,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {station()} with Eurostar service interchanges
+              {stop()} with Eurostar service interchanges
             </td>
           </tr>
         </tbody>
