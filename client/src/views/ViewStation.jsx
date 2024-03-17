@@ -72,7 +72,7 @@ function ViewStation(props) {
   }, [ location, station ]);
 
   const hasContact = station && !!Object.keys(station.meta.contact).length;
-  const hasDisruptions = station && !!station.disruptions.length;
+  const hasBulletins = station && !!station.bulletins.length;
   const hasFacilities = station && !!Object.keys(station.meta.facilities).length;
   const hasZone = station && !!Object.keys(station.meta.zone).length;
   const nothingToDisplay = !hasContact && !hasFacilities && !hasZone;
@@ -116,22 +116,22 @@ function ViewStation(props) {
                   )
                 }
                 {
-                  !!hasDisruptions && (
-                    <div className="station__disruptions">
+                  !!hasBulletins && (
+                    <div className="station__bulletins">
                       <h2>
-                        Station Disruptions
+                        Station Bulletins
                       </h2>
-                      <ul className="station__disruptions-list">
+                      <ul className="station__bulletins-list">
                         {
-                          station.disruptions.map((disruption, index) => (
+                          station.bulletins.map((bulletin, index) => (
                             <li
-                              className="station__disruptions-list-item"
+                              className="station__bulletins-list-item"
                               key={index}
                             >
                               <Box
-                                type={disruption.appearance}
+                                type={bulletin.appearance}
                               >
-                                {disruption.description}
+                                {bulletin.description}
                               </Box>
                             </li>
                           ))

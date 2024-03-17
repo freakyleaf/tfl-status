@@ -38,7 +38,7 @@ import {
   contentMapServiceClosedHalf,
   contentMapServiceSuspendedFull,
   contentMapServiceSuspendedHalf,
-  contentMapStationHasDisruptions,
+  contentMapStationHasBulletins,
   contentMapStationServiceSuspendedFull,
   contentMapStationServiceSuspendedHalf,
   contentServiceMultipleRoutes,
@@ -117,9 +117,9 @@ function Map(props) {
 
   const contentServiceInterrupted = () => {
     if (serviceStatusClosed || serviceStatusPlannedClosure) return contentMapServiceClosedFull;
+    if (serviceStatusSuspended) return contentMapServiceSuspendedFull;
     if (serviceStatusPartClosure) return contentMapServiceClosedHalf;
     if (serviceStatusPartSuspended) return contentMapServiceSuspendedHalf;
-    if (serviceStatusSuspended) return contentMapServiceSuspendedFull;
   };
 
   const getCurrentMapRoute = () => {
@@ -434,9 +434,9 @@ function Map(props) {
                                             )
                                           }
                                           {
-                                            station.hasDisruptions && (
+                                            station.hasBulletins && (
                                               <span className="visually-hidden">
-                                                {contentMapStationHasDisruptions}
+                                                {contentMapStationHasBulletins}
                                               </span>
                                             )
                                           }

@@ -49,7 +49,7 @@ const createMaps = async({ data, id }) => {
         stations.push({
           accessibility: getStationAccessibility({ id, naptanId, topMostParentId }),
           embellishments: stationEmbellishments,
-          hasDisruptions: !!stopPointSequencesStation.hasDisruption,
+          hasBulletins: stopPointSequencesStation.hasDisruption,
           id: stringToKebabCase(stationName),
           interchanges: getInterchanges({
             embellishments: interchangesEmbellishments({ id, stationEmbellishments }),

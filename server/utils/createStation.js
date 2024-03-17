@@ -1,5 +1,5 @@
 import cleanName from './cleanName.js';
-import getDisruptionsStopPoint from './getDisruptionsStopPoint.js';
+import getBulletinsStopPoint from './getBulletinsStopPoint.js';
 import getInterchanges from './getInterchanges.js';
 import getModesById from './getModesById.js';
 import getStationAccessibility from './getStationAccessibility.js';
@@ -15,9 +15,9 @@ const facilityInteger = (facility) => {
   return typeof facility === 'string' ? parseInt(facility, 10) : null;
 };
 
-const getDisruptions = async(naptanId) => {
-  const disruptions = await getDisruptionsStopPoint(naptanId);
-  return disruptions;
+const getBulletins = async(naptanId) => {
+  const bulletins = await getBulletinsStopPoint(naptanId);
+  return bulletins;
 };
 
 const getMeta = ({ facilities, naptanId }) => {
@@ -66,7 +66,7 @@ const createStation = async({ data, id }) => {
 
   return {
     accessibility: getStationAccessibility({ topMostParentId: naptanId }),
-    disruptions: await getDisruptions(id),
+    bulletins: await getBulletins(id),
     embellishments: stationEmbellishments,
     interchanges: getInterchanges({
       embellishments: stationEmbellishments?.interchanges || null,

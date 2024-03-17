@@ -119,7 +119,7 @@ function MapKey(props) {
               </span>
             </td>
             <td>
-              {stop()} with disruptions
+              {stop()} with bulletins
             </td>
           </tr>
           <tr className="map-key__table-row">

@@ -8,8 +8,8 @@
   margin-bottom: 0;
 }
 
+.station__bulletins,
 .station__contact,
-.station__disruptions,
 .station__facilities,
 .station__interchanges,
 .station__nothing,
@@ -25,11 +25,11 @@
   background-color: var(--color-station-zone-background);
 }
 
-.station__disruptions-list {
+.station__bulletins-list {
   @extend %list-unstyled;
 }
 
-.station__disruptions-list-item {
+.station__bulletins-list-item {
   &:not(:last-of-type) {
     margin-bottom: $spacer-global;
   }

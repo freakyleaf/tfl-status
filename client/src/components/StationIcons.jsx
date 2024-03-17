@@ -50,7 +50,7 @@ function StationIcons(props) {
     const icons = [];
     const text = [];
 
-    if (station.hasDisruptions) icons.push(<StationIconWarning />);
+    if (station.hasBulletins) icons.push(<StationIconWarning />);
     if (stationHasNationalRailInterchange(station)) {
       icons.push(<StationIconNationalRail />);
       text.push(SERVICE_NAME_NATIONAL_RAIL);

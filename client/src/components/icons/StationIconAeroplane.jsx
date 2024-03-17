@@ -3,7 +3,7 @@ import React from 'react';
 function StationIconAeroplane() {
   return (
     <svg
-      className="station-icon station-icon--airport"
+      className="station-icon station-icon--aeroplane"
       height="14"
       viewBox="0 0 14 14"
       width="14"
