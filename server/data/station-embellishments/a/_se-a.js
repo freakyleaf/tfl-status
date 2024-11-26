@@ -1,7 +1,5 @@
 import seArchway from './se-archway.js';
 
-const stationEmbellishments = [
+export default [
   ...seArchway,
 ];
-
-export default stationEmbellishments;

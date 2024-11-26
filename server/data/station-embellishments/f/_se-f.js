@@ -3,11 +3,9 @@ import seFenchurchStreet from './se-fenchurch-street.js';
 import seFinsburyPark from './se-finsbury-park.js';
 import seForestGate from './se-forest-gate.js';
 
-const stationEmbellishments = [
+export default [
   ...seFarringdon,
   ...seFenchurchStreet,
   ...seFinsburyPark,
   ...seForestGate,
 ];
-
-export default stationEmbellishments;

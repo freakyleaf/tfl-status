@@ -13,7 +13,7 @@ import seWoolwichArsenal from './se-woolwich-arsenal.js';
 import seWoolwichArsenalPier from './se-woolwich-arsenal-pier.js';
 import seWoolwichFerryNorthPier from './se-woolwich-ferry-north-pier.js';
 
-const stationEmbellishments = [
+export default [
   ...seWansteadPark,
   ...seWaterloo,
   ...seWaterlooEast,
@@ -29,5 +29,3 @@ const stationEmbellishments = [
   ...seWoolwichArsenalPier,
   ...seWoolwichFerryNorthPier,
 ];
-
-export default stationEmbellishments;

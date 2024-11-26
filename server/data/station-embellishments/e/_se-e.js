@@ -4,12 +4,10 @@ import seEmbankmentPier from './se-embankment-pier.js';
 import seEuston from './se-euston.js';
 import seEustonSquare from './se-euston-square.js';
 
-const stationEmbellishments = [
+export default [
   ...seEastCroydon,
   ...seEmbankment,
   ...seEmbankmentPier,
   ...seEuston,
   ...seEustonSquare,
 ];
-
-export default stationEmbellishments;

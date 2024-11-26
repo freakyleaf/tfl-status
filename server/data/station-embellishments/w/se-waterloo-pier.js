@@ -10,7 +10,6 @@ import {
   SERVICE_ID_SOUTH_WESTERN_RAILWAY,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_TUBE,
@@ -22,7 +21,6 @@ import {
   SERVICE_NAME_NORTHERN,
   SERVICE_NAME_SOUTH_WESTERN_RAILWAY,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

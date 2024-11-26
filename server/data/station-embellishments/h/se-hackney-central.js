@@ -5,7 +5,7 @@ import {
 
 import {
   SERVICE_ID_GREATER_ANGLIA,
-  SERVICE_ID_LONDON_OVERGROUND,
+  SERVICE_ID_WEAVER,
 } from '../../../constants/serviceIds.js';
 
 import {
@@ -15,7 +15,7 @@ import {
 
 import {
   SERVICE_NAME_GREATER_ANGLIA,
-  SERVICE_NAME_LONDON_OVERGROUND,
+  SERVICE_NAME_WEAVER,
 } from '../../../constants/serviceNames.js';
 
 import {
@@ -32,7 +32,7 @@ const stationEmbellishments = [
           group: SERVICE_GROUP_CORE,
           lines: [
             {
-              id: SERVICE_ID_LONDON_OVERGROUND,
+              id: SERVICE_ID_WEAVER,
               labels: [
                 {
                   text: 'Hackney Downs',
@@ -40,7 +40,7 @@ const stationEmbellishments = [
                 },
               ],
               mode: SERVICE_MODE_OVERGROUND,
-              name: SERVICE_NAME_LONDON_OVERGROUND,
+              name: SERVICE_NAME_WEAVER,
             },
           ],
         },

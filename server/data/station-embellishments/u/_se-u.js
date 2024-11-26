@@ -1,7 +1,5 @@
 import seUpperHolloway from './se-upper-holloway.js';
 
-const stationEmbellishments = [
+export default [
   ...seUpperHolloway,
 ];
-
-export default stationEmbellishments;

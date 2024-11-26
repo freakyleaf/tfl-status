@@ -2,7 +2,6 @@ import {
   SERVICE_GROUP_INFO,
 } from '../../../constants/serviceGroups.js';
 
-
 import {
   SERVICE_INFO_GATWICK_AIRPORT,
   SERVICE_INFO_LUTON_AIRPORT,
@@ -11,8 +10,6 @@ import {
 import {
   SERVICE_MODE_AIRPORT_CONNECTION,
 } from '../../../constants/serviceModes.js';
-
-
 
 const stationEmbellishments = [
   {

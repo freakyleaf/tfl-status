@@ -9,7 +9,6 @@ import {
   SERVICE_ID_NORTHERN,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_TUBE,
 } from '../../../constants/serviceModes.js';
@@ -20,7 +19,6 @@ import {
   SERVICE_NAME_DISTRICT,
   SERVICE_NAME_NORTHERN,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

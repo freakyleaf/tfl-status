@@ -2,13 +2,9 @@ import {
   SERVICE_GROUP_EXTRA,
 } from '../../../constants/serviceGroups.js';
 
-
-
 import {
   SERVICE_MODE_EUROSTAR,
 } from '../../../constants/serviceModes.js';
-
-
 
 const stationEmbellishments = [
   {

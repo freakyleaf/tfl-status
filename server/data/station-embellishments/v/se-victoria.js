@@ -3,7 +3,6 @@ import {
   SERVICE_GROUP_INFO,
 } from '../../../constants/serviceGroups.js';
 
-
 import {
   SERVICE_INFO_GATWICK_AIRPORT,
 } from '../../../constants/serviceInfo.js';
@@ -12,7 +11,6 @@ import {
   SERVICE_MODE_AIRPORT_CONNECTION,
   SERVICE_MODE_COACH,
 } from '../../../constants/serviceModes.js';
-
 
 const stationEmbellishments = [
   {

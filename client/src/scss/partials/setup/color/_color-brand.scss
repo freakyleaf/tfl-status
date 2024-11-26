@@ -21,9 +21,15 @@ $color-tfl-piccadilly: rgb(0 15 159);
 $color-tfl-victoria: rgb(0 160 223);
 $color-tfl-waterloo-city: rgb(107 205 178);
 
+$color-tfl-liberty: rgb(97 104 107);
+$color-tfl-lioness: rgb(255 166 0);
+$color-tfl-mildmay: rgb(0 111 230);
+$color-tfl-suffragette: rgb(24 169 93);
+$color-tfl-weaver: rgb(155 0 88);
+$color-tfl-windrush: rgb(220 36 31);
+
 $color-tfl-dlr: rgb(0 175 170);
 $color-tfl-elizabeth: rgb(119 61 189);
-$color-tfl-overground: rgb(238 118 35);
 $color-tfl-tram: rgb(118 188 33);
 $color-tfl-river-bus: rgb(0 160 223);
 
@@ -83,6 +89,36 @@ $brands: (
     colorBorder: $color-tfl-waterloo-city,
     colorText: $color-tfl-black,
   ),
+  'liberty': (
+    colorBackground: $color-tfl-liberty,
+    colorBorder: $color-tfl-liberty,
+    colorText: $color-tfl-white,
+  ),
+  'lioness': (
+    colorBackground: $color-tfl-lioness,
+    colorBorder: $color-tfl-lioness,
+    colorText: $color-tfl-black,
+  ),
+  'mildmay': (
+    colorBackground: $color-tfl-mildmay,
+    colorBorder: $color-tfl-mildmay,
+    colorText: $color-tfl-white,
+  ),
+  'suffragette': (
+    colorBackground: $color-tfl-suffragette,
+    colorBorder: $color-tfl-suffragette,
+    colorText: $color-tfl-white,
+  ),
+  'weaver': (
+    colorBackground: $color-tfl-weaver,
+    colorBorder: $color-tfl-weaver,
+    colorText: $color-tfl-white,
+  ),
+  'windrush': (
+    colorBackground: $color-tfl-windrush,
+    colorBorder: $color-tfl-windrush,
+    colorText: $color-tfl-white,
+  ),
   'dlr': (
     colorBackground: $color-tfl-dlr,
     colorBorder: $color-tfl-dlr,
@@ -91,11 +127,6 @@ $brands: (
   'elizabeth': (
     colorBackground: $color-tfl-elizabeth,
     colorBorder: $color-tfl-elizabeth,
-    colorText: $color-tfl-white,
-  ),
-  'london-overground': (
-    colorBackground: $color-tfl-overground,
-    colorBorder: $color-tfl-overground,
     colorText: $color-tfl-white,
   ),
   'tram': (

@@ -23,7 +23,6 @@ import {
   SERVICE_NAME_RIVER_BUS_6,
 } from '../../../constants/serviceNames.js';
 
-
 const stationEmbellishments = [
   {
     topMostParentId: 'HUBBFR', // Blackfriars

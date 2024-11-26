@@ -5,12 +5,11 @@ import {
 
 import {
   SERVICE_ID_AVANTI_WEST_COAST,
-  SERVICE_ID_LONDON_OVERGROUND,
+  SERVICE_ID_LIONESS,
   SERVICE_ID_NORTHERN,
   SERVICE_ID_VICTORIA,
   SERVICE_ID_WEST_MIDLANDS_TRAINS,
 } from '../../../constants/serviceIds.js';
-
 
 import {
   SERVICE_MODE_NATIONAL_RAIL,
@@ -20,7 +19,7 @@ import {
 
 import {
   SERVICE_NAME_AVANTI_WEST_COAST,
-  SERVICE_NAME_LONDON_OVERGROUND,
+  SERVICE_NAME_LIONESS,
   SERVICE_NAME_NORTHERN,
   SERVICE_NAME_VICTORIA,
   SERVICE_NAME_WEST_MIDLANDS_TRAINS,
@@ -64,7 +63,7 @@ const stationEmbellishments = [
               name: SERVICE_NAME_VICTORIA,
             },
             {
-              id: SERVICE_ID_LONDON_OVERGROUND,
+              id: SERVICE_ID_LIONESS,
               labels: [
                 {
                   text: 'Euston',
@@ -72,7 +71,7 @@ const stationEmbellishments = [
                 },
               ],
               mode: SERVICE_MODE_OVERGROUND,
-              name: SERVICE_NAME_LONDON_OVERGROUND,
+              name: SERVICE_NAME_LIONESS,
             },
           ],
         },

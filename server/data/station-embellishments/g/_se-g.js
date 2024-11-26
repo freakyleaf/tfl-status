@@ -1,7 +1,5 @@
 import seGreenwichPier from './se-greenwich-pier.js';
 
-const stationEmbellishments = [
+export default [
   ...seGreenwichPier,
 ];
-
-export default stationEmbellishments;

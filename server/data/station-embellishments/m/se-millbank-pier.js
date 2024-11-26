@@ -14,7 +14,6 @@ import {
   SERVICE_NAME_VICTORIA,
 } from '../../../constants/serviceNames.js';
 
-
 const stationEmbellishments = [
   {
     topMostParentId: '930GMBK', // Millbank Pier

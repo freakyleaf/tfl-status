@@ -5,7 +5,7 @@ import sePontoonDock from './se-pontoon-dock.js';
 import sePutneyBridge from './se-putney-bridge.js';
 import sePutneyPier from './se-putney-pier.js';
 
-const stationEmbellishments = [
+export default [
   ...sePaddington,
   ...seParkRoyal,
   ...sePimlico,
@@ -13,5 +13,3 @@ const stationEmbellishments = [
   ...sePutneyBridge,
   ...sePutneyPier,
 ];
-
-export default stationEmbellishments;

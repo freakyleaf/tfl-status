@@ -6,7 +6,6 @@ import {
   SERVICE_ID_ELIZABETH,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_ELIZABETH_LINE,
 } from '../../../constants/serviceModes.js';

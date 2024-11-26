@@ -1,7 +1,5 @@
 import seImperialWharf from './se-imperial-wharf.js';
 
-const stationEmbellishments = [
+export default [
   ...seImperialWharf,
 ];
-
-export default stationEmbellishments;

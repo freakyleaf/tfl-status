@@ -11,7 +11,7 @@ import seBowChurch from './se-bow-church.js';
 import seBowesPark from './se-bowes-park.js';
 import seBowRoad from './se-bow-road.js';
 
-const stationEmbellishments = [
+export default [
   ...seBakerStreet,
   ...seBank,
   ...seBarkingRiverside,
@@ -25,5 +25,3 @@ const stationEmbellishments = [
   ...seBowesPark,
   ...seBowRoad,
 ];
-
-export default stationEmbellishments;

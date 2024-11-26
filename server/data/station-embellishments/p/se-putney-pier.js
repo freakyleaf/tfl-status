@@ -6,7 +6,6 @@ import {
   SERVICE_ID_DISTRICT,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_TUBE,
 } from '../../../constants/serviceModes.js';
@@ -14,7 +13,6 @@ import {
 import {
   SERVICE_NAME_DISTRICT,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

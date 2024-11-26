@@ -4,12 +4,10 @@ import seSouthWimbledon from './se-south-wimbledon.js';
 import seStratford from './se-stratford.js';
 import seStratfordInternationalDlr from './se-stratford-international-dlr.js';
 
-const stationEmbellishments = [
+export default [
   ...seShenfield,
   ...seSouthwark,
   ...seSouthWimbledon,
   ...seStratford,
   ...seStratfordInternationalDlr,
 ];
-
-export default stationEmbellishments;

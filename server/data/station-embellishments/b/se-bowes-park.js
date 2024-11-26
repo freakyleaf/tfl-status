@@ -6,7 +6,6 @@ import {
   SERVICE_ID_PICCADILLY,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_TUBE,
 } from '../../../constants/serviceModes.js';

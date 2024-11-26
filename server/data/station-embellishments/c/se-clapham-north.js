@@ -3,16 +3,15 @@ import {
 } from '../../../constants/serviceGroups.js';
 
 import {
-  SERVICE_ID_LONDON_OVERGROUND,
+  SERVICE_ID_WINDRUSH,
 } from '../../../constants/serviceIds.js';
-
 
 import {
   SERVICE_MODE_OVERGROUND,
 } from '../../../constants/serviceModes.js';
 
 import {
-  SERVICE_NAME_LONDON_OVERGROUND,
+  SERVICE_NAME_WINDRUSH,
 } from '../../../constants/serviceNames.js';
 
 import {
@@ -28,7 +27,7 @@ const stationEmbellishments = [
           group: SERVICE_GROUP_CORE,
           lines: [
             {
-              id: SERVICE_ID_LONDON_OVERGROUND,
+              id: SERVICE_ID_WINDRUSH,
               labels: [
                 {
                   text: 'Clapham High Street',
@@ -36,7 +35,7 @@ const stationEmbellishments = [
                 },
               ],
               mode: SERVICE_MODE_OVERGROUND,
-              name: SERVICE_NAME_LONDON_OVERGROUND,
+              name: SERVICE_NAME_WINDRUSH,
             },
           ],
         },

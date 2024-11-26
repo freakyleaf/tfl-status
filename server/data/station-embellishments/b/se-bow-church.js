@@ -7,7 +7,6 @@ import {
   SERVICE_ID_HAMMERSMITH_CITY,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_TUBE,
 } from '../../../constants/serviceModes.js';

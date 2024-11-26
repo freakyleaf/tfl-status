@@ -6,7 +6,6 @@ import {
   SERVICE_ID_JUBILEE,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_TUBE,
 } from '../../../constants/serviceModes.js';
@@ -14,7 +13,6 @@ import {
 import {
   SERVICE_NAME_JUBILEE,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

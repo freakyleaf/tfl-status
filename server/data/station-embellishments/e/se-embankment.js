@@ -12,7 +12,6 @@ import {
   SERVICE_ID_SOUTHEASTERN,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_RIVER_BUS,

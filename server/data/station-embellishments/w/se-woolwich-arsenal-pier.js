@@ -9,7 +9,6 @@ import {
   SERVICE_ID_THAMESLINK,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_NATIONAL_RAIL,
   SERVICE_MODE_TUBE,
@@ -20,7 +19,6 @@ import {
   SERVICE_NAME_SOUTHEASTERN,
   SERVICE_NAME_THAMESLINK,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

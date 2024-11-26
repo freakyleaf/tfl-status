@@ -6,7 +6,6 @@ import {
   SERVICE_ID_TRAM,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_TRAM,
 } from '../../../constants/serviceModes.js';

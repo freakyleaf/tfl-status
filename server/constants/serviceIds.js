@@ -13,8 +13,10 @@ export const SERVICE_ID_GREAT_NORTHERN = 'great-northern';
 export const SERVICE_ID_GREATER_ANGLIA = 'greater-anglia';
 export const SERVICE_ID_HAMMERSMITH_CITY = 'hammersmith-city';
 export const SERVICE_ID_JUBILEE = 'jubilee';
-export const SERVICE_ID_LONDON_OVERGROUND = 'london-overground';
+export const SERVICE_ID_LIBERTY = 'liberty';
+export const SERVICE_ID_LIONESS = 'lioness';
 export const SERVICE_ID_METROPOLITAN = 'metropolitan';
+export const SERVICE_ID_MILDMAY = 'mildmay';
 export const SERVICE_ID_NATIONAL_RAIL = 'national-rail';
 export const SERVICE_ID_NORTHERN = 'northern';
 export const SERVICE_ID_PICCADILLY = 'piccadilly';
@@ -25,12 +27,15 @@ export const SERVICE_ID_RIVER_BUS_6 = 'rb6';
 export const SERVICE_ID_SOUTH_WESTERN_RAILWAY = 'south-western-railway';
 export const SERVICE_ID_SOUTHEASTERN = 'southeastern';
 export const SERVICE_ID_SOUTHERN = 'southern';
+export const SERVICE_ID_SUFFRAGETTE = 'suffragette';
 export const SERVICE_ID_THAMES_RIVER_SERVICES = 'thames-river-services';
 export const SERVICE_ID_THAMESLINK = 'thameslink';
 export const SERVICE_ID_TRAM = 'tram';
 export const SERVICE_ID_VICTORIA = 'victoria';
 export const SERVICE_ID_WATERLOO_CITY = 'waterloo-city';
+export const SERVICE_ID_WEAVER = 'weaver';
 export const SERVICE_ID_WEST_MIDLANDS_TRAINS = 'west-midlands-trains';
+export const SERVICE_ID_WINDRUSH = 'windrush';
 export const SERVICE_ID_WOOLWICH_FERRY = 'woolwich-ferry';
 
 export const busServiceIds = [
@@ -46,7 +51,12 @@ export const elizabethLineServiceIds = [
 ];
 
 export const overgroundServiceIds = [
-  SERVICE_ID_LONDON_OVERGROUND,
+  SERVICE_ID_LIBERTY,
+  SERVICE_ID_LIONESS,
+  SERVICE_ID_MILDMAY,
+  SERVICE_ID_SUFFRAGETTE,
+  SERVICE_ID_WEAVER,
+  SERVICE_ID_WINDRUSH,
 ];
 
 export const nationalRailServiceIds = [

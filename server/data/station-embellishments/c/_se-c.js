@@ -12,7 +12,7 @@ import seClaphamJunction from './se-clapham-junction.js';
 import seClaphamNorth from './se-clapham-north.js';
 import seCuttySark from './se-cutty-sark.js';
 
-const stationEmbellishments = [
+export default [
   ...seCaledonianRoad,
   ...seCaledonianRoadBarnsbury,
   ...seCamdenRoad,
@@ -27,5 +27,3 @@ const stationEmbellishments = [
   ...seClaphamNorth,
   ...seCuttySark,
 ];
-
-export default stationEmbellishments;

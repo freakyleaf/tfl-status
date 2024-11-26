@@ -3,7 +3,7 @@ import {
 } from '../../../constants/serviceGroups.js';
 
 import {
-  SERVICE_ID_LONDON_OVERGROUND,
+  SERVICE_ID_SUFFRAGETTE,
 } from '../../../constants/serviceIds.js';
 
 import {
@@ -11,7 +11,7 @@ import {
 } from '../../../constants/serviceModes.js';
 
 import {
-  SERVICE_NAME_LONDON_OVERGROUND,
+  SERVICE_NAME_SUFFRAGETTE,
 } from '../../../constants/serviceNames.js';
 
 import {
@@ -27,7 +27,7 @@ const stationEmbellishments = [
           group: SERVICE_GROUP_CORE,
           lines: [
             {
-              id: SERVICE_ID_LONDON_OVERGROUND,
+              id: SERVICE_ID_SUFFRAGETTE,
               labels: [
                 {
                   text: 'Harringay Green Lanes',
@@ -35,7 +35,7 @@ const stationEmbellishments = [
                 },
               ],
               mode: SERVICE_MODE_OVERGROUND,
-              name: SERVICE_NAME_LONDON_OVERGROUND,
+              name: SERVICE_NAME_SUFFRAGETTE,
             },
           ],
         },

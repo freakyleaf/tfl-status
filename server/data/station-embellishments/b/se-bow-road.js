@@ -6,7 +6,6 @@ import {
   SERVICE_ID_DLR,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_DLR,
 } from '../../../constants/serviceModes.js';

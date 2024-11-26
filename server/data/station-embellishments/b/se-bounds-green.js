@@ -6,7 +6,6 @@ import {
   SERVICE_ID_GREAT_NORTHERN,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_NATIONAL_RAIL,
 } from '../../../constants/serviceModes.js';

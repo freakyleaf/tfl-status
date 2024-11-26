@@ -6,7 +6,6 @@ import {
   SERVICE_ID_WOOLWICH_FERRY,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_RIVER_BUS,
 } from '../../../constants/serviceModes.js';
@@ -14,7 +13,6 @@ import {
 import {
   SERVICE_NAME_WOOLWICH_FERRY,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

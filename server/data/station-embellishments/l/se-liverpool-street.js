@@ -2,7 +2,6 @@ import {
   SERVICE_GROUP_INFO,
 } from '../../../constants/serviceGroups.js';
 
-
 import {
   SERVICE_INFO_SOUTHEND_AIRPORT,
   SERVICE_INFO_STANSTED_AIRPORT,
@@ -11,7 +10,6 @@ import {
 import {
   SERVICE_MODE_AIRPORT_CONNECTION,
 } from '../../../constants/serviceModes.js';
-
 
 const stationEmbellishments = [
   {

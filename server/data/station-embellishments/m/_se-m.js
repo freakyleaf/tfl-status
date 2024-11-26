@@ -6,7 +6,7 @@ import seMonument from './se-monument.js';
 import seMordenRoad from './se-morden-road.js';
 import seMudchute from './se-mudchute.js';
 
-const stationEmbellishments = [
+export default [
   ...seManorHouse,
   ...seMarylebone,
   ...seMasthouseTerracePier,
@@ -15,5 +15,3 @@ const stationEmbellishments = [
   ...seMordenRoad,
   ...seMudchute,
 ];
-
-export default stationEmbellishments;

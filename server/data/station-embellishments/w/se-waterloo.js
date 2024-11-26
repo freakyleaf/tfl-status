@@ -20,7 +20,6 @@ import {
   SERVICE_NAME_RIVER_BUS_1,
 } from '../../../constants/serviceNames.js';
 
-
 const stationEmbellishments = [
   {
     topMostParentId: 'HUBWAT', // Waterloo

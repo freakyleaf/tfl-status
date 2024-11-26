@@ -2,12 +2,9 @@ import {
   SERVICE_GROUP_EXTRA,
 } from '../../../constants/serviceGroups.js';
 
-
 import {
   SERVICE_MODE_AEROPLANE,
 } from '../../../constants/serviceModes.js';
-
-
 
 const stationEmbellishments = [
   {

@@ -6,7 +6,6 @@ import {
   SERVICE_ID_SOUTHEASTERN,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_NATIONAL_RAIL,
 } from '../../../constants/serviceModes.js';
@@ -14,7 +13,6 @@ import {
 import {
   SERVICE_NAME_SOUTHEASTERN,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {

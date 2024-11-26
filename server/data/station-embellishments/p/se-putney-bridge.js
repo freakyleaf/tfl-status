@@ -7,7 +7,6 @@ import {
   SERVICE_ID_RIVER_BUS_6,
 } from '../../../constants/serviceIds.js';
 
-
 import {
   SERVICE_MODE_RIVER_BUS,
 } from '../../../constants/serviceModes.js';
@@ -16,7 +15,6 @@ import {
   SERVICE_NAME_RIVER_BUS_2,
   SERVICE_NAME_RIVER_BUS_6,
 } from '../../../constants/serviceNames.js';
-
 
 const stationEmbellishments = [
   {
