@@ -11,7 +11,7 @@ import {
   SERVICE_MODE_AIRPORT_CONNECTION,
 } from '../../../constants/serviceModes.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBZFD', // Farringdon
     embellishments: {
@@ -36,5 +36,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

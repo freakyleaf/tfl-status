@@ -10,7 +10,7 @@ import {
   SERVICE_MODE_AIRPORT_CONNECTION,
 } from '../../../constants/serviceModes.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GSHENFLD', // Shenfield
     embellishments: {
@@ -32,5 +32,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

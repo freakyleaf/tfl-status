@@ -14,7 +14,7 @@ import {
   SERVICE_NAME_RIVER_BUS_1,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GBKRVS', // Barking Riverside
     embellishments: {
@@ -38,5 +38,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

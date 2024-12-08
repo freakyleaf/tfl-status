@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_CLAPHAM_HIGH_STREET_LONDON_OVERGROUND_CLAPHAM_NORTH_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUCPN', // Clapham North
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_WOOLWICH_ELIZABETH_LINE_WOOLWICH_ARSENAL_DLR,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GWOLWXR', // Woolwich
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

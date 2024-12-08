@@ -33,7 +33,7 @@ import {
   OSI_DISTANCE_TOWER_GATEWAY_DLR_TOWER_HILL_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBTOG', // Tower Gateway
     embellishments: {
@@ -120,5 +120,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

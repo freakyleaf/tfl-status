@@ -14,7 +14,7 @@ import {
   SERVICE_NAME_VICTORIA,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GSGW', // Vauxhall St George Wharf Pier
     embellishments: {
@@ -38,5 +38,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

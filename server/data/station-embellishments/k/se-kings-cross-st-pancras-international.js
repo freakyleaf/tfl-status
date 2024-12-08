@@ -13,7 +13,7 @@ import {
   SERVICE_MODE_EUROSTAR,
 } from '../../../constants/serviceModes.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBKGX', // King's Cross and St Pancras International
     embellishments: {
@@ -46,5 +46,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

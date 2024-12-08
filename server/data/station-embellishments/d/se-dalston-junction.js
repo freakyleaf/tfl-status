@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_DALSTON_JUNCTION_LONDON_OVERGROUND_DALSTON_KINGSLAND_LONDON_OVERGROUND,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GDALS', // Dalston Junction
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

@@ -6,7 +6,7 @@ import {
   SERVICE_MODE_AEROPLANE,
 } from '../../../constants/serviceModes.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBH13', // Heathrow Terminals 2 & 3
     embellishments: {
@@ -23,5 +23,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

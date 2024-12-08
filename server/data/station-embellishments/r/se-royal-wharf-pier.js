@@ -14,7 +14,7 @@ import {
   SERVICE_NAME_DLR,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GWRF', // Royal Wharf Pier
     embellishments: {
@@ -38,5 +38,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_CALEDONIAN_ROAD_TUBE_CALEDONIAN_ROAD_BARNSBURY_LONDON_OVERGROUND,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GCLDNNRB', // Caledonian Road & Barnsbury
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

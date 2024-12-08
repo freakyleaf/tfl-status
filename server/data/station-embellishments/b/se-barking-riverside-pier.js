@@ -14,7 +14,7 @@ import {
   SERVICE_NAME_SUFFRAGETTE,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GBRVS', // Barking Riverside Pier
     embellishments: {
@@ -38,5 +38,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

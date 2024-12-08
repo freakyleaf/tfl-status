@@ -6,7 +6,7 @@ import {
   SERVICE_MODE_EUROSTAR,
 } from '../../../constants/serviceModes.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GASHFKY', // Ashford International
     embellishments: {
@@ -23,5 +23,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

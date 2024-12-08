@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_CAMDEN_ROAD_LONDON_OVERGROUND_CAMDEN_TOWN_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUCTN', // Camden Town
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

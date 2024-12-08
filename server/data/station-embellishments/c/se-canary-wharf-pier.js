@@ -18,7 +18,7 @@ import {
   SERVICE_NAME_JUBILEE,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GCAW', // Canary Wharf Pier
     embellishments: {
@@ -62,5 +62,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

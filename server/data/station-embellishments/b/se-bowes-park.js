@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_BOUNDS_GREEN_TUBE_BOWES_PARK_NATIONAL_RAIL,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GBOWESPK', // Bowes Park
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

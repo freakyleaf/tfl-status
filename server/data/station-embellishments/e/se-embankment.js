@@ -28,7 +28,7 @@ import {
   OSI_DISTANCE_CHARING_CROSS_NATIONAL_RAIL_EMBANKMENT_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUEMB', // Embankment
     embellishments: {
@@ -92,5 +92,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

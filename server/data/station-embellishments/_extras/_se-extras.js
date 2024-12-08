@@ -9,7 +9,7 @@ import seSouthendAirport from './se-southend-airport.js';
 import seStanstedAirport from './se-stansted-airport.js';
 import seStratfordInternationalSoutheastern from './se-stratford-international-southeastern.js';
 
-const stationEmbellishments = [
+export default [
   ...seAshfordInternational,
   ...seBirminghamInternational,
   ...seEbbsfleetInternational,
@@ -21,5 +21,3 @@ const stationEmbellishments = [
   ...seStanstedAirport,
   ...seStratfordInternationalSoutheastern,
 ];
-
-export default stationEmbellishments;

@@ -22,7 +22,7 @@ import {
   SERVICE_NAME_SOUTH_WESTERN_RAILWAY,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GWMP', // Waterloo Pier
     embellishments: {
@@ -81,5 +81,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_HANGER_LANE_TUBE_PARK_ROYAL_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUHGR', // Hanger Lane
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

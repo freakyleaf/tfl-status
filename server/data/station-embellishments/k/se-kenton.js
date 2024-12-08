@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_KENTON_TUBE_NORTHWICK_PARK_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBKNT', // Kenton
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

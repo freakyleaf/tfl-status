@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_HACKNEY_CENTRAL_LONDON_OVERGROUND_HACKNEY_DOWNS_NATIONAL_RAIL,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GHAKNYNM', // Hackney Downs
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

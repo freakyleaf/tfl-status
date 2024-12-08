@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_BOW_CHURCH_DLR_BOW_ROAD_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUBWR', // Bow Road
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

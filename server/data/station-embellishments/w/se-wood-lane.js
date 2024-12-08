@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_WHITE_CITY_TUBE_WOOD_LANE_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUWLA', // Wood Lane
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

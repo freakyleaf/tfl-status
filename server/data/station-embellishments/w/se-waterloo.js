@@ -20,7 +20,7 @@ import {
   SERVICE_NAME_RIVER_BUS_1,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBWAT', // Waterloo
     embellishments: {
@@ -57,5 +57,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

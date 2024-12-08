@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_ARCHWAY_TUBE_UPPER_HOLLOWAY_LONDON_OVERGROUND,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUACY', // Archway
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

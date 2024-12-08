@@ -31,7 +31,7 @@ import {
   OSI_DISTANCE_EUSTON_TUBE_EUSTON_SQUARE_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUESQ', // Euston Square
     embellishments: {
@@ -106,5 +106,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

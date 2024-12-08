@@ -12,7 +12,7 @@ import {
   SERVICE_MODE_COACH,
 } from '../../../constants/serviceModes.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: 'HUBVIC', // Victoria
     embellishments: {
@@ -42,5 +42,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

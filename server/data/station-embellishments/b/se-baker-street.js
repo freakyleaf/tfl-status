@@ -19,7 +19,7 @@ import {
   OSI_DISTANCE_BAKER_STREET_TUBE_MARYLEBONE_NATIONAL_RAIL,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUBST', // Baker Street
     embellishments: {
@@ -47,5 +47,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

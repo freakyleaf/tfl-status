@@ -20,7 +20,7 @@ import {
   OSI_DISTANCE_BANK_TUBE_MONUMENT_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUMMT', // Monument
     embellishments: {
@@ -56,5 +56,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

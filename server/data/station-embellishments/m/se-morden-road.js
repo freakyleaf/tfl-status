@@ -18,7 +18,7 @@ import {
   OSI_DISTANCE_MORDEN_ROAD_TRAM_SOUTH_WIMBLEDON_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZCRMDN', // Morden Road
     embellishments: {
@@ -43,5 +43,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

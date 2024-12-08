@@ -24,7 +24,7 @@ import {
   OSI_DISTANCE_FENCHURCH_STREET_NATIONAL_RAIL_TOWER_HILL_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '910GFENCHRS', // Fenchurch Street
     embellishments: {
@@ -71,5 +71,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

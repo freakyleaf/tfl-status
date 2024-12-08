@@ -31,7 +31,7 @@ import {
   OSI_DISTANCE_TOWER_GATEWAY_DLR_TOWER_HILL_TUBE,
 } from '../../osiDistances.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '940GZZLUTWH', // Tower Hill
     embellishments: {
@@ -107,5 +107,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

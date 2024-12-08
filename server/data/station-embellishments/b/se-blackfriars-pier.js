@@ -22,7 +22,7 @@ import {
   SERVICE_NAME_THAMESLINK,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GBFR', // Blackfriars Pier
     embellishments: {
@@ -81,5 +81,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

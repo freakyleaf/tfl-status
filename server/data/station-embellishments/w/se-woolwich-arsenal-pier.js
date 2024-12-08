@@ -20,7 +20,7 @@ import {
   SERVICE_NAME_THAMESLINK,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GWAS', // Woolwich Arsenal Pier
     embellishments: {
@@ -69,5 +69,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;

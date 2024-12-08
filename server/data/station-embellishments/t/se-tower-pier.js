@@ -18,7 +18,7 @@ import {
   SERVICE_NAME_DLR,
 } from '../../../constants/serviceNames.js';
 
-const stationEmbellishments = [
+export default [
   {
     topMostParentId: '930GTMP', // Tower Pier
     embellishments: {
@@ -62,5 +62,3 @@ const stationEmbellishments = [
     },
   },
 ];
-
-export default stationEmbellishments;
