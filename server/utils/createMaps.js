@@ -1,4 +1,5 @@
 import cleanName from './cleanName.js';
+import fixOrderedLineRoutes from './fixOrderedLineRoutes.js';
 import getInterchanges from './getInterchanges.js';
 import getModesById from './getModesById.js';
 import getStationAccessibility from './getStationAccessibility.js';
@@ -6,7 +7,9 @@ import getStationEmbellishments from './getStationEmbellishments.js';
 import getZone from './getZone.js';
 import stringToKebabCase from './stringToKebabCase.js';
 
-import fixOrderedLineRoutes from './fixOrderedLineRoutes.js';
+import {
+  SERVICE_ID_CIRCLE,
+} from '../constants/serviceIds.js';
 
 const interchangesEmbellishments = ({ id, stationEmbellishments }) => {
   if (!stationEmbellishments?.interchanges) return null;
@@ -26,12 +29,12 @@ const createMaps = async({ data, id }) => {
     stopPointSequences,
   } = data;
   const modesById = await getModesById();
-  const orderedLineRoutes = fixOrderedLineRoutes({ id, orderedLineRoutesRaw });
+  const orderedLineRoutes = fixOrderedLineRoutes({ orderedLineRoutesRaw });
 
   return orderedLineRoutes.map((orderedLineRoute) => {
     const name = cleanName(orderedLineRoute.name);
     const stations = [];
-    const stationIds = []; // Array used to track unique values as we don't want duplicate stations
+    const stationIds = []; // Array used to track unique values as we don't want duplicate stations (apart from Edgware Road and Paddington on the Circle line)
 
     orderedLineRoute.naptanIds.forEach((naptanId) => {
       // The `stationId` value in `data.stations` could either be the `naptanId` or the `topMostParentId` value in `data.stopPointSequences`
@@ -45,7 +48,7 @@ const createMaps = async({ data, id }) => {
       const stationEmbellishments = getStationEmbellishments({ topMostParentId });
       const stationName = cleanName(station.name);
 
-      if (!stationIds.includes(stationId)) {
+      if (!stationIds.includes(stationId) || (id === SERVICE_ID_CIRCLE && (stationName === 'Edgware Road' || stationName === 'Paddington'))) {
         stations.push({
           accessibility: getStationAccessibility({ id, naptanId, topMostParentId }),
           embellishments: stationEmbellishments,
