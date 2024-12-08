@@ -1,4 +1,10 @@
-@import './partials/vendors/modular-scale';
+$modularscale: (
+  base: 1rem,
+  ratio: 1.618,
+);
+
+@import 'modularscale-sass/stylesheets/modularscale';
+
 @import './partials/vendors/pull-to-refresh';
 
 @import './partials/setup/init/devices';
