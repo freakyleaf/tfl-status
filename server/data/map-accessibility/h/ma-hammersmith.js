@@ -1,5 +1,4 @@
 import {
-  ACCESS_TYPE_PLATFORM,
   ACCESS_TYPE_TRAIN,
 } from '../../../constants/accessTypes.js';
 
@@ -30,7 +29,7 @@ export default {
     },
     {
       id: SERVICE_ID_PICCADILLY,
-      access: ACCESS_TYPE_PLATFORM,
+      access: ACCESS_TYPE_TRAIN,
       naptanId: '940GZZLUHSD',
     },
   ],
