@@ -6,11 +6,6 @@
 .toggle-switch {
   display: flex;
   align-items: center;
-
-  &--disabled {
-    opacity: $opacity-disabled;
-    pointer-events: none;
-  }
 }
 
 .toggle-switch__input {

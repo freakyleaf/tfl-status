@@ -27,7 +27,7 @@ function ToggleSwitch(props) {
   };
 
   return (
-    <div className={disabled ? 'toggle-switch toggle-switch--disabled' : 'toggle-switch'}>
+    <div className={`toggle-switch ${disabled ? 'disabled' : ''}`.trim()}>
       <input
         checked={checked}
         className="toggle-switch__input"

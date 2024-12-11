@@ -156,6 +156,7 @@ function Map(props) {
   };
 
   useEffect(() => {
+    setMapKeyVisibility(false);
     setMapLoading(true);
     setMapReloadVisible(false);
     startMapReloadTimeout();
@@ -259,6 +260,7 @@ function Map(props) {
               <Collapsible
                 a11yHelperText="map key"
                 collapsed={!mapKeyVisibility}
+                disabled={isLoading}
                 heading="Map Key"
                 onClick={() => setMapKeyVisibility(!mapKeyVisibility)}
               />
@@ -266,6 +268,7 @@ function Map(props) {
                 mapKeyVisibility && (
                   <MapKey
                     id={service.id}
+                    maps={maps}
                     mode={service.mode}
                   />
                 )

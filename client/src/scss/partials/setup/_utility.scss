@@ -11,6 +11,13 @@
   cursor: pointer;
 }
 
+// Disabled
+
+.disabled {
+  pointer-events: none;
+  opacity: $opacity-disabled;
+}
+
 // Flex
 
 %flex-column {
