@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .station__header {
   display: flex; // Align `.station-icons` to the right of `.station__heading`
   align-items: center;
@@ -18,11 +20,45 @@
 }
 
 .station__zone {
-  padding-top: $size-station-item-padding-y;
-  padding-bottom: $size-station-item-padding-y;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: $size-map-zone--tablet;
   color: var(--color-station-zone-text);
   text-align: center;
   background-color: var(--color-station-zone-background);
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: math.div($size-map-zone--tablet, 2);
+  }
+
+  &::before {
+    left: 0;
+    border-color: var(--color-map-diagram-background) transparent transparent var(--color-map-diagram-background);
+  }
+
+  &::after {
+    right: 0;
+    border-color: var(--color-map-diagram-background) var(--color-map-diagram-background) transparent transparent;
+  }
+
+  @include device-min(desktop) {
+    height: $size-map-zone--desktop;
+
+    &::before,
+    &::after {
+      border-width: math.div($size-map-zone--desktop, 2);
+    }
+  }
 }
 
 .station__bulletins-list {

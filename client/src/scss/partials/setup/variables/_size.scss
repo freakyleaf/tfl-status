@@ -42,7 +42,8 @@ $size-map-spacing: math.div($size-map-marker--interchange, 4) * 3;
 $size-map-spacing-mobile: $size-map-marker--interchange;
 $size-map-zone-padding-x-mobile: $spacer-4;
 $size-map-zone-padding-y-mobile: 0.35rem; // Somewhere between $spacer-2 and $spacer-3
-$size-map-zone-size-tablet: 2rem;
+$size-map-zone--tablet: 2rem;
+$size-map-zone--desktop: 2.5rem;
 
 $size-navigation-primary-link-padding-x: $spacer-4;
 $size-navigation-primary-link-padding-y: $spacer-3;
@@ -68,14 +69,12 @@ $size-spacer-map-settings: $spacer-4;
 $size-spacer-reason: $spacer-4;
 $size-spacer-status: $spacer-4;
 
-$size-station-item-padding-y: $spacer-2;
-
 $size-station-icon-station-header: $spacer-7;
 $size-station-icon-station-header--aeroplane: $spacer-6;
 $size-station-icon-station-header--bus: $spacer-6;
 
 $size-interchange-link-view-service-padding-x: $spacer-2;
-$size-interchange-link-view-service-padding-y: $size-station-item-padding-y;
+$size-interchange-link-view-service-padding-y: $spacer-2;
 $size-interchange-link-view-station-padding: $spacer-3;
 $size-interchange-link-view-station-min-height: $size-map-marker--accessibility + ($size-interchange-link-view-station-padding * 2);
 

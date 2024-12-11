@@ -71,7 +71,7 @@
 
   @include device-min(tablet) {
     top: $border-width-generic;
-    width: $size-map-zone-size-tablet;
+    width: $size-map-zone--tablet;
     height: calc(100% - #{$border-width-generic});
     background-color: var(--color-map-zone-background-desktop);
 
@@ -84,7 +84,7 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: math.div($size-map-zone-size-tablet, 2);
+      border-width: math.div($size-map-zone--tablet, 2);
     }
 
     &::before {
@@ -296,11 +296,11 @@
 
   @include device-min(tablet) {
     .map__diagram & {
-      padding-right: $size-map-diagram-padding + $size-map-zone-size-tablet;
+      padding-right: $size-map-diagram-padding + $size-map-zone--tablet;
     }
 
     .map__key & {
-      padding-left: math.div($size-map-marker--interchange, 2) + $size-map-zone-size-tablet;
+      padding-left: math.div($size-map-marker--interchange, 2) + $size-map-zone--tablet;
     }
   }
 }
